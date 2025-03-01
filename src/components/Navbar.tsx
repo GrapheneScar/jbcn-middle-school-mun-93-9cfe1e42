@@ -28,6 +28,9 @@ const Navbar = () => {
     { name: 'ABOUT US', path: '/about' },
     { name: 'COMMITTEES', path: '/committees' },
     { name: 'DELEGATE PREPARATION', path: '/delegate-preparation' },
+    { name: 'SCHEDULE', path: '/schedule' },
+    { name: 'GALLERY', path: '/gallery' },
+    { name: 'NEWSLETTER', path: '/newsletter' },
     { name: 'CONTACT US', path: '/contact' },
   ];
   
