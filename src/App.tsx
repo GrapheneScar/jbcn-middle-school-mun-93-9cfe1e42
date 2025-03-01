@@ -10,6 +10,7 @@ import AboutUs from "./pages/AboutUs";
 import Committees from "./pages/Committees";
 import DelegatePreparation from "./pages/DelegatePreparation";
 import Contact from "./pages/Contact";
+import Gallery from "./pages/Gallery";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/committees" element={<Committees />} />
             <Route path="/delegate-preparation" element={<DelegatePreparation />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>
