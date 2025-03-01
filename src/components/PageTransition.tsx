@@ -23,9 +23,10 @@ const PageTransition = ({ children }: PageTransitionProps) => {
   };
 
   const pageTransition = {
-    type: 'tween',
-    ease: 'anticipate',
-    duration: 0.5,
+    type: 'spring',
+    stiffness: 50,
+    damping: 20,
+    duration: 0.6,
   };
 
   return (

@@ -9,7 +9,12 @@ const HeroSection = () => {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.5 }
+      transition: { 
+        type: "spring",
+        stiffness: 50,
+        damping: 20,
+        duration: 0.7
+      }
     }
   };
 
@@ -18,7 +23,7 @@ const HeroSection = () => {
     visible: index => ({
       scaleY: 1,
       transition: { 
-        duration: 0.8,
+        duration: 1,
         delay: 0.1 * index,
         ease: [0.215, 0.61, 0.355, 1]
       }
@@ -73,7 +78,13 @@ const HeroSection = () => {
             Experience the world of international diplomacy and global problem-solving at the prestigious JBCN Middle School Model United Nations.
           </motion.p>
           
-          <motion.div variants={itemVariants}>
+          <motion.div 
+            variants={itemVariants}
+            whileHover={{ 
+              scale: 1.05,
+              transition: { duration: 0.3 }
+            }}
+          >
             <RegisterButton className="mx-auto" />
           </motion.div>
         </div>
@@ -97,7 +108,8 @@ const HeroSection = () => {
               }}
               transition={{ 
                 repeat: Infinity,
-                duration: 2
+                duration: 2,
+                ease: "easeInOut"
               }}
             />
           </div>
