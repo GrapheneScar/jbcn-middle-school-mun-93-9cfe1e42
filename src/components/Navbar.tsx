@@ -1,7 +1,10 @@
 
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import Logo from './Logo';
+import { useLocation } from 'react-router-dom';
+import NavbarBrand from './navbar/NavbarBrand';
+import NavLink from './navbar/NavLink';
+import MobileMenuButton from './navbar/MobileMenuButton';
+import MobileMenu from './navbar/MobileMenu';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -37,6 +40,14 @@ const Navbar = () => {
   const isActive = (path: string) => {
     return location.pathname === path;
   };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
   
   return (
     <header 
@@ -47,77 +58,31 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link to="/" className="flex items-center space-x-3">
-          <Logo />
-          <div className="text-white">
-            <div className="text-2xl font-light">Middle School</div>
-            <div className="text-2xl font-bold tracking-wider">MUN</div>
-          </div>
-        </Link>
+        <NavbarBrand />
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
-            <Link
+            <NavLink
               key={link.name}
-              to={link.path}
-              className={`nav-link ${isActive(link.path) ? 'text-mun-purple-light after:scale-x-100' : ''}`}
-            >
-              {link.name}
-            </Link>
+              name={link.name}
+              path={link.path}
+              isActive={isActive(link.path)}
+            />
           ))}
         </nav>
         
         {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-white flex items-center"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          <span className="sr-only">Open menu</span>
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {mobileMenuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
-        </button>
+        <MobileMenuButton isOpen={mobileMenuOpen} onClick={toggleMobileMenu} />
       </div>
       
       {/* Mobile Menu */}
-      <div className={`
-        md:hidden fixed inset-0 z-40 bg-black/95 transform transition-transform duration-300 ease-in-out
-        ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
-      `}>
-        <div className="flex flex-col h-full pt-20 p-6 space-y-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className={`text-xl ${isActive(link.path) ? 'text-mun-purple-light' : 'text-white'} hover:text-mun-purple-light transition-colors duration-300`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {link.name}
-            </Link>
-          ))}
-        </div>
-      </div>
+      <MobileMenu 
+        isOpen={mobileMenuOpen} 
+        navLinks={navLinks} 
+        isActive={isActive} 
+        onLinkClick={closeMobileMenu} 
+      />
     </header>
   );
 };
