@@ -8,6 +8,7 @@ import { AnimatePresence } from "framer-motion";
 import Index from "./pages/Index";
 import AboutUs from "./pages/AboutUs";
 import Committees from "./pages/Committees";
+import CommitteeDetailPage from "./pages/CommitteeDetailPage";
 import DelegatePreparation from "./pages/DelegatePreparation";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/committees" element={<Committees />} />
+            <Route path="/committees/:abbr" element={<CommitteeDetailPage />} />
             <Route path="/delegate-preparation" element={<DelegatePreparation />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/gallery" element={<Gallery />} />
