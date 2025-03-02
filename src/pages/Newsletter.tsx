@@ -48,7 +48,7 @@ const Newsletter = () => {
     }
   };
 
-  const pastNewsletters = [
+  const announcements = [
     {
       id: 1,
       title: "Conference Announcement",
@@ -161,21 +161,21 @@ const Newsletter = () => {
           </div>
 
           <motion.div variants={itemVariants}>
-            <h2 className="text-3xl font-bold text-white mb-8">Past Newsletters</h2>
+            <h2 className="text-3xl font-bold text-white mb-8">Announcements</h2>
             
             <Tabs defaultValue="all" className="mb-12">
               <TabsList className="bg-black/50 border border-white/10 mb-6">
-                <TabsTrigger value="all">All Issues</TabsTrigger>
-                <TabsTrigger value="announcements">Announcements</TabsTrigger>
+                <TabsTrigger value="all">All Announcements</TabsTrigger>
+                <TabsTrigger value="announcements">Conference</TabsTrigger>
                 <TabsTrigger value="resources">Resources</TabsTrigger>
                 <TabsTrigger value="recaps">Recaps</TabsTrigger>
               </TabsList>
               
               <TabsContent value="all" className="mt-0">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {pastNewsletters.map((newsletter, index) => (
+                  {announcements.map((announcement, index) => (
                     <motion.div
-                      key={newsletter.id}
+                      key={announcement.id}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -183,18 +183,13 @@ const Newsletter = () => {
                       <Card className="overflow-hidden hover:shadow-lg hover:border-mun-purple/50 transition-all duration-300 bg-black/40 backdrop-blur-md border-white/10">
                         <CardHeader>
                           <div className="flex justify-between items-start">
-                            <CardTitle className="text-white">{newsletter.title}</CardTitle>
-                            <span className="text-sm text-white/50">{newsletter.date}</span>
+                            <CardTitle className="text-white">{announcement.title}</CardTitle>
+                            <span className="text-sm text-white/50">{announcement.date}</span>
                           </div>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-white/70">{newsletter.description}</p>
+                          <p className="text-white/70">{announcement.description}</p>
                         </CardContent>
-                        <CardFooter>
-                          <Button variant="link" className="text-mun-purple-light p-0 hover:text-white">
-                            Read More
-                          </Button>
-                        </CardFooter>
                       </Card>
                     </motion.div>
                   ))}
@@ -203,9 +198,9 @@ const Newsletter = () => {
               
               <TabsContent value="announcements" className="mt-0">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {pastNewsletters.slice(0, 2).map((newsletter, index) => (
+                  {announcements.slice(0, 2).map((announcement, index) => (
                     <motion.div
-                      key={newsletter.id}
+                      key={announcement.id}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -213,18 +208,13 @@ const Newsletter = () => {
                       <Card className="overflow-hidden hover:shadow-lg hover:border-mun-purple/50 transition-all duration-300 bg-black/40 backdrop-blur-md border-white/10">
                         <CardHeader>
                           <div className="flex justify-between items-start">
-                            <CardTitle className="text-white">{newsletter.title}</CardTitle>
-                            <span className="text-sm text-white/50">{newsletter.date}</span>
+                            <CardTitle className="text-white">{announcement.title}</CardTitle>
+                            <span className="text-sm text-white/50">{announcement.date}</span>
                           </div>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-white/70">{newsletter.description}</p>
+                          <p className="text-white/70">{announcement.description}</p>
                         </CardContent>
-                        <CardFooter>
-                          <Button variant="link" className="text-mun-purple-light p-0 hover:text-white">
-                            Read More
-                          </Button>
-                        </CardFooter>
                       </Card>
                     </motion.div>
                   ))}
@@ -233,9 +223,9 @@ const Newsletter = () => {
               
               <TabsContent value="resources" className="mt-0">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {pastNewsletters.slice(3, 4).map((newsletter, index) => (
+                  {announcements.slice(3, 4).map((announcement, index) => (
                     <motion.div
-                      key={newsletter.id}
+                      key={announcement.id}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -243,18 +233,13 @@ const Newsletter = () => {
                       <Card className="overflow-hidden hover:shadow-lg hover:border-mun-purple/50 transition-all duration-300 bg-black/40 backdrop-blur-md border-white/10">
                         <CardHeader>
                           <div className="flex justify-between items-start">
-                            <CardTitle className="text-white">{newsletter.title}</CardTitle>
-                            <span className="text-sm text-white/50">{newsletter.date}</span>
+                            <CardTitle className="text-white">{announcement.title}</CardTitle>
+                            <span className="text-sm text-white/50">{announcement.date}</span>
                           </div>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-white/70">{newsletter.description}</p>
+                          <p className="text-white/70">{announcement.description}</p>
                         </CardContent>
-                        <CardFooter>
-                          <Button variant="link" className="text-mun-purple-light p-0 hover:text-white">
-                            Read More
-                          </Button>
-                        </CardFooter>
                       </Card>
                     </motion.div>
                   ))}
@@ -263,7 +248,7 @@ const Newsletter = () => {
               
               <TabsContent value="recaps" className="mt-0">
                 <div className="p-8 text-center text-white/70 bg-black/20 rounded-lg border border-white/10">
-                  <p>No recap newsletters available yet. Check back after our upcoming conference!</p>
+                  <p>No recap announcements available yet. Check back after our upcoming conference!</p>
                 </div>
               </TabsContent>
             </Tabs>

@@ -30,6 +30,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'ABOUT US', path: '/about' },
     { name: 'COMMITTEES', path: '/committees' },
+    { name: 'COMMITTEE HEADS', path: '/committee-heads' },
     { name: 'DELEGATE PREPARATION', path: '/delegate-preparation' },
     { name: 'SCHEDULE', path: '/schedule' },
     { name: 'GALLERY', path: '/gallery' },
