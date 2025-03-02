@@ -13,10 +13,10 @@ const NavLink = ({ name, path, isActive, onClick }: NavLinkProps) => {
   return (
     <Link
       to={path}
-      className={`nav-link ${isActive ? 'text-mun-purple-light' : ''}`}
+      className={`nav-link relative ${isActive ? 'text-mun-purple-light' : ''}`}
       onClick={onClick}
     >
-      {name}
+      <span className="relative z-10">{name}</span>
       {isActive && (
         <motion.div
           layoutId="activeNavIndicator"

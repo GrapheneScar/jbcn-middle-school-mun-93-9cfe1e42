@@ -1,4 +1,6 @@
 
+import { motion } from 'framer-motion';
+
 interface MobileMenuButtonProps {
   isOpen: boolean;
   onClick: () => void;
@@ -6,9 +8,10 @@ interface MobileMenuButtonProps {
 
 const MobileMenuButton = ({ isOpen, onClick }: MobileMenuButtonProps) => {
   return (
-    <button 
-      className="md:hidden text-white flex items-center"
+    <motion.button 
+      className="md:hidden text-white flex items-center justify-center w-10 h-10 relative z-50"
       onClick={onClick}
+      whileTap={{ scale: 0.9 }}
     >
       <span className="sr-only">Open menu</span>
       <svg
@@ -19,14 +22,20 @@ const MobileMenuButton = ({ isOpen, onClick }: MobileMenuButtonProps) => {
         xmlns="http://www.w3.org/2000/svg"
       >
         {isOpen ? (
-          <path
+          <motion.path
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 0.3 }}
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
             d="M6 18L18 6M6 6l12 12"
           />
         ) : (
-          <path
+          <motion.path
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 0.3 }}
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
@@ -34,7 +43,7 @@ const MobileMenuButton = ({ isOpen, onClick }: MobileMenuButtonProps) => {
           />
         )}
       </svg>
-    </button>
+    </motion.button>
   );
 };
 

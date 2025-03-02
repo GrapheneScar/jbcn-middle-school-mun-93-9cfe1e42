@@ -15,6 +15,7 @@ import Newsletter from "./pages/Newsletter";
 import Schedule from "./pages/Schedule";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>
+        <Footer />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
