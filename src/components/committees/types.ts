@@ -15,3 +15,16 @@ export interface Chair {
   photo: string;
   bio: string;
 }
+
+export interface DepartmentChair {
+  name: string;
+  title: string;
+  photo: string;
+  department: string;
+}
+
+export interface Department {
+  name: string;
+  chairs: DepartmentChair[];
+  description?: string;
+}
