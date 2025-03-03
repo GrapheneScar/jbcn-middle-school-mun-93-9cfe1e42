@@ -130,8 +130,8 @@ const Gallery = () => {
 
   return (
     <PageTransition>
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center mb-16">
+      <div className="container mx-auto px-4 pt-28 pb-16 sm:pt-32 md:pt-36">
+        <div className="text-center mb-12 md:mb-16">
           <motion.h1 
             className="text-4xl md:text-6xl font-bold text-white mb-4"
             initial={{ opacity: 0, y: -20 }}
@@ -161,7 +161,7 @@ const Gallery = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <Tabs defaultValue="all" onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid grid-cols-2 md:grid-cols-5 w-full max-w-2xl mx-auto bg-mun-purple/20">
+            <TabsList className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 w-full max-w-2xl mx-auto bg-mun-purple/20 overflow-x-auto">
               {categories.map(category => (
                 <TabsTrigger 
                   key={category} 
@@ -176,7 +176,7 @@ const Gallery = () => {
             {categories.map(category => (
               <TabsContent key={category} value={category} className="pt-6">
                 <motion.div 
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
                   variants={containerVariants}
                   initial="hidden"
                   animate="visible"

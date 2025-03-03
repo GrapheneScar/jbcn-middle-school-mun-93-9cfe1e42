@@ -13,7 +13,9 @@ const NavLink = ({ name, path, isActive, onClick }: NavLinkProps) => {
   return (
     <Link
       to={path}
-      className={`nav-link relative ${isActive ? 'text-mun-purple-light' : ''}`}
+      className={`nav-link text-sm md:text-base relative whitespace-nowrap px-2 ${
+        isActive ? 'text-mun-purple-light' : 'text-white hover:text-amber-300'
+      }`}
       onClick={onClick}
     >
       <span className="relative z-10">{name}</span>

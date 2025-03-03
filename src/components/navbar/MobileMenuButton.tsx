@@ -9,7 +9,7 @@ interface MobileMenuButtonProps {
 const MobileMenuButton = ({ isOpen, onClick }: MobileMenuButtonProps) => {
   return (
     <motion.button 
-      className="md:hidden text-white flex items-center justify-center w-10 h-10 relative z-50"
+      className="lg:hidden text-white flex items-center justify-center w-10 h-10 relative z-50"
       onClick={onClick}
       whileTap={{ scale: 0.9 }}
     >

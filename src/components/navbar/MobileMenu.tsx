@@ -14,13 +14,13 @@ const MobileMenu = ({ isOpen, navLinks, isActive, onLinkClick }: MobileMenuProps
     <AnimatePresence>
       {isOpen && (
         <motion.div 
-          className="md:hidden fixed inset-0 z-40 bg-black/95"
+          className="lg:hidden fixed inset-0 z-40 bg-black/95"
           initial={{ x: '100%' }}
           animate={{ x: 0 }}
           exit={{ x: '100%' }}
           transition={{ type: 'spring', damping: 30, stiffness: 300 }}
         >
-          <div className="flex flex-col h-full pt-20 p-6 space-y-8">
+          <div className="flex flex-col h-full pt-20 p-6 space-y-6 overflow-y-auto">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.name}
@@ -30,7 +30,11 @@ const MobileMenu = ({ isOpen, navLinks, isActive, onLinkClick }: MobileMenuProps
               >
                 <Link
                   to={link.path}
-                  className={`text-xl block py-2 ${isActive(link.path) ? 'text-mun-purple-light' : 'text-white'} hover:text-mun-purple-light transition-colors duration-300`}
+                  className={`text-lg block py-2 ${
+                    isActive(link.path) 
+                      ? 'text-mun-purple-light' 
+                      : 'text-white hover:text-amber-300'
+                  } transition-colors duration-300`}
                   onClick={onLinkClick}
                 >
                   {link.name}

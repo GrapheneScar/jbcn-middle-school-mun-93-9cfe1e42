@@ -34,7 +34,7 @@ const Navbar = () => {
     { name: 'DELEGATE PREPARATION', path: '/delegate-preparation' },
     { name: 'SCHEDULE', path: '/schedule' },
     { name: 'GALLERY', path: '/gallery' },
-    { name: 'NEWSLETTER', path: '/newsletter' },
+    { name: 'ANNOUNCEMENTS', path: '/newsletter' },
     { name: 'CONTACT US', path: '/contact' },
   ];
   
@@ -54,23 +54,25 @@ const Navbar = () => {
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-black/80 backdrop-blur-md py-3 shadow-lg' 
-          : 'bg-transparent py-5'
+          ? 'bg-black/80 backdrop-blur-md py-2 shadow-lg' 
+          : 'bg-transparent py-4'
       }`}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
         <NavbarBrand />
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.name}
-              name={link.name}
-              path={link.path}
-              isActive={isActive(link.path)}
-            />
-          ))}
+        <nav className="hidden lg:flex items-center overflow-x-auto whitespace-nowrap max-w-[60%] py-2">
+          <div className="flex space-x-4 md:space-x-6">
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.name}
+                name={link.name}
+                path={link.path}
+                isActive={isActive(link.path)}
+              />
+            ))}
+          </div>
         </nav>
         
         {/* Mobile Menu Button */}

@@ -16,14 +16,16 @@ const Committees = () => {
     <PageTransition>
       <StripeBackground />
       
-      <CommitteeHeader 
-        title="COMMITTEES"
-        description="Explore our five diverse committees designed to provide middle school students with an enriching simulation of international diplomacy and historical events."
-      />
-      
-      <CommitteeList committees={committeesData} />
-      
-      <CommitteeStructure />
+      <div className="pt-28 sm:pt-32 md:pt-36">
+        <CommitteeHeader 
+          title="COMMITTEES"
+          description="Explore our five diverse committees designed to provide middle school students with an enriching simulation of international diplomacy and historical events."
+        />
+        
+        <CommitteeList committees={committeesData} />
+        
+        <CommitteeStructure />
+      </div>
     </PageTransition>
   );
 };
