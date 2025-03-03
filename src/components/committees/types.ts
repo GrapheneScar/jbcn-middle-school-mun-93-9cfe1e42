@@ -7,6 +7,7 @@ export interface Committee {
   logo?: string;
   chairs: Chair[];
   background?: string;
+  style?: string;
 }
 
 export interface Chair {

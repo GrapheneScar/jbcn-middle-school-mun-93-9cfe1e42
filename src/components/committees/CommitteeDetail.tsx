@@ -60,6 +60,13 @@ const CommitteeDetail = () => {
               <h1 className="text-4xl font-bold text-white text-center md:text-left">
                 {committee.name} ({committee.abbr})
               </h1>
+              {committee.style && (
+                <div className="mt-2">
+                  <span className="inline-block px-3 py-1 text-sm bg-mun-purple-light/30 rounded-full">
+                    {committee.style}
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         </motion.div>

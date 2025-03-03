@@ -18,7 +18,7 @@ const Committees = () => {
       
       <CommitteeHeader 
         title="COMMITTEES"
-        description="Explore our diverse range of committees designed to provide middle school students with an enriching simulation of international diplomacy."
+        description="Explore our five diverse committees designed to provide middle school students with an enriching simulation of international diplomacy and historical events."
       />
       
       <CommitteeList committees={committeesData} />

@@ -50,9 +50,16 @@ const CommitteeCard = ({ committee, index }: CommitteeCardProps) => {
             </div>
             <div>
               <h3 className="text-2xl font-bold text-white">{committee.name}</h3>
-              <span className="inline-block px-3 py-1 text-sm bg-mun-purple/30 rounded-full mt-2">
-                {committee.abbr}
-              </span>
+              <div className="flex flex-wrap gap-2 mt-2">
+                <span className="inline-block px-3 py-1 text-sm bg-mun-purple/30 rounded-full">
+                  {committee.abbr}
+                </span>
+                {committee.style && (
+                  <span className="inline-block px-3 py-1 text-sm bg-mun-purple-light/30 rounded-full">
+                    {committee.style}
+                  </span>
+                )}
+              </div>
             </div>
           </div>
         </div>
