@@ -1,6 +1,8 @@
 
 import { motion } from 'framer-motion';
 import { GalleryImage } from "./types";
+import { Button } from "../ui/button";
+import { Download } from "lucide-react";
 
 interface GalleryLightboxProps {
   selectedImage: GalleryImage | null;
@@ -9,6 +11,16 @@ interface GalleryLightboxProps {
 
 const GalleryLightbox = ({ selectedImage, onClose }: GalleryLightboxProps) => {
   if (!selectedImage) return null;
+  
+  const handleDownload = () => {
+    // Create an anchor element and set properties
+    const link = document.createElement('a');
+    link.href = selectedImage.src;
+    link.download = `${selectedImage.title.toLowerCase().replace(/\s+/g, '-')}.jpg`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   
   return (
     <motion.div 
@@ -38,9 +50,19 @@ const GalleryLightbox = ({ selectedImage, onClose }: GalleryLightboxProps) => {
           alt={selectedImage.alt} 
           className="w-full h-auto rounded-lg shadow-2xl"
         />
-        <div className="mt-4 text-white">
-          <h3 className="text-2xl font-bold">{selectedImage.title}</h3>
-          <p className="text-white/70">{selectedImage.alt}</p>
+        <div className="mt-4 flex items-center justify-between">
+          <div className="text-white">
+            <h3 className="text-2xl font-bold">{selectedImage.title}</h3>
+            <p className="text-white/70">{selectedImage.alt}</p>
+          </div>
+          <Button 
+            onClick={handleDownload}
+            variant="outline" 
+            className="bg-mun-purple hover:bg-mun-purple-light text-white border-white/20"
+          >
+            <Download className="mr-2 h-4 w-4" />
+            Download Image
+          </Button>
         </div>
       </motion.div>
     </motion.div>

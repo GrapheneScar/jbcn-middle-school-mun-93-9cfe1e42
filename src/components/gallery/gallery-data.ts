@@ -66,6 +66,42 @@ export const galleryImages: GalleryImage[] = [
     category: "events",
     title: "Diplomatic Discussions"
   },
+  // Adding more MUN event images
+  {
+    id: "img10",
+    src: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
+    alt: "MUN Conference Panel",
+    category: "events",
+    title: "Panel Discussion"
+  },
+  {
+    id: "img11",
+    src: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205",
+    alt: "MUN Delegates",
+    category: "events",
+    title: "Delegate Assembly"
+  },
+  {
+    id: "img12",
+    src: "https://images.unsplash.com/photo-1560439513-74b037a25d84",
+    alt: "Committee Session",
+    category: "events",
+    title: "Committee Debate"
+  },
+  {
+    id: "img13",
+    src: "https://images.unsplash.com/photo-1556761175-b413da4baf72",
+    alt: "Preparation Room",
+    category: "events",
+    title: "Delegate Preparation"
+  },
+  {
+    id: "img14",
+    src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7",
+    alt: "Working Group",
+    category: "events",
+    title: "Working Group Session"
+  }
 ];
 
 // Get unique categories for filtering
