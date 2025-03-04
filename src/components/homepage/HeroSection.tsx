@@ -1,6 +1,5 @@
 
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import RegisterButton from '../RegisterButton';
 
 const HeroSection = () => {
@@ -65,14 +64,14 @@ const HeroSection = () => {
       >
         <div className="text-center">
           <motion.h1 
-            className="text-6xl md:text-8xl lg:text-9xl font-bold text-white tracking-tighter leading-none mb-6"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter leading-none mb-6"
             variants={itemVariants}
           >
             JBCN PAREL MUN
           </motion.h1>
           
           <motion.p 
-            className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl mx-auto"
+            className="text-lg md:text-xl lg:text-2xl text-white/80 mb-12 max-w-2xl mx-auto"
             variants={itemVariants}
           >
             Experience the world of international diplomacy and global problem-solving at the prestigious JBCN Middle School Model United Nations.

@@ -20,6 +20,19 @@ const Navbar = () => {
   const dropdownRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const location = useLocation();
   
+  // Disable body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+  
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
@@ -118,7 +131,7 @@ const Navbar = () => {
                   <button
                     onClick={() => toggleDropdown(link.name)}
                     className={`flex items-center px-3 py-2 rounded-md transition-colors duration-300
-                      ${isActive(link.path) ? 'text-amber-300' : 'text-white hover:text-amber-200'}`}
+                      ${isActive(link.path) ? 'text-mun-purple-light' : 'text-white hover:text-mun-purple-light'}`}
                   >
                     {link.name}
                     <ChevronDown 
@@ -129,7 +142,7 @@ const Navbar = () => {
                   </button>
                   
                   {activeDropdown === link.name && (
-                    <div className="absolute top-full left-0 mt-1 w-56 rounded-md shadow-lg bg-black bg-opacity-90 backdrop-blur-md py-1 z-50">
+                    <div className="absolute top-full left-0 mt-1 w-56 rounded-lg shadow-lg bg-black bg-opacity-90 backdrop-blur-md py-1 z-50">
                       {link.submenu.map(subitem => (
                         <NavLink
                           key={subitem.name}

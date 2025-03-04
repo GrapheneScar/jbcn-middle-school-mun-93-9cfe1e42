@@ -14,33 +14,35 @@ const MobileMenu = ({ isOpen, navLinks, isActive, onLinkClick }: MobileMenuProps
     <AnimatePresence>
       {isOpen && (
         <motion.div 
-          className="lg:hidden fixed inset-0 z-40 bg-black/95"
+          className="lg:hidden fixed inset-0 z-40 bg-black/95 overflow-hidden"
           initial={{ x: '100%' }}
           animate={{ x: 0 }}
           exit={{ x: '100%' }}
           transition={{ type: 'spring', damping: 30, stiffness: 300 }}
         >
-          <div className="flex flex-col h-full pt-20 p-6 space-y-6 overflow-y-auto">
-            {navLinks.map((link, index) => (
-              <motion.div
-                key={link.name}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.3 }}
-              >
-                <Link
-                  to={link.path}
-                  className={`text-lg block py-2 ${
-                    isActive(link.path) 
-                      ? 'text-mun-purple-light' 
-                      : 'text-white hover:text-amber-300'
-                  } transition-colors duration-300`}
-                  onClick={onLinkClick}
+          <div className="h-full pt-20 p-6 overflow-hidden">
+            <div className="flex flex-col h-full space-y-6">
+              {navLinks.map((link, index) => (
+                <motion.div
+                  key={link.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.3 }}
                 >
-                  {link.name}
-                </Link>
-              </motion.div>
-            ))}
+                  <Link
+                    to={link.path}
+                    className={`text-lg block py-2 ${
+                      isActive(link.path) 
+                        ? 'text-mun-purple-light' 
+                        : 'text-white hover:text-mun-purple-light'
+                    } transition-colors duration-300`}
+                    onClick={onLinkClick}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
       )}

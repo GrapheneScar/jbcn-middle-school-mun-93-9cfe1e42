@@ -6,7 +6,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
 
 const Schedule = () => {
   const [activeDay, setActiveDay] = useState('day1');
@@ -141,8 +140,8 @@ const Schedule = () => {
             className="text-center mb-12"
             variants={itemVariants}
           >
-            <h1 className="text-5xl font-bold mb-4 text-white">Conference Schedule</h1>
-            <p className="text-xl text-white/70 max-w-2xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Conference Schedule</h1>
+            <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
               Plan your Model UN experience with our detailed event schedule
             </p>
           </motion.div>
@@ -154,7 +153,7 @@ const Schedule = () => {
             <div className="space-x-2">
               <Button 
                 variant="outline" 
-                className="border-mun-purple text-white hover:bg-mun-purple/20"
+                className="border-mun-purple text-white hover:bg-mun-purple/20 hover:text-mun-purple-light"
                 onClick={downloadSchedule}
               >
                 <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -164,7 +163,7 @@ const Schedule = () => {
               </Button>
               <Button 
                 variant="outline" 
-                className="border-mun-purple text-white hover:bg-mun-purple/20"
+                className="border-mun-purple text-white hover:bg-mun-purple/20 hover:text-mun-purple-light"
               >
                 <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -172,7 +171,7 @@ const Schedule = () => {
                 Add to Calendar
               </Button>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex flex-wrap items-center justify-center gap-2 mt-4 sm:mt-0">
               <span className="text-white/70">Event Type:</span>
               <Badge className="bg-mun-purple-light/20 text-mun-purple-light border border-mun-purple-light hover:bg-mun-purple-light/30">Ceremony</Badge>
               <Badge className="bg-blue-500/20 text-blue-400 border border-blue-400 hover:bg-blue-500/30">Session</Badge>
@@ -221,12 +220,12 @@ const Schedule = () => {
                             {index > 0 && (
                               <div className="absolute left-[79px] -top-6 h-6 w-0.5 bg-white/20" />
                             )}
-                            <div className="flex gap-6">
-                              <div className="flex flex-col items-center">
-                                <div className="text-sm font-medium text-white/70 w-40 text-right">
+                            <div className="flex flex-col md:flex-row gap-4 md:gap-6">
+                              <div className="flex md:flex-col items-center">
+                                <div className="text-sm font-medium text-white/70 w-40 text-center md:text-right">
                                   {event.time}
                                 </div>
-                                <div className="mt-2 w-4 h-4 rounded-full bg-mun-purple border-4 border-black relative z-10" />
+                                <div className="ml-4 md:ml-0 md:mt-2 w-4 h-4 rounded-full bg-mun-purple border-4 border-black relative z-10" />
                               </div>
                               <div className="flex-1">
                                 <div className={`rounded-lg border p-4 ${getEventTypeStyles(event.type)}`}>
@@ -241,7 +240,7 @@ const Schedule = () => {
                               </div>
                             </div>
                             {index < scheduleData[day as keyof typeof scheduleData].length - 1 && (
-                              <div className="absolute left-[79px] top-full h-6 w-0.5 bg-white/20" />
+                              <div className="absolute left-[79px] top-full h-6 w-0.5 bg-white/20 hidden md:block" />
                             )}
                           </motion.div>
                         ))}
@@ -312,7 +311,7 @@ const Schedule = () => {
                 <p className="text-white/60 text-sm">
                   Schedule subject to minor changes. Updates will be announced during the conference.
                 </p>
-                <Button className="bg-mun-purple hover:bg-mun-purple-dark text-white">
+                <Button className="bg-mun-purple hover:bg-mun-purple-light text-white">
                   Contact Secretariat
                 </Button>
               </CardFooter>
