@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import StripeBackground from '../components/StripeBackground';
 import HeroSection from '../components/homepage/HeroSection';
 import NavigationPanels from '../components/homepage/NavigationPanels';
+import BaxterMascot from '../components/homepage/BaxterMascot';
 import CallToAction from '../components/homepage/CallToAction';
 import PageTransition from '../components/PageTransition';
 
@@ -17,6 +18,7 @@ const Index = () => {
         <StripeBackground />
         <HeroSection />
         <NavigationPanels />
+        <BaxterMascot />
         <CallToAction />
       </div>
     </PageTransition>
