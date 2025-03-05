@@ -1,3 +1,4 @@
+
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { committeesData } from './committees-data';
@@ -5,6 +6,7 @@ import { ArrowLeft, FileClock, Globe, Users } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import ProfileCard from '../ProfileCard';
+
 const CommitteeDetail = () => {
   const {
     abbr
@@ -56,11 +58,10 @@ const CommitteeDetail = () => {
         </motion.div>
 
         <Tabs defaultValue="overview" className="w-full">
-          <TabsList className="grid grid-cols-3 mb-8 py-0 mx-0 my-0 px-[12px] rounded-3xl">
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="agenda">Agenda</TabsTrigger>
-            <TabsTrigger value="chairs" className="px-[64px]">Committee 
-Chairs</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-3 mb-8 p-1 rounded-full bg-black/30 border border-mun-purple/30">
+            <TabsTrigger value="overview" className="rounded-full text-sm sm:text-base px-4 py-2">Overview</TabsTrigger>
+            <TabsTrigger value="agenda" className="rounded-full text-sm sm:text-base px-4 py-2">Agenda</TabsTrigger>
+            <TabsTrigger value="chairs" className="rounded-full text-sm sm:text-base px-4 py-2">Committee Chairs</TabsTrigger>
           </TabsList>
           
           <TabsContent value="overview" className="space-y-6">
