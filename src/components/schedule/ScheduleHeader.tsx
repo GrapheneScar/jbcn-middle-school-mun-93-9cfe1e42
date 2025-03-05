@@ -17,7 +17,7 @@ const ScheduleHeader = () => {
       variants={itemVariants}
     >
       <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Conference Schedule</h1>
-      <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
+      <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
         Plan your Model UN experience with our detailed event schedule
       </p>
     </motion.div>

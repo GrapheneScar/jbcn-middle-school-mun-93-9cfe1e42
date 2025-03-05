@@ -9,13 +9,13 @@ interface MobileMenuButtonProps {
 const MobileMenuButton = ({ isOpen, onClick }: MobileMenuButtonProps) => {
   return (
     <motion.button 
-      className="lg:hidden text-white flex items-center justify-center w-10 h-10 relative z-50"
+      className="lg:hidden text-white flex items-center justify-center w-12 h-12 relative z-50 rounded-full hover:bg-white/5"
       onClick={onClick}
       whileTap={{ scale: 0.9 }}
     >
       <span className="sr-only">Open menu</span>
       <svg
-        className="w-6 h-6"
+        className="w-7 h-7"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
