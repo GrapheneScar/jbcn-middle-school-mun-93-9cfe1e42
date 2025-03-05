@@ -59,7 +59,7 @@ const CommitteeDetail = () => {
           <TabsList className="grid grid-cols-3 mb-8 py-0 mx-0 my-0 px-[12px] rounded-3xl">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="agenda">Agenda</TabsTrigger>
-            <TabsTrigger value="chairs">Committee 
+            <TabsTrigger value="chairs" className="px-[64px]">Committee 
 Chairs</TabsTrigger>
           </TabsList>
           
