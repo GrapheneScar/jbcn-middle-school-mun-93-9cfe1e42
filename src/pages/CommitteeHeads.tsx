@@ -6,6 +6,7 @@ import { Separator } from '@/components/ui/separator';
 import CommitteeHeadsHeader from '../components/committee-heads/CommitteeHeadsHeader';
 import TeamPhoto from '../components/committee-heads/TeamPhoto';
 import CommitteeHeadsTable from '../components/committee-heads/CommitteeHeadsTable';
+import CommitteeHeadsProfiles from '../components/committee-heads/CommitteeHeadsProfiles';
 
 const CommitteeHeads = () => {
   useEffect(() => {
@@ -25,7 +26,11 @@ const CommitteeHeads = () => {
       <div className="container mx-auto px-4 pb-20">
         <TeamPhoto />
         
-        <Separator className="max-w-md mx-auto bg-mun-purple/30 mb-16" />
+        <Separator className="max-w-md mx-auto bg-mun-purple/30 my-16" />
+        
+        <CommitteeHeadsProfiles />
+        
+        <Separator className="max-w-md mx-auto bg-mun-purple/30 my-16" />
         
         <CommitteeHeadsTable />
       </div>
