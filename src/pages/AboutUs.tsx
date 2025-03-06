@@ -86,6 +86,7 @@ const AboutUs = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
+              className="text-center md:text-left"
             >
               <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-4">Our Mission</span>
               <h2 className="text-3xl font-bold text-white mb-6">Cultivating Tomorrow's Leaders</h2>
@@ -96,14 +97,14 @@ const AboutUs = () => {
                 Our conference aims to foster critical thinking, public speaking, leadership, and problem-solving skills in middle school students, preparing them to be informed global citizens.
               </p>
               
-              <div className="space-y-4">
+              <div className="space-y-4 max-w-md mx-auto md:mx-0">
                 {[
                   "Research and Analysis Skills",
                   "Public Speaking and Debate",
                   "Consensus Building",
                   "Global Awareness"
                 ].map((item, index) => (
-                  <div key={index} className="flex items-start">
+                  <div key={index} className="flex items-start justify-center md:justify-start">
                     <div className="w-5 h-5 rounded-full bg-mun-purple flex items-center justify-center mt-1 mr-3">
                       <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -116,7 +117,7 @@ const AboutUs = () => {
             </motion.div>
             
             <motion.div
-              className="glass-panel p-8 relative"
+              className="glass-panel p-8 relative text-center"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -165,6 +166,7 @@ const AboutUs = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="mx-auto"
               >
                 <ProfileCard 
                   name={person.name}

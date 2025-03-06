@@ -8,6 +8,7 @@ export const committeesData: Committee[] = [
     description: "A committee focused on disarmament, global challenges and threats to peace that affect the international community.",
     topics: ["Evaluating the prospect of Private Military Organizations"],
     logo: "/committees/disec-logo.png",
+    studyGuideUrl: "#", // Replace with actual Google Drive link later
     chairs: [
       {
         name: "Bharatvir Saran",
@@ -31,6 +32,7 @@ export const committeesData: Committee[] = [
     description: "Governing the exploration and use of space for the benefit of all humanity: for peace, security and development.",
     topics: ["Addressing the challenges and possibilities of weaponization in space"],
     logo: "/committees/copuos-logo.png",
+    studyGuideUrl: "#", // Replace with actual Google Drive link later
     chairs: [
       {
         name: "Shaurya Kaushik",
@@ -54,6 +56,7 @@ export const committeesData: Committee[] = [
     description: "A historical committee set in 1952 focused on negotiating an end to the Korean War and determining the future of the Korean peninsula.",
     topics: ["To negotiate lasting peace and end the Korean War, possibly uniting or dividing the peninsula"],
     logo: "/committees/kws-logo.png",
+    studyGuideUrl: "#", // Replace with actual Google Drive link later
     chairs: [
       {
         name: "Kasmia Mehra",
@@ -77,6 +80,7 @@ export const committeesData: Committee[] = [
     description: "A historical committee representing the Indian cabinet during a pivotal moment in the country's history, focusing on Operation Blue Star.",
     topics: ["Evaluating the significance and implications of Operation Blue Star"],
     logo: "/committees/coi-logo.png",
+    studyGuideUrl: "#", // Replace with actual Google Drive link later
     chairs: [
       {
         name: "Dishita Sehgal",
@@ -100,6 +104,7 @@ export const committeesData: Committee[] = [
     description: "A specialized committee focusing on the inner workings of the Russian government and addressing issues of corruption and power.",
     topics: ["Examining and developing mechanisms to prevent mismanagement of funds and power within the Kremlin"],
     logo: "/committees/rfa-logo.png",
+    studyGuideUrl: "#", // Replace with actual Google Drive link later
     chairs: [
       {
         name: "Arjun Asher",

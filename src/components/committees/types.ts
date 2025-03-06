@@ -1,4 +1,11 @@
 
+export interface Chair {
+  name: string;
+  title: string;
+  photo: string;
+  bio: string;
+}
+
 export interface Committee {
   name: string;
   abbr: string;
@@ -8,24 +15,5 @@ export interface Committee {
   chairs: Chair[];
   background?: string;
   style?: string;
-}
-
-export interface Chair {
-  name: string;
-  title: string;
-  photo: string;
-  bio: string;
-}
-
-export interface DepartmentChair {
-  name: string;
-  title: string;
-  photo: string;
-  department: string;
-}
-
-export interface Department {
-  name: string;
-  chairs: DepartmentChair[];
-  description?: string;
+  studyGuideUrl?: string;
 }

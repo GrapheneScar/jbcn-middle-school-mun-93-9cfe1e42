@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import { Committee } from './types';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Users } from 'lucide-react';
+import { ArrowRight, Users, FileText } from 'lucide-react';
 import { Button } from '../ui/button';
 
 interface CommitteeCardProps {
@@ -22,7 +22,7 @@ const CommitteeCard = ({ committee, index }: CommitteeCardProps) => {
 
   return (
     <motion.div
-      className="glass-panel overflow-hidden"
+      className="glass-panel overflow-hidden text-center"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
@@ -35,8 +35,8 @@ const CommitteeCard = ({ committee, index }: CommitteeCardProps) => {
       }}
     >
       <div className="p-8">
-        <div className="flex flex-col md:flex-row md:items-center mb-6">
-          <div className="flex items-center">
+        <div className="flex flex-col items-center mb-6">
+          <div className="flex items-center justify-center">
             <div className="w-12 h-12 mr-4 flex-shrink-0 bg-mun-purple/20 rounded-full flex items-center justify-center overflow-hidden">
               {committee.logo ? (
                 <img 
@@ -50,7 +50,7 @@ const CommitteeCard = ({ committee, index }: CommitteeCardProps) => {
             </div>
             <div>
               <h3 className="text-2xl font-bold text-white">{committee.name}</h3>
-              <div className="flex flex-wrap gap-2 mt-2">
+              <div className="flex flex-wrap justify-center gap-2 mt-2">
                 <span className="inline-block px-3 py-1 text-sm bg-mun-purple/30 rounded-full">
                   {committee.abbr}
                 </span>
@@ -64,12 +64,12 @@ const CommitteeCard = ({ committee, index }: CommitteeCardProps) => {
           </div>
         </div>
         
-        <p className="text-white/80 mb-6">
+        <p className="text-white/80 mb-6 text-center">
           {committee.description}
         </p>
         
         <div className="mb-6">
-          <h4 className="text-lg font-semibold text-white mb-3">Agenda Topics:</h4>
+          <h4 className="text-lg font-semibold text-white mb-3 text-center">Agenda Topics:</h4>
           <ul className="space-y-2">
             {committee.topics.map((topic, topicIndex) => (
               <li key={topicIndex} className="flex items-start">
@@ -82,14 +82,29 @@ const CommitteeCard = ({ committee, index }: CommitteeCardProps) => {
           </ul>
         </div>
 
-        <div className="flex justify-end">
+        <div className="flex flex-col md:flex-row justify-center gap-3 mb-4">
+          <a 
+            href={committee.studyGuideUrl || "#"} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className={!committee.studyGuideUrl ? "pointer-events-none" : ""}
+          >
+            <Button variant="secondary" className="bg-mun-purple/40 hover:bg-mun-purple/60 w-full">
+              <FileText className="mr-2 w-4 h-4" />
+              Study Guide
+            </Button>
+          </a>
           <Link to={`/committees/${committee.abbr.toLowerCase()}`}>
-            <Button variant="secondary" className="bg-mun-purple/40 hover:bg-mun-purple/60">
-              View Committee Details
+            <Button variant="secondary" className="bg-mun-purple/40 hover:bg-mun-purple/60 w-full">
+              View Details
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </Link>
         </div>
+        
+        <p className="text-white/70 text-sm italic">
+          Note: Study guide password will be sent with your allocation
+        </p>
       </div>
     </motion.div>
   );

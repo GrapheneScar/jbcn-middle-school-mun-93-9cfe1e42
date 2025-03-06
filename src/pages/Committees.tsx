@@ -16,7 +16,7 @@ const Committees = () => {
     <PageTransition>
       <StripeBackground />
       
-      <div className="pt-28 sm:pt-32 md:pt-36">
+      <div className="pt-28 sm:pt-32 md:pt-36 text-center">
         <CommitteeHeader 
           title="COMMITTEES"
           description="Explore our five diverse committees designed to provide middle school students with an enriching simulation of international diplomacy and historical events."

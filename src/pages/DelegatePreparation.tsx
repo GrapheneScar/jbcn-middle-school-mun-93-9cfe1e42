@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import PageTransition from '../components/PageTransition';
 import StripeBackground from '../components/StripeBackground';
+import { Button } from '@/components/ui/button';
+import { Download, FileText } from 'lucide-react';
 
 const DelegatePreparation = () => {
   useEffect(() => {
@@ -76,6 +78,15 @@ const DelegatePreparation = () => {
           </motion.div>
         </div>
       </section>
+      
+      {/* ROP Download Button */}
+      <div className="flex justify-center mb-8">
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <Button className="bg-mun-purple hover:bg-mun-purple-light">
+            <FileText className="mr-2" /> Download Rules of Procedure (ROP)
+          </Button>
+        </a>
+      </div>
       
       {/* Preparation Guide Tabs */}
       <section className="py-16 px-4">
