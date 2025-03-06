@@ -17,10 +17,10 @@ const CommitteeHeads = () => {
     <PageTransition>
       <StripeBackground />
       
-      <section className="pt-32 pb-12 px-4 relative">
+      <section className="pt-32 pb-12 px-4 relative text-center">
         <div className="container mx-auto">
           <motion.div 
-            className="text-center" 
+            className="text-center mx-auto" 
             initial="hidden" 
             animate="visible" 
             variants={{
@@ -73,13 +73,13 @@ const CommitteeHeads = () => {
         </div>
       </section>
       
-      <div className="container mx-auto px-4 pb-20">
+      <div className="container mx-auto px-4 pb-20 text-center">
         <TeamPhoto />
         
         <Separator className="max-w-md mx-auto bg-mun-purple/30 mb-20" />
         
         {committeeHeads.map((department, index) => (
-          <div key={department.name}>
+          <div key={department.name} className="flex flex-col items-center">
             <DepartmentSection department={department} index={index} />
             {index < committeeHeads.length - 1 && (
               <Separator className="max-w-xs mx-auto bg-mun-purple/30 mb-20" />
