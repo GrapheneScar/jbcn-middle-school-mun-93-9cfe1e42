@@ -159,7 +159,7 @@ const DepartmentSection = ({ department, index }: { department: Department; inde
         </p>
       )}
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto justify-items-center">
         {department.chairs.map(chair => <ChairCard key={chair.name} chair={chair} />)}
       </div>
     </motion.section>
@@ -168,7 +168,7 @@ const DepartmentSection = ({ department, index }: { department: Department; inde
 
 const ChairCard = ({ chair }: { chair: DepartmentChair }) => {
   return (
-    <Card className="overflow-hidden bg-black/20 border-mun-purple/20 hover:border-mun-purple/60 transition-all duration-300 hover:shadow-[0_0_15px_rgba(121,83,169,0.2)] transform hover:-translate-y-1">
+    <Card className="w-full max-w-sm overflow-hidden bg-black/20 border-mun-purple/20 hover:border-mun-purple/60 transition-all duration-300 hover:shadow-[0_0_15px_rgba(121,83,169,0.2)] transform hover:-translate-y-1">
       <div className="relative aspect-square overflow-hidden">
         <img 
           src={chair.photo} 

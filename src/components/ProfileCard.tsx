@@ -14,13 +14,13 @@ const ProfileCard = ({ name, title, imagePath, imageAlt, reversed = false }: Pro
   
   return (
     <div 
-      className={`flex flex-col ${reversed ? 'md:flex-row-reverse' : 'md:flex-row'} 
-        glass-panel overflow-hidden transition-all duration-500 
+      className={`flex flex-col 
+        glass-panel overflow-hidden transition-all duration-500 w-full
         hover:shadow-[0_0_30px_rgba(121,83,169,0.3)] transform hover:-translate-y-1`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className={`md:w-1/2 h-56 md:h-auto relative overflow-hidden`}>
+      <div className={`h-56 relative overflow-hidden`}>
         <img 
           src={imagePath} 
           alt={imageAlt} 
@@ -31,7 +31,7 @@ const ProfileCard = ({ name, title, imagePath, imageAlt, reversed = false }: Pro
           transition-opacity duration-300 ${isHovered ? 'opacity-100' : ''}`} />
       </div>
       
-      <div className="md:w-1/2 p-6 flex flex-col justify-center items-center md:items-start">
+      <div className="p-6 flex flex-col justify-center items-center">
         <h3 className="text-xl font-bold text-white mb-1">{name}</h3>
         <p className="text-sm text-mun-purple-light italic">~ {title} ~</p>
       </div>

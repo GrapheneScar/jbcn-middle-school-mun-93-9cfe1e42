@@ -16,13 +16,15 @@ const Committees = () => {
     <PageTransition>
       <StripeBackground />
       
-      <div className="pt-28 sm:pt-32 md:pt-36 text-center">
+      <div className="pt-28 sm:pt-32 md:pt-36 text-center container mx-auto px-4">
         <CommitteeHeader 
           title="COMMITTEES"
           description="Explore our five diverse committees designed to provide middle school students with an enriching simulation of international diplomacy and historical events."
         />
         
-        <CommitteeList committees={committeesData} />
+        <div className="max-w-6xl mx-auto">
+          <CommitteeList committees={committeesData} />
+        </div>
         
         <CommitteeStructure />
       </div>

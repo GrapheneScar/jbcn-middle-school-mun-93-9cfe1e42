@@ -80,13 +80,13 @@ const AboutUs = () => {
       {/* About MUN Section */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="text-center md:text-left"
+              className="text-center"
             >
               <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-4">Our Mission</span>
               <h2 className="text-3xl font-bold text-white mb-6">Cultivating Tomorrow's Leaders</h2>
@@ -97,14 +97,14 @@ const AboutUs = () => {
                 Our conference aims to foster critical thinking, public speaking, leadership, and problem-solving skills in middle school students, preparing them to be informed global citizens.
               </p>
               
-              <div className="space-y-4 max-w-md mx-auto md:mx-0">
+              <div className="space-y-4 max-w-md mx-auto">
                 {[
                   "Research and Analysis Skills",
                   "Public Speaking and Debate",
                   "Consensus Building",
                   "Global Awareness"
                 ].map((item, index) => (
-                  <div key={index} className="flex items-start justify-center md:justify-start">
+                  <div key={index} className="flex items-start justify-center">
                     <div className="w-5 h-5 rounded-full bg-mun-purple flex items-center justify-center mt-1 mr-3">
                       <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -158,7 +158,7 @@ const AboutUs = () => {
             <h2 className="text-3xl font-bold text-white">Secretariat</h2>
           </motion.div>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto justify-items-center">
             {secretariat.map((person, index) => (
               <motion.div
                 key={person.name}
@@ -166,7 +166,7 @@ const AboutUs = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="mx-auto"
+                className="mx-auto w-full max-w-sm"
               >
                 <ProfileCard 
                   name={person.name}
