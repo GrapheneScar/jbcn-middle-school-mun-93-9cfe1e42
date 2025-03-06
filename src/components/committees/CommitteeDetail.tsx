@@ -81,7 +81,7 @@ const CommitteeDetail = () => {
           }} transition={{
             duration: 0.5
           }} className="glass-panel p-6">
-              <h2 className="text-2xl font-bold mb-4 flex items-center justify-center text-center">
+              <h2 className="text-2xl font-bold mb-4 flex items-center justify-center">
                 <Globe className="mr-3 text-mun-purple-light" /> About the Committee
               </h2>
               <p className="text-white/80 mb-4 text-center">{committee.description}</p>
