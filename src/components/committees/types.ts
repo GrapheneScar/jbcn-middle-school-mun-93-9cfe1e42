@@ -17,3 +17,16 @@ export interface Committee {
   style?: string;
   studyGuideUrl?: string;
 }
+
+export interface DepartmentChair {
+  name: string;
+  title: string;
+  photo: string;
+  department: string;
+}
+
+export interface Department {
+  name: string;
+  description: string;
+  chairs: DepartmentChair[];
+}
