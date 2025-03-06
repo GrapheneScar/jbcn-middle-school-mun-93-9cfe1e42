@@ -68,7 +68,7 @@ const CommitteeDetail = () => {
 
         <Tabs defaultValue="overview" className="w-full">
           <TabsList className="grid w-full grid-cols-3 mb-8 rounded-full bg-black/30 border border-mun-purple/30 p-1 max-w-md mx-auto py-0 px-0">
-            <TabsTrigger value="overview" className="rounded-full text-sm px-4 py-2">Overview</TabsTrigger>
+            <TabsTrigger value="overview" className="rounded-full text-sm px-4 py-2 bg-[mun-purple-dark] bg-mun-purple">Overview</TabsTrigger>
             <TabsTrigger value="agenda" className="rounded-full text-sm px-4 py-2">Agenda</TabsTrigger>
             <TabsTrigger value="chairs" className="rounded-full text-sm px-4 py-2">Chairs</TabsTrigger>
           </TabsList>
