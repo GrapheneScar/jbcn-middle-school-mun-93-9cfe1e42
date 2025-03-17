@@ -11,7 +11,7 @@ import Committees from "./pages/Committees";
 import CommitteeDetailPage from "./pages/CommitteeDetailPage";
 import CommitteeHeads from "./pages/CommitteeHeads";
 import DelegatePreparation from "./pages/DelegatePreparation";
-import AnnouncementsHub from "./pages/AnnouncementsHub";
+import Newsletter from "./pages/Newsletter";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
 import Schedule from "./pages/Schedule";
@@ -36,7 +36,7 @@ const App = () => (
             <Route path="/committees/:abbr" element={<CommitteeDetailPage />} />
             <Route path="/committee-heads" element={<CommitteeHeads />} />
             <Route path="/delegate-preparation" element={<DelegatePreparation />} />
-            <Route path="/announcements" element={<AnnouncementsHub />} />
+            <Route path="/newsletter" element={<Newsletter />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/schedule" element={<Schedule />} />

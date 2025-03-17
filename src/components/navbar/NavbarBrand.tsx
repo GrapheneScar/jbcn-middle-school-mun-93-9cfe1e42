@@ -7,7 +7,7 @@ const NavbarBrand = () => {
     <Link to="/" className="flex items-center space-x-3">
       <Logo />
       <div className="text-white">
-        <div className="text-2xl font-light">Middle School</div>
+        <div className="text-2xl font-light">JBCN</div>
         <div className="text-2xl font-bold tracking-wider">MUN</div>
       </div>
     </Link>

@@ -37,7 +37,7 @@ export const navLinks: NavLinkWithSubmenu[] = [
     path: '/schedule'
   },
   { 
-    name: 'ANNOUNCEMENTS', 
+    name: 'NEWSLETTER', 
     path: '/newsletter',
     submenu: [
       { name: 'All Announcements', path: '/newsletter' },

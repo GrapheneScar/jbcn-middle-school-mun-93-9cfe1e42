@@ -10,35 +10,51 @@ export interface Newsletter {
 
 export const newsletterData: Newsletter[] = [
   {
-    title: "Pre-Conference Special",
-    issue: "Issue 1",
-    date: "June 2023",
-    description: "Our inaugural newsletter covers everything you need to know about the upcoming conference, including committee previews, preparation tips, and interviews with the secretariat team.",
+    title: "Conference Announcement",
+    issue: "Spring 2022",
+    date: "March 2022",
+    description: "Our inaugural newsletter covers everything you need to know about the 2022 MUN conference, including committee previews, preparation tips, and a welcome message from our Secretary-General.",
     pdfUrl: "#",
     coverImage: "/newsletter/issue1.jpg"
   },
   {
-    title: "Conference Highlights",
-    issue: "Issue 2",
-    date: "July 2023",
-    description: "Recap of the opening day, session highlights, and featured interviews with committee chairs discussing the most pressing issues being debated.",
+    title: "Post-Conference Report",
+    issue: "Summer 2022",
+    date: "June 2022",
+    description: "A comprehensive review of the Spring 2022 conference with highlights from each committee, award winners, and special moments captured during the event.",
     pdfUrl: "#",
     coverImage: "/newsletter/issue2.jpg"
   },
   {
-    title: "Resolution Special",
-    issue: "Issue 3",
-    date: "August 2023",
-    description: "Coverage of key resolutions passed during the conference, award winners, and reflections from delegates on their MUN experience.",
+    title: "Pre-Conference Guide",
+    issue: "Spring 2023",
+    date: "February 2023",
+    description: "Essential information for delegates participating in the 2023 conference, including updated rules of procedure, position paper guidelines, and committee backgrounds.",
     pdfUrl: "#",
     coverImage: "/newsletter/issue3.jpg"
   },
   {
-    title: "Post-Conference Review",
-    issue: "Issue 4",
-    date: "September 2023",
-    description: "Complete review of the conference outcomes, photo gallery, and announcements about future MUN events and opportunities.",
+    title: "Conference Summary",
+    issue: "Summer 2023",
+    date: "July 2023",
+    description: "Recap of the 2023 conference achievements, featuring interviews with outstanding delegates, committee resolutions, and memorable debates.",
     pdfUrl: "#",
     coverImage: "/newsletter/issue4.jpg"
+  },
+  {
+    title: "Conference Preparation",
+    issue: "Winter 2024",
+    date: "January 2024",
+    description: "Get ready for the 2024 Middle School MUN with this comprehensive guide featuring committee introductions, country assignments, and essential diplomatic skills.",
+    pdfUrl: "#",
+    coverImage: "/newsletter/issue5.jpg"
+  },
+  {
+    title: "Mid-Year Update",
+    issue: "Spring 2024",
+    date: "April 2024",
+    description: "The latest updates on the upcoming conference, featuring special guest speakers, new committee topics, and important schedule changes for all delegates.",
+    pdfUrl: "#",
+    coverImage: "/newsletter/issue6.jpg"
   }
 ];
