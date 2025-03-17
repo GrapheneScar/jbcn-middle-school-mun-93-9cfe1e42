@@ -92,9 +92,14 @@ const Navbar = () => {
       name: 'QUICK ACCESS', 
       path: '#',
       submenu: [
-        { name: 'Schedule', path: '/schedule' },
+        { name: 'Delegate Preparation', path: '/delegate-preparation' },
+        { name: 'Resources', path: '/resources' },
         { name: 'Gallery', path: '/gallery' }
       ]
+    },
+    { 
+      name: 'SCHEDULE', 
+      path: '/schedule'
     },
     { 
       name: 'ANNOUNCEMENTS', 
@@ -131,11 +136,7 @@ const Navbar = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-black/85 backdrop-blur-lg py-2 shadow-lg shadow-black/20' 
-          : 'bg-transparent py-4'
-      }`}
+      className="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-black py-4"
     >
       <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
         <NavbarBrand />

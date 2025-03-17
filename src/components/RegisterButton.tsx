@@ -10,20 +10,16 @@ const RegisterButton = ({ className = '' }: RegisterButtonProps) => {
   
   return (
     <button 
-      className={`mun-button group ${className}`}
+      className={`border border-mun-purple bg-transparent hover:bg-mun-purple hover:shadow-[0_0_15px_rgba(155,135,245,0.4)] transition-all duration-300 rounded-full px-8 py-3 text-lg font-medium text-white ${className}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <span className="relative z-10">
         REGISTER NOW!
       </span>
-      <span 
-        className={`absolute inset-0 bg-mun-purple-dark transform transition-transform duration-500 origin-left
-          ${isHovered ? 'scale-x-0' : 'scale-x-100'}`}
-      />
-      <span className={`absolute inset-0 bg-gradient-to-r from-mun-purple to-mun-purple-light opacity-0 
-        transition-opacity duration-300 ${isHovered ? 'opacity-100' : ''}`}
-      />
+      {isHovered && (
+        <span className="absolute inset-0 bg-gradient-to-r from-mun-purple to-mun-purple-light rounded-full" />
+      )}
     </button>
   );
 };

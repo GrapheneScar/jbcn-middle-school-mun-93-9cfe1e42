@@ -1,4 +1,3 @@
-
 #root {
   max-width: 100%;
   margin: 0 auto;
@@ -118,4 +117,40 @@ button:not(.disabled):hover {
 
 .purple-glow:hover {
   box-shadow: 0 0 25px rgba(155, 135, 245, 0.7);
+}
+
+/* New button styling */
+.custom-button,
+.gallery-button {
+  @apply border border-mun-purple bg-transparent hover:bg-mun-purple hover:shadow-[0_0_15px_rgba(155,135,245,0.4)] transition-all duration-300;
+}
+
+/* Calendar event styling */
+.booked-day {
+  @apply bg-mun-purple/50 text-white font-bold;
+}
+
+/* Team section title enhancement */
+.team-section-title {
+  @apply text-4xl md:text-5xl font-bold;
+}
+
+/* Section title enhancements */
+.section-title-enhanced {
+  @apply text-3xl md:text-4xl font-bold relative;
+}
+
+.section-title-enhanced::after {
+  content: '';
+  @apply block w-24 h-1 bg-mun-purple mx-auto mt-4;
+}
+
+/* Calendar widget styles */
+.calendar-container {
+  @apply bg-black/40 rounded-xl p-4 border border-mun-purple/20;
+}
+
+/* Enhanced navigation panels */
+.enhanced-panel-title {
+  @apply text-2xl font-bold mb-2;
 }
