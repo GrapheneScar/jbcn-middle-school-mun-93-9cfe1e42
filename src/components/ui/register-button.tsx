@@ -1,0 +1,36 @@
+
+import * as React from "react";
+import { cn } from "@/lib/utils";
+import { Button, ButtonProps } from "./button";
+
+export interface RegisterButtonProps extends Omit<ButtonProps, "variant"> {
+  children?: React.ReactNode;
+}
+
+const RegisterButton = React.forwardRef<HTMLButtonElement, RegisterButtonProps>(
+  ({ className, children = "REGISTER NOW!", ...props }, ref) => {
+    const [isHovered, setIsHovered] = React.useState(false);
+
+    return (
+      <Button
+        ref={ref}
+        className={cn(
+          "relative overflow-hidden border border-mun-purple bg-transparent hover:bg-mun-purple hover:shadow-[0_0_15px_rgba(155,135,245,0.4)] transition-all duration-300 rounded-full px-8 py-3 text-lg font-medium text-white",
+          className
+        )}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        {...props}
+      >
+        <span className="relative z-10">{children}</span>
+        {isHovered && (
+          <span className="absolute inset-0 bg-gradient-to-r from-mun-purple to-mun-purple-light rounded-full" />
+        )}
+      </Button>
+    );
+  }
+);
+
+RegisterButton.displayName = "RegisterButton";
+
+export { RegisterButton };

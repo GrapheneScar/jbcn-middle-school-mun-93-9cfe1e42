@@ -1,7 +1,7 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import RegisterButton from '../RegisterButton';
+import { RegisterButton } from '../ui/register-button';
 
 const HeroSection = () => {
   const [isMobile, setIsMobile] = useState(false);
