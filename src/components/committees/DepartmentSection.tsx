@@ -26,7 +26,7 @@ const DepartmentSection = ({ department, index }: DepartmentSectionProps) => {
         </p>
       )}
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto place-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto place-items-center justify-items-center">
         {department.chairs.map(chair => <ChairCard key={chair.name} chair={chair} />)}
       </div>
     </motion.section>
