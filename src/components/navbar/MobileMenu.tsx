@@ -3,12 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-
-interface NavLinkWithSubmenu {
-  name: string;
-  path: string;
-  submenu?: { name: string; path: string }[];
-}
+import { NavLinkWithSubmenu } from './navData';
 
 interface MobileMenuProps {
   isOpen: boolean;
