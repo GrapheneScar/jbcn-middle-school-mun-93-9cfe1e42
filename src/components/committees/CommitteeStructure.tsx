@@ -64,8 +64,8 @@ const CommitteeStructure = () => {
                 {[
                   { role: "Chair", description: "Presides over the committee, maintains order, and ensures rules of procedure are followed." },
                   { role: "Vice Chair", description: "Assists the Chair and may take over proceedings when needed." },
-                  { role: "Rapporteur", description: "Keeps track of speakers list and assists with administrative tasks." },
-                  { role: "Delegates", description: "Represent assigned countries, participate in debates, and work towards resolution." }
+                  { role: "OC (Organizing Committee)", description: "Assists in the smooth functioning of the committee by managing logistics, coordinating communication, and ensuring procedural efficiency." },
+                  { role: "Delegates", description: "Represent assigned allocations, participate in debates, and work towards resolution." }
                 ].map((item, index) => (
                   <div key={index} className="glass-panel p-4">
                     <h4 className="text-lg font-semibold text-mun-purple-light mb-1">{item.role}</h4>
