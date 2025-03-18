@@ -12,14 +12,14 @@ export const committeesData: Committee[] = [
       {
         name: "Bharatvir Saran",
         title: "Director",
-        photo: "/lovable-uploads/",
-        bio: "Bharatvir brings extensive knowledge of international security and disarmament policies to the committee."
+        photo: "/lovable-uploads/bharatvir.jpg",
+        bio: "Hey Delegates, Welcome to DISEC, I’m honoured to be your Director for JBCN Middle School MUN, I’m here to ensure that this is gonna be fun for you all while also introducing you all to the concept of MUNs. Doing MUN speaks a lot about a person, showing that they’re capable enough to speak and discuss in front of others, present their viewpoints and most importantly have enough self confidence, don’t let this intimidate you, MUN can also be your stepping stone to discovering skills you never knew you had. I believe in strong speakers who can defend their perspectives and challenge others with strong arguments. There is nothing like a bad viewpoint, so the delegate should be apt at providing justifiable statements to support themselves. Nothing can match the ecstasy of delivering a powerful speech, or submitting that one radical communique to change the committee. If I had one piece of advice for delegates it would be this: Just have fun. I'm Bharatvir Saran, Directing DISEC for JBCN Middle School MUN 2025, I'm looking forward to seeing you delegates in person. Regards from the JBCN MUN Team."
       },
       {
         name: "Ansh Shah",
         title: "Director",
         photo: "/lovable-uploads/ansh.png",
-        bio: "Ansh specializes in private military organizations and their impact on global security frameworks."
+        bio: "Hello delegates ,Welcome to DISEC at JBCN MS MUN where diplomacy is the real thing. I’m Ansh Shah, your Co-Director, and if there’s one thing I love more than Man City and the Indian Cricket team, it’s a debate so intense that it could cause an international crisis. This year, we wonder whether Private Military Organizations are a threat to mankind or not?Are they mercenaries to hire, or the heroes for our peace that we have? You decide! Just remember ,every organisation has its secrets, and I love it when delegates dig up classified dirt. I’m more than excited to help guide you through this deeply interesting topic and to unravel the mysteries behind Private military organisations.With 11 MUNs and this being my second time leading DISEC, I promise a committee full of chaos and hard-hitting diplomacy. In my free time, you can catch me watching a cricket highlight, or trying to perfect my blazer most of the time. And yes, I do love playing cricket! I know it feels pretty overwhelming to begin MUN. Trust me, I’ve been there. It’s about learning, engaging in debates, and finally, having some fun. So let loose a little from the barricades of your comfort zone and let’s make this a fantastic experience together. Looking forward to a great conference! Best regards, Ansh Shah"
       }
     ],
     background: "The Disarmament and International Security Committee (DISEC) is the First Committee of the United Nations General Assembly. It deals with disarmament, global challenges and threats to peace that affect the international community. This is a General Assembly style large committee.",
