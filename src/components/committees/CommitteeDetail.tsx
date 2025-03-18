@@ -1,4 +1,3 @@
-
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { committeesData } from './committees-data';
@@ -42,15 +41,15 @@ const CommitteeDetail = () => {
           </Button>
 
           <div className="flex flex-col items-center mb-6">
-            <div className="w-20 h-20 rounded-full bg-mun-purple/20 flex items-center justify-center overflow-hidden mb-4">
+            <div className="w-32 h-32 bg-white/10 rounded-full flex items-center justify-center overflow-hidden mb-6 p-2">
               {committee.logo ? (
                 <img 
                   src={committee.logo} 
                   alt={`${committee.abbr} logo`} 
-                  className="w-full h-full object-cover" 
+                  className="w-full h-full object-contain" 
                 />
               ) : (
-                <Users className="w-10 h-10 text-mun-purple-light" />
+                <Users className="w-12 h-12 text-mun-purple-light" />
               )}
             </div>
             <div className="text-center">
@@ -86,7 +85,6 @@ const CommitteeDetail = () => {
           )}
         </motion.div>
 
-        {/* Committee Resources Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -96,7 +94,6 @@ const CommitteeDetail = () => {
           <h2 className="text-3xl font-bold text-white text-center mb-8">Committee Resources</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Study Guide Resource */}
             <motion.div
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
@@ -125,7 +122,6 @@ const CommitteeDetail = () => {
               </a>
             </motion.div>
             
-            {/* Country Matrix Resource */}
             <motion.div
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}

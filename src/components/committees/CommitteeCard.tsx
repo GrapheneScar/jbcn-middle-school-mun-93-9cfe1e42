@@ -37,12 +37,12 @@ const CommitteeCard = ({ committee, index }: CommitteeCardProps) => {
       <div className="p-8">
         <div className="flex flex-col items-center mb-6">
           <div className="flex items-center justify-center">
-            <div className="w-12 h-12 mr-4 flex-shrink-0 bg-mun-purple/20 rounded-full flex items-center justify-center overflow-hidden">
+            <div className="w-16 h-16 mr-4 flex-shrink-0 bg-white/10 rounded-full flex items-center justify-center overflow-hidden p-1">
               {committee.logo ? (
                 <img 
                   src={committee.logo} 
                   alt={`${committee.abbr} logo`} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               ) : (
                 <Users className="w-6 h-6 text-mun-purple-light" />
