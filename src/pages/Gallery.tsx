@@ -25,35 +25,23 @@ const Gallery = () => {
     setSelectedImage(null);
   };
 
-  // Placeholder conference images formatted as GalleryImage type
-  const placeholderImages: GalleryImage[] = [
+  // Placeholder conference images
+  const placeholderImages = [
     {
-      id: 'gallery-placeholder-1',
       src: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80&w=600&h=400",
-      alt: "MUN Conference Discussion Panel",
-      title: "MUN Conference Discussion Panel",
-      category: "conference"
+      alt: "MUN Conference Discussion Panel"
     },
     {
-      id: 'gallery-placeholder-2',
       src: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=600&h=400",
-      alt: "Conference Technology Setup",
-      title: "Conference Technology Setup",
-      category: "technology"
+      alt: "Conference Technology Setup"
     },
     {
-      id: 'gallery-placeholder-3',
       src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600&h=400",
-      alt: "Conference Planning Session",
-      title: "Conference Planning Session",
-      category: "planning"
+      alt: "Conference Planning Session"
     },
     {
-      id: 'gallery-placeholder-4',
       src: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600&h=400",
-      alt: "Conference Documentation",
-      title: "Conference Documentation",
-      category: "documentation"
+      alt: "Conference Documentation"
     }
   ];
 
