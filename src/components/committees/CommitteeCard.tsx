@@ -101,7 +101,7 @@ const CommitteeCard = ({ committee, index }: CommitteeCardProps) => {
         </div>
         
         <p className="text-white/70 text-sm italic">
-          NOTE: The Study guide password will be sent with your allocation
+          NOTE: The Study Guide password will be sent with your allocation
         </p>
       </div>
     </motion.div>
