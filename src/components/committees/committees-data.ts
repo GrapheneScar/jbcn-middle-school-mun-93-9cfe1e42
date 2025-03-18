@@ -7,7 +7,7 @@ export const committeesData: Committee[] = [
     abbr: "DISEC",
     description: "A committee focused on disarmament, global challenges and threats to peace that affect the international community.",
     topics: ["Evaluating the prospect of Private Military Organizations"],
-    logo: "/lovable-uploads/3340a7e5-33e9-429d-9fed-fae34a7d5b04.png", // DISEC logo
+    logo: "/lovable-uploads/60691948-0e00-49c0-92dd-0dba8ba1646f.png", // Updated DISEC logo
     studyGuideUrl: "#", // Replace with actual Google Drive link later
     chairs: [
       {
@@ -31,7 +31,7 @@ export const committeesData: Committee[] = [
     abbr: "COPUOS",
     description: "Governing the exploration and use of space for the benefit of all humanity: for peace, security and development.",
     topics: ["Addressing the challenges and possibilities of weaponization in space"],
-    logo: "/lovable-uploads/a68c1667-e8f1-4995-9eba-bf0bec82644f.png", // COPUOS logo
+    logo: "/lovable-uploads/9e0f02bd-1fb6-48ce-af1f-abfb20dab157.png", // Updated COPUOS logo
     studyGuideUrl: "#", // Replace with actual Google Drive link later
     chairs: [
       {
@@ -55,7 +55,7 @@ export const committeesData: Committee[] = [
     abbr: "KWS",
     description: "A historical committee set in 1952 focused on negotiating an end to the Korean War and determining the future of the Korean peninsula.",
     topics: ["To negotiate lasting peace and end the Korean War, possibly uniting or dividing the peninsula"],
-    logo: "/lovable-uploads/5d8886e6-d281-4584-8522-ce4654d80644.png", // KWS logo
+    logo: "/lovable-uploads/717087cd-22de-4d9c-a894-bf983b5f4f6c.png", // Updated KWS logo
     studyGuideUrl: "#", // Replace with actual Google Drive link later
     chairs: [
       {
@@ -79,7 +79,7 @@ export const committeesData: Committee[] = [
     abbr: "COI",
     description: "A historical committee representing the Indian cabinet during a pivotal moment in the country's history, focusing on Operation Blue Star.",
     topics: ["Evaluating the significance and implications of Operation Blue Star"],
-    logo: "/lovable-uploads/013e82d8-f90b-4830-a505-7821b1d359c4.png", // COI logo
+    logo: "/lovable-uploads/5aa913d4-deb5-4ced-8a67-e8694ed3ca00.png", // Updated COI logo
     studyGuideUrl: "#", // Replace with actual Google Drive link later
     chairs: [
       {
@@ -103,7 +103,7 @@ export const committeesData: Committee[] = [
     abbr: "RFA",
     description: "A specialized committee focusing on the inner workings of the Russian government and addressing issues of corruption and power.",
     topics: ["Examining and developing mechanisms to prevent mismanagement of funds and power within the Kremlin"],
-    logo: "/lovable-uploads/113888c6-0388-4c24-b004-a14811392fba.png", // RFA logo
+    logo: "/lovable-uploads/2ab6bfee-daef-4ddf-ae64-cadc5143e0e3.png", // Updated RFA logo
     studyGuideUrl: "#", // Replace with actual Google Drive link later
     chairs: [
       {

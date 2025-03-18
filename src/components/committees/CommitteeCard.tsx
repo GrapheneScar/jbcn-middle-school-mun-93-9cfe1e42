@@ -35,31 +35,29 @@ const CommitteeCard = ({ committee, index }: CommitteeCardProps) => {
       }}
     >
       <div className="p-8">
-        <div className="flex flex-col items-center mb-6">
-          <div className="flex items-center justify-center">
-            <div className="w-16 h-16 mr-4 flex-shrink-0 bg-white/10 rounded-full flex items-center justify-center overflow-hidden p-1">
-              {committee.logo ? (
-                <img 
-                  src={committee.logo} 
-                  alt={`${committee.abbr} logo`} 
-                  className="w-full h-full object-contain"
-                />
-              ) : (
-                <Users className="w-6 h-6 text-mun-purple-light" />
-              )}
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold text-white">{committee.name}</h3>
-              <div className="flex flex-wrap justify-center gap-2 mt-2">
-                <span className="inline-block px-3 py-1 text-sm bg-mun-purple/30 rounded-full">
-                  {committee.abbr}
+        <div className="flex flex-col md:flex-row items-center justify-center mb-6">
+          <div className="w-20 h-20 mb-4 md:mb-0 md:mr-4 flex-shrink-0 bg-white/10 rounded-full flex items-center justify-center overflow-hidden p-1">
+            {committee.logo ? (
+              <img 
+                src={committee.logo} 
+                alt={`${committee.abbr} logo`} 
+                className="w-full h-full object-contain"
+              />
+            ) : (
+              <Users className="w-6 h-6 text-mun-purple-light" />
+            )}
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold text-white">{committee.name}</h3>
+            <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-2">
+              <span className="inline-block px-3 py-1 text-sm bg-mun-purple/30 rounded-full">
+                {committee.abbr}
+              </span>
+              {committee.style && (
+                <span className="inline-block px-3 py-1 text-sm bg-mun-purple-light/30 rounded-full">
+                  {committee.style}
                 </span>
-                {committee.style && (
-                  <span className="inline-block px-3 py-1 text-sm bg-mun-purple-light/30 rounded-full">
-                    {committee.style}
-                  </span>
-                )}
-              </div>
+              )}
             </div>
           </div>
         </div>
