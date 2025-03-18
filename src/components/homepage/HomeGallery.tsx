@@ -5,36 +5,55 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
 import { filterImages } from '../gallery/gallery-data';
+import { GalleryImage } from '../gallery/types';
 
 const HomeGallery = () => {
   // Use featured images from the gallery data
-  const [galleryImages, setGalleryImages] = useState(filterImages('featured').slice(0, 6));
+  const [galleryImages, setGalleryImages] = useState<GalleryImage[]>(filterImages('featured').slice(0, 6));
 
-  // Placeholder conference images
-  const placeholderImages = [
+  // Placeholder conference images converted to GalleryImage format
+  const placeholderImages: GalleryImage[] = [
     {
+      id: 'placeholder-1',
       src: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80&w=600&h=400",
-      alt: "MUN Conference Discussion"
+      alt: "MUN Conference Discussion",
+      title: "MUN Conference Discussion",
+      category: "featured"
     },
     {
+      id: 'placeholder-2',
       src: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=600&h=400",
-      alt: "Conference Technology"
+      alt: "Conference Technology",
+      title: "Conference Technology",
+      category: "featured"
     },
     {
+      id: 'placeholder-3',
       src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600&h=400",
-      alt: "Planning Session"
+      alt: "Planning Session",
+      title: "Planning Session",
+      category: "featured"
     },
     {
+      id: 'placeholder-4',
       src: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600&h=400",
-      alt: "Documentation"
+      alt: "Documentation",
+      title: "Documentation",
+      category: "featured"
     },
     {
+      id: 'placeholder-5',
       src: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=600&h=400",
-      alt: "Conference Notes"
+      alt: "Conference Notes",
+      title: "Conference Notes",
+      category: "featured"
     },
     {
+      id: 'placeholder-6',
       src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600&h=400",
-      alt: "Delegate Portrait"
+      alt: "Delegate Portrait",
+      title: "Delegate Portrait",
+      category: "featured"
     }
   ];
 
