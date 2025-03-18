@@ -44,7 +44,7 @@ export const committeeHeads: Department[] = [{
     photo: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
     department: "Website Design"
   }, {
-    name: "Naham Shah",
+    name: "Naaham Shah",
     title: "Head of Website Design",
     photo: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
     department: "Website Design"
