@@ -80,7 +80,7 @@ const CommitteeDetail = () => {
                 </Button>
               </a>
               <p className="text-white/70 text-sm italic mt-2">
-                Note: Password will be sent with your allocation
+                NOTE: The Study guide Password will be sent with your allocation
               </p>
             </div>
           )}
