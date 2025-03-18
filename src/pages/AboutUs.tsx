@@ -12,7 +12,7 @@ const AboutUs = () => {
   const secretariat = [
     { name: "Ruhika Bhende", title: "Secretary General", image: "/lovable-uploads/ruhika.jpg" },
     { name: "Areehah Mitra", title: "Deputy Secretary General", image: "/lovable-uploads/areehah.jpg" },
-    { name: "Riaan Mavani", title: "Charge D'Affairs", image: "/lovable-uploads/riaan.jpeg" },
+    { name: "Riaan Mavani", title: "Director of Operations", image: "/lovable-uploads/riaan.jpeg" },
   ];
 
   const fadeInUpVariants = {
