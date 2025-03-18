@@ -234,7 +234,7 @@ const CommitteeDetail = () => {
               >
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <img 
-                    src="/lovable-uploads/704b39a2-9f51-4a71-9ac7-cb3a6395c577.png" 
+                    src="" 
                     alt="Country Matrix" 
                     className="w-full h-full object-cover"
                   />
