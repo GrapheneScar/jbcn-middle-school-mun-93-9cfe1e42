@@ -206,7 +206,7 @@ const CommitteeDetail = () => {
               >
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <img 
-                    src="/lovable-uploads/b6105130-2328-4e6a-a6cd-92587d916aee.png" 
+                    src="/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png" 
                     alt="Study Guide" 
                     className="w-full h-full object-cover"
                   />
@@ -234,7 +234,7 @@ const CommitteeDetail = () => {
               >
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <img 
-                    src="" 
+                    src="/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png" 
                     alt="Country Matrix" 
                     className="w-full h-full object-cover"
                   />
