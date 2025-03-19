@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
@@ -7,7 +6,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { FilePdf, FileText, ExternalLink, ChevronRight } from 'lucide-react';
+import { File, FileText, ExternalLink, ChevronRight } from 'lucide-react';
 
 interface NewsletterPDF {
   title: string;
@@ -232,7 +231,7 @@ const Newsletter = () => {
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-70 transition-all duration-300 flex flex-col items-center justify-center">
-                        <FilePdf className="w-12 h-12 text-white mb-3" />
+                        <File className="w-12 h-12 text-white mb-3" />
                         <h3 className="text-xl font-bold text-white">{newsletter.title}</h3>
                         <p className="text-white/80 text-sm mt-1">{newsletter.issue} - {newsletter.date}</p>
                         <div className="mt-4 px-4 py-2 bg-mun-purple rounded-full flex items-center text-sm text-white">
