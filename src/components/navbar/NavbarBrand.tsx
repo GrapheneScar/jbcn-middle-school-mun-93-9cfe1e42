@@ -5,7 +5,7 @@ const NavbarBrand = () => {
       <Logo />
       <div className="text-white">
         <div className="text-2xl font-light">JBCN (Parel)</div>
-        <div className="text-2xl font-bold tracking-wider">MS-MUN</div>
+        <div className="text-2xl font-bold tracking-wider">MUN</div>
       </div>
     </Link>;
 };
