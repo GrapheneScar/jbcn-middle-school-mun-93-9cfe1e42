@@ -97,7 +97,7 @@ const HeroSection = () => {
           
           {isMobile ?
         // Finger swipe animation for mobile
-        <div className="relative h-10 w-16">
+        <div className="relative h-10 w-16 my-0 mx-[7px] px-[20px] rounded-none py-0">
               <motion.div className="absolute w-6 h-6 bg-white/20 rounded-full" animate={{
             y: [0, 15, 0],
             x: [0, 0, 0],
