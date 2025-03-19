@@ -1,24 +1,24 @@
 
 import { Department } from "./types";
 
-// Mock data for committee heads
+// Updated data for committee heads with proper photos
 export const committeeHeads: Department[] = [{
   name: "Organizing Committee",
   description: "The team responsible for coordinating all aspects of the MUN conference.",
   chairs: [{
     name: "Aarushi Sharma",
     title: "Head of Organizing Committee",
-    photo: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+    photo: "/lovable-uploads/ruhika.jpg",
     department: "Organizing Committee"
   }, {
     name: "Rohan Mehta",
     title: "Deputy Head of Organizing Committee",
-    photo: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+    photo: "/lovable-uploads/riaan.jpeg",
     department: "Organizing Committee"
   }, {
     name: "Ananya Patel",
     title: "Deputy Head of Organizing Committee",
-    photo: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+    photo: "/lovable-uploads/areehah.jpg",
     department: "Organizing Committee"
   }]
 }, {
@@ -27,12 +27,12 @@ export const committeeHeads: Department[] = [{
   chairs: [{
     name: "Riddhi Bavadiya",
     title: "Head of Social Media",
-    photo: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+    photo: "/lovable-uploads/dishita.png",
     department: "Social Media"
   }, {
     name: "Yana Mehta",
     title: "Head of Social Media",
-    photo: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+    photo: "/lovable-uploads/kasmia.jpg",
     department: "Social Media"
   }]
 }, {
@@ -41,12 +41,12 @@ export const committeeHeads: Department[] = [{
   chairs: [{
     name: "Samay Shah",
     title: "Head of Website Design",
-    photo: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+    photo: "/lovable-uploads/bharatvir.jpg",
     department: "Website Design"
   }, {
     name: "Naaham Shah",
     title: "Head of Website Design",
-    photo: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+    photo: "/lovable-uploads/ansh.png",
     department: "Website Design"
   }]
 }, {
@@ -55,7 +55,7 @@ export const committeeHeads: Department[] = [{
   chairs: [{
     name: "Aarna Amberkar",
     title: "Head of Press",
-    photo: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+    photo: "/lovable-uploads/shaurya.png",
     department: "Press"
   }]
 }, {
@@ -64,12 +64,12 @@ export const committeeHeads: Department[] = [{
   chairs: [{
     name: "Keerthana Reddy",
     title: "Head of Photography",
-    photo: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+    photo: "/lovable-uploads/geiv.jpeg",
     department: "Photography"
   }, {
     name: "Rayhan Parikh",
     title: "Head of Photography",
-    photo: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+    photo: "/lovable-uploads/pratham.jpg",
     department: "Photography"
   }]
 }, {
@@ -78,7 +78,7 @@ export const committeeHeads: Department[] = [{
   chairs: [{
     name: "Radhika Dutt",
     title: "Head of Illustration",
-    photo: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+    photo: "/lovable-uploads/adhiraj.jpeg",
     department: "Illustration"
   }]
 }];

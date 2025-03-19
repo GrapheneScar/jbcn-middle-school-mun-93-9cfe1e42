@@ -19,8 +19,7 @@ export const navLinks: NavLinkWithSubmenu[] = [
     name: 'COMMITTEES', 
     path: '/committees',
     submenu: [
-      { name: 'All Committees', path: '/committees' },
-      { name: 'Delegate Preparation', path: '/delegate-preparation' }
+      { name: 'All Committees', path: '/committees' }
     ]
   },
   { 
@@ -38,12 +37,10 @@ export const navLinks: NavLinkWithSubmenu[] = [
   },
   { 
     name: 'NEWSLETTER', 
-    path: '/newsletter',
-    submenu: [
-      { name: 'All Announcements', path: '/newsletter' },
-      { name: 'Conference', path: '/newsletter?tab=conference' },
-      { name: 'Resources', path: '/newsletter?tab=resources' }
-    ]
+    path: '/newsletter'
   },
-  { name: 'CONTACT US', path: '/contact' },
+  { 
+    name: 'CONTACT US', 
+    path: '/contact' 
+  },
 ];

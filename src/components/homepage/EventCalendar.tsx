@@ -3,24 +3,23 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar } from '@/components/ui/calendar';
 import { format } from 'date-fns';
-import { CalendarCheck } from 'lucide-react';
+import { CalendarCheck, Clock } from 'lucide-react';
 
 const EventCalendar = () => {
-  // Set the conference date (adjust this to your actual event date)
-  const conferenceStartDate = new Date(2024, 6, 15); // July 15, 2024
-  const conferenceEndDate = new Date(2024, 6, 17); // July 17, 2024
+  // Set the conference date (updated to April 25-26)
+  const conferenceStartDate = new Date(2024, 3, 25); // April 25, 2024
+  const conferenceEndDate = new Date(2024, 3, 26); // April 26, 2024
   
   const [date, setDate] = useState<Date | undefined>(conferenceStartDate);
   
   const importantDates = [
-    { date: new Date(2024, 6, 15), label: "Conference Day 1" },
-    { date: new Date(2024, 6, 16), label: "Conference Day 2" },
-    { date: new Date(2024, 6, 17), label: "Conference Day 3" }
+    { date: new Date(2024, 3, 25), label: "Conference Day 1" },
+    { date: new Date(2024, 3, 26), label: "Conference Day 2" }
   ];
 
   return (
     <motion.div 
-      className="glass-panel p-6 relative overflow-hidden"
+      className="glass-panel p-4 relative overflow-hidden"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -28,18 +27,18 @@ const EventCalendar = () => {
     >
       <div className="absolute -top-10 -right-10 w-40 h-40 bg-mun-purple/20 rounded-full blur-2xl" />
       
-      <div className="flex items-center justify-center mb-4">
+      <div className="flex items-center justify-center mb-3">
         <CalendarCheck className="mr-2 text-mun-purple-light" />
         <h3 className="text-xl font-bold text-white">Conference Dates</h3>
       </div>
       
-      <div className="flex flex-col md:flex-row items-center gap-6">
-        <div className="flex-shrink-0 bg-black/40 rounded-xl p-4 border border-mun-purple/20">
+      <div className="flex flex-col sm:flex-row items-center gap-4">
+        <div className="w-full sm:w-auto flex-shrink-0 bg-black/40 rounded-xl p-2 border border-mun-purple/20">
           <Calendar
             mode="single"
             selected={date}
             onSelect={setDate}
-            className="p-3 pointer-events-auto"
+            className="p-0 pointer-events-auto scale-90 origin-top"
             modifiers={{
               booked: importantDates.map(d => d.date)
             }}
@@ -47,11 +46,15 @@ const EventCalendar = () => {
               booked: { background: "rgba(155, 135, 245, 0.5)", color: "white", fontWeight: "bold" }
             }}
             defaultMonth={conferenceStartDate}
+            footer={
+              <div className="text-center text-xs text-white/70 mt-2">
+                April 25-26, 2024
+              </div>
+            }
           />
         </div>
         
         <div className="text-left flex-grow">
-          <h4 className="text-lg font-bold text-white mb-3">Event Schedule</h4>
           <div className="space-y-3">
             {importantDates.map((item, index) => (
               <div 
@@ -64,18 +67,24 @@ const EventCalendar = () => {
                     : 'bg-white/30'
                 }`} />
                 <div className="ml-3">
-                  <p className="font-semibold text-white">
-                    {format(item.date, 'MMMM d, yyyy')}
-                  </p>
+                  <div className="flex items-center">
+                    <p className="font-semibold text-white">
+                      {format(item.date, 'MMMM d, yyyy')}
+                    </p>
+                    <div className="ml-2 flex items-center text-mun-purple-light text-xs">
+                      <Clock className="w-3 h-3 mr-1" />
+                      <span>9:00 AM - 5:00 PM</span>
+                    </div>
+                  </div>
                   <p className="text-white/70 text-sm">{item.label}</p>
                 </div>
               </div>
             ))}
           </div>
           
-          <div className="mt-6 pt-4 border-t border-white/10">
+          <div className="mt-4 pt-3 border-t border-white/10">
             <p className="text-white/80 text-sm">
-              Mark your calendar for JBCN Parel MUN! Join us for three days of debate, diplomacy, and global solutions.
+              Mark your calendar for JBCN Parel MUN! Join us for two days of debate, diplomacy, and global solutions.
             </p>
           </div>
         </div>

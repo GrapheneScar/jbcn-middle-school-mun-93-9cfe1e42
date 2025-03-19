@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <header 
-      className="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-black py-4 shadow-[0_4px_20px_rgba(121,83,169,0.3)]"
+      className="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-black py-4 shadow-[0_4px_20px_rgba(121,83,169,0.5)]"
     >
       <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
         <NavbarBrand />

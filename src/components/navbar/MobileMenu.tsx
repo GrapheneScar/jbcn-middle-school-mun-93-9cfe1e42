@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
@@ -13,14 +13,17 @@ interface MobileMenuProps {
 }
 
 const MobileMenu = ({ isOpen, navLinks, isActive, onLinkClick }: MobileMenuProps) => {
-  const [expandedMenus, setExpandedMenus] = useState<string[]>([]);
+  const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
+
+  // Reset expanded menu when mobile menu closes
+  useEffect(() => {
+    if (!isOpen) {
+      setExpandedMenu(null);
+    }
+  }, [isOpen]);
 
   const toggleSubmenu = (name: string) => {
-    setExpandedMenus(prev => 
-      prev.includes(name) 
-        ? prev.filter(item => item !== name)
-        : [...prev, name]
-    );
+    setExpandedMenu(prev => prev === name ? null : name);
   };
   
   return (
@@ -50,7 +53,7 @@ const MobileMenu = ({ isOpen, navLinks, isActive, onLinkClick }: MobileMenuProps
                         className="flex items-center justify-between w-full text-left py-3 px-2"
                       >
                         <span className={`text-lg font-medium ${
-                          expandedMenus.includes(link.name) 
+                          expandedMenu === link.name 
                             ? 'text-mun-purple-light' 
                             : 'text-white'
                         }`}>
@@ -58,13 +61,13 @@ const MobileMenu = ({ isOpen, navLinks, isActive, onLinkClick }: MobileMenuProps
                         </span>
                         <ChevronDown 
                           className={`h-5 w-5 transition-transform duration-300 ${
-                            expandedMenus.includes(link.name) ? 'rotate-180 text-mun-purple-light' : 'text-white'
+                            expandedMenu === link.name ? 'rotate-180 text-mun-purple-light' : 'text-white'
                           }`} 
                         />
                       </button>
                       
                       <AnimatePresence>
-                        {expandedMenus.includes(link.name) && (
+                        {expandedMenu === link.name && (
                           <motion.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: 'auto', opacity: 1 }}

@@ -1,47 +1,44 @@
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ChevronRight } from 'lucide-react';
-import { filterImages } from '../gallery/gallery-data';
+import { ChevronRight, ChevronLeft, Image, ExternalLink } from 'lucide-react';
 
 const HomeGallery = () => {
-  // Use featured images from the gallery data
-  const [galleryImages, setGalleryImages] = useState(filterImages('featured').slice(0, 6));
-
-  // Placeholder conference images
-  const placeholderImages = [
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  // Gallery images - add the uploaded images
+  const galleryImages = [
+    {
+      src: "/lovable-uploads/1a525605-4000-4566-a984-16a8da77a94d.png",
+      alt: "Children building bridges across communities",
+      title: "Building Bridges"
+    },
     {
       src: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80&w=600&h=400",
-      alt: "MUN Conference Discussion"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=600&h=400",
-      alt: "Conference Technology"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600&h=400",
-      alt: "Planning Session"
+      alt: "MUN Conference Discussion",
+      title: "Conference Discussions"
     },
     {
       src: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600&h=400",
-      alt: "Documentation"
+      alt: "Documentation",
+      title: "Conference Documentation"
     },
     {
       src: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=600&h=400",
-      alt: "Conference Notes"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600&h=400",
-      alt: "Delegate Portrait"
+      alt: "Conference Notes",
+      title: "Conference Planning"
     }
   ];
 
-  useEffect(() => {
-    // Ensure we have exactly 6 images
-    setGalleryImages(placeholderImages);
-  }, []);
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
+  };
 
   return (
     <section className="py-20 px-4 bg-black/30">
@@ -63,27 +60,67 @@ const HomeGallery = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
-          {galleryImages.map((image, index) => (
-            <motion.div
-              key={index}
-              className="relative overflow-hidden rounded-xl aspect-square group"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.02 }}
+        <div className="relative max-w-5xl mx-auto mb-12">
+          {/* Main showcase image with carousel */}
+          <div className="relative h-[60vh] max-h-[500px] overflow-hidden rounded-xl">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="absolute inset-0"
+              >
+                <img
+                  src={galleryImages[currentIndex].src}
+                  alt={galleryImages[currentIndex].alt}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col items-center justify-end p-8">
+                  <h3 className="text-2xl font-bold text-white mb-2">{galleryImages[currentIndex].title}</h3>
+                  <p className="text-white/80 text-center max-w-lg">{galleryImages[currentIndex].alt}</p>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Navigation arrows */}
+            <button 
+              onClick={prevSlide}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-mun-purple/80 transition-colors z-10"
+              aria-label="Previous image"
             >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <h3 className="text-white font-semibold">{image.alt}</h3>
-              </div>
-            </motion.div>
-          ))}
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button 
+              onClick={nextSlide}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-mun-purple/80 transition-colors z-10"
+              aria-label="Next image"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
+
+          {/* Small thumbnails below */}
+          <div className="flex justify-center mt-4 gap-2">
+            {galleryImages.map((image, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`relative w-16 h-16 rounded-md overflow-hidden transition-all duration-200 ${
+                  currentIndex === index 
+                    ? 'ring-2 ring-mun-purple scale-110' 
+                    : 'opacity-70 hover:opacity-100'
+                }`}
+              >
+                <img 
+                  src={image.src} 
+                  alt={`Thumbnail ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </button>
+            ))}
+          </div>
         </div>
 
         <motion.div
@@ -97,8 +134,9 @@ const HomeGallery = () => {
             <Button 
               className="gallery-button border border-mun-purple bg-transparent hover:bg-mun-purple hover:shadow-[0_0_15px_rgba(155,135,245,0.4)] transition-all duration-300"
             >
+              <Image className="mr-2 h-4 w-4" />
               View Full Gallery
-              <ChevronRight className="ml-2 h-4 w-4" />
+              <ExternalLink className="ml-2 h-4 w-4" />
             </Button>
           </Link>
         </motion.div>

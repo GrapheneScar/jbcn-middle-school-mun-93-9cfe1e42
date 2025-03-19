@@ -7,6 +7,15 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { FilePdf, FileText, ExternalLink, ChevronRight } from 'lucide-react';
+
+interface NewsletterPDF {
+  title: string;
+  date: string;
+  issue: string;
+  coverImage: string;
+  pdfUrl: string;
+}
 
 const Newsletter = () => {
   const { toast } = useToast();
@@ -72,6 +81,44 @@ const Newsletter = () => {
       title: "Delegate Preparation Guide",
       date: "August 5, 2023",
       description: "Comprehensive guide for delegates to prepare for their respective committees."
+    }
+  ];
+
+  const newsletterPDFs: NewsletterPDF[] = [
+    {
+      title: "JBCN MUN Weekly Dispatch",
+      date: "March 15, 2024",
+      issue: "Issue 1",
+      coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+      pdfUrl: "https://drive.google.com/file/d/sample1/view"
+    },
+    {
+      title: "Committee Spotlight Edition",
+      date: "March 22, 2024",
+      issue: "Issue 2",
+      coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+      pdfUrl: "https://drive.google.com/file/d/sample2/view"
+    },
+    {
+      title: "Delegate Preparation Special",
+      date: "March 29, 2024",
+      issue: "Issue 3",
+      coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+      pdfUrl: "https://drive.google.com/file/d/sample3/view"
+    },
+    {
+      title: "Conference Countdown",
+      date: "April 5, 2024",
+      issue: "Issue 4",
+      coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+      pdfUrl: "https://drive.google.com/file/d/sample4/view"
+    },
+    {
+      title: "Final Preparation Guide",
+      date: "April 12, 2024",
+      issue: "Issue 5",
+      coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+      pdfUrl: "https://drive.google.com/file/d/sample5/view"
     }
   ];
 
@@ -159,6 +206,47 @@ const Newsletter = () => {
               </Card>
             </motion.div>
           </div>
+
+          {/* Newsletter PDF Section */}
+          <motion.div variants={itemVariants} className="mb-20">
+            <h2 className="text-3xl font-bold text-white mb-8 text-center">Newsletter Archives</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {newsletterPDFs.map((newsletter, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                  className="relative overflow-hidden rounded-lg group cursor-pointer"
+                >
+                  <a 
+                    href={newsletter.pdfUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="block"
+                  >
+                    <div className="relative aspect-[3/4] overflow-hidden">
+                      <img 
+                        src={newsletter.coverImage} 
+                        alt={newsletter.title} 
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-70 transition-all duration-300 flex flex-col items-center justify-center">
+                        <FilePdf className="w-12 h-12 text-white mb-3" />
+                        <h3 className="text-xl font-bold text-white">{newsletter.title}</h3>
+                        <p className="text-white/80 text-sm mt-1">{newsletter.issue} - {newsletter.date}</p>
+                        <div className="mt-4 px-4 py-2 bg-mun-purple rounded-full flex items-center text-sm text-white">
+                          <FileText className="w-4 h-4 mr-2" />
+                          Open PDF
+                          <ExternalLink className="w-3 h-3 ml-2" />
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
 
           <motion.div variants={itemVariants}>
             <h2 className="text-3xl font-bold text-white mb-8">Announcements</h2>

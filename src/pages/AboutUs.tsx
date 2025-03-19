@@ -1,7 +1,7 @@
+
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import PageTransition from '../components/PageTransition';
-import ProfileCard from '../components/ProfileCard';
 import StripeBackground from '../components/StripeBackground';
 
 const AboutUs = () => {
@@ -10,9 +10,21 @@ const AboutUs = () => {
   }, []);
 
   const secretariat = [
-    { name: "Ruhika Bhende", title: "Secretary General", image: "/lovable-uploads/ruhika.jpg" },
-    { name: "Areehah Mitra", title: "Deputy Secretary General", image: "/lovable-uploads/areehah.jpg" },
-    { name: "Riaan Mavani", title: "Director of Operations", image: "/lovable-uploads/riaan.jpeg" },
+    { 
+      name: "Ruhika Bhende", 
+      image: "/lovable-uploads/ruhika.jpg",
+      bio: "As Secretary General, Ruhika leads the conference with vision and diplomatic insight. Her experience in MUN spans multiple years and conferences. She is passionate about creating an enriching experience for all delegates."
+    },
+    { 
+      name: "Areehah Mitra", 
+      image: "/lovable-uploads/areehah.jpg",
+      bio: "In her role as Deputy Secretary General, Areehah brings creativity and precision to the conference planning. She works closely with committee chairs to ensure a cohesive and challenging MUN experience."
+    },
+    { 
+      name: "Riaan Mavani", 
+      image: "/lovable-uploads/riaan.jpeg",
+      bio: "As Director of Operations, Riaan manages the logistical elements of the conference with expertise. His attention to detail ensures that everything runs smoothly from registration to closing ceremonies."
+    },
   ];
 
   const fadeInUpVariants = {
@@ -87,7 +99,7 @@ const AboutUs = () => {
             <h2 className="text-3xl font-bold text-white">Secretariat</h2>
           </motion.div>
           
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto justify-items-center">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {secretariat.map((person, index) => (
               <motion.div
                 key={person.name}
@@ -95,15 +107,27 @@ const AboutUs = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="mx-auto w-full max-w-sm"
               >
-                <ProfileCard 
-                  name={person.name}
-                  title={person.title}
-                  imagePath={person.image}
-                  imageAlt={`${person.name} - ${person.title}`}
-                  reversed={index % 2 !== 0}
-                />
+                <div className="relative group">
+                  <div className="overflow-hidden rounded-xl aspect-[3/4]">
+                    <img 
+                      src={person.image} 
+                      alt={person.name}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
+                  
+                  <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70" />
+                  
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <h3 className="text-2xl font-bold text-white mb-2">{person.name}</h3>
+                  </div>
+                  
+                  {/* Expandable Bio */}
+                  <div className="absolute inset-0 bg-black/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6">
+                    <p className="text-white/90 text-center">{person.bio}</p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
