@@ -58,7 +58,7 @@ const CommitteeCard = ({
           {committee.description}
         </p>
 
-        {committee.shortDescription && <div className="mb-6 p-4 bg-black/20 rounded-lg">
+        {committee.shortDescription && <div className="mb-6 p-4 bg-black/20 rounded-lg py-0">
             <p className="text-white/80 text-center text-sm">
               {committee.shortDescription}
             </p>
@@ -71,7 +71,7 @@ const CommitteeCard = ({
                 <div className="w-5 h-5 rounded-full bg-mun-purple flex items-center justify-center mt-1 mr-3 flex-shrink-0">
                   
                 </div>
-                <span className="text-white/90 py-0 px-[110px] text-center">{topic}</span>
+                <span className="text-white/90 text-center px-0 py-0 mx-0">{topic}</span>
               </div>)}
           </div>
         </div>
