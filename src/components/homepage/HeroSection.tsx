@@ -107,14 +107,14 @@ const HeroSection = () => {
             duration: 2,
             ease: "easeInOut"
           }} />
-              <motion.div className="absolute top-0 left-0 w-4 h-5 border-2 border-white/60 rounded-t-full" animate={{
+              <motion.div animate={{
             y: [0, 15, 0],
             rotate: [0, 5, 0]
           }} transition={{
             repeat: Infinity,
             duration: 2,
             ease: "easeInOut"
-          }} />
+          }} className="absolute top-0 left-0 w-4 h-5 border-2 border-white/60 rounded-t-full px-0 mx-[18px] py-0 my-[5px]" />
             </div> :
         // Mouse scroll animation for desktop
         <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center p-1">
