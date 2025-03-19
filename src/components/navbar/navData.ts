@@ -24,7 +24,8 @@ export const navLinks: NavLinkWithSubmenu[] = [
     path: '#',
     submenu: [
       { name: 'Resources', path: '/resources' },
-      { name: 'Gallery', path: '/gallery' }
+      { name: 'Gallery', path: '/gallery' },
+      { name: 'Delegate Preparation', path: '/delegate-preparation' }
     ]
   },
   { 

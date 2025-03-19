@@ -5,6 +5,7 @@ import MobileMenu from './navbar/MobileMenu';
 import { navLinks } from './navbar/navData';
 import DesktopNavigation from './navbar/DesktopNavigation';
 import { useNavbarState } from '../hooks/useNavbarState';
+import { Instagram } from 'lucide-react';
 
 const Navbar = () => {
   const {
@@ -26,16 +27,40 @@ const Navbar = () => {
         <NavbarBrand />
         
         {/* Desktop Navigation with Dropdowns */}
-        <DesktopNavigation 
-          navLinks={navLinks}
-          activeDropdown={activeDropdown}
-          toggleDropdown={toggleDropdown}
-          handleDropdownRef={handleDropdownRef}
-          isActive={isActive}
-        />
+        <div className="hidden lg:flex items-center space-x-4">
+          <DesktopNavigation 
+            navLinks={navLinks}
+            activeDropdown={activeDropdown}
+            toggleDropdown={toggleDropdown}
+            handleDropdownRef={handleDropdownRef}
+            isActive={isActive}
+          />
+          
+          {/* Instagram Icon */}
+          <a 
+            href="https://www.instagram.com/jbcnparelmun" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-4 p-2 rounded-full hover:bg-mun-purple/20 transition-colors duration-300 flex items-center justify-center"
+            aria-label="Visit our Instagram"
+          >
+            <Instagram className="w-5 h-5 text-white" />
+          </a>
+        </div>
         
-        {/* Mobile Menu Button */}
-        <MobileMenuButton isOpen={mobileMenuOpen} onClick={toggleMobileMenu} />
+        {/* Mobile Menu Button and Instagram Icon for Mobile */}
+        <div className="flex items-center lg:hidden">
+          <a 
+            href="https://www.instagram.com/jbcnparelmun" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mr-4 p-2 rounded-full hover:bg-mun-purple/20 transition-colors duration-300 flex items-center justify-center"
+            aria-label="Visit our Instagram"
+          >
+            <Instagram className="w-5 h-5 text-white" />
+          </a>
+          <MobileMenuButton isOpen={mobileMenuOpen} onClick={toggleMobileMenu} />
+        </div>
       </div>
       
       {/* Mobile Menu */}

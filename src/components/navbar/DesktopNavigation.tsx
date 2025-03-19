@@ -19,7 +19,7 @@ const DesktopNavigation = ({
   isActive
 }: DesktopNavigationProps) => {
   return (
-    <nav className="hidden lg:flex items-center space-x-2 md:space-x-3 py-2">
+    <nav className="flex items-center space-x-2 md:space-x-3 py-2">
       {navLinks.map((link) => (
         <div 
           key={link.name} 
@@ -51,7 +51,7 @@ const DesktopNavigation = ({
                       name={subitem.name}
                       path={subitem.path}
                       isActive={isActive(subitem.path)}
-                      className="block px-5 py-2.5 text-left hover:bg-mun-purple/20"
+                      className="block px-5 py-2.5 text-left hover:bg-mun-purple/20 text-left"
                     />
                   ))}
                 </div>

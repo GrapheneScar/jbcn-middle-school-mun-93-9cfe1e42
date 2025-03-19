@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Instagram } from 'lucide-react';
 import { NavLinkWithSubmenu } from './navData';
 
 interface MobileMenuProps {
@@ -21,6 +21,17 @@ const MobileMenu = ({ isOpen, navLinks, isActive, onLinkClick }: MobileMenuProps
       setExpandedMenu(null);
     }
   }, [isOpen]);
+
+  // Auto-expand the Quick Access menu to make Delegate Preparation visible
+  useEffect(() => {
+    if (isOpen) {
+      // Find Quick Access menu
+      const quickAccessMenu = navLinks.find(link => link.name === 'QUICK ACCESS');
+      if (quickAccessMenu) {
+        setExpandedMenu('QUICK ACCESS');
+      }
+    }
+  }, [isOpen, navLinks]);
 
   const toggleSubmenu = (name: string) => {
     setExpandedMenu(prev => prev === name ? null : name);
@@ -108,6 +119,20 @@ const MobileMenu = ({ isOpen, navLinks, isActive, onLinkClick }: MobileMenuProps
                   )}
                 </motion.div>
               ))}
+              
+              {/* Instagram Link in Mobile Menu Footer */}
+              <div className="mt-6 pt-4 border-t border-white/10">
+                <a 
+                  href="https://www.instagram.com/jbcnparelmun" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center py-3 px-2 text-white hover:text-mun-purple-light transition-colors duration-300"
+                  onClick={onLinkClick}
+                >
+                  <Instagram className="h-5 w-5 mr-3" />
+                  <span>Follow us on Instagram</span>
+                </a>
+              </div>
             </div>
           </div>
         </motion.div>
