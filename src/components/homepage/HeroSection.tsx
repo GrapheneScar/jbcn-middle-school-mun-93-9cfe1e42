@@ -66,7 +66,8 @@ const HeroSection = () => {
       
       <motion.div className="container mx-auto relative z-10" variants={containerVariants} initial="hidden" animate="visible">
         <div className="text-center">
-          <motion.h1 variants={itemVariants} className="text-5xl lg:text-8xl font-bold text-white tracking-tighter leading-none mb-6 md:text-6xl">JBCN Middle School MUN</motion.h1>
+          <motion.h1 variants={itemVariants} className="text-5xl lg:text-8xl font-bold text-white tracking-tighter leading-none mb-6 md:text-6xl">JBCN Middle School MUN
+2025</motion.h1>
           
           <motion.p className="text-lg md:text-xl lg:text-2xl text-white/80 mb-12 max-w-2xl mx-auto" variants={itemVariants}>
             Experience the world of international diplomacy and global problem-solving at the prestigious JBCN Middle School Model United Nations.
