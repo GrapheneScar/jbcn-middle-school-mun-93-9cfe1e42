@@ -65,19 +65,27 @@ const CommitteeCard = ({ committee, index }: CommitteeCardProps) => {
         <p className="text-white/80 mb-6 text-center">
           {committee.description}
         </p>
+
+        {committee.shortDescription && (
+          <div className="mb-6 p-4 bg-black/20 rounded-lg">
+            <p className="text-white/80 text-center text-sm">
+              {committee.shortDescription}
+            </p>
+          </div>
+        )}
         
         <div className="mb-6">
-          <h4 className="text-lg font-semibold text-white mb-3 text-center">Agenda Topics:</h4>
-          <ul className="space-y-2">
+          <h4 className="text-lg font-semibold text-white mb-3 text-center">Agenda Topic:</h4>
+          <div className="space-y-2">
             {committee.topics.map((topic, topicIndex) => (
-              <li key={topicIndex} className="flex items-start">
+              <div key={topicIndex} className="flex items-start">
                 <div className="w-5 h-5 rounded-full bg-mun-purple flex items-center justify-center mt-1 mr-3 flex-shrink-0">
-                  <span className="text-white text-xs">{topicIndex + 1}</span>
+                  <span className="text-white text-xs">A</span>
                 </div>
-                <span className="text-white/90">{topic}</span>
-              </li>
+                <span className="text-white/90 text-left">{topic}</span>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-center gap-3 mb-4">
@@ -85,11 +93,11 @@ const CommitteeCard = ({ committee, index }: CommitteeCardProps) => {
             href={committee.studyGuideUrl || "#"} 
             target="_blank" 
             rel="noopener noreferrer"
-            className={!committee.studyGuideUrl ? "pointer-events-none" : ""}
+            className={!committee.studyGuideUrl ? "pointer-events-none opacity-50" : ""}
           >
-            <Button variant="secondary" className="bg-mun-purple/40 hover:bg-mun-purple/60 w-full">
+            <Button className="bg-mun-purple hover:bg-mun-purple-light w-full">
               <FileText className="mr-2 w-4 h-4" />
-              Study Guide
+              Access Study Guide
             </Button>
           </a>
           <Link to={`/committees/${committee.abbr.toLowerCase()}`}>

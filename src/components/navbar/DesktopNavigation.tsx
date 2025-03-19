@@ -30,7 +30,7 @@ const DesktopNavigation = ({
             <>
               <button
                 onClick={() => toggleDropdown(link.name)}
-                className={`flex items-center px-4 py-2.5 rounded-full transition-colors duration-300
+                className={`flex items-center px-4 py-2.5 rounded-full transition-colors duration-300 text-left
                   ${isActive(link.path) 
                     ? 'text-mun-purple-light bg-mun-purple/10' 
                     : 'text-white hover:text-mun-purple-light hover:bg-white/5'}`}
@@ -51,7 +51,7 @@ const DesktopNavigation = ({
                       name={subitem.name}
                       path={subitem.path}
                       isActive={isActive(subitem.path)}
-                      className="block px-5 py-2.5 hover:bg-mun-purple/20"
+                      className="block px-5 py-2.5 text-left hover:bg-mun-purple/20"
                     />
                   ))}
                 </div>
@@ -62,7 +62,7 @@ const DesktopNavigation = ({
               name={link.name}
               path={link.path}
               isActive={isActive(link.path)}
-              className="block px-4 py-2.5 rounded-full hover:bg-white/5"
+              className="block px-4 py-2.5 text-left rounded-full hover:bg-white/5"
             />
           )}
         </div>

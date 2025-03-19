@@ -1,7 +1,7 @@
 
 import { motion } from 'framer-motion';
-import { Department } from "./types";
-import ChairCard from "./ChairCard";
+import { Department } from './types';
+import ChairCard from './ChairCard';
 
 interface DepartmentSectionProps {
   department: Department;
@@ -9,27 +9,42 @@ interface DepartmentSectionProps {
 }
 
 const DepartmentSection = ({ department, index }: DepartmentSectionProps) => {
+  const isEven = index % 2 === 0;
+  
   return (
-    <motion.section 
-      className="mb-20 w-full" 
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: 1, y: 0 }} 
-      transition={{ duration: 0.5, delay: 0.1 * index }}
+    <motion.div 
+      className="w-full mb-16"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
     >
-      <h2 className="text-2xl font-bold text-white text-center mb-2">
-        {department.name}
-      </h2>
+      <motion.div 
+        className="text-center mb-10"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.1, duration: 0.5 }}
+      >
+        <h2 className="text-3xl font-bold text-white mb-4">{department.name}</h2>
+        <p className="text-white/70 mb-6 max-w-3xl mx-auto">{department.description}</p>
+      </motion.div>
       
-      {department.description && (
-        <p className="text-white/70 text-center max-w-2xl mx-auto mb-8">
-          {department.description}
-        </p>
-      )}
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto place-items-center justify-items-center">
-        {department.chairs.map(chair => <ChairCard key={chair.name} chair={chair} />)}
+      <div className="flex flex-wrap gap-6 justify-center max-w-4xl mx-auto">
+        {department.chairs.map((chair, chairIndex) => (
+          <motion.div
+            key={chair.name}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: chairIndex * 0.1, duration: 0.5 }}
+            className="w-full sm:w-64"
+          >
+            <ChairCard chair={chair} />
+          </motion.div>
+        ))}
       </div>
-    </motion.section>
+    </motion.div>
   );
 };
 

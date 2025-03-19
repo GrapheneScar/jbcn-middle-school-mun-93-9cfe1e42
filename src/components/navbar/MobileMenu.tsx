@@ -79,7 +79,7 @@ const MobileMenu = ({ isOpen, navLinks, isActive, onLinkClick }: MobileMenuProps
                               <Link
                                 key={subitem.name}
                                 to={subitem.path}
-                                className={`block py-3 px-2 text-base ${
+                                className={`block py-3 px-2 text-base text-left ${
                                   isActive(subitem.path) 
                                     ? 'text-mun-purple-light' 
                                     : 'text-white/80 hover:text-mun-purple-light'
@@ -96,7 +96,7 @@ const MobileMenu = ({ isOpen, navLinks, isActive, onLinkClick }: MobileMenuProps
                   ) : (
                     <Link
                       to={link.path}
-                      className={`block py-3 px-2 text-lg font-medium ${
+                      className={`block py-3 px-2 text-lg font-medium text-left ${
                         isActive(link.path) 
                           ? 'text-mun-purple-light' 
                           : 'text-white hover:text-mun-purple-light'

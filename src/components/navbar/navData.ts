@@ -17,16 +17,12 @@ export const navLinks: NavLinkWithSubmenu[] = [
   },
   { 
     name: 'COMMITTEES', 
-    path: '/committees',
-    submenu: [
-      { name: 'All Committees', path: '/committees' }
-    ]
+    path: '/committees'
   },
   { 
     name: 'QUICK ACCESS', 
     path: '#',
     submenu: [
-      { name: 'Delegate Preparation', path: '/delegate-preparation' },
       { name: 'Resources', path: '/resources' },
       { name: 'Gallery', path: '/gallery' }
     ]

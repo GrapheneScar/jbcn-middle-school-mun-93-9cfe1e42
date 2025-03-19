@@ -2,9 +2,10 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { committeesData } from './committees-data';
-import { ArrowLeft, FileClock, Globe, Users, FileText, BookOpen, Globe2 } from 'lucide-react';
+import { ArrowLeft, Users, FileText } from 'lucide-react';
 import { Button } from '../ui/button';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import CommitteeTabs from './CommitteeTabs';
+import CommitteeResources from './CommitteeResources';
 
 const CommitteeDetail = () => {
   const { abbr } = useParams<{ abbr: string; }>();
@@ -93,163 +94,11 @@ const CommitteeDetail = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-12"
         >
-          <Tabs defaultValue="overview" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-8 rounded-full bg-black/30 border border-mun-purple/30 p-1 max-w-md mx-auto py-0">
-              <TabsTrigger value="overview" className="rounded-full text-sm px-4 py-2">Overview</TabsTrigger>
-              <TabsTrigger value="agenda" className="rounded-full text-sm px-4 py-2">Agenda</TabsTrigger>
-              <TabsTrigger value="chairs" className="rounded-full text-sm px-4 py-2">Chairs</TabsTrigger>
-            </TabsList>
-            
-            <TabsContent value="overview" className="space-y-6">
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className="glass-panel p-6"
-              >
-                <h2 className="text-2xl font-bold mb-4 flex items-center justify-center">
-                  <Globe className="mr-3 text-mun-purple-light" /> About the Committee
-                </h2>
-                <p className="text-white/80 mb-4 text-center">{committee.description}</p>
-                {committee.background && <p className="text-white/80 text-center">{committee.background}</p>}
-              </motion.div>
-            </TabsContent>
-            
-            <TabsContent value="agenda" className="space-y-6">
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className="glass-panel p-6"
-              >
-                <h2 className="text-2xl font-bold mb-6 flex items-center justify-center">
-                  <FileClock className="mr-3 text-mun-purple-light" /> Agenda Topics
-                </h2>
-                <div className="space-y-8 max-w-3xl mx-auto">
-                  {committee.topics.map((topic, index) => (
-                    <div key={index} className="border-l-4 border-mun-purple pl-6 py-2">
-                      <h3 className="text-xl font-semibold text-white mb-3 text-center">Topic {index + 1}: {topic}</h3>
-                      <p className="text-white/80 text-center">
-                        Delegates will discuss key issues related to this topic, propose solutions,
-                        and work together to draft a comprehensive resolution that addresses the challenges 
-                        faced by the international community.
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            </TabsContent>
-            
-            <TabsContent value="chairs" className="space-y-6">
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className="space-y-6"
-              >
-                <h2 className="text-2xl font-bold mb-4 flex items-center justify-center">
-                  <Users className="mr-3 text-mun-purple-light" /> Committee Leadership
-                </h2>
-                
-                <div className="grid gap-8 md:grid-cols-2">
-                  {committee.chairs.map((chair, index) => (
-                    <motion.div 
-                      key={chair.name}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                    >
-                      <div className="glass-panel h-full">
-                        <div className="p-6 flex flex-col items-center text-center">
-                          <div className="w-32 h-32 rounded-full overflow-hidden mb-4 flex-shrink-0">
-                            <img 
-                              src={chair.photo} 
-                              alt={chair.name} 
-                              className="w-full h-full object-cover" 
-                            />
-                          </div>
-                          <div>
-                            <h3 className="text-xl font-bold">{chair.name}</h3>
-                            <p className="text-mun-purple-light italic mb-4">{chair.title}</p>
-                            <p className="text-white/80">{chair.bio}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            </TabsContent>
-          </Tabs>
+          <CommitteeTabs committee={committee} />
         </motion.div>
 
         {/* Committee Resources Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-12"
-        >
-          <h2 className="text-3xl font-bold text-white text-center mb-8">Committee Resources</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
-              className="relative overflow-hidden rounded-lg group cursor-pointer"
-            >
-              <a 
-                href="#" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="block"
-              >
-                <div className="relative aspect-[4/5] overflow-hidden">
-                  <img 
-                    src="/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png" 
-                    alt="Study Guide" 
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-70 transition-all duration-300 flex flex-col items-center justify-center">
-                    <BookOpen className="w-12 h-12 text-white mb-3" />
-                    <h3 className="text-xl font-bold text-white">Study Guide</h3>
-                    <p className="text-white/80 text-sm mt-2 max-w-[80%] text-center">
-                      Comprehensive guide for understanding the committee topics
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </motion.div>
-            
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
-              className="relative overflow-hidden rounded-lg group cursor-pointer"
-            >
-              <a 
-                href="#" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="block"
-              >
-                <div className="relative aspect-[4/5] overflow-hidden">
-                  <img 
-                    src="/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png" 
-                    alt="Country Matrix" 
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-70 transition-all duration-300 flex flex-col items-center justify-center">
-                    <Globe2 className="w-12 h-12 text-white mb-3" />
-                    <h3 className="text-xl font-bold text-white">Country Matrix</h3>
-                    <p className="text-white/80 text-sm mt-2 max-w-[80%] text-center">
-                      Overview of country positions on committee topics
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </motion.div>
-          </div>
-        </motion.div>
+        <CommitteeResources studyGuideUrl={committee.studyGuideUrl} />
       </div>
     </div>
   );

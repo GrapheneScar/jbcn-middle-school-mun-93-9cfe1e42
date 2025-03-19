@@ -1,347 +1,138 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import PageTransition from '../components/PageTransition';
-import { useToast } from "@/components/ui/use-toast";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { File, FileText, ExternalLink, ChevronRight } from 'lucide-react';
 
-interface NewsletterPDF {
-  title: string;
-  date: string;
-  issue: string;
-  coverImage: string;
-  pdfUrl: string;
-}
+import { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { File } from 'lucide-react';
+import PageTransition from '../components/PageTransition';
+import StripeBackground from '../components/StripeBackground';
+import { Separator } from '@/components/ui/separator';
 
 const Newsletter = () => {
-  const { toast } = useToast();
-  const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setLoading(false);
-      setEmail('');
-      toast({
-        title: "Subscription Successful!",
-        description: "Thank you for subscribing to our newsletter.",
-      });
-    }, 1500);
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5, ease: "easeOut" }
-    }
-  };
-
-  const announcements = [
+  const newsletters = [
     {
       id: 1,
-      title: "Conference Announcement",
-      date: "May 15, 2023",
-      description: "Official announcement of the upcoming Middle School MUN Conference with dates and venue details."
+      title: "Pre-Conference Newsletter",
+      date: "April 2025",
+      description: "Get to know the conference structure, committees, and special events planned for this year's MUN.",
+      coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+      pdfUrl: "https://drive.google.com/file/d/123/view"
     },
     {
       id: 2,
-      title: "Committee Revelations",
-      date: "June 2, 2023",
-      description: "Reveal of this year's committees and agendas. Exciting debates await!"
+      title: "Day 1 - Morning Edition",
+      date: "April 25, 2025",
+      description: "Highlights from the opening ceremony and first committee sessions.",
+      coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+      pdfUrl: "https://drive.google.com/file/d/123/view"
     },
     {
       id: 3,
-      title: "Keynote Speaker Announcement",
-      date: "July 10, 2023",
-      description: "We are excited to announce our keynote speaker for the opening ceremony."
+      title: "Day 1 - Evening Edition",
+      date: "April 25, 2025",
+      description: "Major developments from committee debates and key diplomatic breakthroughs.",
+      coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+      pdfUrl: "https://drive.google.com/file/d/123/view"
     },
     {
       id: 4,
-      title: "Delegate Preparation Guide",
-      date: "August 5, 2023",
-      description: "Comprehensive guide for delegates to prepare for their respective committees."
+      title: "Day 2 - Morning Edition",
+      date: "April 26, 2025",
+      description: "Recap of resolution progress and emerging alliances across committees.",
+      coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+      pdfUrl: "https://drive.google.com/file/d/123/view"
+    },
+    {
+      id: 5,
+      title: "Conference Wrap-Up",
+      date: "April 26, 2025",
+      description: "Final outcomes, award winners, and memorable moments from JBCN Parel MUN 2025.",
+      coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+      pdfUrl: "https://drive.google.com/file/d/123/view"
     }
   ];
-
-  const newsletterPDFs: NewsletterPDF[] = [
-    {
-      title: "JBCN MUN Weekly Dispatch",
-      date: "March 15, 2024",
-      issue: "Issue 1",
-      coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
-      pdfUrl: "https://drive.google.com/file/d/sample1/view"
-    },
-    {
-      title: "Committee Spotlight Edition",
-      date: "March 22, 2024",
-      issue: "Issue 2",
-      coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
-      pdfUrl: "https://drive.google.com/file/d/sample2/view"
-    },
-    {
-      title: "Delegate Preparation Special",
-      date: "March 29, 2024",
-      issue: "Issue 3",
-      coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
-      pdfUrl: "https://drive.google.com/file/d/sample3/view"
-    },
-    {
-      title: "Conference Countdown",
-      date: "April 5, 2024",
-      issue: "Issue 4",
-      coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
-      pdfUrl: "https://drive.google.com/file/d/sample4/view"
-    },
-    {
-      title: "Final Preparation Guide",
-      date: "April 12, 2024",
-      issue: "Issue 5",
-      coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
-      pdfUrl: "https://drive.google.com/file/d/sample5/view"
-    }
-  ];
-
+  
   return (
     <PageTransition>
-      <div className="min-h-screen pt-24 pb-16 px-4">
-        <motion.div 
-          className="container mx-auto max-w-5xl"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
+      <StripeBackground />
+      
+      <section className="pt-32 pb-20 px-4 relative">
+        <div className="container mx-auto">
           <motion.div 
             className="text-center mb-16"
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            <h1 className="text-5xl font-bold mb-4 text-white">Newsletter</h1>
-            <p className="text-xl text-white/70 max-w-2xl mx-auto">
-              Stay updated with the latest announcements, resources, and recap of our Model United Nations events.
+            <h1 className="text-5xl font-bold text-white mb-6">MUN Newsletter</h1>
+            <div className="w-20 h-1 bg-mun-purple mx-auto mb-8"></div>
+            <p className="text-lg text-white/80 max-w-3xl mx-auto">
+              Stay informed with the latest updates, highlights, and developments from JBCN Parel MUN 2025 through our official conference newsletter.
             </p>
           </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-            <motion.div 
-              className="md:col-span-2"
-              variants={itemVariants}
-            >
-              <Card className="bg-black/40 backdrop-blur-md border-mun-purple/30 shadow-xl overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-mun-purple/20 to-transparent rounded-lg -z-10" />
-                <CardHeader>
-                  <CardTitle className="text-white text-2xl">Subscribe to Our Newsletter</CardTitle>
-                  <CardDescription className="text-white/70">
-                    Get the latest updates directly to your inbox
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubscribe} className="space-y-4">
-                    <Input
-                      type="email"
-                      placeholder="Your email address"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
-                    />
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      <Button 
-                        type="submit" 
-                        disabled={loading}
-                        className="bg-mun-purple hover:bg-mun-purple-dark text-white"
-                      >
-                        {loading ? "Subscribing..." : "Subscribe"}
-                      </Button>
-                      <Button variant="outline" className="border-white/20 text-white hover:bg-white/10">
-                        Learn More
-                      </Button>
-                    </div>
-                  </form>
-                </CardContent>
-                <CardFooter className="text-sm text-white/50">
-                  We respect your privacy. Unsubscribe at any time.
-                </CardFooter>
-              </Card>
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-              <Card className="bg-black/40 backdrop-blur-md border-mun-purple/30 shadow-xl h-full">
-                <CardHeader>
-                  <CardTitle className="text-white">Newsletter Benefits</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {["Early access to conference details", "Exclusive resources for delegates", "Important deadlines reminders", "Conference recaps"].map((benefit, index) => (
-                    <motion.div
-                      key={index}
-                      className="flex items-center gap-3"
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.5 + (index * 0.1) }}
-                    >
-                      <div className="w-2 h-2 rounded-full bg-mun-purple" />
-                      <p className="text-white/80">{benefit}</p>
-                    </motion.div>
-                  ))}
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
-
-          {/* Newsletter PDF Section */}
-          <motion.div variants={itemVariants} className="mb-20">
-            <h2 className="text-3xl font-bold text-white mb-8 text-center">Newsletter Archives</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {newsletterPDFs.map((newsletter, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                  className="relative overflow-hidden rounded-lg group cursor-pointer"
+        </div>
+      </section>
+      
+      <section className="pb-20 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {newsletters.map((newsletter, index) => (
+              <motion.div
+                key={newsletter.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(121,83,169,0.3)" }}
+                className="glass-panel overflow-hidden rounded-xl"
+              >
+                <a 
+                  href={newsletter.pdfUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block"
                 >
-                  <a 
-                    href={newsletter.pdfUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="block"
-                  >
-                    <div className="relative aspect-[3/4] overflow-hidden">
-                      <img 
-                        src={newsletter.coverImage} 
-                        alt={newsletter.title} 
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-70 transition-all duration-300 flex flex-col items-center justify-center">
-                        <File className="w-12 h-12 text-white mb-3" />
-                        <h3 className="text-xl font-bold text-white">{newsletter.title}</h3>
-                        <p className="text-white/80 text-sm mt-1">{newsletter.issue} - {newsletter.date}</p>
-                        <div className="mt-4 px-4 py-2 bg-mun-purple rounded-full flex items-center text-sm text-white">
-                          <FileText className="w-4 h-4 mr-2" />
-                          Open PDF
-                          <ExternalLink className="w-3 h-3 ml-2" />
-                        </div>
-                      </div>
+                  <div className="relative h-64 overflow-hidden">
+                    <img 
+                      src={newsletter.coverImage} 
+                      alt={newsletter.title} 
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                    <div className="absolute top-0 right-0 p-3">
+                      <span className="inline-block bg-mun-purple text-white text-xs rounded-full px-3 py-1">
+                        {newsletter.date}
+                      </span>
                     </div>
-                  </a>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div variants={itemVariants}>
-            <h2 className="text-3xl font-bold text-white mb-8">Announcements</h2>
-            
-            <Tabs defaultValue="all" className="mb-12">
-              <TabsList className="bg-black/50 border border-white/10 mb-6">
-                <TabsTrigger value="all">All Announcements</TabsTrigger>
-                <TabsTrigger value="announcements">Conference</TabsTrigger>
-                <TabsTrigger value="resources">Resources</TabsTrigger>
-                <TabsTrigger value="recaps">Recaps</TabsTrigger>
-              </TabsList>
-              
-              <TabsContent value="all" className="mt-0">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {announcements.map((announcement, index) => (
-                    <motion.div
-                      key={announcement.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                    >
-                      <Card className="overflow-hidden hover:shadow-lg hover:border-mun-purple/50 transition-all duration-300 bg-black/40 backdrop-blur-md border-white/10">
-                        <CardHeader>
-                          <div className="flex justify-between items-start">
-                            <CardTitle className="text-white">{announcement.title}</CardTitle>
-                            <span className="text-sm text-white/50">{announcement.date}</span>
-                          </div>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-white/70">{announcement.description}</p>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  ))}
-                </div>
-              </TabsContent>
-              
-              <TabsContent value="announcements" className="mt-0">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {announcements.slice(0, 2).map((announcement, index) => (
-                    <motion.div
-                      key={announcement.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                    >
-                      <Card className="overflow-hidden hover:shadow-lg hover:border-mun-purple/50 transition-all duration-300 bg-black/40 backdrop-blur-md border-white/10">
-                        <CardHeader>
-                          <div className="flex justify-between items-start">
-                            <CardTitle className="text-white">{announcement.title}</CardTitle>
-                            <span className="text-sm text-white/50">{announcement.date}</span>
-                          </div>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-white/70">{announcement.description}</p>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  ))}
-                </div>
-              </TabsContent>
-              
-              <TabsContent value="resources" className="mt-0">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {announcements.slice(3, 4).map((announcement, index) => (
-                    <motion.div
-                      key={announcement.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                    >
-                      <Card className="overflow-hidden hover:shadow-lg hover:border-mun-purple/50 transition-all duration-300 bg-black/40 backdrop-blur-md border-white/10">
-                        <CardHeader>
-                          <div className="flex justify-between items-start">
-                            <CardTitle className="text-white">{announcement.title}</CardTitle>
-                            <span className="text-sm text-white/50">{announcement.date}</span>
-                          </div>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-white/70">{announcement.description}</p>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  ))}
-                </div>
-              </TabsContent>
-              
-              <TabsContent value="recaps" className="mt-0">
-                <div className="p-8 text-center text-white/70 bg-black/20 rounded-lg border border-white/10">
-                  <p>No recap announcements available yet. Check back after our upcoming conference!</p>
-                </div>
-              </TabsContent>
-            </Tabs>
-          </motion.div>
-        </motion.div>
-      </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <h3 className="text-xl font-bold text-white mb-1">{newsletter.title}</h3>
+                      <p className="text-white/80 text-sm">{newsletter.description}</p>
+                    </div>
+                  </div>
+                  <div className="p-4 flex justify-center items-center text-mun-purple-light hover:text-mun-purple transition-colors">
+                    <File className="mr-2 h-5 w-5" />
+                    <span>View PDF</span>
+                  </div>
+                </a>
+              </motion.div>
+            ))}
+          </div>
+          
+          <Separator className="max-w-md mx-auto my-16 bg-mun-purple/30" />
+          
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-white mb-6">Stay Connected</h2>
+            <p className="text-white/80 mb-8">
+              Our newsletter is more than just updates—it's a real-time chronicle of diplomatic history in the making. Each issue captures the essence of debate, negotiation, and resolution-drafting as they unfold.
+            </p>
+            <p className="text-white/80 italic">
+              The newsletter is published by our dedicated Press Corps team, who work diligently to document the conference proceedings.
+            </p>
+          </div>
+        </div>
+      </section>
     </PageTransition>
   );
 };
