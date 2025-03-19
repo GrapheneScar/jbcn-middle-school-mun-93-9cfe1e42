@@ -69,7 +69,7 @@ const CommitteeCard = ({
           <div className="space-y-2">
             {committee.topics.map((topic, topicIndex) => <div key={topicIndex} className="flex items-start">
                 <div className="w-5 h-5 rounded-full bg-mun-purple flex items-center justify-center mt-1 mr-3 flex-shrink-0">
-                  <span className="text-white text-xs">A</span>
+                  
                 </div>
                 <span className="text-white/90 py-0 px-[110px] text-center">{topic}</span>
               </div>)}
