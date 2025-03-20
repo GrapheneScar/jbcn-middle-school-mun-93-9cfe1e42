@@ -8,7 +8,6 @@ import AboutHeader from '../components/about/AboutHeader';
 import MissionVisionSection from '../components/about/MissionVisionSection';
 import CoreValuesSection from '../components/about/CoreValuesSection';
 import SecretariatSection from '../components/about/SecretariatSection';
-import DepartmentHeadsSection from '../components/about/DepartmentHeadsSection';
 
 const AboutUs = () => {
   useEffect(() => {
@@ -36,39 +35,6 @@ const AboutUs = () => {
     },
   ];
 
-  const departmentHeads = [
-    {
-      name: "Riddhi Bavadiya & Yana Mehta",
-      role: "Head of Social Media",
-      image: "/lovable-uploads/dishita.png",
-      bio: "Managing the social media presence of JBCN MUN, we work to engage with delegates and spread awareness about our conference across various platforms.",
-    },
-    {
-      name: "Samay Shah & Naaham Shah",
-      role: "Head of Website Design",
-      image: "/lovable-uploads/bharatvir.jpg",
-      bio: "As the Heads of Website Design, we've created and maintain the digital platform that showcases JBCN MUN to the world. Our goal is to provide an intuitive and engaging experience for all visitors.",
-    },
-    {
-      name: "Aarna Amberkar",
-      role: "Head of Press",
-      image: "/lovable-uploads/shaurya.png",
-      bio: "Leading the press team, I manage the documentation of conference proceedings and ensure that all key moments of debate and diplomacy are captured in our reporting.",
-    },
-    {
-      name: "Keerthana Reddy & Rayhan Parikh",
-      role: "Head of Photography",
-      image: "/lovable-uploads/geiv.jpeg",
-      bio: "As the Photography team leads, we capture the visual narrative of JBCN MUN, preserving the moments of collaboration, debate, and achievement that define our conference.",
-    },
-    {
-      name: "Radhika Dutt",
-      role: "Head of Illustration",
-      image: "/lovable-uploads/adhiraj.jpeg",
-      bio: "Leading the illustration team, I create visual content that complements the MUN experience, from committee logos to promotional materials that capture the spirit of diplomacy.",
-    }
-  ];
-
   return (
     <PageTransition>
       <StripeBackground />
@@ -84,11 +50,6 @@ const AboutUs = () => {
       
       {/* Secretariat Section */}
       <SecretariatSection secretariat={secretariat} />
-      
-      {/* Department Heads Section */}
-      <DepartmentHeadsSection 
-        departmentHeads={departmentHeads}
-      />
     </PageTransition>
   );
 };

@@ -20,42 +20,78 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
             transition={{ duration: 0.5 }}
             className="text-center"
           >
-            {/* Flying hashtags */}
-            {[...Array(15)].map((_, i) => (
+            {/* Flying hashtags with improved visuals */}
+            {[...Array(20)].map((_, i) => (
               <motion.div
                 key={i}
                 initial={{ 
                   x: Math.random() * window.innerWidth, 
                   y: window.innerHeight + 100,
-                  opacity: 0
+                  opacity: 0,
+                  rotate: Math.random() * 20 - 10
                 }}
                 animate={{ 
                   x: Math.random() * window.innerWidth, 
                   y: -100,
                   opacity: [0, 1, 0.8, 0],
-                  rotate: Math.random() * 360
+                  rotate: Math.random() * 360,
+                  scale: [0.7, 1.2, 0.9]
                 }}
                 transition={{ 
-                  duration: 3 + Math.random() * 4,
-                  delay: i * 0.2,
+                  duration: 4 + Math.random() * 5,
+                  delay: i * 0.15,
                   ease: "easeOut"
                 }}
-                className="absolute text-purple-400 font-bold"
-                style={{ fontSize: `${Math.random() * 20 + 20}px` }}
+                className="absolute text-purple-400 font-bold drop-shadow-[0_0_8px_rgba(121,83,169,0.8)]"
+                style={{ 
+                  fontSize: `${Math.random() * 20 + 20}px`,
+                  filter: `hue-rotate(${Math.random() * 40 - 20}deg)`
+                }}
               >
-                #{["JBCNMUN", "Diplomacy", "GlobalLeaders", "DebateMasters", "FutureDiplomats"][Math.floor(Math.random() * 5)]}
+                #{["JBCNMUN", "Diplomacy", "GlobalLeaders", "DebateMasters", "FutureDiplomats", "ModelUN", "Youth", "Leadership"][Math.floor(Math.random() * 8)]}
               </motion.div>
             ))}
+            
+            {/* Background pulse effect */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ 
+                opacity: [0, 0.1, 0.15, 0.1, 0], 
+                scale: [1, 5, 8, 12, 15] 
+              }}
+              transition={{ 
+                duration: 6, 
+                repeat: 1, 
+                repeatType: "reverse" 
+              }}
+              className="fixed inset-0 bg-purple-600 rounded-full z-[-1]"
+              style={{ transformOrigin: "center" }}
+            />
             
             <motion.div
               animate={{ 
                 scale: [1, 1.3, 1],
-                rotateZ: [0, 10, -10, 0]
+                rotateZ: [0, 10, -10, 0],
+                filter: ["drop-shadow(0 0 8px rgba(121,83,169,0.3))", "drop-shadow(0 0 20px rgba(121,83,169,0.8))", "drop-shadow(0 0 8px rgba(121,83,169,0.3))"]
               }}
               transition={{ duration: 3, repeat: 1 }}
               className="p-10 rounded-full bg-purple-600/30 backdrop-blur-md"
             >
               <Hash className="text-white h-20 w-20" />
+              <motion.div
+                animate={{ 
+                  opacity: [0, 1, 0],
+                  scale: [0.8, 1.2, 0.8]
+                }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: 2, 
+                  repeatType: "reverse" 
+                }}
+                className="absolute inset-0 flex items-center justify-center"
+              >
+                <Sparkles className="text-purple-200 h-24 w-24" />
+              </motion.div>
             </motion.div>
           </motion.div>
         )}
@@ -65,31 +101,76 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: [0, 0.3, 0.1, 0.5, 0.2, 0.7, 0.3, 1, 0] }}
-              transition={{ duration: 3, times: [0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 1] }}
-              className="fixed inset-0 bg-black/20 backdrop-blur-[2px]"
+              transition={{ duration: 5, times: [0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 1] }}
+              className="fixed inset-0 bg-black/40 backdrop-blur-[4px]"
             />
             
-            {/* Matrix-like code rain effect */}
+            {/* Digital distortion overlays */}
+            <motion.div 
+              className="fixed inset-0 opacity-20 mix-blend-overlay pointer-events-none"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 0.05, 0.2, 0.05, 0.15, 0.05] }}
+              transition={{ duration: 4, repeat: 1, repeatType: "reverse" }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-transparent to-blue-900/30" />
+              
+              {/* Scan lines effect */}
+              {[...Array(40)].map((_, i) => (
+                <motion.div 
+                  key={i}
+                  className="absolute w-full h-[2px] bg-white/10"
+                  style={{ top: `${i * 2.5}%` }}
+                  animate={{ 
+                    opacity: [0.1, 0.3, 0.1],
+                    x: [0, Math.random() * 10 - 5, 0]
+                  }}
+                  transition={{ 
+                    duration: 2 + Math.random() * 2, 
+                    repeat: Infinity, 
+                    repeatType: "reverse" 
+                  }}
+                />
+              ))}
+            </motion.div>
+            
+            {/* Matrix-like code rain effect with improved visuals */}
             <div className="fixed inset-0 overflow-hidden">
-              {[...Array(15)].map((_, i) => (
+              {[...Array(20)].map((_, i) => (
                 <motion.div
                   key={i}
-                  initial={{ y: -200, x: Math.random() * window.innerWidth }}
-                  animate={{ y: window.innerHeight + 200 }}
+                  initial={{ y: -300, x: Math.random() * window.innerWidth }}
+                  animate={{ y: window.innerHeight + 300 }}
                   transition={{ 
-                    duration: 4 + Math.random() * 3,
+                    duration: 4 + Math.random() * 4,
                     repeat: 1,
-                    repeatType: "reverse",
+                    repeatType: "loop",
                     ease: "linear",
-                    delay: i * 0.2
+                    delay: i * 0.15
                   }}
-                  className="absolute text-green-400 font-mono text-opacity-80"
-                  style={{ fontSize: `${Math.random() * 10 + 14}px` }}
+                  className="absolute text-green-400 font-mono text-opacity-80 drop-shadow-[0_0_8px_rgba(74,222,128,0.5)]"
+                  style={{ fontSize: `${Math.random() * 10 + 12}px` }}
                 >
-                  {[...Array(Math.floor(Math.random() * 15) + 5)].map((_, j) => (
-                    <div key={j} className="my-1">
+                  {[...Array(Math.floor(Math.random() * 20) + 8)].map((_, j) => (
+                    <motion.div 
+                      key={j} 
+                      className="my-1"
+                      animate={{ 
+                        opacity: [0.7, 1, 0.7], 
+                        color: [
+                          'rgb(74, 222, 128)', 
+                          'rgb(134, 239, 172)', 
+                          'rgb(74, 222, 128)'
+                        ]
+                      }}
+                      transition={{ 
+                        duration: 1.5 + Math.random() * 2,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                        delay: j * 0.05
+                      }}
+                    >
                       {Math.random().toString(36).substring(2, 2 + Math.random() * 10)}
-                    </div>
+                    </motion.div>
                   ))}
                 </motion.div>
               ))}
@@ -100,35 +181,76 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
               animate={{ scale: [0, 1.2, 0.9, 1], opacity: [0, 1] }}
               exit={{ scale: 0, opacity: 0 }}
               transition={{ duration: 0.6, times: [0, 0.6, 0.8, 1] }}
-              className="z-10 bg-black/80 p-8 rounded-xl border border-green-500 shadow-[0_0_20px_rgba(0,255,0,0.5)]"
+              className="z-10 bg-black/80 p-8 rounded-xl border border-green-500 shadow-[0_0_30px_rgba(0,255,0,0.5)]"
             >
-              <Terminal className="text-green-400 h-16 w-16 mb-4 mx-auto" />
+              <motion.div 
+                animate={{ 
+                  rotate: [0, 5, -5, 0],
+                  scale: [1, 1.05, 0.95, 1]
+                }}
+                transition={{ 
+                  duration: 4, 
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }}
+              >
+                <Terminal className="text-green-400 h-16 w-16 mb-4 mx-auto drop-shadow-[0_0_8px_rgba(74,222,128,0.8)]" />
+              </motion.div>
+              
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.3 }}
               >
-                <p className="text-green-400 font-mono text-lg">&gt; 404 Error - Just Kidding!</p>
+                <p className="text-green-400 font-mono text-lg mb-2">&gt; 404 Error - Just Kidding!</p>
                 <p className="text-green-400 font-mono text-lg">&gt; Website functioning perfectly.</p>
                 <motion.div
                   animate={{ opacity: [1, 0, 1] }}
-                  transition={{ repeat: 3, duration: 0.8 }}
+                  transition={{ repeat: Infinity, duration: 0.8 }}
                   className="h-4 w-3 bg-green-400 inline-block ml-1"
                 />
               </motion.div>
+              
+              {/* Glowing background for terminal */}
+              <motion.div 
+                className="absolute inset-0 -z-10 rounded-xl bg-green-500/5"
+                animate={{ 
+                  boxShadow: [
+                    "0 0 10px rgba(74,222,128,0.3) inset", 
+                    "0 0 20px rgba(74,222,128,0.5) inset", 
+                    "0 0 10px rgba(74,222,128,0.3) inset"
+                  ]
+                }}
+                transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+              />
             </motion.div>
           </>
         )}
         
         {activeEasterEgg === "Head of Press" && (
           <>
+            {/* TV static effect */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.05 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 pointer-events-none"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                mixBlendMode: "multiply"
+              }}
+            />
+          
             {/* Breaking news banner */}
             <motion.div 
               initial={{ y: -100 }}
               animate={{ y: 0 }}
               exit={{ y: -100 }}
               transition={{ duration: 0.5 }}
-              className="fixed inset-x-0 top-0 h-16 bg-red-600 flex items-center justify-center z-10"
+              className="fixed inset-x-0 top-0 h-16 bg-red-600 flex items-center justify-center z-10 shadow-xl"
             >
               <motion.div
                 initial={{ opacity: 0 }}
@@ -139,16 +261,48 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
                 <Newspaper className="text-white h-8 w-8 mr-3" />
                 <h3 className="text-white font-bold text-lg uppercase tracking-wider">Breaking News</h3>
               </motion.div>
+              
+              {/* Scrolling news ticker */}
+              <motion.div 
+                className="absolute bottom-0 inset-x-0 h-4 bg-black/80 overflow-hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8 }}
+              >
+                <motion.div 
+                  className="text-white text-xs whitespace-nowrap"
+                  initial={{ x: window.innerWidth }}
+                  animate={{ x: -2000 }}
+                  transition={{ 
+                    duration: 20, 
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    ease: "linear"
+                  }}
+                >
+                  BREAKING: DELEGATES ACHIEVE WORLD PEACE IN RECORD TIME • UN SECRETARY GENERAL IMPRESSED BY MIDDLE SCHOOL STUDENTS • CLIMATE CRISIS SOLVED BY INNOVATIVE RESOLUTION • HISTORIC AGREEMENT REACHED ON GLOBAL EDUCATION • 
+                </motion.div>
+              </motion.div>
             </motion.div>
             
-            {/* Newspaper headlines */}
+            {/* Newspaper headlines with improved visuals */}
             <div className="fixed inset-0 flex items-center justify-center">
               <motion.div
                 initial={{ scale: 0, y: 100, opacity: 0 }}
                 animate={{ scale: 1, y: 0, opacity: 1 }}
                 transition={{ duration: 0.7, delay: 0.6 }}
-                className="bg-white p-8 rounded-md max-w-2xl shadow-2xl transform rotate-1"
+                className="bg-white p-8 rounded-md max-w-2xl shadow-2xl transform rotate-1 relative overflow-hidden"
               >
+                {/* Aged paper texture */}
+                <motion.div 
+                  className="absolute inset-0 opacity-10 pointer-events-none"
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)'/%3E%3C/svg%3E")`,
+                    backgroundPosition: "center",
+                    backgroundSize: "cover"
+                  }}
+                />
+                
                 <div className="text-center border-b-2 border-black pb-2 mb-4">
                   <h2 className="text-3xl font-serif font-bold">THE MUN TIMES</h2>
                   <p className="text-gray-600">The Official Newspaper of JBCN Middle School MUN</p>
@@ -174,9 +328,26 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
                   </p>
                 </div>
                 
-                <div className="text-xs text-gray-500 mt-4 border-t pt-2">
-                  Published April 26, 2024 | Definitely Not Fake News
+                <div className="text-xs text-gray-500 mt-4 border-t pt-2 flex justify-between">
+                  <span>Published April 26, 2024</span>
+                  <span>Definitely Not Fake News</span>
                 </div>
+                
+                {/* Newspaper fold effect */}
+                <motion.div 
+                  className="absolute inset-0 bg-black/5"
+                  style={{
+                    clipPath: "polygon(0 50%, 100% 50%, 100% 50.5%, 0 50.5%)"
+                  }}
+                  animate={{ 
+                    clipPath: [
+                      "polygon(0 50%, 100% 50%, 100% 50.5%, 0 50.5%)",
+                      "polygon(0 0%, 100% 0%, 100% 100%, 0 100%)"
+                    ],
+                    opacity: [0, 0.08]
+                  }}
+                  transition={{ duration: 0.4, delay: 1.2 }}
+                />
               </motion.div>
             </div>
           </>
@@ -195,7 +366,7 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
               className="fixed inset-0"
             />
             
-            {/* Camera shutter animation */}
+            {/* Camera shutter animation with improved visuals */}
             <motion.div className="fixed inset-0 flex items-center justify-center pointer-events-none">
               <motion.div 
                 className="relative h-screen w-screen overflow-hidden"
@@ -209,13 +380,63 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
                   initial={{ scaleY: 0 }}
                   animate={{ scaleY: [0, 1, 1, 0] }}
                   transition={{ 
-                    duration: 1, 
+                    duration: 1.2, 
                     times: [0, 0.2, 0.8, 1],
                     delay: 0.5
                   }}
                   style={{ transformOrigin: "center" }}
                 />
               </motion.div>
+              
+              {/* Photo frame snapshot effects */}
+              <div className="fixed inset-0 flex items-center justify-center">
+                <motion.div 
+                  className="w-full max-w-3xl aspect-video border-[20px] border-white shadow-2xl relative overflow-hidden"
+                  initial={{ scale: 0, rotate: -5 }}
+                  animate={{ scale: [0, 1.2, 1], rotate: [-5, 5, 0] }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: 1.5,
+                    type: "spring"
+                  }}
+                >
+                  <motion.div 
+                    className="absolute inset-0 bg-gray-200"
+                    animate={{ opacity: [1, 0] }}
+                    transition={{ delay: 2, duration: 0.5 }}
+                  />
+                  
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-blue-400/20 mix-blend-overlay"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 2.2, duration: 0.5 }}
+                  />
+                  
+                  <img 
+                    src="/lovable-uploads/gallery-1.jpg" 
+                    alt="MUN Conference" 
+                    className="w-full h-full object-cover opacity-0"
+                    onError={(e) => {
+                      e.currentTarget.style.opacity = "1";
+                    }}
+                    onLoad={(e) => {
+                      e.currentTarget.style.opacity = "1";
+                    }}
+                  />
+                  
+                  <motion.div 
+                    className="absolute inset-0 flex items-center justify-center text-2xl text-white font-bold"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: [0, 1, 0] }}
+                    transition={{ delay: 2.2, duration: 1.5 }}
+                  >
+                    <span className="bg-black/50 px-4 py-2 rounded-md backdrop-blur-sm">
+                      JBCN MUN 2025
+                    </span>
+                  </motion.div>
+                </motion.div>
+              </div>
             </motion.div>
             
             {/* Camera icon and sound visualization */}
@@ -227,31 +448,75 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
             >
               <motion.div
                 className="bg-black/70 p-8 rounded-full"
+                animate={{ 
+                  boxShadow: [
+                    "0 0 0 rgba(255,255,255,0.5)", 
+                    "0 0 30px rgba(255,255,255,0.3)", 
+                    "0 0 0 rgba(255,255,255,0.5)"
+                  ]
+                }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: 1,
+                  repeatType: "reverse"
+                }}
               >
                 <Camera className="text-white h-20 w-20" />
               </motion.div>
               
-              {/* Sound wave visualization around camera */}
-              {[...Array(3)].map((_, i) => (
+              {/* Sound wave visualization around camera with improved visuals */}
+              {[...Array(5)].map((_, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, scale: 1 }}
                   animate={{ opacity: [0, 0.5, 0], scale: [1, 1.5 + i * 0.3] }}
                   transition={{ 
-                    repeat: 1,
-                    duration: 1,
+                    repeat: 2,
+                    duration: 1.5,
                     delay: 0.8 + i * 0.2
                   }}
                   className="absolute inset-0 border-2 border-white/20 rounded-full z-0"
+                  style={{
+                    boxShadow: "0 0 10px rgba(255,255,255,0.1)"
+                  }}
                 />
               ))}
+              
+              {/* Aperture blades effect */}
+              <motion.div 
+                className="absolute inset-0 pointer-events-none"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1, duration: 0.5 }}
+              >
+                {[...Array(6)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-full h-full origin-center"
+                    style={{ 
+                      transform: `rotate(${i * 30}deg)`,
+                    }}
+                  >
+                    <motion.div 
+                      className="absolute top-0 left-1/2 w-1 h-1/3 bg-white/10 -translate-x-1/2 origin-bottom"
+                      animate={{ scaleY: [1, 0.2, 1] }}
+                      transition={{ 
+                        duration: 1.5, 
+                        delay: 1.2 + i * 0.1,
+                        repeat: 1,
+                        repeatType: "reverse"
+                      }}
+                    />
+                  </motion.div>
+                ))}
+              </motion.div>
             </motion.div>
           </>
         )}
         
         {activeEasterEgg === "Head of Illustration" && (
           <>
-            {/* Drawing canvas effect */}
+            {/* Drawing canvas effect with improved visuals */}
             <div className="fixed inset-0 pointer-events-none z-10">
               <svg 
                 viewBox="0 0 100 100" 
@@ -260,7 +525,45 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
                 preserveAspectRatio="none"
                 className="absolute inset-0"
               >
-                {/* Multiple decorative paths being drawn */}
+                {/* Color palette in background */}
+                <motion.circle
+                  cx="20"
+                  cy="80"
+                  r="8"
+                  fill="#7953a9"
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 0.6, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                />
+                <motion.circle
+                  cx="40"
+                  cy="80"
+                  r="8"
+                  fill="#9c6ade"
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 0.6, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                />
+                <motion.circle
+                  cx="60"
+                  cy="80"
+                  r="8"
+                  fill="#b080ff"
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 0.6, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                />
+                <motion.circle
+                  cx="80"
+                  cy="80"
+                  r="8"
+                  fill="#c09aff"
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 0.6, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.8 }}
+                />
+                
+                {/* Multiple decorative paths being drawn with improved visuals */}
                 {[...Array(5)].map((_, i) => (
                   <motion.path
                     key={i}
@@ -275,65 +578,176 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
                       "#7953a9", "#9c6ade", "#b080ff", "#c09aff", "#d5bcff"
                     ][i]}
                     strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeDasharray="1"
                     fill="none"
                     initial={{ pathLength: 0 }}
                     animate={{ pathLength: 1 }}
                     transition={{ 
-                      duration: 2.5, 
+                      duration: 3.5, 
                       ease: "easeInOut",
-                      delay: i * 0.2
+                      delay: i * 0.3
+                    }}
+                    style={{
+                      filter: "drop-shadow(0 0 3px rgba(156, 106, 222, 0.4))"
                     }}
                   />
                 ))}
                 
-                {/* Colorful paint splatter effect */}
-                {[...Array(15)].map((_, i) => (
+                {/* Art canvas background */}
+                <motion.rect
+                  x="15" 
+                  y="15"
+                  width="70"
+                  height="50"
+                  rx="2"
+                  fill="none"
+                  stroke="#d5bcff"
+                  strokeWidth="0.5"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 0.3 }}
+                  transition={{ duration: 1, delay: 0.5 }}
+                />
+                
+                {/* Colorful paint splatter effect with improved visuals */}
+                {[...Array(25)].map((_, i) => (
                   <motion.circle
                     key={`splatter-${i}`}
-                    cx={10 + Math.random() * 80}
-                    cy={10 + Math.random() * 80}
-                    r={1 + Math.random() * 3}
+                    cx={15 + Math.random() * 70}
+                    cy={15 + Math.random() * 50}
+                    r={0.5 + Math.random() * 3}
                     fill={[
                       "#7953a9", "#9c6ade", "#b080ff", "#c09aff", "#d5bcff"
                     ][Math.floor(Math.random() * 5)]}
                     initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    animate={{ opacity: [0, 0.7, 0.5], scale: [0, 1.2, 1] }}
                     transition={{ 
-                      duration: 0.5,
-                      delay: 1 + Math.random() * 1.5
+                      duration: 0.8,
+                      delay: 2 + Math.random() * 2
                     }}
                   />
                 ))}
+                
+                {/* MUN logo being drawn */}
+                <motion.path
+                  d="M40,30 L45,40 L50,30 L55,40 L60,30"
+                  stroke="#ffffff"
+                  strokeWidth="1.5"
+                  fill="none"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 2, delay: 3 }}
+                />
+                <motion.circle
+                  cx="50"
+                  cy="35"
+                  r="12"
+                  fill="none"
+                  stroke="#ffffff"
+                  strokeWidth="1.5"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 2, delay: 3.5 }}
+                />
               </svg>
               
-              {/* Animated paintbrush */}
+              {/* Animated paintbrush with improved visuals */}
               <motion.div 
-                className="absolute bottom-20 right-20 z-20"
+                className="absolute bottom-40 right-40 z-20"
                 initial={{ opacity: 0, scale: 0, rotate: -45 }}
                 animate={{ 
                   opacity: 1, 
                   scale: 1, 
                   rotate: 0,
-                  x: [-50, 0, 20, -20, 0],
-                  y: [50, 20, 0, 10, 0]
+                  x: [-100, 0, 50, -30, 0],
+                  y: [30, 0, -50, 30, 0]
                 }}
                 transition={{ 
-                  duration: 2,
-                  delay: 0.5,
-                  times: [0, 0.3, 0.5, 0.7, 1]
+                  duration: 6,
+                  times: [0, 0.2, 0.4, 0.6, 1],
+                  ease: "easeInOut"
                 }}
               >
                 <div className="relative">
-                  <Paintbrush className="text-purple-400 h-16 w-16" />
                   <motion.div
-                    animate={{ opacity: [0, 1, 0] }}
-                    transition={{ repeat: 2, duration: 1, delay: 1 }}
-                    className="absolute -top-4 -right-4"
+                    animate={{ 
+                      rotate: [0, 10, -5, 15, 0],
+                      x: [0, 5, -5, 10, 0],
+                      y: [0, -10, 5, -5, 0]
+                    }}
+                    transition={{ 
+                      duration: 5,
+                      repeat: 1,
+                      repeatType: "reverse"
+                    }}
                   >
-                    <Sparkles className="text-yellow-300 h-5 w-5" />
+                    <Paintbrush className="text-purple-400 h-16 w-16 drop-shadow-[0_0_8px_rgba(156,106,222,0.5)]" />
                   </motion.div>
+                  
+                  {/* Sparkling effects around the brush */}
+                  {[...Array(3)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0 }}
+                      animate={{ 
+                        opacity: [0, 1, 0],
+                        scale: [0.5, 1.2, 0.5],
+                        x: [0, (i-1) * 10, 0],
+                        y: [0, (i-1) * -10, 0]
+                      }}
+                      transition={{ 
+                        duration: 1.5, 
+                        repeat: 2, 
+                        repeatType: "reverse",
+                        delay: 1 + i * 0.7
+                      }}
+                      className={`absolute -top-${1+i} -right-${1+i}`}
+                      style={{
+                        top: `-${4 + i*2}px`,
+                        right: `-${4 + i*2}px`
+                      }}
+                    >
+                      <Sparkles className="text-yellow-300 h-5 w-5 drop-shadow-[0_0_5px_rgba(253,224,71,0.8)]" />
+                    </motion.div>
+                  ))}
+                  
+                  {/* Paint drip from brush */}
+                  <motion.div
+                    className="absolute -bottom-1 left-1/2 w-2 bg-purple-500 rounded-b-full -translate-x-1/2 origin-top"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ 
+                      height: [0, 30, 30, 30],
+                      opacity: [0, 0.8, 0.8, 0],
+                      y: [0, 0, 30, 60]
+                    }}
+                    transition={{ 
+                      duration: 3,
+                      times: [0, 0.3, 0.6, 1],
+                      delay: 2.5,
+                      repeat: 1,
+                      repeatDelay: 2
+                    }}
+                  />
                 </div>
               </motion.div>
+              
+              {/* Paint strokes following mouse/touch path */}
+              <motion.div 
+                className="fixed inset-0 pointer-events-none"
+                animate={{
+                  backgroundPosition: ["0% 0%", "100% 100%"]
+                }}
+                transition={{
+                  duration: 8,
+                  ease: "easeInOut",
+                  repeat: 1,
+                  repeatType: "reverse"
+                }}
+                style={{
+                  background: "radial-gradient(circle at center, rgba(176, 128, 255, 0.1) 0%, transparent 70%)",
+                  backgroundSize: "120% 120%"
+                }}
+              />
             </div>
           </>
         )}

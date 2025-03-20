@@ -21,7 +21,7 @@ const ChairCard = ({ chair }: ChairCardProps) => {
     "/lovable-uploads/areehah.jpg"
   ];
   
-  const triggerEasterEgg = () => {
+  const handleClick = () => {
     const easterEggs = [
       {
         title: "Surprise!",
@@ -54,7 +54,7 @@ const ChairCard = ({ chair }: ChairCardProps) => {
       <Card className="w-full max-w-sm overflow-hidden bg-black/20 border-mun-purple/20 hover:border-mun-purple/60 transition-all duration-300 hover:shadow-[0_0_15px_rgba(121,83,169,0.2)] transform hover:-translate-y-1">
         <div 
           className="relative aspect-square overflow-hidden flex items-center justify-center cursor-pointer"
-          onClick={triggerEasterEgg}
+          onClick={handleClick}
         >
           <img 
             src={chair.photo} 
@@ -82,7 +82,7 @@ const ChairCard = ({ chair }: ChairCardProps) => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="relative max-w-3xl w-full bg-black/50 p-8 rounded-xl"
+              className="relative max-w-3xl w-full bg-black/50 p-8 rounded-xl border border-mun-purple/30"
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -103,7 +103,7 @@ const ChairCard = ({ chair }: ChairCardProps) => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="aspect-square rounded-lg overflow-hidden"
+                    className="aspect-square rounded-lg overflow-hidden border border-mun-purple/30"
                   >
                     <img
                       src={photo}

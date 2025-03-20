@@ -68,9 +68,9 @@ const DesktopNavigation = ({
               <AnimatePresence>
                 {(hoveredLink === link.name || activeDropdown === link.name) && (
                   <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 10, height: 0 }}
+                    animate={{ opacity: 1, y: 0, height: 'auto' }}
+                    exit={{ opacity: 0, y: 10, height: 0 }}
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-0 mt-2 w-60 rounded-xl overflow-hidden shadow-lg shadow-purple-500/10 bg-black bg-opacity-90 backdrop-blur-lg py-1.5 z-50 border border-white/10"
                   >

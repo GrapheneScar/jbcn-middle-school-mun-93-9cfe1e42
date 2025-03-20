@@ -4,9 +4,10 @@ import { BookOpen, Globe2 } from 'lucide-react';
 
 interface CommitteeResourcesProps {
   studyGuideUrl?: string;
+  countryMatrixUrl?: string;
 }
 
-const CommitteeResources = ({ studyGuideUrl }: CommitteeResourcesProps) => {
+const CommitteeResources = ({ studyGuideUrl, countryMatrixUrl }: CommitteeResourcesProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -40,6 +41,7 @@ const CommitteeResources = ({ studyGuideUrl }: CommitteeResourcesProps) => {
                 <p className="text-white/80 text-sm mt-2 max-w-[80%] text-center">
                   Comprehensive guide for understanding the committee topics
                 </p>
+                {!studyGuideUrl && <span className="mt-4 text-xs text-white/60">Coming Soon</span>}
               </div>
             </div>
           </a>
@@ -51,10 +53,10 @@ const CommitteeResources = ({ studyGuideUrl }: CommitteeResourcesProps) => {
           className="relative overflow-hidden rounded-lg group cursor-pointer"
         >
           <a 
-            href="#" 
+            href={countryMatrixUrl || "#"} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="block pointer-events-none opacity-70"
+            className={!countryMatrixUrl ? "pointer-events-none opacity-70" : "block"}
           >
             <div className="relative aspect-[4/5] overflow-hidden">
               <img 
@@ -68,7 +70,7 @@ const CommitteeResources = ({ studyGuideUrl }: CommitteeResourcesProps) => {
                 <p className="text-white/80 text-sm mt-2 max-w-[80%] text-center">
                   Overview of country positions on committee topics
                 </p>
-                <span className="mt-4 text-xs text-white/60">Coming Soon</span>
+                {!countryMatrixUrl && <span className="mt-4 text-xs text-white/60">Coming Soon</span>}
               </div>
             </div>
           </a>

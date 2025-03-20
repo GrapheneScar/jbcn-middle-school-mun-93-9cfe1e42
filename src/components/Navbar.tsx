@@ -39,6 +39,17 @@ const Navbar = () => {
       setPressingTimer(null);
     }
   };
+
+  const handleQuickClick = (e: React.MouseEvent) => {
+    // If it's just a quick click (not a long press), open in a new tab
+    if (pressingTimer) {
+      clearTimeout(pressingTimer);
+      setPressingTimer(null);
+      
+      // Open Instagram in a new tab
+      window.open('https://www.instagram.com/jbcnparelmun', '_blank');
+    }
+  };
   
   // Cleanup timer on component unmount
   useEffect(() => {
@@ -76,6 +87,7 @@ const Navbar = () => {
               onMouseLeave={handleMouseUp}
               onTouchStart={handleMouseDown}
               onTouchEnd={handleMouseUp}
+              onClick={handleQuickClick}
             >
               <Instagram className="w-5 h-5 text-white" />
             </div>
@@ -91,6 +103,7 @@ const Navbar = () => {
               onMouseLeave={handleMouseUp}
               onTouchStart={handleMouseDown}
               onTouchEnd={handleMouseUp}
+              onClick={handleQuickClick}
             >
               <Instagram className="w-5 h-5 text-white" />
             </div>
@@ -107,7 +120,7 @@ const Navbar = () => {
         />
       </header>
       
-      {/* Instagram Safari Popup */}
+      {/* Instagram Safari Popup with purple and black theme */}
       <AnimatePresence>
         {showInstagramPopup && (
           <motion.div 
@@ -118,25 +131,25 @@ const Navbar = () => {
             onClick={() => setShowInstagramPopup(false)}
           >
             <motion.div 
-              className="w-full max-w-2xl bg-[#f0f0f0] rounded-lg overflow-hidden shadow-2xl"
+              className="w-full max-w-2xl bg-black rounded-lg overflow-hidden shadow-2xl border border-mun-purple/30"
               onClick={(e) => e.stopPropagation()}
               initial={{ y: 20 }}
               animate={{ y: 0 }}
               transition={{ type: "spring", damping: 25 }}
             >
               {/* Mac Browser Chrome */}
-              <div className="bg-[#e0e0e0] h-8 flex items-center justify-between px-2 border-b border-[#d0d0d0]">
+              <div className="bg-mun-purple/30 h-8 flex items-center justify-between px-2 border-b border-mun-purple/20">
                 <div className="flex space-x-1.5">
                   <div className="w-3 h-3 rounded-full bg-[#ff5f57]"></div>
                   <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
                   <div className="w-3 h-3 rounded-full bg-[#28c940]"></div>
                 </div>
-                <div className="w-72 bg-white h-5 rounded-md flex items-center justify-center text-xs text-gray-500">
+                <div className="w-72 bg-black/60 h-5 rounded-md flex items-center justify-center text-xs text-mun-purple-light border border-mun-purple/30">
                   instagram.com/jbcnparelmun
                 </div>
                 <div>
                   <button 
-                    className="text-gray-500 hover:text-gray-700"
+                    className="text-white hover:text-mun-purple-light"
                     onClick={() => setShowInstagramPopup(false)}
                   >
                     <X size={16} />
@@ -145,7 +158,7 @@ const Navbar = () => {
               </div>
               
               {/* Safari Browser Content */}
-              <div className="h-[60vh] overflow-y-auto bg-white">
+              <div className="h-[60vh] overflow-y-auto bg-black border-t border-mun-purple/10">
                 <iframe 
                   src="https://www.instagram.com/jbcnparelmun" 
                   className="w-full h-full border-0"
@@ -156,14 +169,14 @@ const Navbar = () => {
               </div>
               
               {/* Fallback if iframe doesn't work */}
-              <div className="p-4 text-center text-sm text-gray-600">
+              <div className="p-4 text-center text-sm text-mun-purple-light bg-black border-t border-mun-purple/20">
                 <p>
                   If the page doesn't load properly, you can visit 
                   <a 
                     href="https://www.instagram.com/jbcnparelmun"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-500 ml-1 hover:underline"
+                    className="text-mun-purple ml-1 hover:underline"
                   >
                     instagram.com/jbcnparelmun
                   </a>

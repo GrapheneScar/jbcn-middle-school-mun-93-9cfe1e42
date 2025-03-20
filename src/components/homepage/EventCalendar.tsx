@@ -39,29 +39,31 @@ const EventCalendar = () => {
       </div>
       
       <div className="flex flex-col md:flex-row items-center gap-4">
-        <div className="w-full md:w-auto flex-shrink-0 bg-black/40 rounded-xl p-2 border border-mun-purple/20">
-          <Calendar 
-            mode="single"
-            selected={date}
-            onSelect={setDate}
-            className="p-0 pointer-events-auto scale-90 sm:scale-100 origin-top sm:origin-center"
-            modifiers={{
-              booked: importantDates.map(d => d.date)
-            }}
-            modifiersStyles={{
-              booked: {
-                background: "rgba(155, 135, 245, 0.5)",
-                color: "white",
-                fontWeight: "bold"
+        <div className="w-full md:w-auto flex-shrink-0 bg-black/40 rounded-xl p-2 border border-mun-purple/20 overflow-auto">
+          <div className="min-w-[280px] overflow-visible">
+            <Calendar 
+              mode="single"
+              selected={date}
+              onSelect={setDate}
+              className="p-0 pointer-events-auto w-full"
+              modifiers={{
+                booked: importantDates.map(d => d.date)
+              }}
+              modifiersStyles={{
+                booked: {
+                  background: "rgba(155, 135, 245, 0.5)",
+                  color: "white",
+                  fontWeight: "bold"
+                }
+              }}
+              defaultMonth={conferenceStartDate}
+              footer={
+                <div className="text-center text-xs text-white/70 mt-2">
+                  April 25-26, 2024
+                </div>
               }
-            }}
-            defaultMonth={conferenceStartDate}
-            footer={
-              <div className="text-center text-xs text-white/70 mt-2">
-                April 25-26, 2024
-              </div>
-            }
-          />
+            />
+          </div>
         </div>
         
         <div className="text-left flex-grow w-full md:w-auto">

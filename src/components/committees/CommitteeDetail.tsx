@@ -35,7 +35,10 @@ const CommitteeDetail = () => {
         <CommitteeTabs committee={committee} />
 
         {/* Committee Resources Section */}
-        <CommitteeResources studyGuideUrl={committee.studyGuideUrl} />
+        <CommitteeResources 
+          studyGuideUrl={committee.studyGuideUrl} 
+          countryMatrixUrl={committee.countryMatrixUrl} 
+        />
       </div>
     </div>
   );
