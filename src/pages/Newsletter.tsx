@@ -19,7 +19,7 @@ const Newsletter = () => {
       date: "2022",
       description: "A deep dive into the opening of JBCN MUN 2022, featuring committee introductions, key debates, and the initial resolutions taking shape.",
       coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
-      pdfUrl: "https://drive.google.com/file/d/123/view"
+      pdfUrl: ""
     }, 
     {
       id: 2,
@@ -27,7 +27,7 @@ const Newsletter = () => {
       date: "2022",
       description: "A recap of the final moments of JBCN MUN 2022, showcasing groundbreaking resolutions, delegate reflections, and memorable moments from the conference.",
       coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
-      pdfUrl: "https://drive.google.com/file/d/123/view"
+      pdfUrl: ""
     }, 
     {
       id: 3,
@@ -61,56 +61,56 @@ const Newsletter = () => {
       title: "JBCN SENIOR MUN 2021 - Issue 1",
       date: "2021",
       description: "The inaugural issue covering the opening ceremony and first committee sessions of JBCN Senior MUN 2021.",
-      coverImage: "/lovable-uploads/21fd8486-533e-4b03-9789-d5e31220cc90.png",
-      pdfUrl: "https://drive.google.com/file/d/123/view"
+      coverImage: "/lovable-uploads/JBCN SENIOR MUN 2021 - Issue 1.jpg",
+      pdfUrl: "https://drive.google.com/file/d/1c6EkVEb9EyuMGIC-cYiLqYldQ7LnwBBZ/view?usp=sharing"
     },
     {
       id: 2,
       title: "JBCN SENIOR MUN 2021 - Issue 2",
       date: "2021",
       description: "Continuing coverage of JBCN Senior MUN 2021 with highlights from debates and committee progress.",
-      coverImage: "/lovable-uploads/21fd8486-533e-4b03-9789-d5e31220cc90.png",
-      pdfUrl: "https://drive.google.com/file/d/123/view"
+      coverImage: "/lovable-uploads/JBCN SENIOR MUN 2021 - Issue 2.jpg",
+      pdfUrl: "https://drive.google.com/file/d/1m7dn8yaje5rh6ec6GK3TS9MCEpW02Ex6/view?usp=sharing"
     },
     {
       id: 3,
       title: "JBCN SENIOR MUN 2022 - Issue 1",
       date: "2022",
       description: "Kickoff of JBCN Senior MUN 2022, showcasing the opening ceremony and committee agenda introductions.",
-      coverImage: "/lovable-uploads/21fd8486-533e-4b03-9789-d5e31220cc90.png",
-      pdfUrl: "https://drive.google.com/file/d/123/view"
+      coverImage: "/lovable-uploads/",
+      pdfUrl: ""
     },
     {
       id: 4,
       title: "JBCN SENIOR MUN 2022 - Issue 2",
       date: "2022",
       description: "Final issue of JBCN Senior MUN 2022 with comprehensive coverage of the closing ceremony and committee accomplishments.",
-      coverImage: "/lovable-uploads/21fd8486-533e-4b03-9789-d5e31220cc90.png",
-      pdfUrl: "https://drive.google.com/file/d/123/view"
+      coverImage: "/lovable-uploads/",
+      pdfUrl: ""
     },
     {
       id: 5,
       title: "JBCN SENIOR MUN 2023 - Issue 1",
       date: "2023",
       description: "First-day coverage of JBCN Senior MUN 2023, featuring the opening ceremony and committee briefings.",
-      coverImage: "/lovable-uploads/21fd8486-533e-4b03-9789-d5e31220cc90.png",
-      pdfUrl: "https://drive.google.com/file/d/123/view"
+      coverImage: "/lovable-uploads/JBCN SENIOR MUN 2023 - Issue 1.jpg",
+      pdfUrl: "https://drive.google.com/file/d/1jHENiPvNrtJIt3EmIp4O31yZ8Lo4RONo/view?usp=sharing"
     },
     {
       id: 6,
       title: "JBCN SENIOR MUN 2023 - Issue 2",
       date: "2023",
       description: "Wrap-up of JBCN Senior MUN 2023 with detailed coverage of resolutions and delegate awards.",
-      coverImage: "/lovable-uploads/21fd8486-533e-4b03-9789-d5e31220cc90.png",
-      pdfUrl: "https://drive.google.com/file/d/123/view"
+      coverImage: "/lovable-uploads/JBCN SENIOR MUN 2023 - Issue 2.jpg",
+      pdfUrl: "https://drive.google.com/file/d/1j8P5cfGvA7x0VdU_jUtuR3APJG1UOM6q/view?usp=sharing"
     },
     {
       id: 7,
       title: "JBCN SENIOR MUN 2024",
       date: "2024",
       description: "Letter from the 2024 Secretary-General, Reeyan Mavani, welcoming delegates to JBCN Senior MUN 2024 with details about the conference theme, 'Great Power, Great Responsibility,' and the exciting committees and activities planned.",
-      coverImage: "/lovable-uploads/21fd8486-533e-4b03-9789-d5e31220cc90.png",
-      pdfUrl: "https://drive.google.com/file/d/123/view"
+      coverImage: "/lovable-uploads/JBCN SENIOR MUN 2024.jpg",
+      pdfUrl: "https://drive.google.com/file/d/1n2xKbq4nas1DYxFfcu1F1WcF08S9Q3wO/view?usp=sharing"
     }
   ];
 
