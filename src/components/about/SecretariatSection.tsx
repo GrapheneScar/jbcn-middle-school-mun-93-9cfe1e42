@@ -1,10 +1,13 @@
+
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { SecretariatMember } from './types';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+
 interface SecretariatSectionProps {
   secretariat: SecretariatMember[];
 }
+
 const SecretariatSection = ({
   secretariat
 }: SecretariatSectionProps) => {
@@ -12,6 +15,31 @@ const SecretariatSection = ({
   const toggleExpanded = (name: string) => {
     setExpandedMember(prev => prev === name ? null : name);
   };
+  
+  // Function to format bio text with styling
+  const formatBio = (bio: string) => {
+    // Create paragraphs from line breaks
+    const paragraphs = bio.split('\n').filter(p => p.trim() !== '');
+    
+    return paragraphs.map((paragraph, index) => {
+      // Format text: make text after colons bold, and text in quotes italic
+      const formattedText = paragraph
+        .replace(/(?<=:)(.*?)(?=\.|$)/g, '<strong>$1</strong>')
+        .replace(/"([^"]+)"/g, '<em>"$1"</em>')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.+?)\*/g, '<em>$1</em>')
+        .replace(/\_\_(.+?)\_\_/g, '<u>$1</u>');
+      
+      return (
+        <p 
+          key={index} 
+          className="mb-2" 
+          dangerouslySetInnerHTML={{ __html: formattedText }}
+        />
+      );
+    });
+  };
+  
   return <section className="py-16 px-4">
       <div className="container mx-auto">
         <motion.div className="text-center mb-16" initial={{
@@ -84,7 +112,9 @@ const SecretariatSection = ({
             }} transition={{
               duration: 0.3
             }} className="glass-panel mt-2 p-4 overflow-hidden">
-                    <p className="text-white/90 text-xs">{person.bio}</p>
+                    <div className="text-white/90 text-sm">
+                      {formatBio(person.bio)}
+                    </div>
                   </motion.div>}
               </AnimatePresence>
             </motion.div>)}
@@ -92,4 +122,5 @@ const SecretariatSection = ({
       </div>
     </section>;
 };
+
 export default SecretariatSection;

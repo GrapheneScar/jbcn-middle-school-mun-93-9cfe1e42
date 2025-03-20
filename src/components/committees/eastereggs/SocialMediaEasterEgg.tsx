@@ -36,7 +36,7 @@ const SocialMediaEasterEgg = () => {
             scale: [0.7, 1.2, 1, 0.9]
           }}
           transition={{ 
-            duration: 8 + Math.random() * 10, // Increased duration
+            duration: 8 + Math.random() * 10,
             delay: i * 0.2,
             ease: "easeOut"
           }}
@@ -58,7 +58,7 @@ const SocialMediaEasterEgg = () => {
           scale: [1, 5, 8, 12, 15] 
         }}
         transition={{ 
-          duration: 12, // Increased duration
+          duration: 12,
           repeat: 1, 
           repeatType: "reverse" 
         }}
@@ -72,7 +72,7 @@ const SocialMediaEasterEgg = () => {
           rotateZ: [0, 10, -10, 0],
           filter: ["drop-shadow(0 0 8px rgba(121,83,169,0.3))", "drop-shadow(0 0 20px rgba(121,83,169,0.8))", "drop-shadow(0 0 8px rgba(121,83,169,0.3))"]
         }}
-        transition={{ duration: 6, repeat: 1 }} // Increased duration
+        transition={{ duration: 6, repeat: 1 }}
         className={`p-6 md:p-10 rounded-full bg-purple-600/30 backdrop-blur-md`}
       >
         <Hash className={`text-white ${isMobile ? 'h-12 w-12' : 'h-20 w-20'}`} />
@@ -82,7 +82,7 @@ const SocialMediaEasterEgg = () => {
             scale: [0.8, 1.2, 0.8]
           }}
           transition={{ 
-            duration: 4, // Increased duration
+            duration: 4,
             repeat: 2, 
             repeatType: "reverse" 
           }}
@@ -91,6 +91,44 @@ const SocialMediaEasterEgg = () => {
           <Sparkles className={`text-purple-200 ${isMobile ? 'h-16 w-16' : 'h-24 w-24'}`} />
         </motion.div>
       </motion.div>
+
+      {/* Popup text messages */}
+      {[...Array(5)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute bg-purple-800/80 text-white px-4 py-2 rounded-xl backdrop-blur-sm shadow-lg"
+          initial={{ 
+            opacity: 0, 
+            y: 20,
+            x: (Math.random() - 0.5) * (isMobile ? 150 : 300),
+            scale: 0.8,
+          }}
+          animate={{ 
+            opacity: [0, 1, 1, 0],
+            y: [-20, -40, -60],
+            scale: [0.8, 1, 1.1, 0.9],
+          }}
+          transition={{ 
+            duration: 4,
+            delay: 1 + i * 1.5,
+            times: [0, 0.2, 0.8, 1]
+          }}
+          style={{
+            left: `${20 + Math.random() * 60}%`,
+            top: `${60 + Math.random() * 20}%`
+          }}
+        >
+          <p className="text-xs md:text-sm font-medium">
+            {[
+              "Going viral! #JBCNMUN trending now!",
+              "Social media buzz reaches new heights!",
+              "Engagement levels through the roof!",
+              "Share your MUN experience! #DiplomacyInAction",
+              "Your story matters! Make it count!"
+            ][i]}
+          </p>
+        </motion.div>
+      ))}
     </motion.div>
   );
 };

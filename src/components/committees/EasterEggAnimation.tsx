@@ -6,6 +6,7 @@ import PressEasterEgg from './eastereggs/PressEasterEgg';
 import PhotographyEasterEgg from './eastereggs/PhotographyEasterEgg';
 import IllustrationEasterEgg from './eastereggs/IllustrationEasterEgg';
 import OrganizingEasterEgg from './eastereggs/OrganizingEasterEgg';
+import { motion } from 'framer-motion';
 
 interface EasterEggAnimationProps {
   activeEasterEgg: string | null;
@@ -23,6 +24,17 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
         {activeEasterEgg === "Head of Photography" && <PhotographyEasterEgg />}
         {activeEasterEgg === "Head of Illustration" && <IllustrationEasterEgg />}
         {activeEasterEgg === "Head of Organizing Committee" && <OrganizingEasterEgg />}
+        
+        {/* Add a small popup showing which easter egg is activated */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.3 }}
+          className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-black/60 text-white px-4 py-2 rounded-full text-sm backdrop-blur-sm z-50 border border-mun-purple/40"
+        >
+          {activeEasterEgg} Easter Egg Activated!
+        </motion.div>
       </div>
     </AnimatePresence>
   );

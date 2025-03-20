@@ -7,6 +7,30 @@ interface DepartmentHeadsSectionProps {
 }
 
 const DepartmentHeadsSection = ({ departmentHeads }: DepartmentHeadsSectionProps) => {
+  // Function to format bio text with styling
+  const formatBio = (bio: string) => {
+    // Create paragraphs from line breaks
+    const paragraphs = bio.split('\n').filter(p => p.trim() !== '');
+    
+    return paragraphs.map((paragraph, index) => {
+      // Format text: make text after colons bold, and text in quotes italic
+      const formattedText = paragraph
+        .replace(/(?<=:)(.*?)(?=\.|$)/g, '<strong>$1</strong>')
+        .replace(/"([^"]+)"/g, '<em>"$1"</em>')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.+?)\*/g, '<em>$1</em>')
+        .replace(/\_\_(.+?)\_\_/g, '<u>$1</u>');
+      
+      return (
+        <p 
+          key={index} 
+          className="mb-2" 
+          dangerouslySetInnerHTML={{ __html: formattedText }}
+        />
+      );
+    });
+  };
+  
   return (
     <section className="py-16 px-4 bg-black/30">
       <div className="container mx-auto">
@@ -44,7 +68,9 @@ const DepartmentHeadsSection = ({ departmentHeads }: DepartmentHeadsSectionProps
                 </div>
                 <h3 className="text-lg font-bold text-white mb-1">{person.name}</h3>
                 <p className="text-mun-purple-light text-sm mb-4">{person.role}</p>
-                <p className="text-white/80 text-sm">{person.bio}</p>
+                <div className="text-white/80 text-sm">
+                  {formatBio(person.bio)}
+                </div>
               </div>
             </motion.div>
           ))}

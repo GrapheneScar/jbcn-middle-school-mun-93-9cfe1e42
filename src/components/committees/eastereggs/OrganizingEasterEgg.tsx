@@ -45,7 +45,7 @@ const OrganizingEasterEgg = () => {
             opacity: [0, 1, 1, 0]
           }}
           transition={{ 
-            duration: 4 + Math.random() * 6, // Increased duration
+            duration: 4 + Math.random() * 6,
             ease: ["circOut"],
             delay: Math.random() * 0.5
           }}
@@ -55,13 +55,13 @@ const OrganizingEasterEgg = () => {
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: [0, 1.2, 1], opacity: 1 }}
-        transition={{ type: "spring", damping: 12, delay: 1, duration: 3 }} // Increased duration
+        transition={{ type: "spring", damping: 12, delay: 1, duration: 3 }}
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-lg rounded-2xl p-4 md:p-8 text-center max-w-[90vw] md:max-w-md"
       >
         <motion.h3
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 2 }} // Increased duration
+          transition={{ delay: 1.5, duration: 2 }}
           className="text-2xl md:text-4xl font-bold text-white mb-2"
         >
           Event Organized!
@@ -69,12 +69,66 @@ const OrganizingEasterEgg = () => {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 2 }} // Increased duration
+          transition={{ delay: 2, duration: 2 }}
           className="text-white/80"
         >
           Successfully planned and coordinated!
         </motion.p>
       </motion.div>
+
+      {/* Popup achievement notifications */}
+      {[...Array(5)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute bg-gradient-to-r from-blue-600/80 to-purple-600/80 text-white px-4 py-2 rounded-lg shadow-lg max-w-[240px]"
+          initial={{ 
+            opacity: 0, 
+            x: isMobile ? 
+              (i % 2 === 0 ? -100 : 100) : 
+              (i % 3 === 0 ? -200 : (i % 3 === 1 ? 0 : 200)),
+            y: 100,
+            scale: 0.8
+          }}
+          animate={{ 
+            opacity: [0, 1, 1, 0],
+            x: isMobile ? 
+              (i % 2 === 0 ? -50 : 50) : 
+              (i % 3 === 0 ? -100 : (i % 3 === 1 ? 0 : 100)),
+            y: [-20 * (i+1), -50 * (i+1)],
+            scale: [0.8, 1, 1, 0.9]
+          }}
+          transition={{ 
+            duration: 5,
+            delay: 1.2 + i * 0.8,
+            times: [0, 0.2, 0.8, 1]
+          }}
+          style={{
+            bottom: `${10 + (i * 5)}%`,
+            left: `${isMobile ? 10 : 30}%`,
+            right: `${isMobile ? 10 : 30}%`,
+          }}
+        >
+          <div className="flex items-center">
+            <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+              <span className="text-blue-900 font-bold">
+                {["🏆", "✓", "🎖️", "⭐", "🔔"][i]}
+              </span>
+            </div>
+            <div>
+              <p className="text-sm font-bold">Achievement Unlocked!</p>
+              <p className="text-xs opacity-90">
+                {[
+                  "Master Organizer: Conference planned to perfection!",
+                  "Logistics Expert: All resources perfectly allocated!",
+                  "Deadline Crusher: All tasks completed ahead of schedule!",
+                  "Team Builder: Perfect team coordination achieved!",
+                  "Communication Wizard: Clear instructions delivered!"
+                ][i]}
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      ))}
     </motion.div>
   );
 };
