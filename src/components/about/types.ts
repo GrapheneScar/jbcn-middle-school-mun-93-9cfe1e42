@@ -4,7 +4,7 @@ export interface SecretariatMember {
   role: string;
   image: string;
   bio: string;
-  easterEgg: any | null;
+  easterEgg?: any | null;
 }
 
 export interface DepartmentHead {
@@ -12,7 +12,7 @@ export interface DepartmentHead {
   role: string;
   image: string;
   bio: string;
-  easterEgg: {
+  easterEgg?: {
     type: string;
     content: string | string[];
   };

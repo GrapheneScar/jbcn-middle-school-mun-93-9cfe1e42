@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { RegisterButton } from '../ui/register-button';
@@ -71,7 +70,7 @@ const HeroSection = () => {
     hidden: {
       scaleY: 0
     },
-    visible: index => ({
+    visible: (index: number) => ({
       scaleY: 1,
       transition: {
         duration: 1,
@@ -100,7 +99,7 @@ const HeroSection = () => {
       transition: {
         duration: 2,
         repeat: Infinity,
-        repeatType: "reverse"
+        repeatType: "reverse" as const
       }
     }
   };
