@@ -15,7 +15,7 @@ const SocialMediaEasterEgg = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 1 }}
       className="text-center"
     >
       {/* Flying hashtags with improved visuals */}
@@ -31,13 +31,13 @@ const SocialMediaEasterEgg = () => {
           animate={{ 
             x: Math.random() * window.innerWidth, 
             y: -100,
-            opacity: [0, 1, 0.8, 0],
+            opacity: [0, 1, 1, 0.8, 0],
             rotate: Math.random() * 360,
-            scale: [0.7, 1.2, 0.9]
+            scale: [0.7, 1.2, 1, 0.9]
           }}
           transition={{ 
-            duration: 4 + Math.random() * 5,
-            delay: i * 0.15,
+            duration: 8 + Math.random() * 10, // Increased duration
+            delay: i * 0.2,
             ease: "easeOut"
           }}
           className="absolute text-purple-400 font-bold drop-shadow-[0_0_8px_rgba(121,83,169,0.8)]"
@@ -58,7 +58,7 @@ const SocialMediaEasterEgg = () => {
           scale: [1, 5, 8, 12, 15] 
         }}
         transition={{ 
-          duration: 6, 
+          duration: 12, // Increased duration
           repeat: 1, 
           repeatType: "reverse" 
         }}
@@ -72,7 +72,7 @@ const SocialMediaEasterEgg = () => {
           rotateZ: [0, 10, -10, 0],
           filter: ["drop-shadow(0 0 8px rgba(121,83,169,0.3))", "drop-shadow(0 0 20px rgba(121,83,169,0.8))", "drop-shadow(0 0 8px rgba(121,83,169,0.3))"]
         }}
-        transition={{ duration: 3, repeat: 1 }}
+        transition={{ duration: 6, repeat: 1 }} // Increased duration
         className={`p-6 md:p-10 rounded-full bg-purple-600/30 backdrop-blur-md`}
       >
         <Hash className={`text-white ${isMobile ? 'h-12 w-12' : 'h-20 w-20'}`} />
@@ -82,7 +82,7 @@ const SocialMediaEasterEgg = () => {
             scale: [0.8, 1.2, 0.8]
           }}
           transition={{ 
-            duration: 2, 
+            duration: 4, // Increased duration
             repeat: 2, 
             repeatType: "reverse" 
           }}

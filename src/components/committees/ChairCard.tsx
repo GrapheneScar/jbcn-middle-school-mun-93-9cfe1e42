@@ -1,6 +1,5 @@
 
 import { CommitteeChair } from "./types";
-import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 
 interface ChairCardProps {
@@ -9,19 +8,27 @@ interface ChairCardProps {
 
 const ChairCard = ({ chair }: ChairCardProps) => {
   return (
-    <Card className="w-full max-w-sm overflow-hidden bg-black/20 border-mun-purple/20 hover:border-mun-purple/60 transition-all duration-300 hover:shadow-[0_0_15px_rgba(121,83,169,0.2)] transform hover:-translate-y-1">
-      <div className="relative aspect-square overflow-hidden flex items-center justify-center">
-        <img 
-          src={chair.photo} 
-          alt={chair.name} 
-          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
-        />
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="glass-panel h-full"
+    >
+      <div className="p-6 flex flex-col items-center text-center">
+        <div className="w-32 h-32 rounded-full overflow-hidden mb-4 flex-shrink-0">
+          <img 
+            src={chair.photo} 
+            alt={chair.name} 
+            className="w-full h-full object-cover" 
+          />
+        </div>
+        <div>
+          <h3 className="text-xl font-bold">{chair.name}</h3>
+          <p className="text-mun-purple-light italic mb-4">{chair.title}</p>
+          <p className="text-white/80">{chair.bio}</p>
+        </div>
       </div>
-      <CardContent className="p-4 text-center">
-        <h3 className="text-lg font-bold text-white">{chair.name}</h3>
-        <p className="text-sm text-mun-purple-light italic mb-1">~ {chair.title} ~</p>
-      </CardContent>
-    </Card>
+    </motion.div>
   );
 };
 
