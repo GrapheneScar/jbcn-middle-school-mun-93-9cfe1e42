@@ -1,8 +1,15 @@
 
 import { motion } from 'framer-motion';
 import { Hash, Sparkles } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const SocialMediaEasterEgg = () => {
+  const isMobile = useIsMobile();
+  
+  // Adjust hashtag count and size for mobile
+  const hashtagCount = isMobile ? 10 : 20;
+  const hashtagSize = isMobile ? 15 : 20;
+  
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -12,7 +19,7 @@ const SocialMediaEasterEgg = () => {
       className="text-center"
     >
       {/* Flying hashtags with improved visuals */}
-      {[...Array(20)].map((_, i) => (
+      {[...Array(hashtagCount)].map((_, i) => (
         <motion.div
           key={i}
           initial={{ 
@@ -35,7 +42,7 @@ const SocialMediaEasterEgg = () => {
           }}
           className="absolute text-purple-400 font-bold drop-shadow-[0_0_8px_rgba(121,83,169,0.8)]"
           style={{ 
-            fontSize: `${Math.random() * 20 + 20}px`,
+            fontSize: `${Math.random() * hashtagSize + (isMobile ? 12 : 20)}px`,
             filter: `hue-rotate(${Math.random() * 40 - 20}deg)`
           }}
         >
@@ -66,9 +73,9 @@ const SocialMediaEasterEgg = () => {
           filter: ["drop-shadow(0 0 8px rgba(121,83,169,0.3))", "drop-shadow(0 0 20px rgba(121,83,169,0.8))", "drop-shadow(0 0 8px rgba(121,83,169,0.3))"]
         }}
         transition={{ duration: 3, repeat: 1 }}
-        className="p-10 rounded-full bg-purple-600/30 backdrop-blur-md"
+        className={`p-6 md:p-10 rounded-full bg-purple-600/30 backdrop-blur-md`}
       >
-        <Hash className="text-white h-20 w-20" />
+        <Hash className={`text-white ${isMobile ? 'h-12 w-12' : 'h-20 w-20'}`} />
         <motion.div
           animate={{ 
             opacity: [0, 1, 0],
@@ -81,7 +88,7 @@ const SocialMediaEasterEgg = () => {
           }}
           className="absolute inset-0 flex items-center justify-center"
         >
-          <Sparkles className="text-purple-200 h-24 w-24" />
+          <Sparkles className={`text-purple-200 ${isMobile ? 'h-16 w-16' : 'h-24 w-24'}`} />
         </motion.div>
       </motion.div>
     </motion.div>

@@ -1,28 +1,14 @@
 
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const ScrollIndicator = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    // Initial check
-    checkMobile();
-
-    // Add event listener for window resize
-    window.addEventListener('resize', checkMobile);
-
-    // Cleanup
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const isMobile = useIsMobile();
 
   return (
     <motion.div 
-      className="absolute bottom-10 left-1/2 transform -translate-x-1/2" 
+      className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-10" 
       initial={{
         opacity: 0
       }} 
