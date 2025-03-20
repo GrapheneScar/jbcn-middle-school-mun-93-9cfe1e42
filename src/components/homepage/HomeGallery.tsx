@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -31,6 +31,17 @@ const HomeGallery = () => {
       title: "Conference Planning"
     }
   ];
+
+  // Auto advance the slideshow
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 4000); // Change slide every 4 seconds
+    
+    return () => clearInterval(interval);
+  }, [galleryImages.length]);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));

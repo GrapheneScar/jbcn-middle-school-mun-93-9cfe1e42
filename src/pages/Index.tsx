@@ -20,6 +20,8 @@ const Index = () => {
       <div className="relative w-full min-h-screen overflow-hidden">
         <StripeBackground />
         <HeroSection />
+        
+        {/* Navigation panels moved below the other sections */}
         <NavigationPanels />
         
         {/* Added Event Calendar */}
