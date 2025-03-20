@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { BookOpen, Globe2 } from 'lucide-react';
 
@@ -9,12 +8,6 @@ interface CommitteeResourcesProps {
 }
 
 const CommitteeResources = ({ studyGuideUrl, countryMatrixUrl, committeeName }: CommitteeResourcesProps) => {
-  // This will be used to display different resource links for different committees
-  const getResourceTitle = () => {
-    if (!committeeName) return "Committee Resources";
-    return `${committeeName} Resources`;
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -22,7 +15,7 @@ const CommitteeResources = ({ studyGuideUrl, countryMatrixUrl, committeeName }: 
       transition={{ duration: 0.5, delay: 0.2 }}
       className="mb-12"
     >
-      <h2 className="text-3xl font-bold text-white text-center mb-8">{getResourceTitle()}</h2>
+      <h2 className="text-3xl font-bold text-white text-center mb-8">Committee Resources</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         <motion.div
