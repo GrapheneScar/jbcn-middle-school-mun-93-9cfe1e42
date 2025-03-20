@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import PageTransition from '../components/PageTransition';
 import StripeBackground from '../components/StripeBackground';
@@ -5,18 +6,18 @@ import DepartmentSection from '../components/committees/DepartmentSection';
 import { committeeHeads } from '../components/committees/committee-heads-data';
 import { motion } from 'framer-motion';
 import EasterEggAnimation from '../components/committees/EasterEggAnimation';
+
 const CommitteeHeads = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
   const [activeEasterEgg, setActiveEasterEgg] = useState<string | null>(null);
 
   // Listen for easter egg events
   useEffect(() => {
     const handleEasterEgg = (e: any) => {
-      const {
-        title
-      } = e.detail;
+      const { title } = e.detail;
       setActiveEasterEgg(title);
 
       // Automatically hide easter egg after 8 seconds
@@ -29,7 +30,9 @@ const CommitteeHeads = () => {
       window.removeEventListener('easterEggTriggered', handleEasterEgg);
     };
   }, []);
-  return <PageTransition>
+  
+  return (
+    <PageTransition>
       <StripeBackground />
       
       <div className="pt-32 pb-20 px-4 relative">
@@ -51,13 +54,17 @@ const CommitteeHeads = () => {
           </motion.div>
           
           <div className="space-y-16">
-            {committeeHeads.map((department, index) => <DepartmentSection key={department.name} department={department} index={index} />)}
+            {committeeHeads.map((department, index) => (
+              <DepartmentSection key={department.name} department={department} index={index} />
+            ))}
           </div>
         </div>
       </div>
       
       {/* Add the easter egg animation component */}
       <EasterEggAnimation activeEasterEgg={activeEasterEgg} />
-    </PageTransition>;
+    </PageTransition>
+  );
 };
+
 export default CommitteeHeads;

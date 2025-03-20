@@ -1,5 +1,4 @@
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Committee } from './types';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -51,7 +50,7 @@ const CommitteeTabs = ({ committee }: CommitteeTabsProps) => {
           >
             <h3 className="text-xl font-bold text-white mb-4">Background and Setting</h3>
             <div className="prose prose-invert max-w-none">
-              <p className="text-white/80">{committee.background}</p>
+              <p className="text-white/80 whitespace-pre-line">{committee.background}</p>
             </div>
           </motion.div>
         </TabsContent>
@@ -69,15 +68,7 @@ const CommitteeTabs = ({ committee }: CommitteeTabsProps) => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {committee.chairs.map((chair, index) => (
-                <div key={index} className="space-y-4">
-                  <ChairCard chair={chair} />
-                  
-                  <div className="bg-black/30 rounded-md p-6 glass-panel">
-                    <div className="prose prose-invert max-w-none">
-                      <p className="text-white/80">{chair.bio}</p>
-                    </div>
-                  </div>
-                </div>
+                <ChairCard key={index} chair={chair} />
               ))}
             </div>
           </motion.div>
