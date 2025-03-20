@@ -3,7 +3,7 @@ import { Department } from "./types";
 
 // Updated data for committee heads with proper photos
 export const committeeHeads: Department[] = [{
-  name: "Organizing Committee",
+  name: "Heads of Organizing Committee",
   description: "The team responsible for coordinating all aspects of the MUN conference.",
   chairs: [{
     name: "Aarushi Sharma",
@@ -25,7 +25,7 @@ export const committeeHeads: Department[] = [{
     bio: "Ananya ensures smooth coordination across all departments."
   }]
 }, {
-  name: "Social Media",
+  name: "Heads of Social Media",
   description: "Manages the online presence and social media communications for the MUN.",
   chairs: [{
     name: "Riddhi Bavadiya",
@@ -41,7 +41,7 @@ export const committeeHeads: Department[] = [{
     bio: "Yana manages our social media strategy with creativity and insight."
   }]
 }, {
-  name: "Website Design",
+  name: "Heads of Website Design",
   description: "Responsible for designing and maintaining the conference website.",
   chairs: [{
     name: "Samay Shah",
@@ -57,7 +57,7 @@ export const committeeHeads: Department[] = [{
     bio: "Naaham ensures our website is user-friendly and visually appealing."
   }]
 }, {
-  name: "Press",
+  name: "Heads of Press",
   description: "Responsible for documenting and reporting on conference proceedings.",
   chairs: [{
     name: "Aarna Amberkar",
@@ -67,7 +67,7 @@ export const committeeHeads: Department[] = [{
     bio: "Aarna leads our press team with journalistic integrity and creativity."
   }]
 }, {
-  name: "Photography",
+  name: "Heads of Photography",
   description: "Captures the moments and experiences throughout the conference.",
   chairs: [{
     name: "Keerthana Reddy",
@@ -83,7 +83,7 @@ export const committeeHeads: Department[] = [{
     bio: "Rayhan documents the conference with creativity and attention to detail."
   }]
 }, {
-  name: "Illustration",
+  name: "Heads of Illustration",
   description: "Creates visual content and designs for conference materials.",
   chairs: [{
     name: "Radhika Dutt",
