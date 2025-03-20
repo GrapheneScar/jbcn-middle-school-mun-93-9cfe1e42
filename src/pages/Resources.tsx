@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 import StripeBackground from '../components/StripeBackground';
-import { BookOpen, FileText, BookMarked, Bookmark, Globe, UserCheck, Clock3 } from 'lucide-react';
+import { BookOpen, FileText, List, Bookmark, Globe, ScrollText, FileCode } from 'lucide-react';
 import { Button } from '../components/ui/button';
 
 const Resources = () => {
@@ -13,57 +13,57 @@ const Resources = () => {
 
   const resourceCategories = [
     {
-      title: "Delegate Guides",
-      description: "Essential resources for new and experienced delegates",
-      icon: UserCheck,
+      title: "MUN Terminology",
+      description: "Essential terms and phrases used in Model United Nations conferences",
+      icon: List,
       resources: [
         {
-          title: "Beginner's Guide to MUN",
-          description: "A comprehensive introduction to Model United Nations for first-time delegates",
+          title: "Common MUN Terms & Phrases",
+          description: "A comprehensive glossary of terms frequently used in Model United Nations debates and procedures",
           link: "https://drive.google.com/file/d/123/view",
           image: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
         },
         {
-          title: "Rules of Procedure",
-          description: "Detailed explanation of MUN debate format and parliamentary procedure",
+          title: "Parliamentary Procedure Terms",
+          description: "Terminology specific to formal debate procedures and rules of order in MUN committees",
           link: "https://drive.google.com/file/d/123/view",
           image: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
         },
       ]
     },
     {
-      title: "Position Papers",
-      description: "Guidelines and examples for writing effective position papers",
-      icon: FileText,
+      title: "Preambulatory Clauses",
+      description: "Reference guide for crafting effective preambulatory clauses in your resolutions",
+      icon: ScrollText,
       resources: [
         {
-          title: "Position Paper Template",
-          description: "Standard format for JBCN Parel MUN position papers with examples",
+          title: "Preambulatory Phrases List",
+          description: "Complete list of accepted preambulatory phrases to use in resolution drafting",
           link: "https://drive.google.com/file/d/123/view",
           image: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
         },
         {
-          title: "Research Guide",
-          description: "How to effectively research your country's position and committee topics",
+          title: "Sample Preambulatory Clauses",
+          description: "Examples of well-crafted preambulatory clauses from past successful resolutions",
           link: "https://drive.google.com/file/d/123/view",
           image: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
         },
       ]
     },
     {
-      title: "Resolution Drafting",
-      description: "Tools for crafting effective MUN resolutions",
-      icon: BookMarked,
+      title: "Operative Clauses",
+      description: "Guidelines and resources for formulating impactful operative clauses",
+      icon: FileCode,
       resources: [
         {
-          title: "Resolution Format Guide",
-          description: "Structure and formatting requirements for MUN resolutions",
+          title: "Operative Phrases Handbook",
+          description: "Comprehensive list of operative phrases with explanations of when to use each one",
           link: "https://drive.google.com/file/d/123/view",
           image: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
         },
         {
-          title: "Sample Resolutions",
-          description: "Examples of well-crafted resolutions from previous conferences",
+          title: "Effective Operative Clauses",
+          description: "Examples and strategies for writing powerful, action-oriented operative clauses",
           link: "https://drive.google.com/file/d/123/view",
           image: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
         },
@@ -86,7 +86,7 @@ const Resources = () => {
             <h1 className="text-5xl font-bold text-white mb-6">Delegate Resources</h1>
             <div className="w-20 h-1 bg-mun-purple mx-auto mb-8"></div>
             <p className="text-lg text-white/80 max-w-3xl mx-auto">
-              Explore our collection of guides, templates, and reference materials designed to help delegates prepare effectively for JBCN Parel MUN.
+              Explore our collection of guides, references, and resources designed to help delegates prepare effectively for JBCN Parel MUN.
             </p>
           </motion.div>
           

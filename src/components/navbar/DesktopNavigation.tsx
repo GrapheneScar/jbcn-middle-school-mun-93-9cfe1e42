@@ -2,8 +2,9 @@
 import { useEffect, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import NavLink from './NavLink';
-import { NavLinkWithSubmenu } from './navData';
+import { NavLinkWithSubmenu } from '../hooks/useNavbarState';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 
 interface DesktopNavigationProps {
   navLinks: NavLinkWithSubmenu[];
@@ -21,6 +22,7 @@ const DesktopNavigation = ({
   isActive
 }: DesktopNavigationProps) => {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+  const location = useLocation();
   
   // Set hoveredLink when activeDropdown changes
   useEffect(() => {
@@ -37,6 +39,11 @@ const DesktopNavigation = ({
   const handleMouseLeave = () => {
     setHoveredLink(null);
   };
+
+  // Close dropdown when route changes
+  useEffect(() => {
+    setHoveredLink(null);
+  }, [location.pathname]);
 
   return (
     <nav className="flex items-center space-x-2 md:space-x-3 py-2">

@@ -1,132 +1,145 @@
 
 import { motion } from 'framer-motion';
 import { Newspaper } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const PressEasterEgg = () => {
+  const isMobile = useIsMobile();
+  
+  // Newspaper article content (simplified for mobile)
+  const articleContent = isMobile ? [
+    "BREAKING NEWS",
+    "MUN DELEGATE WINS AWARD",
+    "JBCN HOSTS CONFERENCE",
+    "RESOLUTION PASSES"
+  ] : [
+    "BREAKING NEWS: JBCN MUN 2025",
+    "DELEGATE IMPRESSES WITH SPEECH",
+    "COMMITTEES REACH CONSENSUS",
+    "RESOLUTION PASSES UNANIMOUSLY",
+    "CRISIS AVERTED BY QUICK THINKING",
+    "JBCN HOSTS SUCCESSFUL MUN"
+  ];
+  
   return (
-    <>
-      {/* TV static effect */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.05 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.3 }}
-        className="fixed inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          mixBlendMode: "multiply"
-        }}
-      />
-    
-      {/* Breaking news banner */}
-      <motion.div 
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        exit={{ y: -100 }}
-        transition={{ duration: 0.5 }}
-        className="fixed inset-x-0 top-0 h-16 bg-red-600 flex items-center justify-center z-10 shadow-xl"
-      >
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="flex items-center"
-        >
-          <Newspaper className="text-white h-8 w-8 mr-3" />
-          <h3 className="text-white font-bold text-lg uppercase tracking-wider">Breaking News</h3>
-        </motion.div>
-        
-        {/* Scrolling news ticker */}
-        <motion.div 
-          className="absolute bottom-0 inset-x-0 h-4 bg-black/80 overflow-hidden"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-        >
-          <motion.div 
-            className="text-white text-xs whitespace-nowrap"
-            initial={{ x: window.innerWidth }}
-            animate={{ x: -2000 }}
+    <div className="fixed inset-0 flex items-center justify-center">
+      {/* Background newspaper effect */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        {[...Array(isMobile ? 10 : 20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-64 h-32 bg-white/90 p-4 shadow-lg text-black overflow-hidden rounded-sm"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              transform: `rotate(${Math.random() * 40 - 20}deg) scale(${0.5 + Math.random() * 0.5})`,
+              opacity: 0.7 + Math.random() * 0.3,
+              zIndex: Math.floor(Math.random() * 10)
+            }}
+            initial={{ 
+              y: 1000,
+              opacity: 0
+            }}
+            animate={{ 
+              y: -1000,
+              opacity: [0, 0.7, 0.9, 0.7, 0],
+              rotate: [`${Math.random() * 40 - 20}deg`, `${Math.random() * 40 - 20}deg`]
+            }}
             transition={{ 
-              duration: 20, 
-              repeat: Infinity,
-              repeatType: "loop",
+              duration: 10 + Math.random() * 8,
+              delay: i * 0.3,
               ease: "linear"
             }}
           >
-            BREAKING: DELEGATES ACHIEVE WORLD PEACE IN RECORD TIME • UN SECRETARY GENERAL IMPRESSED BY MIDDLE SCHOOL STUDENTS • CLIMATE CRISIS SOLVED BY INNOVATIVE RESOLUTION • HISTORIC AGREEMENT REACHED ON GLOBAL EDUCATION • 
+            <div className="text-center font-bold uppercase text-xs md:text-sm border-b border-black pb-1 mb-2">
+              {["THE DAILY MUN", "MUN TRIBUNE", "DIPLOMAT TIMES", "GLOBAL VOICE"][Math.floor(Math.random() * 4)]}
+            </div>
+            <h3 className="text-xs md:text-sm font-bold mb-1">
+              {articleContent[Math.floor(Math.random() * articleContent.length)]}
+            </h3>
+            <div className="text-[8px] md:text-[10px] leading-tight">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultrices justo vitae magna...
+            </div>
           </motion.div>
-        </motion.div>
-      </motion.div>
-      
-      {/* Newspaper headlines with improved visuals */}
-      <div className="fixed inset-0 flex items-center justify-center">
-        <motion.div
-          initial={{ scale: 0, y: 100, opacity: 0 }}
-          animate={{ scale: 1, y: 0, opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.6 }}
-          className="bg-white p-8 rounded-md max-w-2xl shadow-2xl transform rotate-1 relative overflow-hidden"
-        >
-          {/* Aged paper texture */}
-          <motion.div 
-            className="absolute inset-0 opacity-10 pointer-events-none"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)'/%3E%3C/svg%3E")`,
-              backgroundPosition: "center",
-              backgroundSize: "cover"
-            }}
-          />
-          
-          <div className="text-center border-b-2 border-black pb-2 mb-4">
-            <h2 className="text-3xl font-serif font-bold">THE MUN TIMES</h2>
-            <p className="text-gray-600">The Official Newspaper of JBCN Middle School MUN</p>
-          </div>
-          
-          <motion.h1 
-            className="text-4xl font-bold font-serif text-center mb-6"
-            animate={{ scale: [1, 1.05, 1] }}
-            transition={{ repeat: 2, duration: 1 }}
-          >
-            DELEGATES ACHIEVE WORLD PEACE IN RECORD TIME
-          </motion.h1>
-          
-          <div className="text-sm">
-            <p className="mb-2 leading-relaxed">
-              In an unprecedented turn of events, delegates at the JBCN Middle School MUN have shocked the international community by achieving world peace in just two days of intense negotiation.
-            </p>
-            <p className="mb-2 leading-relaxed">
-              "I've never seen anything like it," said a stunned faculty advisor. "They started with climate change and somehow ended up solving every global conflict in the process."
-            </p>
-            <p className="mb-2 leading-relaxed">
-              The UN Secretary-General is reportedly considering stepping down to let the middle school students take over.
-            </p>
-          </div>
-          
-          <div className="text-xs text-gray-500 mt-4 border-t pt-2 flex justify-between">
-            <span>Published April 25, 2025</span>
-            <span>Definitely Not Fake News</span>
-          </div>
-          
-          {/* Newspaper fold effect */}
-          <motion.div 
-            className="absolute inset-0 bg-black/5"
-            style={{
-              clipPath: "polygon(0 50%, 100% 50%, 100% 50.5%, 0 50.5%)"
-            }}
-            animate={{ 
-              clipPath: [
-                "polygon(0 50%, 100% 50%, 100% 50.5%, 0 50.5%)",
-                "polygon(0 0%, 100% 0%, 100% 100%, 0 100%)"
-              ],
-              opacity: [0, 0.08]
-            }}
-            transition={{ duration: 0.4, delay: 1.2 }}
-          />
-        </motion.div>
+        ))}
       </div>
-    </>
+      
+      {/* Main newspaper that appears */}
+      <motion.div
+        initial={{ scale: 0, rotate: -10 }}
+        animate={{ scale: [0, 1.2, 1], rotate: [-10, 5, 0] }}
+        transition={{ duration: 0.8, type: "spring" }}
+        className="bg-white text-black p-6 shadow-2xl rounded-sm relative w-full max-w-xl z-20"
+        style={{ maxHeight: '80vh', overflowY: 'auto' }}
+      >
+        <div className="text-center border-b-4 border-black pb-2 mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold uppercase tracking-tight">THE MUN HERALD</h1>
+          <div className="text-sm mb-1">Vol. MMXXV - No. 1</div>
+          <div className="text-xs">JBCN Middle School MUN 2025 - Official Press Release</div>
+        </div>
+        
+        <h2 className="text-xl md:text-2xl font-bold mb-3 text-center">BREAKTHROUGH RESOLUTION PASSES</h2>
+        
+        <div className="grid grid-cols-3 gap-4 mb-4">
+          <div className="col-span-2">
+            <p className="text-sm mb-2 first-letter:text-3xl first-letter:font-bold first-letter:float-left first-letter:mr-1">
+              In a historic moment at the JBCN Middle School Model United Nations conference, delegates reached a unanimous consensus on the pressing global issue of climate change, showcasing exceptional diplomacy and cooperation.
+            </p>
+            <p className="text-sm">
+              The resolution, which addresses sustainable development goals and international cooperation, was praised by all committee members as "groundbreaking" and "visionary."
+            </p>
+          </div>
+          <div className="col-span-1 bg-gray-200 h-24 flex items-center justify-center">
+            <Newspaper className="w-12 h-12 text-gray-700" />
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <h3 className="font-bold text-sm mb-1 uppercase border-b border-black">INSIDE COMMITTEE ROOMS</h3>
+            <p className="text-xs">
+              Delegates demonstrated exceptional research and speaking skills throughout the conference. The Chair remarked that the level of debate was "impressive for delegates of this age group."
+            </p>
+          </div>
+          <div>
+            <h3 className="font-bold text-sm mb-1 uppercase border-b border-black">SECRETARY GENERAL'S SPEECH</h3>
+            <p className="text-xs">
+              "This conference has showcased the incredible potential of our young delegates," said the Secretary General in the closing ceremony. "The future of diplomacy is in good hands."
+            </p>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Press tooltip popups */}
+      {[...Array(4)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute bg-black/70 text-white px-3 py-1.5 rounded-lg text-xs md:text-sm backdrop-blur-md"
+          initial={{ opacity: 0, y: 20, scale: 0.9 }}
+          animate={{ 
+            opacity: [0, 1, 1, 0],
+            y: [-10, -30, -50],
+            scale: [0.9, 1, 1, 0.9]
+          }}
+          transition={{ 
+            duration: 3,
+            delay: 1.5 + i * 0.7,
+            times: [0, 0.2, 0.8, 1]
+          }}
+          style={{
+            bottom: `${30 + (i * 15)}%`,
+            left: `${10 + (i * 20)}%`,
+          }}
+        >
+          {[
+            "Extra! Extra! Read all about it!",
+            "Breaking news coverage!",
+            "Press pass granted!",
+            "Journalist skills activated!"
+          ][i]}
+        </motion.div>
+      ))}
+    </div>
   );
 };
 

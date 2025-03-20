@@ -22,6 +22,13 @@ const CommitteeChairs = ({ chairs }: CommitteeChairsProps) => {
   
   const isChairOpen = (name: string) => openChairs.includes(name);
 
+  // Function to replace chair titles
+  const formatTitle = (title: string) => {
+    return title
+      .replace(/Chair/g, 'Director')
+      .replace(/Co-Chair/g, 'Assistant Director');
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -56,7 +63,7 @@ const CommitteeChairs = ({ chairs }: CommitteeChairsProps) => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold">{chair.name}</h3>
-                  <p className="text-mun-purple-light italic mb-4">{chair.title}</p>
+                  <p className="text-mun-purple-light italic mb-4">{formatTitle(chair.title)}</p>
                   
                   <CollapsibleTrigger asChild>
                     <button className="absolute top-4 right-4 bg-mun-purple/80 rounded-full p-1 text-white hover:bg-mun-purple transition-colors">

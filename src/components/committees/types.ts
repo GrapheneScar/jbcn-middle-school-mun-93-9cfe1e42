@@ -20,6 +20,8 @@ export interface CommitteeChair {
   title: string;
   photo: string;
   bio: string;
+  department?: string;
+  easterEgg?: string;
 }
 
 export interface Committee {

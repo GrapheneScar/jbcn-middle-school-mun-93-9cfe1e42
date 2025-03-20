@@ -1,7 +1,7 @@
 
 import { CommitteeChair } from "./types";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible";
 
@@ -13,6 +13,8 @@ const ChairCard = ({
   chair
 }: ChairCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isLongPressing, setIsLongPressing] = useState(false);
+  const [longPressTimer, setLongPressTimer] = useState<NodeJS.Timeout | null>(null);
   
   // Function to format bio text with styling
   const formatBio = (bio: string) => {
@@ -38,6 +40,51 @@ const ChairCard = ({
     });
   };
   
+  // Handle long press to trigger easter egg
+  const startLongPress = () => {
+    // Clear any existing timer
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+    }
+    
+    // Set new timer for long press (800ms)
+    const timer = setTimeout(() => {
+      // Trigger easter egg custom event
+      if (chair.easterEgg) {
+        const easterEggEvent = new CustomEvent('easterEggTriggered', {
+          detail: {
+            name: chair.name,
+            title: chair.easterEgg,
+            department: chair.department
+          }
+        });
+        
+        window.dispatchEvent(easterEggEvent as any);
+        setIsLongPressing(false);
+      }
+    }, 800);
+    
+    setLongPressTimer(timer);
+    setIsLongPressing(true);
+  };
+  
+  const endLongPress = () => {
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+      setLongPressTimer(null);
+    }
+    setIsLongPressing(false);
+  };
+  
+  // Clean up timer on unmount
+  useEffect(() => {
+    return () => {
+      if (longPressTimer) {
+        clearTimeout(longPressTimer);
+      }
+    };
+  }, [longPressTimer]);
+  
   return (
     <motion.div 
       initial={{
@@ -55,8 +102,21 @@ const ChairCard = ({
     >
       <Collapsible open={isExpanded} onOpenChange={() => setIsExpanded(!isExpanded)}>
         <div className="p-6 flex flex-col items-center text-center relative">
-          <div className="w-32 h-32 rounded-full overflow-hidden mb-4 flex-shrink-0">
+          <div 
+            className={`w-32 h-32 rounded-full overflow-hidden mb-4 flex-shrink-0 relative cursor-pointer ${isLongPressing ? 'ring-2 ring-mun-purple-light ring-opacity-70' : ''}`}
+            onMouseDown={startLongPress}
+            onMouseUp={endLongPress}
+            onMouseLeave={endLongPress}
+            onTouchStart={startLongPress}
+            onTouchEnd={endLongPress}
+            onTouchCancel={endLongPress}
+          >
             <img src={chair.photo} alt={chair.name} className="w-full h-full object-cover" />
+            {isLongPressing && (
+              <div className="absolute inset-0 bg-mun-purple/30 flex items-center justify-center">
+                <div className="h-1 w-1 bg-white rounded-full animate-ping" />
+              </div>
+            )}
           </div>
           <div>
             <h3 className="text-xl font-bold">{chair.name}</h3>

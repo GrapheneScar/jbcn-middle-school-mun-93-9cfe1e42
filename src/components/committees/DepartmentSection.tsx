@@ -12,16 +12,7 @@ const DepartmentSection = ({ department, index }: DepartmentSectionProps) => {
   const isEven = index % 2 === 0;
   
   const triggerEasterEgg = (chair: any) => {
-    // Create and dispatch a custom event to trigger easter egg
-    const easterEggEvent = new CustomEvent('easterEggTriggered', {
-      detail: {
-        name: chair.name,
-        title: chair.title,
-        department: chair.department
-      }
-    });
-    
-    window.dispatchEvent(easterEggEvent as any);
+    // No longer immediately triggering easter egg - will be handled by long press in ChairCard
   };
   
   return (
@@ -40,7 +31,7 @@ const DepartmentSection = ({ department, index }: DepartmentSectionProps) => {
         transition={{ delay: 0.1, duration: 0.5 }}
       >
         <h2 className="text-3xl font-bold text-white mb-4">{department.name}</h2>
-        <p className="text-white/70 mb-6 max-w-3xl mx-auto">{department.description}</p>
+        {/* Removed department description per request */}
       </motion.div>
       
       <div className="flex flex-wrap gap-6 justify-center max-w-4xl mx-auto">
@@ -52,13 +43,14 @@ const DepartmentSection = ({ department, index }: DepartmentSectionProps) => {
             viewport={{ once: true }}
             transition={{ delay: chairIndex * 0.1, duration: 0.5 }}
             className="w-full sm:w-64"
-            onClick={() => triggerEasterEgg(chair)}
           >
             <ChairCard chair={{
               name: chair.name,
-              title: chair.title,
+              title: chair.title.replace('Head', 'Director').replace('Deputy Head', 'Assistant Director'),
               photo: chair.photo,
-              bio: chair.bio || '' // Provide a default empty string if bio is missing
+              bio: chair.bio || '', // Provide a default empty string if bio is missing
+              department: chair.department,
+              easterEgg: chair.title // Pass the title for easter egg activation
             }} />
           </motion.div>
         ))}
