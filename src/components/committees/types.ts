@@ -31,6 +31,7 @@ export interface Committee {
   background?: string;
   style?: string;
   studyGuideUrl?: string;
+  countryMatrixUrl?: string;
 }
 
 export interface GalleryItem {
