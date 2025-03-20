@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import NavLink from './NavLink';
-import { NavLinkWithSubmenu } from '../hooks/useNavbarState';
+import { NavLinkWithSubmenu } from '../../hooks/useNavbarState';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 
