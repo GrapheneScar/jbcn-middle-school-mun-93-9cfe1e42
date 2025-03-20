@@ -168,7 +168,7 @@ const Navbar = () => {
                 />
               </div>
               
-              {/* Fallback if iframe doesn't work */}
+              {/* Fallback if iframe doesn't load */}
               <div className="p-4 text-center text-sm text-mun-purple-light bg-black border-t border-mun-purple/20">
                 <p>
                   If the page doesn't load properly, you can visit 

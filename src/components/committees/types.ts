@@ -5,6 +5,7 @@ export interface DepartmentChair {
   title: string;
   photo: string;
   department: string;
+  easterEgg?: string;
 }
 
 export interface Department {

@@ -1,13 +1,13 @@
 
 import { useState } from "react";
-import { DepartmentChair } from "./types";
+import { CommitteeChair } from "./types";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
 interface ChairCardProps {
-  chair: DepartmentChair;
+  chair: CommitteeChair;
 }
 
 const ChairCard = ({ chair }: ChairCardProps) => {

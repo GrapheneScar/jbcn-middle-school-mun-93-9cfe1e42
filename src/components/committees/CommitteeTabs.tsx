@@ -1,10 +1,9 @@
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import CommitteeAgenda from './CommitteeAgenda';
-import CommitteeOverview from './CommitteeOverview';
-import CommitteeChairs from './CommitteeChairs';
-import { Committee } from './types';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Committee } from './types';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import ChairCard from './ChairCard';
 
 interface CommitteeTabsProps {
   committee: Committee;
@@ -12,32 +11,117 @@ interface CommitteeTabsProps {
 
 const CommitteeTabs = ({ committee }: CommitteeTabsProps) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
-      className="mb-12"
-    >
-      <Tabs defaultValue="overview" className="w-full">
-        <TabsList className="grid w-full grid-cols-3 mb-8 rounded-full bg-black/30 border border-mun-purple/30 p-1 max-w-md mx-auto py-0">
-          <TabsTrigger value="overview" className="rounded-full text-sm px-4 py-2">Overview</TabsTrigger>
-          <TabsTrigger value="agenda" className="rounded-full text-sm px-4 py-2">Agenda</TabsTrigger>
-          <TabsTrigger value="chairs" className="rounded-full text-sm px-4 py-2">Chairs</TabsTrigger>
+    <div className="mb-16">
+      <Tabs defaultValue="background" className="w-full">
+        <TabsList className="mb-8 w-full justify-start overflow-auto whitespace-nowrap rounded-none border-b border-white/20 bg-transparent p-0">
+          <TabsTrigger
+            value="background"
+            className="rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:border-mun-purple data-[state=active]:bg-transparent data-[state=active]:shadow-none"
+          >
+            Background
+          </TabsTrigger>
+          <TabsTrigger
+            value="chairs"
+            className="rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:border-mun-purple data-[state=active]:bg-transparent data-[state=active]:shadow-none"
+          >
+            Chair Information
+          </TabsTrigger>
+          <TabsTrigger
+            value="topics"
+            className="rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:border-mun-purple data-[state=active]:bg-transparent data-[state=active]:shadow-none"
+          >
+            Topics
+          </TabsTrigger>
+          <TabsTrigger
+            value="style"
+            className="rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:border-mun-purple data-[state=active]:bg-transparent data-[state=active]:shadow-none"
+          >
+            Committee Style
+          </TabsTrigger>
         </TabsList>
-        
-        <TabsContent value="overview" className="space-y-6">
-          <CommitteeOverview description={committee.description} background={committee.background} />
+
+        <TabsContent 
+          value="background" 
+          className="mt-0 bg-black/30 rounded-md p-6 glass-panel"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h3 className="text-xl font-bold text-white mb-4">Background and Setting</h3>
+            <div className="prose prose-invert max-w-none">
+              <p className="text-white/80">{committee.background}</p>
+            </div>
+          </motion.div>
         </TabsContent>
-        
-        <TabsContent value="agenda" className="space-y-6">
-          <CommitteeAgenda topics={committee.topics} />
+
+        <TabsContent 
+          value="chairs" 
+          className="mt-0"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h3 className="text-xl font-bold text-white mb-4">Meet Your Directors</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {committee.chairs.map((chair, index) => (
+                <div key={index} className="space-y-4">
+                  <ChairCard chair={chair} />
+                  
+                  <div className="bg-black/30 rounded-md p-6 glass-panel">
+                    <div className="prose prose-invert max-w-none">
+                      <p className="text-white/80">{chair.bio}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </TabsContent>
-        
-        <TabsContent value="chairs" className="space-y-6">
-          <CommitteeChairs chairs={committee.chairs} />
+
+        <TabsContent 
+          value="topics" 
+          className="mt-0 bg-black/30 rounded-md p-6 glass-panel"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h3 className="text-xl font-bold text-white mb-4">Committee Topics</h3>
+            
+            <ul className="space-y-4 text-white/80">
+              {committee.topics.map((topic, index) => (
+                <li key={index} className="flex items-start">
+                  <span className="inline-block w-5 h-5 bg-mun-purple rounded-full flex-shrink-0 mt-1 mr-3"></span>
+                  <span>{topic}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </TabsContent>
+
+        <TabsContent 
+          value="style" 
+          className="mt-0 bg-black/30 rounded-md p-6 glass-panel"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h3 className="text-xl font-bold text-white mb-4">Committee Style</h3>
+            <div className="prose prose-invert max-w-none">
+              <p className="text-white/80">{committee.style}</p>
+            </div>
+          </motion.div>
         </TabsContent>
       </Tabs>
-    </motion.div>
+    </div>
   );
 };
 
