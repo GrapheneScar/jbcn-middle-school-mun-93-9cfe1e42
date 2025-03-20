@@ -39,10 +39,18 @@ const Resources = () => {
 
   const guideResources = [
     {
+      title: "Rules of Procedure (RoP)",
+      description: "Official rules of procedure for the JBCN Parel MUN 2025 conference",
+      icon: ListChecks,
+      link: "https://drive.google.com/file/d/19K56bVlyhd2piUwUKueHynqf4tN7zAei/view?usp=sharing",
+      image: "/lovable-uploads/ruhika.jpg",
+      highlight: true
+    },
+    {
       title: "Operating Procedure",
       description: "Comprehensive guide to parliamentary procedure in Model UN debates",
       icon: ListChecks,
-      link: "https://drive.google.com/file/d/123/view",
+      link: "https://drive.google.com/file/d/19K56bVlyhd2piUwUKueHynqf4tN7zAei/view?usp=sharing",
       image: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
     },
     {
@@ -51,7 +59,6 @@ const Resources = () => {
       icon: MessageSquare,
       link: "https://drive.google.com/file/d/123/view",
       image: "/lovable-uploads/0b07c565-b971-4ccd-baf6-45fd2fe2751c.png",
-      highlight: true
     },
     {
       title: "Voting",
