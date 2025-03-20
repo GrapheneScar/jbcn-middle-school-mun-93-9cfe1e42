@@ -60,7 +60,7 @@ const CommitteeResources = ({ studyGuideUrl, countryMatrixUrl, committeeName }: 
           >
             <div className="relative aspect-[4/5] overflow-hidden">
               <img 
-                src="/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png" 
+                src="/lovable-uploads/Country Matrix Middle School MUN 2025.png" 
                 alt="Country Matrix" 
                 className="w-full h-full object-cover"
               />
