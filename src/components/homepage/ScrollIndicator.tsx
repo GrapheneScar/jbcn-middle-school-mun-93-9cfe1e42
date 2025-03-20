@@ -8,7 +8,7 @@ const ScrollIndicator = () => {
 
   return (
     <motion.div 
-      className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-10" 
+      className="flex justify-center z-10" 
       initial={{
         opacity: 0
       }} 

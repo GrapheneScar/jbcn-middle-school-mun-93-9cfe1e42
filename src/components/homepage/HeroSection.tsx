@@ -16,9 +16,6 @@ const HeroSection = () => {
       
       {/* Main Hero Content */}
       <HeroContent />
-      
-      {/* Scroll Indicator */}
-      <ScrollIndicator />
     </section>
   );
 };

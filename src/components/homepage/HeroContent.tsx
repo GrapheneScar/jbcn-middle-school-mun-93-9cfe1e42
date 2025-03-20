@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { RegisterButton } from '../ui/register-button';
 import CountdownTimer from './countdown/CountdownTimer';
+import ScrollIndicator from './ScrollIndicator';
 
 const HeroContent = () => {
   // Set conference date (April 25, 2025)
@@ -73,8 +74,14 @@ const HeroContent = () => {
               duration: 0.3
             }
           }}
+          className="mb-16"
         >
           <RegisterButton className="mx-auto" />
+        </motion.div>
+        
+        {/* Scroll Indicator moved here */}
+        <motion.div variants={itemVariants}>
+          <ScrollIndicator />
         </motion.div>
       </div>
     </motion.div>
