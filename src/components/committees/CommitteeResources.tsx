@@ -5,9 +5,16 @@ import { BookOpen, Globe2 } from 'lucide-react';
 interface CommitteeResourcesProps {
   studyGuideUrl?: string;
   countryMatrixUrl?: string;
+  committeeName?: string;
 }
 
-const CommitteeResources = ({ studyGuideUrl, countryMatrixUrl }: CommitteeResourcesProps) => {
+const CommitteeResources = ({ studyGuideUrl, countryMatrixUrl, committeeName }: CommitteeResourcesProps) => {
+  // This will be used to display different resource links for different committees
+  const getResourceTitle = () => {
+    if (!committeeName) return "Committee Resources";
+    return `${committeeName} Resources`;
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -15,7 +22,7 @@ const CommitteeResources = ({ studyGuideUrl, countryMatrixUrl }: CommitteeResour
       transition={{ duration: 0.5, delay: 0.2 }}
       className="mb-12"
     >
-      <h2 className="text-3xl font-bold text-white text-center mb-8">Committee Resources</h2>
+      <h2 className="text-3xl font-bold text-white text-center mb-8">{getResourceTitle()}</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         <motion.div
@@ -39,7 +46,7 @@ const CommitteeResources = ({ studyGuideUrl, countryMatrixUrl }: CommitteeResour
                 <BookOpen className="w-12 h-12 text-white mb-3" />
                 <h3 className="text-xl font-bold text-white">Study Guide</h3>
                 <p className="text-white/80 text-sm mt-2 max-w-[80%] text-center">
-                  Comprehensive guide for understanding the committee topics
+                  Comprehensive guide for understanding {committeeName || "committee"} topics
                 </p>
                 {!studyGuideUrl && <span className="mt-4 text-xs text-white/60">Coming Soon</span>}
               </div>
@@ -68,7 +75,7 @@ const CommitteeResources = ({ studyGuideUrl, countryMatrixUrl }: CommitteeResour
                 <Globe2 className="w-12 h-12 text-white mb-3" />
                 <h3 className="text-xl font-bold text-white">Country Matrix</h3>
                 <p className="text-white/80 text-sm mt-2 max-w-[80%] text-center">
-                  Overview of country positions on committee topics
+                  Overview of country positions on {committeeName || "committee"} topics
                 </p>
                 {!countryMatrixUrl && <span className="mt-4 text-xs text-white/60">Coming Soon</span>}
               </div>

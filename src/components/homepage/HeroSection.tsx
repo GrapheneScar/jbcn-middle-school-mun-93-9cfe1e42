@@ -12,8 +12,8 @@ const HeroSection = () => {
     seconds: 0
   });
 
-  // Set conference date (April 25, 2024)
-  const conferenceDate = new Date('2024-04-25T09:00:00');
+  // Set conference date (April 25, 2025)
+  const conferenceDate = new Date('2025-04-25T09:00:00');
 
   useEffect(() => {
     const calculateTimeLeft = () => {

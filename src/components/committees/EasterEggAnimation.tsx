@@ -464,7 +464,7 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
                 <Camera className="text-white h-20 w-20" />
               </motion.div>
               
-              {/* Sound wave visualization around camera with improved visuals */}
+              {/* Sound wave visualization around camera */}
               {[...Array(5)].map((_, i) => (
                 <motion.div
                   key={i}
@@ -516,7 +516,7 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
         
         {activeEasterEgg === "Head of Illustration" && (
           <>
-            {/* Drawing canvas effect with improved visuals */}
+            {/* Drawing canvas effect */}
             <div className="fixed inset-0 pointer-events-none z-10">
               <svg 
                 viewBox="0 0 100 100" 
@@ -563,7 +563,7 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
                   transition={{ duration: 0.5, delay: 0.8 }}
                 />
                 
-                {/* Multiple decorative paths being drawn with improved visuals */}
+                {/* Decorative paths being drawn */}
                 {[...Array(5)].map((_, i) => (
                   <motion.path
                     key={i}
@@ -594,40 +594,6 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
                   />
                 ))}
                 
-                {/* Art canvas background */}
-                <motion.rect
-                  x="15" 
-                  y="15"
-                  width="70"
-                  height="50"
-                  rx="2"
-                  fill="none"
-                  stroke="#d5bcff"
-                  strokeWidth="0.5"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 0.3 }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                />
-                
-                {/* Colorful paint splatter effect with improved visuals */}
-                {[...Array(25)].map((_, i) => (
-                  <motion.circle
-                    key={`splatter-${i}`}
-                    cx={15 + Math.random() * 70}
-                    cy={15 + Math.random() * 50}
-                    r={0.5 + Math.random() * 3}
-                    fill={[
-                      "#7953a9", "#9c6ade", "#b080ff", "#c09aff", "#d5bcff"
-                    ][Math.floor(Math.random() * 5)]}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: [0, 0.7, 0.5], scale: [0, 1.2, 1] }}
-                    transition={{ 
-                      duration: 0.8,
-                      delay: 2 + Math.random() * 2
-                    }}
-                  />
-                ))}
-                
                 {/* MUN logo being drawn */}
                 <motion.path
                   d="M40,30 L45,40 L50,30 L55,40 L60,30"
@@ -651,7 +617,7 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
                 />
               </svg>
               
-              {/* Animated paintbrush with improved visuals */}
+              {/* Animated paintbrush */}
               <motion.div 
                 className="absolute bottom-40 right-40 z-20"
                 initial={{ opacity: 0, scale: 0, rotate: -45 }}
@@ -668,86 +634,26 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
                   ease: "easeInOut"
                 }}
               >
-                <div className="relative">
-                  <motion.div
-                    animate={{ 
-                      rotate: [0, 10, -5, 15, 0],
-                      x: [0, 5, -5, 10, 0],
-                      y: [0, -10, 5, -5, 0]
-                    }}
-                    transition={{ 
-                      duration: 5,
-                      repeat: 1,
-                      repeatType: "reverse"
-                    }}
-                  >
-                    <Paintbrush className="text-purple-400 h-16 w-16 drop-shadow-[0_0_8px_rgba(156,106,222,0.5)]" />
-                  </motion.div>
-                  
-                  {/* Sparkling effects around the brush */}
-                  {[...Array(3)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0 }}
-                      animate={{ 
-                        opacity: [0, 1, 0],
-                        scale: [0.5, 1.2, 0.5],
-                        x: [0, (i-1) * 10, 0],
-                        y: [0, (i-1) * -10, 0]
-                      }}
-                      transition={{ 
-                        duration: 1.5, 
-                        repeat: 2, 
-                        repeatType: "reverse",
-                        delay: 1 + i * 0.7
-                      }}
-                      className={`absolute -top-${1+i} -right-${1+i}`}
-                      style={{
-                        top: `-${4 + i*2}px`,
-                        right: `-${4 + i*2}px`
-                      }}
-                    >
-                      <Sparkles className="text-yellow-300 h-5 w-5 drop-shadow-[0_0_5px_rgba(253,224,71,0.8)]" />
-                    </motion.div>
-                  ))}
-                  
-                  {/* Paint drip from brush */}
-                  <motion.div
-                    className="absolute -bottom-1 left-1/2 w-2 bg-purple-500 rounded-b-full -translate-x-1/2 origin-top"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ 
-                      height: [0, 30, 30, 30],
-                      opacity: [0, 0.8, 0.8, 0],
-                      y: [0, 0, 30, 60]
-                    }}
-                    transition={{ 
-                      duration: 3,
-                      times: [0, 0.3, 0.6, 1],
-                      delay: 2.5,
-                      repeat: 1,
-                      repeatDelay: 2
-                    }}
-                  />
-                </div>
+                <Paintbrush className="text-purple-400 h-16 w-16 drop-shadow-[0_0_8px_rgba(156,106,222,0.5)]" />
+                
+                {/* Paint drip from brush */}
+                <motion.div
+                  className="absolute -bottom-1 left-1/2 w-2 bg-purple-500 rounded-b-full -translate-x-1/2 origin-top"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ 
+                    height: [0, 30, 30, 30],
+                    opacity: [0, 0.8, 0.8, 0],
+                    y: [0, 0, 30, 60]
+                  }}
+                  transition={{ 
+                    duration: 3,
+                    times: [0, 0.3, 0.6, 1],
+                    delay: 2.5,
+                    repeat: 1,
+                    repeatDelay: 2
+                  }}
+                />
               </motion.div>
-              
-              {/* Paint strokes following mouse/touch path */}
-              <motion.div 
-                className="fixed inset-0 pointer-events-none"
-                animate={{
-                  backgroundPosition: ["0% 0%", "100% 100%"]
-                }}
-                transition={{
-                  duration: 8,
-                  ease: "easeInOut",
-                  repeat: 1,
-                  repeatType: "reverse"
-                }}
-                style={{
-                  background: "radial-gradient(circle at center, rgba(176, 128, 255, 0.1) 0%, transparent 70%)",
-                  backgroundSize: "120% 120%"
-                }}
-              />
             </div>
           </>
         )}

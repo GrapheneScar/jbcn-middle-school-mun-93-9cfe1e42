@@ -21,9 +21,6 @@ const Index = () => {
         <StripeBackground />
         <HeroSection />
         
-        {/* Navigation panels moved below the other sections */}
-        <NavigationPanels />
-        
         {/* Added Event Calendar */}
         <section className="py-20 px-4">
           <div className="container mx-auto">
@@ -37,6 +34,9 @@ const Index = () => {
             <EventCalendar />
           </div>
         </section>
+        
+        {/* Navigation panels moved below the calendar section */}
+        <NavigationPanels />
         
         {/* Added Gallery Section */}
         <HomeGallery />

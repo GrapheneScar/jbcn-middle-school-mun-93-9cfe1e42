@@ -37,7 +37,8 @@ const CommitteeDetail = () => {
         {/* Committee Resources Section */}
         <CommitteeResources 
           studyGuideUrl={committee.studyGuideUrl} 
-          countryMatrixUrl={committee.countryMatrixUrl} 
+          countryMatrixUrl={committee.countryMatrixUrl}
+          committeeName={committee.name}
         />
       </div>
     </div>

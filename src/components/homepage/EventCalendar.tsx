@@ -6,19 +6,19 @@ import { format } from 'date-fns';
 import { CalendarCheck, Clock } from 'lucide-react';
 
 const EventCalendar = () => {
-  // Set the conference date (updated to April 25-26)
-  const conferenceStartDate = new Date(2024, 3, 25); // April 25, 2024
-  const conferenceEndDate = new Date(2024, 3, 26); // April 26, 2024
+  // Set the conference date (updated to April 25-26, 2025)
+  const conferenceStartDate = new Date(2025, 3, 25); // April 25, 2025
+  const conferenceEndDate = new Date(2025, 3, 26); // April 26, 2025
 
   const [date, setDate] = useState<Date | undefined>(conferenceStartDate);
   
   const importantDates = [
     {
-      date: new Date(2024, 3, 25),
+      date: new Date(2025, 3, 25),
       label: "Conference Day 1"
     },
     {
-      date: new Date(2024, 3, 26),
+      date: new Date(2025, 3, 26),
       label: "Conference Day 2"
     }
   ];
@@ -59,7 +59,7 @@ const EventCalendar = () => {
               defaultMonth={conferenceStartDate}
               footer={
                 <div className="text-center text-xs text-white/70 mt-2">
-                  April 25-26, 2024
+                  April 25-26, 2025
                 </div>
               }
             />
