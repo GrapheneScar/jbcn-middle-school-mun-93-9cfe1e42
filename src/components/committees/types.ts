@@ -5,6 +5,7 @@ export interface DepartmentChair {
   title: string;
   photo: string;
   department: string;
+  bio: string; // Adding the bio property
   easterEgg?: string;
 }
 

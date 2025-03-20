@@ -54,7 +54,12 @@ const DepartmentSection = ({ department, index }: DepartmentSectionProps) => {
             className="w-full sm:w-64"
             onClick={() => triggerEasterEgg(chair)}
           >
-            <ChairCard chair={chair} />
+            <ChairCard chair={{
+              name: chair.name,
+              title: chair.title,
+              photo: chair.photo,
+              bio: chair.bio || '' // Provide a default empty string if bio is missing
+            }} />
           </motion.div>
         ))}
       </div>

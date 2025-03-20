@@ -9,17 +9,20 @@ export const committeeHeads: Department[] = [{
     name: "Aarushi Sharma",
     title: "Head of Organizing Committee",
     photo: "/lovable-uploads/ruhika.jpg",
-    department: "Organizing Committee"
+    department: "Organizing Committee",
+    bio: "Aarushi leads the organizing committee with dedication and precision."
   }, {
     name: "Rohan Mehta",
     title: "Deputy Head of Organizing Committee",
     photo: "/lovable-uploads/riaan.jpeg",
-    department: "Organizing Committee"
+    department: "Organizing Committee",
+    bio: "Rohan brings creativity and energy to the organizing team."
   }, {
     name: "Ananya Patel",
     title: "Deputy Head of Organizing Committee",
     photo: "/lovable-uploads/areehah.jpg",
-    department: "Organizing Committee"
+    department: "Organizing Committee",
+    bio: "Ananya ensures smooth coordination across all departments."
   }]
 }, {
   name: "Social Media",
@@ -28,12 +31,14 @@ export const committeeHeads: Department[] = [{
     name: "Riddhi Bavadiya",
     title: "Head of Social Media",
     photo: "/lovable-uploads/dishita.png",
-    department: "Social Media"
+    department: "Social Media",
+    bio: "Riddhi creates engaging content that keeps our followers informed and excited."
   }, {
     name: "Yana Mehta",
     title: "Head of Social Media",
     photo: "/lovable-uploads/kasmia.jpg",
-    department: "Social Media"
+    department: "Social Media",
+    bio: "Yana manages our social media strategy with creativity and insight."
   }]
 }, {
   name: "Website Design",
@@ -42,12 +47,14 @@ export const committeeHeads: Department[] = [{
     name: "Samay Shah",
     title: "Head of Website Design",
     photo: "/lovable-uploads/bharatvir.jpg",
-    department: "Website Design"
+    department: "Website Design",
+    bio: "Samay combines technical expertise with design intuition for our website."
   }, {
     name: "Naaham Shah",
     title: "Head of Website Design",
     photo: "/lovable-uploads/ansh.png",
-    department: "Website Design"
+    department: "Website Design",
+    bio: "Naaham ensures our website is user-friendly and visually appealing."
   }]
 }, {
   name: "Press",
@@ -56,7 +63,8 @@ export const committeeHeads: Department[] = [{
     name: "Aarna Amberkar",
     title: "Head of Press",
     photo: "/lovable-uploads/shaurya.png",
-    department: "Press"
+    department: "Press",
+    bio: "Aarna leads our press team with journalistic integrity and creativity."
   }]
 }, {
   name: "Photography",
@@ -65,12 +73,14 @@ export const committeeHeads: Department[] = [{
     name: "Keerthana Reddy",
     title: "Head of Photography",
     photo: "/lovable-uploads/geiv.jpeg",
-    department: "Photography"
+    department: "Photography",
+    bio: "Keerthana's eye for capturing meaningful moments brings our conference to life."
   }, {
     name: "Rayhan Parikh",
     title: "Head of Photography",
     photo: "/lovable-uploads/pratham.jpg",
-    department: "Photography"
+    department: "Photography",
+    bio: "Rayhan documents the conference with creativity and attention to detail."
   }]
 }, {
   name: "Illustration",
@@ -79,6 +89,7 @@ export const committeeHeads: Department[] = [{
     name: "Radhika Dutt",
     title: "Head of Illustration",
     photo: "/lovable-uploads/adhiraj.jpeg",
-    department: "Illustration"
+    department: "Illustration",
+    bio: "Radhika's artistic talents enhance all our visual materials."
   }]
 }];
