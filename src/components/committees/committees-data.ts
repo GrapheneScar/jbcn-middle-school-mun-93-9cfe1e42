@@ -10,7 +10,7 @@ export const committeesData: Committee[] = [
     topics: ["Evaluating the prospect of Private Military Organizations"],
     logo: "/lovable-uploads/60691948-0e00-49c0-92dd-0dba8ba1646f.png", 
     studyGuideUrl: "https://drive.google.com/file/d/1XcP5F7kN8H1Vkx_tfYqA1g5NnzITIcR9/view?usp=sharing", 
-    countryMatrixUrl: "https://docs.google.com/spreadsheets/d/1wC2sFvCCpbKLzWa9TIQlcmZFiiLEVpH-Ixz4LVzHWOA/edit?usp=sharing",
+    countryMatrixUrl: "https://docs.google.com/spreadsheets/d/1AnkMh7dEaqQ7kXAUx2tWjrsTmaPbPAap6BoL2l9sMNQ/edit?usp=sharing",
     chairs: [
       {
         name: "Bharatvir Saran",
@@ -36,7 +36,7 @@ export const committeesData: Committee[] = [
     topics: ["Addressing the challenges and possibilities of weaponization in space"],
     logo: "/lovable-uploads/aa3492cb-da5b-4951-9cc9-903ae3d4502a.png",
     studyGuideUrl: "https://drive.google.com/file/d/1RcP5F7kN8H1Vkx_tfYqA1g5NnzITIcR9/view?usp=sharing",
-    countryMatrixUrl: "https://docs.google.com/spreadsheets/d/1wC2sFvCCpbKLzWa9TIQlcmZFiiLEVpH-Ixz4LVzHWOA/edit?usp=sharing",
+    countryMatrixUrl: "https://docs.google.com/spreadsheets/d/1AnkMh7dEaqQ7kXAUx2tWjrsTmaPbPAap6BoL2l9sMNQ/edit?usp=sharing",
     chairs: [
       {
         name: "Shaurya Kaushik",
@@ -62,7 +62,7 @@ export const committeesData: Committee[] = [
     topics: ["To negotiate lasting peace and end the Korean War, possibly uniting or dividing the peninsula"],
     logo: "/lovable-uploads/717087cd-22de-4d9c-a894-bf983b5f4f6c.png",
     studyGuideUrl: "https://drive.google.com/file/d/1ZcP5F7kN8H1Vkx_tfYqA1g5NnzITIcR9/view?usp=sharing",
-    countryMatrixUrl: "https://docs.google.com/spreadsheets/d/1wC2sFvCCpbKLzWa9TIQlcmZFiiLEVpH-Ixz4LVzHWOA/edit?usp=sharing",
+    countryMatrixUrl: "https://docs.google.com/spreadsheets/d/1AnkMh7dEaqQ7kXAUx2tWjrsTmaPbPAap6BoL2l9sMNQ/edit?usp=sharing",
     chairs: [
       {
         name: "Kasmia Mehra",
@@ -88,7 +88,7 @@ export const committeesData: Committee[] = [
     topics: ["Evaluating the significance and implications of Operation Blue Star"],
     logo: "/lovable-uploads/5aa913d4-deb5-4ced-8a67-e8694ed3ca00.png",
     studyGuideUrl: "https://drive.google.com/file/d/1YcP5F7kN8H1Vkx_tfYqA1g5NnzITIcR9/view?usp=sharing",
-    countryMatrixUrl: "https://docs.google.com/spreadsheets/d/1wC2sFvCCpbKLzWa9TIQlcmZFiiLEVpH-Ixz4LVzHWOA/edit?usp=sharing",
+    countryMatrixUrl: "https://docs.google.com/spreadsheets/d/1AnkMh7dEaqQ7kXAUx2tWjrsTmaPbPAap6BoL2l9sMNQ/edit?usp=sharing",
     chairs: [
       {
         name: "Dishita Sehgal",
@@ -114,7 +114,7 @@ export const committeesData: Committee[] = [
     topics: ["Examining and developing mechanisms to prevent mismanagement of funds and power within the Kremlin"],
     logo: "/lovable-uploads/fd4faac5-03e0-4080-a3e2-e0789b935a4d.png",
     studyGuideUrl: "https://drive.google.com/file/d/1WcP5F7kN8H1Vkx_tfYqA1g5NnzITIcR9/view?usp=sharing",
-    countryMatrixUrl: "https://docs.google.com/spreadsheets/d/1wC2sFvCCpbKLzWa9TIQlcmZFiiLEVpH-Ixz4LVzHWOA/edit?usp=sharing",
+    countryMatrixUrl: "https://docs.google.com/spreadsheets/d/1AnkMh7dEaqQ7kXAUx2tWjrsTmaPbPAap6BoL2l9sMNQ/edit?usp=sharing",
     chairs: [
       {
         name: "Arjun Asher",
