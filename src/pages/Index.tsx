@@ -9,6 +9,7 @@ import HomeGallery from '../components/homepage/HomeGallery';
 import HomeFAQ from '../components/homepage/HomeFAQ';
 import EventCalendar from '../components/homepage/EventCalendar';
 import PageTransition from '../components/PageTransition';
+import SecretaryGeneralSection from '../components/homepage/SecretaryGeneralSection';
 
 const Index = () => {
   useEffect(() => {
@@ -21,7 +22,10 @@ const Index = () => {
         <StripeBackground />
         <HeroSection />
         
-        {/* Added Event Calendar */}
+        {/* Added SecretaryGeneralSection above EventCalendar */}
+        <SecretaryGeneralSection />
+        
+        {/* Event Calendar */}
         <section className="py-20 px-4">
           <div className="container mx-auto">
             <div className="mb-12 text-center">

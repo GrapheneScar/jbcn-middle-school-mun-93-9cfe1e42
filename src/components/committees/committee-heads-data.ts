@@ -10,7 +10,8 @@ export const committeeHeads: Department[] = [{
     title: "Head of Organizing Committee",
     photo: "/lovable-uploads/ruhika.jpg",
     department: "Organizing Committee",
-    bio: "Aarushi leads the organizing committee with dedication and precision."
+    bio: "Aarushi leads the organizing committee with dedication and precision.",
+    easterEgg: "Head of Organizing Committee"
   }, {
     name: "Rohan Mehta",
     title: "Deputy Head of Organizing Committee",
@@ -32,7 +33,8 @@ export const committeeHeads: Department[] = [{
     title: "Head of Social Media",
     photo: "/lovable-uploads/dishita.png",
     department: "Social Media",
-    bio: "Riddhi creates engaging content that keeps our followers informed and excited."
+    bio: "Riddhi creates engaging content that keeps our followers informed and excited.",
+    easterEgg: "Head of Social Media"
   }, {
     name: "Yana Mehta",
     title: "Head of Social Media",
@@ -48,7 +50,8 @@ export const committeeHeads: Department[] = [{
     title: "Head of Website Design",
     photo: "/lovable-uploads/bharatvir.jpg",
     department: "Website Design",
-    bio: "Samay combines technical expertise with design intuition for our website."
+    bio: "Samay combines technical expertise with design intuition for our website.",
+    easterEgg: "Head of Website Design"
   }, {
     name: "Naaham Shah",
     title: "Head of Website Design",
@@ -64,7 +67,8 @@ export const committeeHeads: Department[] = [{
     title: "Head of Press",
     photo: "/lovable-uploads/shaurya.png",
     department: "Press",
-    bio: "Aarna leads our press team with journalistic integrity and creativity."
+    bio: "Aarna leads our press team with journalistic integrity and creativity.",
+    easterEgg: "Head of Press"
   }]
 }, {
   name: "Heads of Photography",
@@ -74,7 +78,8 @@ export const committeeHeads: Department[] = [{
     title: "Head of Photography",
     photo: "/lovable-uploads/geiv.jpeg",
     department: "Photography",
-    bio: "Keerthana's eye for capturing meaningful moments brings our conference to life."
+    bio: "Keerthana's eye for capturing meaningful moments brings our conference to life.",
+    easterEgg: "Head of Photography"
   }, {
     name: "Rayhan Parikh",
     title: "Head of Photography",
@@ -90,6 +95,7 @@ export const committeeHeads: Department[] = [{
     title: "Head of Illustration",
     photo: "/lovable-uploads/adhiraj.jpeg",
     department: "Illustration",
-    bio: "Radhika's artistic talents enhance all our visual materials."
+    bio: "Radhika's artistic talents enhance all our visual materials.",
+    easterEgg: "Head of Illustration"
   }]
 }];

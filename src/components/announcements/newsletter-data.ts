@@ -15,7 +15,7 @@ export const newsletterData: Newsletter[] = [
     date: "March 2022",
     description: "Our inaugural newsletter covers everything you need to know about the 2022 MUN conference, including committee previews, preparation tips, and a welcome message from our Secretary-General.",
     pdfUrl: "#",
-    coverImage: "/newsletter/issue1.jpg"
+    coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png"
   },
   {
     title: "Post-Conference Report",
@@ -23,7 +23,7 @@ export const newsletterData: Newsletter[] = [
     date: "June 2022",
     description: "A comprehensive review of the Spring 2022 conference with highlights from each committee, award winners, and special moments captured during the event.",
     pdfUrl: "#",
-    coverImage: "/newsletter/issue2.jpg"
+    coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png"
   },
   {
     title: "Pre-Conference Guide",
@@ -31,7 +31,7 @@ export const newsletterData: Newsletter[] = [
     date: "February 2023",
     description: "Essential information for delegates participating in the 2023 conference, including updated rules of procedure, position paper guidelines, and committee backgrounds.",
     pdfUrl: "#",
-    coverImage: "/newsletter/issue3.jpg"
+    coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png"
   },
   {
     title: "Conference Summary",
@@ -39,7 +39,7 @@ export const newsletterData: Newsletter[] = [
     date: "July 2023",
     description: "Recap of the 2023 conference achievements, featuring interviews with outstanding delegates, committee resolutions, and memorable debates.",
     pdfUrl: "#",
-    coverImage: "/newsletter/issue4.jpg"
+    coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png"
   },
   {
     title: "Conference Preparation",
@@ -47,7 +47,7 @@ export const newsletterData: Newsletter[] = [
     date: "January 2024",
     description: "Get ready for the 2024 Middle School MUN with this comprehensive guide featuring committee introductions, country assignments, and essential diplomatic skills.",
     pdfUrl: "#",
-    coverImage: "/newsletter/issue5.jpg"
+    coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png"
   },
   {
     title: "Mid-Year Update",
@@ -55,6 +55,6 @@ export const newsletterData: Newsletter[] = [
     date: "April 2024",
     description: "The latest updates on the upcoming conference, featuring special guest speakers, new committee topics, and important schedule changes for all delegates.",
     pdfUrl: "#",
-    coverImage: "/newsletter/issue6.jpg"
+    coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png"
   }
 ];

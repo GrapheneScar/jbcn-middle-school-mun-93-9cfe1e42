@@ -1,3 +1,4 @@
+
 import { CommitteeChair } from "./types";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -12,6 +13,7 @@ const ChairCard = ({
   const [isExpanded, setIsExpanded] = useState(false);
   const [isLongPressing, setIsLongPressing] = useState(false);
   const [longPressTimer, setLongPressTimer] = useState<NodeJS.Timeout | null>(null);
+  const [imageError, setImageError] = useState(false);
 
   // Function to format bio text with styling
   const formatBio = (bio: string) => {
@@ -59,6 +61,11 @@ const ChairCard = ({
     setIsLongPressing(false);
   };
 
+  // Handle image loading error
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
   // Clean up timer on unmount
   useEffect(() => {
     return () => {
@@ -67,6 +74,7 @@ const ChairCard = ({
       }
     };
   }, [longPressTimer]);
+  
   return <motion.div initial={{
     opacity: 0,
     y: 20
@@ -79,17 +87,28 @@ const ChairCard = ({
       <Collapsible open={isExpanded} onOpenChange={() => setIsExpanded(!isExpanded)}>
         <div className="p-6 flex flex-col items-center text-center relative">
           <div className={`w-32 h-32 rounded-full overflow-hidden mb-4 flex-shrink-0 relative cursor-pointer ${isLongPressing ? 'ring-2 ring-mun-purple-light ring-opacity-70' : ''}`} onMouseDown={startLongPress} onMouseUp={endLongPress} onMouseLeave={endLongPress} onTouchStart={startLongPress} onTouchEnd={endLongPress} onTouchCancel={endLongPress}>
-            <img src={chair.photo} alt={chair.name} className="w-full h-full object-cover" />
+            {!imageError ? (
+              <img 
+                src={chair.photo} 
+                alt={chair.name} 
+                className="w-full h-full object-cover" 
+                onError={handleImageError}
+              />
+            ) : (
+              <div className="w-full h-full bg-mun-purple/30 flex items-center justify-center text-white">
+                {chair.name.split(' ').map(n => n[0]).join('')}
+              </div>
+            )}
             {isLongPressing && <div className="absolute inset-0 bg-mun-purple/30 flex items-center justify-center">
                 <div className="h-1 w-1 bg-white rounded-full animate-ping" />
               </div>}
           </div>
           <div>
             <h3 className="text-xl font-bold">{chair.name}</h3>
-            
+            <p className="text-sm text-mun-purple-light">{chair.title}</p>
             
             <CollapsibleTrigger asChild>
-              <button className="inline-flex items-center justify-center space-x-1 text-mun-purple hover:text-mun-purple-light transition-colors duration-200">
+              <button className="mt-2 inline-flex items-center justify-center space-x-1 text-mun-purple hover:text-mun-purple-light transition-colors duration-200">
                 <span>{isExpanded ? "Read Less" : "Read More"}</span>
                 {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
               </button>

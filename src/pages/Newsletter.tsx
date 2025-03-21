@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { File } from 'lucide-react';
@@ -13,6 +12,15 @@ const Newsletter = () => {
   }, []);
 
   const middleSchoolNewsletters = [
+    {
+      id: 6,
+      title: "JBCN MIDDLE SCHOOL MUN 2025",
+      date: "2025",
+      description: "Stay tuned for the upcoming 2025 Middle School MUN newsletter featuring highlights, committee previews, and what to expect at the conference.",
+      coverImage: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
+      pdfUrl: "#",
+      comingSoon: true
+    },
     {
       id: 1,
       title: "JBCN MIDDLE SCHOOL MUN 2022 - Issue 1",
@@ -138,11 +146,11 @@ const Newsletter = () => {
       <section className="pb-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <Tabs defaultValue="senior" className="mb-12">
-            <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8 bg-black/30 p-1 rounded-lg border border-mun-purple/30">
-              <TabsTrigger value="senior" className="data-[state=active]:bg-mun-purple data-[state=active]:text-white">
+            <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8 bg-black/30 p-1 rounded-full border border-mun-purple/30">
+              <TabsTrigger value="senior" className="data-[state=active]:bg-mun-purple data-[state=active]:text-white rounded-full">
                 JBCN Senior MUN
               </TabsTrigger>
-              <TabsTrigger value="middle" className="data-[state=active]:bg-mun-purple data-[state=active]:text-white">
+              <TabsTrigger value="middle" className="data-[state=active]:bg-mun-purple data-[state=active]:text-white rounded-full">
                 JBCN Middle School MUN
               </TabsTrigger>
             </TabsList>
@@ -165,13 +173,19 @@ const Newsletter = () => {
                       whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(121,83,169,0.3)" }}
                       className="glass-panel overflow-hidden rounded-xl"
                     >
-                      <a href={newsletter.pdfUrl} target="_blank" rel="noopener noreferrer" className="block">
+                      <a href={newsletter.pdfUrl || "#"} target="_blank" rel="noopener noreferrer" className="block">
                         <div className="relative h-64 overflow-hidden">
-                          <img 
-                            src={newsletter.coverImage} 
-                            alt={newsletter.title} 
-                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" 
-                          />
+                          {newsletter.coverImage ? (
+                            <img 
+                              src={newsletter.coverImage} 
+                              alt={newsletter.title} 
+                              className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" 
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-mun-purple/20 flex items-center justify-center">
+                              <span className="text-white/70">Image coming soon</span>
+                            </div>
+                          )}
                           <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
                           <div className="absolute top-0 right-0 p-3">
                             <span className="inline-block bg-mun-purple text-white text-xs rounded-full px-3 py-1">
@@ -182,6 +196,13 @@ const Newsletter = () => {
                             <h3 className="font-bold text-white mb-1 text-lg">{newsletter.title}</h3>
                             <p className="text-white/80 text-xs">{newsletter.description}</p>
                           </div>
+                          {newsletter.comingSoon && (
+                            <div className="absolute inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center">
+                              <div className="transform -rotate-12 bg-mun-purple px-6 py-2 rounded-lg">
+                                <span className="text-lg font-bold text-white">COMING SOON</span>
+                              </div>
+                            </div>
+                          )}
                         </div>
                         <div className="p-4 flex justify-center items-center text-mun-purple-light hover:text-mun-purple transition-colors">
                           <File className="mr-2 h-5 w-5" />
@@ -212,13 +233,19 @@ const Newsletter = () => {
                       whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(121,83,169,0.3)" }}
                       className="glass-panel overflow-hidden rounded-xl"
                     >
-                      <a href={newsletter.pdfUrl} target="_blank" rel="noopener noreferrer" className="block">
+                      <a href={newsletter.pdfUrl || "#"} target="_blank" rel="noopener noreferrer" className="block">
                         <div className="relative h-64 overflow-hidden">
-                          <img 
-                            src={newsletter.coverImage} 
-                            alt={newsletter.title} 
-                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" 
-                          />
+                          {newsletter.coverImage ? (
+                            <img 
+                              src={newsletter.coverImage} 
+                              alt={newsletter.title} 
+                              className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" 
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-mun-purple/20 flex items-center justify-center">
+                              <span className="text-white/70">Image coming soon</span>
+                            </div>
+                          )}
                           <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
                           <div className="absolute top-0 right-0 p-3">
                             <span className="inline-block bg-mun-purple text-white text-xs rounded-full px-3 py-1">
@@ -229,6 +256,13 @@ const Newsletter = () => {
                             <h3 className="font-bold text-white mb-1 text-lg">{newsletter.title}</h3>
                             <p className="text-white/80 text-xs">{newsletter.description}</p>
                           </div>
+                          {newsletter.comingSoon && (
+                            <div className="absolute inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center">
+                              <div className="transform -rotate-12 bg-mun-purple px-6 py-2 rounded-lg">
+                                <span className="text-lg font-bold text-white">COMING SOON</span>
+                              </div>
+                            </div>
+                          )}
                         </div>
                         <div className="p-4 flex justify-center items-center text-mun-purple-light hover:text-mun-purple transition-colors">
                           <File className="mr-2 h-5 w-5" />

@@ -7,6 +7,7 @@ import PhotographyEasterEgg from './eastereggs/PhotographyEasterEgg';
 import IllustrationEasterEgg from './eastereggs/IllustrationEasterEgg';
 import OrganizingEasterEgg from './eastereggs/OrganizingEasterEgg';
 import { motion } from 'framer-motion';
+import { X } from 'lucide-react';
 
 interface EasterEggAnimationProps {
   activeEasterEgg: string | null;

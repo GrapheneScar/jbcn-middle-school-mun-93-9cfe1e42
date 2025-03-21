@@ -6,7 +6,7 @@ import MobileMenu from './navbar/MobileMenu';
 import { navLinks } from './navbar/navData';
 import DesktopNavigation from './navbar/DesktopNavigation';
 import { useNavbarState } from '../hooks/useNavbarState';
-import { Instagram, X } from 'lucide-react';
+import { Instagram, X, Heart } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
@@ -23,6 +23,9 @@ const Navbar = () => {
 
   const [showInstagramPopup, setShowInstagramPopup] = useState(false);
   const [pressingTimer, setPressingTimer] = useState<ReturnType<typeof setTimeout> | null>(null);
+  const [showHeart, setShowHeart] = useState(false);
+  const [lastTap, setLastTap] = useState(0);
+  const tapTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   
   // Handle long press for Instagram icon
   const handleMouseDown = () => {
@@ -41,21 +44,58 @@ const Navbar = () => {
   };
 
   const handleQuickClick = (e: React.MouseEvent) => {
-    // If it's just a quick click (not a long press), open in a new tab
-    if (pressingTimer) {
-      clearTimeout(pressingTimer);
-      setPressingTimer(null);
+    // Handle double-tap/double-click for heart animation
+    const currentTime = new Date().getTime();
+    const tapLength = currentTime - lastTap;
+    
+    // Check if it's a double tap (within 300ms)
+    if (tapLength < 300 && tapLength > 0) {
+      e.preventDefault();
       
-      // Open Instagram in a new tab
-      window.open('https://www.instagram.com/jbcnparelmun', '_blank');
+      // Clear any existing timeout to prevent normal click
+      if (tapTimeout.current) {
+        clearTimeout(tapTimeout.current);
+        tapTimeout.current = null;
+      }
+      
+      // Show heart animation
+      setShowHeart(true);
+      
+      // Hide heart after animation completes
+      setTimeout(() => {
+        setShowHeart(false);
+      }, 1500);
+      
+      // Reset last tap
+      setLastTap(0);
+    } else {
+      // First tap - set timer to handle single tap after delay
+      setLastTap(currentTime);
+      
+      tapTimeout.current = setTimeout(() => {
+        // It's a single tap/click - open Instagram in new tab
+        if (pressingTimer) {
+          clearTimeout(pressingTimer);
+          setPressingTimer(null);
+        }
+        
+        // Open Instagram in a new tab on single click
+        window.open('https://www.instagram.com/jbcnparelmun', '_blank');
+        
+        // Reset last tap
+        setLastTap(0);
+      }, 300);
     }
   };
   
-  // Cleanup timer on component unmount
+  // Cleanup timers on component unmount
   useEffect(() => {
     return () => {
       if (pressingTimer) {
         clearTimeout(pressingTimer);
+      }
+      if (tapTimeout.current) {
+        clearTimeout(tapTimeout.current);
       }
     };
   }, [pressingTimer]);
@@ -119,6 +159,24 @@ const Navbar = () => {
           onLinkClick={closeMobileMenu} 
         />
       </header>
+      
+      {/* Heart Animation on Double Tap */}
+      <AnimatePresence>
+        {showHeart && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1.2 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            transition={{ duration: 0.5 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center pointer-events-none"
+          >
+            <Heart 
+              className="w-32 h-32 text-[#ea384c] filter drop-shadow-lg" 
+              fill="#ea384c"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
       
       {/* Instagram Safari Popup with purple and black theme */}
       <AnimatePresence>
