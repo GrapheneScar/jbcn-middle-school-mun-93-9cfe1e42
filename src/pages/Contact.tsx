@@ -96,8 +96,8 @@ const Contact = () => {
               {
                 icon: Mail,
                 title: "Email",
-                content: "mohammadabdullah.khan@jbcnschool.edu.in/priyal.ganger@jbcnschool.edu.in",
-                description: "For general inquiries and information",
+                content: "mohammadabdullah.khan@jbcnschool.edu.in",
+                description: "Alternate - priyal.ganger@jbcnschool.edu.in",
                 link: "mailto:mohammadabdullah.khan@jbcnschool.edu.in",
                 color: "bg-gradient-to-br from-purple-600/20 to-indigo-600/20"
               },
