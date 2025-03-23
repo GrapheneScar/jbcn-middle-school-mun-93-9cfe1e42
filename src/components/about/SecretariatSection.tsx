@@ -1,13 +1,10 @@
-
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { SecretariatMember } from './types';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-
 interface SecretariatSectionProps {
   secretariat: SecretariatMember[];
 }
-
 const SecretariatSection = ({
   secretariat
 }: SecretariatSectionProps) => {
@@ -15,31 +12,19 @@ const SecretariatSection = ({
   const toggleExpanded = (name: string) => {
     setExpandedMember(prev => prev === name ? null : name);
   };
-  
+
   // Function to format bio text with styling
   const formatBio = (bio: string) => {
     // Create paragraphs from line breaks
     const paragraphs = bio.split('\n').filter(p => p.trim() !== '');
-    
     return paragraphs.map((paragraph, index) => {
       // Format text: make text after colons bold, and text in quotes italic
-      const formattedText = paragraph
-        .replace(/(?<=:)(.*?)(?=\.|$)/g, '<strong>$1</strong>')
-        .replace(/"([^"]+)"/g, '<em>"$1"</em>')
-        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*(.+?)\*/g, '<em>$1</em>')
-        .replace(/\_\_(.+?)\_\_/g, '<u>$1</u>');
-      
-      return (
-        <p 
-          key={index} 
-          className="mb-2" 
-          dangerouslySetInnerHTML={{ __html: formattedText }}
-        />
-      );
+      const formattedText = paragraph.replace(/(?<=:)(.*?)(?=\.|$)/g, '<strong>$1</strong>').replace(/"([^"]+)"/g, '<em>"$1"</em>').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>').replace(/\_\_(.+?)\_\_/g, '<u>$1</u>');
+      return <p key={index} className="mb-2" dangerouslySetInnerHTML={{
+        __html: formattedText
+      }} />;
     });
   };
-  
   return <section className="py-16 px-4">
       <div className="container mx-auto">
         <motion.div className="text-center mb-16" initial={{
@@ -53,7 +38,7 @@ const SecretariatSection = ({
       }} transition={{
         duration: 0.5
       }}>
-          <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">Our Team</span>
+          <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">Meet Our Team</span>
           <h2 className="text-3xl font-bold text-white">Secretariat</h2>
           <p className="text-white/80 max-w-2xl mx-auto mt-4">
             Meet our dedicated team of student leaders who organize and coordinate all aspects of JBCN Middle School MUN.
@@ -122,5 +107,4 @@ const SecretariatSection = ({
       </div>
     </section>;
 };
-
 export default SecretariatSection;
