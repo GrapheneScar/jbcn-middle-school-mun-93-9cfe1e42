@@ -30,6 +30,26 @@ const CommitteeDetail = () => {
     );
   }
 
+  // Get committee email based on the committee abbreviation
+  const getCommitteeEmail = () => {
+    switch(committee.abbr.toLowerCase()) {
+      case 'disec':
+        return 'disec.jbcnmun2025@gmail.com';
+      case 'kws':
+        return 'kws.jbcnmsmun25@gmail.com';
+      case 'copuos':
+        return 'copuos.jbcnmsm25@gmail.com';
+      case 'rfa':
+        return 'rfa.jbcnmsmun25@gmail.com';
+      case 'coi':
+        return 'coi.jbcnmsmun25@gmail.com';
+      default:
+        return '';
+    }
+  };
+
+  const committeeEmail = getCommitteeEmail();
+
   return (
     <div className="pt-32 pb-20 px-4">
       <div className="container mx-auto max-w-5xl">
@@ -60,7 +80,7 @@ const CommitteeDetail = () => {
               }`}
               onClick={() => setActiveTab('chairs')}
             >
-              Chairs
+              Directors
             </button>
           </div>
         </div>
@@ -83,12 +103,15 @@ const CommitteeDetail = () => {
           )}
         </div>
 
-        {/* Committee Resources Section */}
-        <CommitteeResources 
-          studyGuideUrl={committee.studyGuideUrl} 
-          countryMatrixUrl={committee.countryMatrixUrl}
-          committeeName={committee.name}
-        />
+        {/* Committee Resources Section - Only show when not on chairs tab */}
+        {activeTab !== 'chairs' && (
+          <CommitteeResources 
+            studyGuideUrl={committee.studyGuideUrl} 
+            countryMatrixUrl={committee.countryMatrixUrl}
+            committeeName={committee.name}
+            committeeEmail={committeeEmail}
+          />
+        )}
       </div>
     </div>
   );

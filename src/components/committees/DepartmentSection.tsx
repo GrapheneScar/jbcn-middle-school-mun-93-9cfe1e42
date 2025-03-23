@@ -11,10 +11,6 @@ interface DepartmentSectionProps {
 const DepartmentSection = ({ department, index }: DepartmentSectionProps) => {
   const isEven = index % 2 === 0;
   
-  const triggerEasterEgg = (chair: any) => {
-    // No longer immediately triggering easter egg - will be handled by long press in ChairCard
-  };
-  
   return (
     <motion.div 
       className="w-full mb-16"
@@ -31,7 +27,6 @@ const DepartmentSection = ({ department, index }: DepartmentSectionProps) => {
         transition={{ delay: 0.1, duration: 0.5 }}
       >
         <h2 className="text-3xl font-bold text-white mb-4">{department.name}</h2>
-        {/* Removed department description per request */}
       </motion.div>
       
       <div className="flex flex-wrap gap-6 justify-center max-w-4xl mx-auto">
@@ -50,7 +45,7 @@ const DepartmentSection = ({ department, index }: DepartmentSectionProps) => {
               photo: chair.photo,
               bio: chair.bio || '', // Provide a default empty string if bio is missing
               department: chair.department,
-              easterEgg: chair.title // Pass the title for easter egg activation
+              easterEgg: chair.easterEgg // Pass the easter egg data
             }} />
           </motion.div>
         ))}

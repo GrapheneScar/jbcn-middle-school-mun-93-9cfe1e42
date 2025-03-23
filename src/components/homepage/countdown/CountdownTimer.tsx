@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 interface CountdownTimerProps {
@@ -44,15 +45,15 @@ const CountdownTimer = ({
       }
     }
   };
-  return <div className="mb-12 max-w-3xl mx-auto">
-      <div className="glass-panel py-[24px] px-[16px] mx-0 my-0 rounded-sm">
-        <p className="text-white/80 mb-4">Conference Starts In...</p>
-        <div className="flex justify-center space-x-4 md:space-x-8">
+  return <div className="mb-10 max-w-2xl mx-auto">
+      <div className="glass-panel py-4 px-3 mx-0 my-0 rounded-lg">
+        <p className="text-white/80 mb-3 text-sm">Conference Starts In...</p>
+        <div className="flex justify-center space-x-3 md:space-x-5">
           {Object.entries(timeLeft).map(([key, value]) => <motion.div key={key} variants={countdownVariants} animate="pulse" className="flex flex-col items-center">
-              <div className="w-16 h-16 md:w-20 md:h-20 bg-mun-purple/50 rounded-lg flex items-center justify-center text-white text-2xl md:text-3xl font-bold">
+              <div className="w-14 h-14 md:w-16 md:h-16 bg-mun-purple/50 rounded-lg flex items-center justify-center text-white text-xl md:text-2xl font-bold">
                 {value}
               </div>
-              <span className="text-white/70 text-sm mt-2 capitalize">{key}</span>
+              <span className="text-white/70 text-xs mt-1 capitalize">{key}</span>
             </motion.div>)}
         </div>
       </div>

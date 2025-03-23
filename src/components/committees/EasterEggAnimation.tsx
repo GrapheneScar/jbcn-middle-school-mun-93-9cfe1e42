@@ -6,6 +6,7 @@ import PressEasterEgg from './eastereggs/PressEasterEgg';
 import PhotographyEasterEgg from './eastereggs/PhotographyEasterEgg';
 import IllustrationEasterEgg from './eastereggs/IllustrationEasterEgg';
 import OrganizingEasterEgg from './eastereggs/OrganizingEasterEgg';
+import ChairDaffairesEasterEgg from './eastereggs/ChairDaffairesEasterEgg';
 import { motion } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -25,6 +26,7 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
         {activeEasterEgg === "Head of Photography" && <PhotographyEasterEgg />}
         {activeEasterEgg === "Head of Illustration" && <IllustrationEasterEgg />}
         {activeEasterEgg === "Head of Organizing Committee" && <OrganizingEasterEgg />}
+        {activeEasterEgg === "Chair d'affaires" && <ChairDaffairesEasterEgg />}
         
         {/* Add a small popup showing which easter egg is activated */}
         <motion.div 

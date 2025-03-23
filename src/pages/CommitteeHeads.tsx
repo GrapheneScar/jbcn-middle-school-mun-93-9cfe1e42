@@ -7,7 +7,7 @@ import { committeeHeads } from '../components/committees/committee-heads-data';
 import { motion } from 'framer-motion';
 import EasterEggAnimation from '../components/committees/EasterEggAnimation';
 
-const CommitteeHeads = () => {
+const DepartmentHeads = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -47,7 +47,7 @@ const CommitteeHeads = () => {
           duration: 0.5
         }}>
             <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">Team</span>
-            <h1 className="text-5xl font-bold text-white mb-6">Committee Heads</h1>
+            <h1 className="text-5xl font-bold text-white mb-6">Department Heads</h1>
             <p className="text-white/80 max-w-3xl mx-auto">
               Meet the talented individuals who lead our specialized departments and help make JBCN Middle School MUN a success.
             </p>
@@ -67,4 +67,4 @@ const CommitteeHeads = () => {
   );
 };
 
-export default CommitteeHeads;
+export default DepartmentHeads;

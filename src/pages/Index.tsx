@@ -10,6 +10,7 @@ import HomeFAQ from '../components/homepage/HomeFAQ';
 import EventCalendar from '../components/homepage/EventCalendar';
 import PageTransition from '../components/PageTransition';
 import SecretaryGeneralSection from '../components/homepage/SecretaryGeneralSection';
+import DeputySecretaryGeneralSection from '../components/homepage/DeputySecretaryGeneralSection';
 
 const Index = () => {
   useEffect(() => {
@@ -22,8 +23,11 @@ const Index = () => {
         <StripeBackground />
         <HeroSection />
         
-        {/* Added SecretaryGeneralSection above EventCalendar */}
+        {/* Secretary General Section */}
         <SecretaryGeneralSection />
+        
+        {/* Deputy Secretary General Section */}
+        <DeputySecretaryGeneralSection />
         
         {/* Event Calendar */}
         <section className="py-20 px-4">
@@ -39,13 +43,13 @@ const Index = () => {
           </div>
         </section>
         
-        {/* Navigation panels moved below the calendar section */}
+        {/* Navigation panels */}
         <NavigationPanels />
         
-        {/* Added Gallery Section */}
+        {/* Gallery Section */}
         <HomeGallery />
         
-        {/* Added FAQ Section */}
+        {/* FAQ Section */}
         <HomeFAQ />
         
         <BaxterMascot />

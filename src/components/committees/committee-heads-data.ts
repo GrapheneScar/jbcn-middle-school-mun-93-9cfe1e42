@@ -1,29 +1,23 @@
 
 import { Department } from "./types";
 
-// Updated data for committee heads with proper photos
+// Updated data for department heads with proper photos and updated names
 export const committeeHeads: Department[] = [{
   name: "Heads of Organizing Committee",
   description: "The team responsible for coordinating all aspects of the MUN conference.",
   chairs: [{
-    name: "Aarushi Sharma",
+    name: "Shivani Mishra",
     title: "Head of Organizing Committee",
     photo: "/lovable-uploads/ruhika.jpg",
     department: "Organizing Committee",
-    bio: "Aarushi leads the organizing committee with dedication and precision.",
+    bio: "Shivani leads the organizing committee with dedication and precision.",
     easterEgg: "Head of Organizing Committee"
   }, {
-    name: "Rohan Mehta",
+    name: "Udit Ravat",
     title: "Deputy Head of Organizing Committee",
     photo: "/lovable-uploads/riaan.jpeg",
     department: "Organizing Committee",
-    bio: "Rohan brings creativity and energy to the organizing team."
-  }, {
-    name: "Ananya Patel",
-    title: "Deputy Head of Organizing Committee",
-    photo: "/lovable-uploads/areehah.jpg",
-    department: "Organizing Committee",
-    bio: "Ananya ensures smooth coordination across all departments."
+    bio: "Udit brings creativity and energy to the organizing team."
   }]
 }, {
   name: "Heads of Social Media",
@@ -46,18 +40,18 @@ export const committeeHeads: Department[] = [{
   name: "Heads of Website Design",
   description: "Responsible for designing and maintaining the conference website.",
   chairs: [{
-    name: "Samay Shah",
-    title: "Head of Website Design",
-    photo: "/lovable-uploads/bharatvir.jpg",
-    department: "Website Design",
-    bio: "Samay combines technical expertise with design intuition for our website.",
-    easterEgg: "Head of Website Design"
-  }, {
     name: "Naaham Shah",
     title: "Head of Website Design",
     photo: "/lovable-uploads/ansh.png",
     department: "Website Design",
-    bio: "Naaham ensures our website is user-friendly and visually appealing."
+    bio: "Naaham combines technical expertise with design intuition for our website.",
+    easterEgg: "Head of Website Design"
+  }, {
+    name: "Samay Shah",
+    title: "Head of Website Design",
+    photo: "/lovable-uploads/bharatvir.jpg",
+    department: "Website Design",
+    bio: "Samay ensures our website is user-friendly and visually appealing."
   }]
 }, {
   name: "Heads of Press",
@@ -81,11 +75,11 @@ export const committeeHeads: Department[] = [{
     bio: "Keerthana's eye for capturing meaningful moments brings our conference to life.",
     easterEgg: "Head of Photography"
   }, {
-    name: "Rayhan Parikh",
+    name: "Reehan Parikh",
     title: "Head of Photography",
     photo: "/lovable-uploads/pratham.jpg",
     department: "Photography",
-    bio: "Rayhan documents the conference with creativity and attention to detail."
+    bio: "Reehan documents the conference with creativity and attention to detail."
   }]
 }, {
   name: "Heads of Illustration",
@@ -97,5 +91,16 @@ export const committeeHeads: Department[] = [{
     department: "Illustration",
     bio: "Radhika's artistic talents enhance all our visual materials.",
     easterEgg: "Head of Illustration"
+  }]
+}, {
+  name: "Chair d'affaires",
+  description: "Provides diplomatic support and coordination for the conference.",
+  chairs: [{
+    name: "Reeyan Manavi",
+    title: "Chair d'affaires",
+    photo: "/lovable-uploads/arjun.jpeg",
+    department: "Chair d'affaires",
+    bio: "Reeyan provides exceptional diplomatic support and coordination throughout the conference.",
+    easterEgg: "Chair d'affaires"
   }]
 }];

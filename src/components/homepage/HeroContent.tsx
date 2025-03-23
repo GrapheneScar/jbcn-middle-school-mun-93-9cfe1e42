@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { RegisterButton } from '../ui/register-button';
 import CountdownTimer from './countdown/CountdownTimer';
@@ -33,7 +34,7 @@ const HeroContent = () => {
       }
     }
   };
-  return <motion.div className="container mx-auto relative z-10" variants={containerVariants} initial="hidden" animate="visible">
+  return <motion.div className="container mx-auto relative z-10 text-center" variants={containerVariants} initial="hidden" animate="visible">
       <div className="text-center">
         <motion.h1 variants={itemVariants} className="text-5xl lg:text-8xl text-white tracking-tighter leading-none mb-6 mx-0 my-[50px] py-[50px] font-bold md:text-7xl">
           JBCN Middle School MUN
@@ -44,7 +45,6 @@ const HeroContent = () => {
           Experience the world of international diplomacy and global problem-solving at the prestigious JBCN Middle School Model United Nations.
         </motion.p>
         
-        {/* Countdown Timer - Removed className prop */}
         <motion.div variants={itemVariants}>
           <CountdownTimer targetDate={conferenceDate} />
         </motion.div>
@@ -58,7 +58,6 @@ const HeroContent = () => {
           <RegisterButton className="mx-auto" />
         </motion.div>
         
-        {/* Scroll Indicator moved here */}
         <motion.div variants={itemVariants}>
           <ScrollIndicator />
         </motion.div>

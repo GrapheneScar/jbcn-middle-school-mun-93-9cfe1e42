@@ -1,13 +1,15 @@
+
 import { motion } from 'framer-motion';
-import { BookOpen, Globe2 } from 'lucide-react';
+import { BookOpen, Globe2, Mail } from 'lucide-react';
 
 interface CommitteeResourcesProps {
   studyGuideUrl?: string;
   countryMatrixUrl?: string;
   committeeName?: string;
+  committeeEmail?: string;
 }
 
-const CommitteeResources = ({ studyGuideUrl, countryMatrixUrl, committeeName }: CommitteeResourcesProps) => {
+const CommitteeResources = ({ studyGuideUrl, countryMatrixUrl, committeeName, committeeEmail }: CommitteeResourcesProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -17,7 +19,7 @@ const CommitteeResources = ({ studyGuideUrl, countryMatrixUrl, committeeName }: 
     >
       <h2 className="text-3xl font-bold text-white text-center mb-8">Committee Resources</h2>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-8">
         <motion.div
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.2 }}
@@ -76,6 +78,30 @@ const CommitteeResources = ({ studyGuideUrl, countryMatrixUrl, committeeName }: 
           </a>
         </motion.div>
       </div>
+      
+      {/* Committee Contact Information */}
+      {committeeEmail && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="bg-black/30 rounded-lg p-6 max-w-2xl mx-auto text-center"
+        >
+          <div className="flex items-center justify-center mb-3">
+            <Mail className="text-mun-purple-light mr-2" size={20} />
+            <h3 className="text-lg font-semibold text-white">Contact Committee Directors</h3>
+          </div>
+          <p className="text-white/80 mb-2">
+            Have questions about this committee? Reach out to the directors directly:
+          </p>
+          <a 
+            href={`mailto:${committeeEmail}`}
+            className="text-mun-purple-light hover:underline"
+          >
+            {committeeEmail}
+          </a>
+        </motion.div>
+      )}
     </motion.div>
   );
 };
