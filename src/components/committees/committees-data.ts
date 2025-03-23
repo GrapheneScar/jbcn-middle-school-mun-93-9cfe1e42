@@ -7,7 +7,7 @@ export const committeesData: Committee[] = [
     abbr: "DISEC",
     description: "Greetings Delegates,",
     shortDescription: "DISEC tackles the challenges of international peace and security, focusing on disarmament and global threats. This committee will debate the role of Private Military Organizations in modern conflict zones.",
-    topics: ["Evaluating the prospect of Private Military Organizations"],
+    topics: ["Discussing if Private Military Organizations are a Threat to International Peace and Security"],
     logo: "/lovable-uploads/60691948-0e00-49c0-92dd-0dba8ba1646f.png", 
     studyGuideUrl: "https://drive.google.com/file/d/1XcP5F7kN8H1Vkx_tfYqA1g5NnzITIcR9/view?usp=sharing", 
     countryMatrixUrl: "https://docs.google.com/spreadsheets/d/1AnkMh7dEaqQ7kXAUx2tWjrsTmaPbPAap6BoL2l9sMNQ/edit?usp=sharing",
@@ -87,7 +87,7 @@ export const committeesData: Committee[] = [
     shortDescription: "The Cabinet of India committee transports delegates to 1984, amid one of the most challenging periods in India's history. Delegates will take on the roles of key government officials navigating the complex political landscape surrounding Operation Blue Star.",
     topics: ["Evaluating the significance and implications of Operation Blue Star"],
     logo: "/lovable-uploads/5aa913d4-deb5-4ced-8a67-e8694ed3ca00.png",
-    studyGuideUrl: "https://drive.google.com/file/d/1YcP5F7kN8H1Vkx_tfYqA1g5NnzITIcR9/view?usp=sharing",
+    studyGuideUrl: "",
     countryMatrixUrl: "https://docs.google.com/spreadsheets/d/1AnkMh7dEaqQ7kXAUx2tWjrsTmaPbPAap6BoL2l9sMNQ/edit?usp=sharing",
     chairs: [
       {
@@ -111,9 +111,9 @@ export const committeesData: Committee[] = [
     abbr: "RFA",
     description: "Privet, delegaty!",
     shortDescription: "The Russian Federative Assembly offers a unique crisis-driven format where delegates must navigate the complex power dynamics within the Kremlin. As the only constant crisis committee, participants will face evolving challenges that demand quick thinking and strategic diplomacy.",
-    topics: ["Examining and developing mechanisms to prevent mismanagement of funds and power within the Kremlin"],
+    topics: ["Ensuring transparency and accountability to tackle financial and political mismanagement in the kremlin"],
     logo: "/lovable-uploads/fd4faac5-03e0-4080-a3e2-e0789b935a4d.png",
-    studyGuideUrl: "https://drive.google.com/file/d/1WcP5F7kN8H1Vkx_tfYqA1g5NnzITIcR9/view?usp=sharing",
+    studyGuideUrl: "",
     countryMatrixUrl: "https://docs.google.com/spreadsheets/d/1AnkMh7dEaqQ7kXAUx2tWjrsTmaPbPAap6BoL2l9sMNQ/edit?usp=sharing",
     chairs: [
       {
