@@ -96,16 +96,16 @@ const Contact = () => {
               {
                 icon: Mail,
                 title: "Email",
-                content: "mun@jbcnschool.edu.in",
+                content: "mohammadabdullah.khan@jbcnschool.edu.in/priyal.ganger@jbcnschool.edu.in",
                 description: "For general inquiries and information",
-                link: "mailto:mun@jbcnschool.edu.in",
+                link: "mailto:mohammadabdullah.khan@jbcnschool.edu.in",
                 color: "bg-gradient-to-br from-purple-600/20 to-indigo-600/20"
               },
               {
                 icon: Phone,
                 title: "Phone",
                 content: "+91 98201 48168",
-                description: "Abdullah Khan, MUN Facilitator",
+                description: "Mohammad Abdullah Khan, MUN Facilitator",
                 link: "tel:+919820148168",
                 color: "bg-gradient-to-br from-mun-purple/20 to-violet-600/20"
               },
@@ -174,7 +174,7 @@ const Contact = () => {
                     {[
                       {
                         question: "When and where is the conference?",
-                        answer: "JBCN Middle School MUN 2025 will be held on August 15-17, 2025, at JBCN International School, Parel, Mumbai."
+                        answer: "JBCN Middle School MUN 2025 will be held on April 25th & 26th, 2025, at JBCN International School, Parel, Mumbai."
                       },
                       {
                         question: "Who can participate in the MUN?",
@@ -182,15 +182,15 @@ const Contact = () => {
                       },
                       {
                         question: "What is the registration fee?",
-                        answer: "The registration fee is ₹2500 per delegate, which includes conference materials, lunches, and refreshments throughout the event."
+                        answer: "The registration fee is ₹XXXX per delegate, which includes conference materials, lunches, and refreshments throughout the event."
                       },
                       {
                         question: "How many delegates can each school register?",
-                        answer: "Schools can register up to 15 delegates. For larger delegations, please contact us directly to discuss arrangements."
+                        answer: "Schools can register up to XX delegates. For larger delegations, please contact us directly to discuss arrangements."
                       },
                       {
                         question: "When does registration open?",
-                        answer: "Registration opens on March 1, 2025, and closes on July 15, 2025. Early bird discounts are available until May 1, 2025."
+                        answer: "Registration opens on March 24th, 2025, and closes on March XX, 2025."
                       },
                       {
                         question: "Are accommodation arrangements available?",
@@ -241,7 +241,7 @@ const Contact = () => {
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.6693193422396!2d72.83888867487576!3d18.99383658220396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cf21727f6e19%3A0x3f9b56ce9474ee9!2sJBCN%20International%20School%2C%20Parel!5e0!3m2!1sen!2sin!4v1687946558834!5m2!1sen!2sin" 
                   width="100%" 
-                  height="450" 
+                  height="900" 
                   style={{ border: 0 }} 
                   allowFullScreen 
                   loading="lazy" 
