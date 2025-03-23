@@ -1,19 +1,13 @@
 
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import { useToast } from '../hooks/use-toast';
+import { useEffect } from 'react';
 import PageTransition from '../components/PageTransition';
 import StripeBackground from '../components/StripeBackground';
 import { 
   Mail, 
   Phone, 
   MapPin, 
-  MessageSquare, 
-  Send, 
   Instagram, 
-  Twitter, 
-  Facebook, 
-  Linkedin, 
   ExternalLink,
   HelpCircle
 } from 'lucide-react';
@@ -23,41 +17,6 @@ const Contact = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    school: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast({
-        title: "Message Sent",
-        description: "Thank you for contacting us. We'll get back to you soon.",
-        variant: "default",
-      });
-      setFormData({
-        name: '',
-        email: '',
-        school: '',
-        message: ''
-      });
-    }, 1500);
-  };
 
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -115,18 +74,11 @@ const Contact = () => {
             </motion.p>
             
             <motion.div
-              className="flex flex-wrap justify-center gap-3"
+              className="flex justify-center"
               variants={fadeInUpVariants}
             >
-              <a href="#contact-form" className="inline-block">
-                <Button className="bg-mun-purple hover:bg-mun-purple-light">
-                  <MessageSquare className="mr-2 h-4 w-4" />
-                  Send Message
-                </Button>
-              </a>
-              
               <a href="mailto:mun@jbcnschool.edu.in" className="inline-block">
-                <Button variant="outline" className="border-mun-purple/50 text-white hover:bg-mun-purple/10">
+                <Button className="bg-mun-purple hover:bg-mun-purple-light">
                   <Mail className="mr-2 h-4 w-4" />
                   Email Us
                 </Button>
@@ -152,9 +104,9 @@ const Contact = () => {
               {
                 icon: Phone,
                 title: "Phone",
-                content: "+91 22 6122 1900",
-                description: "Monday to Friday, 9am to 4pm",
-                link: "tel:+912261221900",
+                content: "+91 98201 48168",
+                description: "Abdullah Khan, MUN Facilitator",
+                link: "tel:+919820148168",
                 color: "bg-gradient-to-br from-mun-purple/20 to-violet-600/20"
               },
               {
@@ -200,109 +152,14 @@ const Contact = () => {
         </div>
       </section>
       
-      {/* Contact Form and FAQs */}
-      <section className="py-12 px-4" id="contact-form">
+      {/* FAQs and Social Media */}
+      <section className="py-12 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <div className="glass-panel p-8 rounded-xl border border-white/10 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-mun-purple/10 to-transparent -z-10" />
-                
-                <h2 className="text-2xl font-bold text-white mb-6">Send Us a Message</h2>
-                
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="name" className="block text-white text-sm font-medium mb-2">Full Name</label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-mun-purple/30 text-white focus:outline-none focus:ring-2 focus:ring-mun-purple focus:border-transparent transition"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="email" className="block text-white text-sm font-medium mb-2">Email Address</label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-mun-purple/30 text-white focus:outline-none focus:ring-2 focus:ring-mun-purple focus:border-transparent transition"
-                        placeholder="Your email"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="school" className="block text-white text-sm font-medium mb-2">School</label>
-                    <input
-                      type="text"
-                      id="school"
-                      name="school"
-                      value={formData.school}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg bg-white/5 border border-mun-purple/30 text-white focus:outline-none focus:ring-2 focus:ring-mun-purple focus:border-transparent transition"
-                      placeholder="Your school name"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="message" className="block text-white text-sm font-medium mb-2">Message</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={4}
-                      className="w-full px-4 py-3 rounded-lg bg-white/5 border border-mun-purple/30 text-white focus:outline-none focus:ring-2 focus:ring-mun-purple focus:border-transparent transition"
-                      placeholder="Your message"
-                    />
-                  </div>
-                  
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-mun-purple hover:bg-mun-purple-light text-white py-3 px-6 rounded-lg font-medium transition-colors duration-300 flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="mr-2 h-5 w-5" />
-                        Send Message
-                      </>
-                    )}
-                  </button>
-                </form>
-              </div>
-            </motion.div>
-            
             {/* FAQs */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
@@ -358,54 +215,43 @@ const Contact = () => {
                 <div className="glass-panel p-6 rounded-lg border border-white/10 bg-gradient-to-br from-mun-purple/10 to-transparent">
                   <h3 className="text-xl font-bold text-white mb-4">Follow Us</h3>
                   
-                  <div className="flex flex-wrap gap-3">
-                    {[
-                      { name: 'Instagram', icon: Instagram, url: 'https://www.instagram.com/jbcnparelmun' },
-                      { name: 'Twitter', icon: Twitter, url: '#' },
-                      { name: 'Facebook', icon: Facebook, url: '#' },
-                      { name: 'LinkedIn', icon: Linkedin, url: '#' },
-                    ].map((platform) => (
-                      <a 
-                        key={platform.name} 
-                        href={platform.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group flex items-center space-x-2 px-4 py-2 rounded-full bg-mun-purple/20 hover:bg-mun-purple/40 transition-colors duration-300"
-                      >
-                        <platform.icon className="w-4 h-4 text-white" />
-                        <span className="text-sm text-white/90 group-hover:text-white">{platform.name}</span>
-                      </a>
-                    ))}
+                  <div className="flex">
+                    <a 
+                      href="https://www.instagram.com/jbcnparelmun"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center space-x-2 px-4 py-2 rounded-full bg-mun-purple/20 hover:bg-mun-purple/40 transition-colors duration-300"
+                    >
+                      <Instagram className="w-4 h-4 text-white" />
+                      <span className="text-sm text-white/90 group-hover:text-white">Instagram</span>
+                    </a>
                   </div>
                 </div>
               </div>
             </motion.div>
+            
+            {/* Map */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <div className="rounded-xl overflow-hidden border border-white/10 shadow-lg h-full">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.6693193422396!2d72.83888867487576!3d18.99383658220396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cf21727f6e19%3A0x3f9b56ce9474ee9!2sJBCN%20International%20School%2C%20Parel!5e0!3m2!1sen!2sin!4v1687946558834!5m2!1sen!2sin" 
+                  width="100%" 
+                  height="450" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="JBCN International School, Parel"
+                  className="grayscale brightness-75 hover:grayscale-0 hover:brightness-100 transition-all duration-500"
+                />
+              </div>
+            </motion.div>
           </div>
-        </div>
-      </section>
-      
-      {/* Map Section */}
-      <section className="py-12 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="rounded-xl overflow-hidden border border-white/10 shadow-lg"
-          >
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.6693193422396!2d72.83888867487576!3d18.99383658220396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cf21727f6e19%3A0x3f9b56ce9474ee9!2sJBCN%20International%20School%2C%20Parel!5e0!3m2!1sen!2sin!4v1687946558834!5m2!1sen!2sin" 
-              width="100%" 
-              height="450" 
-              style={{ border: 0 }} 
-              allowFullScreen 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-              title="JBCN International School, Parel"
-              className="grayscale brightness-75 hover:grayscale-0 hover:brightness-100 transition-all duration-500"
-            />
-          </motion.div>
         </div>
       </section>
     </PageTransition>

@@ -1,92 +1,104 @@
 
-import { motion } from 'framer-motion';
-import { Users, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
-import { CommitteeChair } from './types';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../ui/collapsible';
+import { motion } from 'framer-motion';
+import ChairGalleryModal from './ChairGalleryModal';
+
+interface Chair {
+  name: string;
+  title: string;
+  photo: string;
+  bio: string;
+}
 
 interface CommitteeChairsProps {
-  chairs: CommitteeChair[];
+  chairs: Chair[];
 }
 
 const CommitteeChairs = ({ chairs }: CommitteeChairsProps) => {
-  const [openChairs, setOpenChairs] = useState<string[]>([]);
-
-  const toggleChair = (name: string) => {
-    setOpenChairs(prev => 
-      prev.includes(name) 
-        ? prev.filter(item => item !== name) 
-        : [...prev, name]
-    );
+  const [expandedBio, setExpandedBio] = useState<string | null>(null);
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [selectedChair, setSelectedChair] = useState('');
+  
+  // Long press handling
+  const [pressTimer, setPressTimer] = useState<NodeJS.Timeout | null>(null);
+  
+  const handleMouseDown = (chairName: string) => {
+    const timer = setTimeout(() => {
+      setSelectedChair(chairName);
+      setGalleryOpen(true);
+    }, 800); // 800ms longpress
+    
+    setPressTimer(timer);
   };
   
-  const isChairOpen = (name: string) => openChairs.includes(name);
-
-  // Function to replace chair titles
-  const formatTitle = (title: string) => {
-    return title
-      .replace(/Chair/g, 'Director')
-      .replace(/Co-Chair/g, 'Assistant Director');
+  const handleMouseUp = () => {
+    if (pressTimer) {
+      clearTimeout(pressTimer);
+      setPressTimer(null);
+    }
   };
-
+  
   return (
-    <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="space-y-6"
-    >
-      <h2 className="text-2xl font-bold mb-4 flex items-center justify-center">
-        <Users className="mr-3 text-mun-purple-light" /> Committee Leadership
-      </h2>
+    <div>
+      <h3 className="text-2xl font-bold text-white mb-8 text-center">Committee Directors</h3>
       
-      <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
         {chairs.map((chair, index) => (
-          <motion.div 
+          <motion.div
             key={chair.name}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            transition={{ delay: index * 0.1, duration: 0.5 }}
+            className="flex flex-col items-center"
           >
-            <Collapsible 
-              open={isChairOpen(chair.name)} 
-              onOpenChange={() => toggleChair(chair.name)}
-              className="glass-panel h-full"
+            <div 
+              className="relative w-48 h-48 rounded-xl overflow-hidden mb-4 shadow-lg cursor-pointer"
+              onMouseDown={() => handleMouseDown(chair.name)}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+              onTouchStart={() => handleMouseDown(chair.name)}
+              onTouchEnd={handleMouseUp}
             >
-              <div className="p-6 flex flex-col items-center text-center relative">
-                <div className="w-32 h-32 rounded-full overflow-hidden mb-4 flex-shrink-0">
-                  <img 
-                    src={chair.photo} 
-                    alt={chair.name} 
-                    className="w-full h-full object-cover" 
-                  />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold">{chair.name}</h3>
-                  <p className="text-mun-purple-light italic mb-4">{formatTitle(chair.title)}</p>
-                  
-                  <CollapsibleTrigger asChild>
-                    <button className="absolute top-4 right-4 bg-mun-purple/80 rounded-full p-1 text-white hover:bg-mun-purple transition-colors">
-                      {isChairOpen(chair.name) ? (
-                        <ChevronUp className="w-5 h-5" />
-                      ) : (
-                        <ChevronDown className="w-5 h-5" />
-                      )}
-                    </button>
-                  </CollapsibleTrigger>
-                </div>
-                
-                <CollapsibleContent className="mt-4">
-                  <div className="text-white/80 whitespace-pre-line">
-                    {chair.bio}
-                  </div>
-                </CollapsibleContent>
-              </div>
-            </Collapsible>
+              <img 
+                src={chair.photo || "/placeholder.svg"} 
+                alt={chair.name} 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
+            </div>
+            
+            <h4 className="text-xl font-bold text-white mb-1">{chair.name}</h4>
+            <p className="text-mun-purple-light mb-3">{chair.title}</p>
+            
+            <div className="relative bg-black/30 p-4 rounded-lg">
+              <p className="text-white/80 text-sm">
+                {expandedBio === chair.name 
+                  ? chair.bio 
+                  : chair.bio.length > 150 
+                    ? `${chair.bio.substring(0, 150)}...` 
+                    : chair.bio
+                }
+              </p>
+              
+              {chair.bio.length > 150 && (
+                <button
+                  onClick={() => setExpandedBio(expandedBio === chair.name ? null : chair.name)}
+                  className="mt-2 text-xs text-mun-purple-light hover:text-mun-purple transition-colors"
+                >
+                  {expandedBio === chair.name ? "Read less" : "Read more"}
+                </button>
+              )}
+            </div>
           </motion.div>
         ))}
       </div>
-    </motion.div>
+      
+      <ChairGalleryModal 
+        isOpen={galleryOpen} 
+        onClose={() => setGalleryOpen(false)} 
+        chairName={selectedChair} 
+      />
+    </div>
   );
 };
 

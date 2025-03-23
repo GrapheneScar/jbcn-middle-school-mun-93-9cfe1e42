@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
@@ -12,7 +11,6 @@ import {
   FileCode, 
   FilePenLine,
   FileQuestion,
-  History,
   Vote,
   MessageSquare,
   FilePlus2,
@@ -68,7 +66,7 @@ const Resources = () => {
       image: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
     },
     {
-      title: "Common Articles",
+      title: "Study Guides",
       description: "Overview of frequently referenced articles in international law",
       icon: ScrollText,
       link: "https://drive.google.com/file/d/123/view",
@@ -80,21 +78,7 @@ const Resources = () => {
       icon: Globe,
       link: "https://drive.google.com/file/d/123/view",
       image: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
-    },
-    {
-      title: "Loopholes",
-      description: "Understanding legal loopholes in international agreements",
-      icon: FileQuestion,
-      link: "https://drive.google.com/file/d/123/view",
-      image: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
-    },
-    {
-      title: "Historical Precedence",
-      description: "Key historical cases and decisions in international relations",
-      icon: History,
-      link: "https://drive.google.com/file/d/123/view",
-      image: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png",
-    },
+    }
   ];
 
   const templateResources = [
@@ -170,12 +154,12 @@ const Resources = () => {
           </motion.div>
 
           <Tabs defaultValue="guides" className="max-w-6xl mx-auto">
-            <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8 bg-black/30 p-1 rounded-lg border border-mun-purple/30">
-              <TabsTrigger value="guides" className="data-[state=active]:bg-mun-purple data-[state=active]:text-white">
+            <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8 bg-black/30 p-1 rounded-full border border-mun-purple/30">
+              <TabsTrigger value="guides" className="data-[state=active]:bg-mun-purple data-[state=active]:text-white rounded-full">
                 <BookOpen className="mr-2 h-4 w-4" />
                 Guides
               </TabsTrigger>
-              <TabsTrigger value="templates" className="data-[state=active]:bg-mun-purple data-[state=active]:text-white">
+              <TabsTrigger value="templates" className="data-[state=active]:bg-mun-purple data-[state=active]:text-white rounded-full">
                 <FileText className="mr-2 h-4 w-4" />
                 Templates
               </TabsTrigger>

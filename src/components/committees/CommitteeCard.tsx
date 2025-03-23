@@ -66,16 +66,8 @@ const CommitteeCard = ({
         </div>
         
         <p className="text-white/80 mb-6 text-center">
-          {committee.description}
+          {committee.shortDescription}
         </p>
-
-        {committee.shortDescription && (
-          <div className="mb-6 p-4 bg-black/20 rounded-lg py-0">
-            <p className="text-white/80 text-center text-sm">
-              {committee.shortDescription}
-            </p>
-          </div>
-        )}
         
         <div className="mb-6">
           <h4 className="text-lg font-semibold text-white mb-3 text-center">Agenda Topic:</h4>

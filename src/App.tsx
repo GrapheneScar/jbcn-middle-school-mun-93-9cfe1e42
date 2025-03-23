@@ -5,7 +5,7 @@ import Index from './pages/Index';
 import AboutUs from './pages/AboutUs';
 import Committees from './pages/Committees';
 import CommitteeDetailPage from './pages/CommitteeDetailPage';
-import CommitteeHeads from './pages/CommitteeHeads';
+import DepartmentHeads from './pages/CommitteeHeads';
 import Schedule from './pages/Schedule';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
@@ -41,7 +41,7 @@ function App() {
             <Route path="/about" element={<AboutUs />} />
             <Route path="/committees" element={<Committees />} />
             <Route path="/committees/:abbr" element={<CommitteeDetailPage />} />
-            <Route path="/committee-heads" element={<CommitteeHeads />} />
+            <Route path="/department-heads" element={<DepartmentHeads />} />
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/newsletter" element={<Newsletter />} />
             <Route path="/contact" element={<Contact />} />
