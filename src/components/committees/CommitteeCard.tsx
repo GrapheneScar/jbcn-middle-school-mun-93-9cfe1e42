@@ -42,15 +42,20 @@ const CommitteeCard = ({
         transition: { duration: 0.3 }
       }}
     >
-      <div className="p-8">
-        <div className="flex flex-col md:flex-row items-center justify-center mb-6">
-          <div className="w-20 h-20 mb-4 md:mb-0 md:mr-4 flex-shrink-0 bg-white/10 rounded-full flex items-center justify-center overflow-hidden p-1">
+      <div className="p-8 flex flex-col md:flex-row items-stretch gap-6">
+        {/* Left side with logo */}
+        <div className="flex-shrink-0 flex items-center justify-center">
+          <div className="w-28 h-28 rounded-full bg-white/10 flex items-center justify-center overflow-hidden p-1 mx-auto">
             {committee.logo ? 
               <img src={committee.logo} alt={`${committee.abbr} logo`} className="w-full h-full object-contain" /> :
-              <Users className="w-6 h-6 text-mun-purple-light" />
+              <Users className="w-10 h-10 text-mun-purple-light" />
             }
           </div>
-          <div>
+        </div>
+        
+        {/* Right side with committee info */}
+        <div className="flex-grow flex flex-col md:text-left text-center">
+          <div className="mb-4">
             <h3 className="text-2xl font-bold text-white">{committee.name}</h3>
             <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-2">
               <span className="inline-block px-3 py-1 text-sm bg-mun-purple/30 rounded-full">
@@ -63,47 +68,47 @@ const CommitteeCard = ({
               )}
             </div>
           </div>
-        </div>
-        
-        <p className="text-white/80 mb-6 text-center">
-          {committee.shortDescription}
-        </p>
-        
-        <div className="mb-6">
-          <h4 className="text-lg font-semibold text-white mb-3 text-center">Agenda Topic:</h4>
-          <div className="flex flex-col items-center space-y-2">
-            {committee.topics.map((topic, topicIndex) => (
-              <div key={topicIndex} className="flex items-center justify-center">
-                <div className="w-3 h-3 rounded-full bg-mun-purple flex-shrink-0 mr-2"></div>
-                <span className="text-white/90">{topic}</span>
-              </div>
-            ))}
+          
+          <p className="text-white/80 mb-4 md:text-left text-center">
+            {committee.shortDescription}
+          </p>
+          
+          <div className="mb-4">
+            <h4 className="text-lg font-semibold text-white mb-3 md:text-left text-center">Agenda Topic:</h4>
+            <div className="flex flex-col space-y-2">
+              {committee.topics.map((topic, topicIndex) => (
+                <div key={topicIndex} className="flex items-start">
+                  <div className="w-3 h-3 rounded-full bg-mun-purple flex-shrink-0 mt-1.5 mr-2"></div>
+                  <span className="text-white/90">{topic}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div className="flex flex-col md:flex-row justify-center gap-3 mb-4">
-          <a 
-            href={committee.studyGuideUrl || "#"} 
-            target="_blank"
-            rel="noopener noreferrer"
-            className={!committee.studyGuideUrl ? "pointer-events-none opacity-50" : ""}
-          >
-            <Button className="bg-mun-purple hover:bg-mun-purple-light w-full">
-              <FileText className="mr-2 w-4 h-4" />
-              Access Study Guide
-            </Button>
-          </a>
-          <Link to={`/committees/${committee.abbr.toLowerCase()}`}>
-            <Button variant="secondary" className="bg-mun-purple/40 hover:bg-mun-purple/60 w-full">
-              View Details
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-3 mt-auto">
+            <a 
+              href={committee.studyGuideUrl || "#"} 
+              target="_blank"
+              rel="noopener noreferrer"
+              className={!committee.studyGuideUrl ? "pointer-events-none opacity-50" : ""}
+            >
+              <Button className="bg-mun-purple hover:bg-mun-purple-light w-full">
+                <FileText className="mr-2 w-4 h-4" />
+                Access Study Guide
+              </Button>
+            </a>
+            <Link to={`/committees/${committee.abbr.toLowerCase()}`}>
+              <Button variant="secondary" className="bg-mun-purple/40 hover:bg-mun-purple/60 w-full">
+                View Details
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </Link>
+          </div>
+          
+          <p className="text-white/70 text-sm italic mt-2 md:text-left text-center">
+            NOTE: The Study Guide password will be sent with your allocation
+          </p>
         </div>
-        
-        <p className="text-white/70 text-sm italic">
-          NOTE: The Study Guide password will be sent with your allocation
-        </p>
       </div>
     </motion.div>
   );

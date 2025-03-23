@@ -1,545 +1,186 @@
 
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import PageTransition from '../components/PageTransition';
 import StripeBackground from '../components/StripeBackground';
-import { Button } from '@/components/ui/button';
-import { Download, FileText } from 'lucide-react';
+import { motion } from 'framer-motion';
 
+// Update the import paths to match your project structure
 const DelegatePreparation = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [activeTab, setActiveTab] = useState("research");
-  
-  const tabs = [
-    { id: "research", label: "Research" },
-    { id: "position", label: "Position Papers" },
-    { id: "rules", label: "Rules of Procedure" },
-    { id: "speaking", label: "Public Speaking" },
-    { id: "attire", label: "Delegate Attire" }
-  ];
-
-  const fadeInUpVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.6 }
-    }
-  };
-
   return (
     <PageTransition>
       <StripeBackground />
-      
-      {/* Header Banner */}
-      <section className="pt-32 pb-20 px-4 relative">
-        <div className="container mx-auto">
-          <motion.div 
-            className="text-center"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.2
-                }
-              }
-            }}
+      <div className="pt-32 pb-20 px-4 container mx-auto">
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-12"
           >
-            <motion.h1 
-              className="text-5xl md:text-6xl font-bold text-white mb-6"
-              variants={fadeInUpVariants}
-            >
-              DELEGATE PREPARATION
-            </motion.h1>
+            <h1 className="text-4xl font-bold text-white mb-6">Delegate Preparation</h1>
+            <p className="text-white/80 mb-8">
+              Preparing for a Model United Nations conference requires thorough research, 
+              practice, and understanding of the committee procedures. Here are some 
+              resources to help you prepare for JBCN Middle School MUN 2025.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="mb-16"
+          >
+            <h2 className="text-2xl font-bold text-white mb-6">Preparation Timeline</h2>
             
-            <motion.div 
-              className="w-20 h-1 bg-mun-purple mx-auto mb-8"
-              variants={{
-                hidden: { width: 0 },
-                visible: { 
-                  width: 80,
-                  transition: { duration: 0.8, delay: 0.3 }
-                }
-              }}
-            />
+            <div className="glass-panel p-6 text-left">
+              <div className="relative border-l-2 border-mun-purple ml-6 pb-6">
+                {/* Timeline items */}
+                <div className="mb-10 ml-10">
+                  <div className="absolute -left-3 mt-1.5">
+                    <div className="w-6 h-6 rounded-full bg-mun-purple flex items-center justify-center">
+                      <span className="text-white text-sm">1</span>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-white">4 Weeks Before</h3>
+                  <ul className="list-disc ml-6 mt-2 text-white/80">
+                    <li>Research your assigned country's position on the committee topic</li>
+                    <li>Read the study guide thoroughly</li>
+                    <li>Research the committee's history and mandate</li>
+                    <li>Begin forming your country's stance on the issue</li>
+                  </ul>
+                </div>
+                
+                <div className="mb-10 ml-10">
+                  <div className="absolute -left-3 mt-1.5">
+                    <div className="w-6 h-6 rounded-full bg-mun-purple flex items-center justify-center">
+                      <span className="text-white text-sm">2</span>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-white">2-3 Weeks Before</h3>
+                  <ul className="list-disc ml-6 mt-2 text-white/80">
+                    <li>Write your position paper</li>
+                    <li>Research potential allies in the committee</li>
+                    <li>Practice parliamentary procedure</li>
+                    <li>Prepare your opening speech</li>
+                  </ul>
+                </div>
+                
+                <div className="mb-10 ml-10">
+                  <div className="absolute -left-3 mt-1.5">
+                    <div className="w-6 h-6 rounded-full bg-mun-purple flex items-center justify-center">
+                      <span className="text-white text-sm">3</span>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-white">1 Week Before</h3>
+                  <ul className="list-disc ml-6 mt-2 text-white/80">
+                    <li>Refine your opening speech</li>
+                    <li>Practice delivering speeches within time limits</li>
+                    <li>Review the Rules of Procedure</li>
+                    <li>Research potential solutions to propose during the conference</li>
+                  </ul>
+                </div>
+                
+                <div className="ml-10">
+                  <div className="absolute -left-3 mt-1.5">
+                    <div className="w-6 h-6 rounded-full bg-mun-purple flex items-center justify-center">
+                      <span className="text-white text-sm">4</span>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-white">Day Before</h3>
+                  <ul className="list-disc ml-6 mt-2 text-white/80">
+                    <li>Prepare your materials and clothing</li>
+                    <li>Review your research one more time</li>
+                    <li>Get a good night's sleep</li>
+                    <li>Check that you have printed all necessary documents</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            className="mb-16 text-center"
+          >
+            <h2 className="text-2xl font-bold text-white mb-6">Tips for First-Time Delegates</h2>
             
-            <motion.p 
-              className="text-lg text-white/80 max-w-3xl mx-auto"
-              variants={fadeInUpVariants}
-            >
-              Comprehensive resources and tips to help you prepare effectively for your MUN committee and ensure a successful conference experience.
-            </motion.p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="glass-panel p-6">
+                <h3 className="text-xl font-bold text-white mb-4">Research Thoroughly</h3>
+                <p className="text-white/80">
+                  Make sure you understand your country's position, the committee topic, and the 
+                  UN's previous actions on the issue. The more you know, the more confident you'll feel.
+                </p>
+              </div>
+              
+              <div className="glass-panel p-6">
+                <h3 className="text-xl font-bold text-white mb-4">Speak Up</h3>
+                <p className="text-white/80">
+                  Even if you're nervous, challenge yourself to speak at least once per session. 
+                  The more you participate, the more comfortable you'll become.
+                </p>
+              </div>
+              
+              <div className="glass-panel p-6">
+                <h3 className="text-xl font-bold text-white mb-4">Follow Procedure</h3>
+                <p className="text-white/80">
+                  Pay attention to the flow of debate. Understanding when to make motions or 
+                  when to speak is crucial to effective participation.
+                </p>
+              </div>
+              
+              <div className="glass-panel p-6">
+                <h3 className="text-xl font-bold text-white mb-4">Collaborate</h3>
+                <p className="text-white/80">
+                  MUN is about diplomacy. Work with other delegates during unmoderated caucuses 
+                  to form alliances and draft resolutions together.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            className="text-center"
+          >
+            <h2 className="text-2xl font-bold text-white mb-6">Essential Resources</h2>
+            
+            <div className="flex flex-wrap justify-center gap-4 mb-6">
+              <a 
+                href="#" 
+                className="px-6 py-3 bg-mun-purple text-white rounded-full hover:bg-mun-purple-light transition-colors"
+              >
+                Rules of Procedure
+              </a>
+              <a 
+                href="#" 
+                className="px-6 py-3 bg-mun-purple text-white rounded-full hover:bg-mun-purple-light transition-colors"
+              >
+                Position Paper Template
+              </a>
+              <a 
+                href="#" 
+                className="px-6 py-3 bg-mun-purple text-white rounded-full hover:bg-mun-purple-light transition-colors"
+              >
+                Resolution Format Guide
+              </a>
+            </div>
+            
+            <p className="text-white/70 italic">
+              All delegates will receive detailed study guides for their specific committees after registration.
+            </p>
           </motion.div>
         </div>
-      </section>
-      
-      {/* ROP Download Button */}
-      <div className="flex justify-center mb-8">
-        <a href="#" target="_blank" rel="noopener noreferrer">
-          <Button className="bg-mun-purple hover:bg-mun-purple-light">
-            <FileText className="mr-2" /> Download Rules of Procedure (ROP)
-          </Button>
-        </a>
       </div>
-      
-      {/* Preparation Guide Tabs */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto max-w-4xl">
-          {/* Tabs Navigation */}
-          <div className="flex flex-wrap justify-center mb-8 gap-2">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-4 py-2 rounded-full transition-all duration-300 ${
-                  activeTab === tab.id 
-                    ? 'bg-mun-purple text-white' 
-                    : 'bg-mun-purple/20 text-white/70 hover:bg-mun-purple/30'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-          
-          {/* Tab Content */}
-          <div className="glass-panel p-8 min-h-[400px]">
-            {/* Research */}
-            {activeTab === "research" && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <h2 className="text-2xl font-bold text-white mb-6">Research Guidelines</h2>
-                
-                <p className="text-white/80 mb-6">
-                  Thorough research is the foundation of a successful MUN experience. Start by understanding your assigned country and its stance on the committee topics.
-                </p>
-                
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-xl font-semibold text-mun-purple-light mb-3">Country Profile Research</h3>
-                    <ul className="space-y-2 text-white/80">
-                      <li className="flex items-start">
-                        <span className="text-mun-purple-light mr-2">•</span>
-                        <span>Political system and government structure</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-mun-purple-light mr-2">•</span>
-                        <span>Economic status and major industries</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-mun-purple-light mr-2">•</span>
-                        <span>Key allies and adversaries</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-mun-purple-light mr-2">•</span>
-                        <span>Historical context relevant to the topics</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-mun-purple-light mr-2">•</span>
-                        <span>Membership in international organizations</span>
-                      </li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-semibold text-mun-purple-light mb-3">Topic Research</h3>
-                    <ul className="space-y-2 text-white/80">
-                      <li className="flex items-start">
-                        <span className="text-mun-purple-light mr-2">•</span>
-                        <span>Background and history of the issue</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-mun-purple-light mr-2">•</span>
-                        <span>Current status and recent developments</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-mun-purple-light mr-2">•</span>
-                        <span>Previous UN actions and resolutions</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-mun-purple-light mr-2">•</span>
-                        <span>Your country's specific policies and statements</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-mun-purple-light mr-2">•</span>
-                        <span>Potential solutions and their implications</span>
-                      </li>
-                    </ul>
-                  </div>
-                  
-                  <div className="p-4 bg-mun-purple/10 rounded-lg">
-                    <h4 className="font-semibold text-white mb-2">Recommended Resources:</h4>
-                    <ul className="space-y-1 text-white/80">
-                      <li>• Official United Nations documents and websites</li>
-                      <li>• Your assigned country's government websites</li>
-                      <li>• News sources from your country and international outlets</li>
-                      <li>• Academic journals and research papers</li>
-                      <li>• NGO reports related to the topics</li>
-                    </ul>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-            
-            {/* Position Paper */}
-            {activeTab === "position" && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <h2 className="text-2xl font-bold text-white mb-6">Position Paper Guidelines</h2>
-                
-                <p className="text-white/80 mb-6">
-                  A position paper outlines your country's stance on the committee topics and is typically submitted before the conference. It demonstrates your research and preparation.
-                </p>
-                
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-xl font-semibold text-mun-purple-light mb-3">Position Paper Structure</h3>
-                    
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="glass-panel p-4">
-                        <h4 className="font-semibold text-white mb-2">Introduction</h4>
-                        <ul className="space-y-1 text-white/80 text-sm">
-                          <li>• Brief overview of the topic</li>
-                          <li>• Your country's general stance</li>
-                          <li>• Key points to be elaborated</li>
-                        </ul>
-                      </div>
-                      
-                      <div className="glass-panel p-4">
-                        <h4 className="font-semibold text-white mb-2">Country's Position</h4>
-                        <ul className="space-y-1 text-white/80 text-sm">
-                          <li>• Historical involvement with the issue</li>
-                          <li>• Current policies and actions</li>
-                          <li>• Domestic factors influencing position</li>
-                        </ul>
-                      </div>
-                      
-                      <div className="glass-panel p-4">
-                        <h4 className="font-semibold text-white mb-2">Proposed Solutions</h4>
-                        <ul className="space-y-1 text-white/80 text-sm">
-                          <li>• Concrete and specific solutions</li>
-                          <li>• How these align with your country</li>
-                          <li>• Potential allies and bloc positions</li>
-                        </ul>
-                      </div>
-                      
-                      <div className="glass-panel p-4">
-                        <h4 className="font-semibold text-white mb-2">Conclusion</h4>
-                        <ul className="space-y-1 text-white/80 text-sm">
-                          <li>• Summary of key points</li>
-                          <li>• Restate commitment to issue</li>
-                          <li>• Call to action for committee</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-semibold text-mun-purple-light mb-3">Formatting Tips</h3>
-                    <ul className="space-y-2 text-white/80">
-                      <li className="flex items-start">
-                        <span className="text-mun-purple-light mr-2">•</span>
-                        <span>Keep your position paper to 1-2 pages per topic</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-mun-purple-light mr-2">•</span>
-                        <span>Use formal diplomatic language</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-mun-purple-light mr-2">•</span>
-                        <span>Include proper citations for any facts or statistics</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-mun-purple-light mr-2">•</span>
-                        <span>Write in third person (e.g., "The Republic of..." rather than "We" or "I")</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-mun-purple-light mr-2">•</span>
-                        <span>Proofread carefully for grammar and spelling</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-            
-            {/* Rules of Procedure */}
-            {activeTab === "rules" && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <h2 className="text-2xl font-bold text-white mb-6">Rules of Procedure</h2>
-                
-                <p className="text-white/80 mb-6">
-                  Understanding the rules of procedure is essential for effective participation in MUN debates. Familiarize yourself with these common procedures:
-                </p>
-                
-                <div className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="glass-panel p-5">
-                      <h3 className="text-lg font-semibold text-mun-purple-light mb-3">Formal Debate</h3>
-                      <ul className="space-y-2 text-white/80 text-sm">
-                        <li>• Speaker's List - Delegates speak in order</li>
-                        <li>• Set speaking time (usually 1-2 minutes)</li>
-                        <li>• Questions may be allowed after speeches</li>
-                        <li>• Focus on general stance on topics</li>
-                      </ul>
-                    </div>
-                    
-                    <div className="glass-panel p-5">
-                      <h3 className="text-lg font-semibold text-mun-purple-light mb-3">Moderated Caucus</h3>
-                      <ul className="space-y-2 text-white/80 text-sm">
-                        <li>• Focused discussion on specific aspect</li>
-                        <li>• Chair recognizes speakers one by one</li>
-                        <li>• Brief speaking time (30-60 seconds)</li>
-                        <li>• No speakers list; raise placard to speak</li>
-                      </ul>
-                    </div>
-                    
-                    <div className="glass-panel p-5">
-                      <h3 className="text-lg font-semibold text-mun-purple-light mb-3">Unmoderated Caucus</h3>
-                      <ul className="space-y-2 text-white/80 text-sm">
-                        <li>• Free-form discussion period</li>
-                        <li>• Delegates may move around the room</li>
-                        <li>• Form blocs and draft working papers</li>
-                        <li>• Informal negotiation and alliance building</li>
-                      </ul>
-                    </div>
-                    
-                    <div className="glass-panel p-5">
-                      <h3 className="text-lg font-semibold text-mun-purple-light mb-3">Voting Procedures</h3>
-                      <ul className="space-y-2 text-white/80 text-sm">
-                        <li>• Roll call vote on resolutions</li>
-                        <li>• Options: Yes, No, Abstain, Pass</li>
-                        <li>• Amendments voted on before full resolution</li>
-                        <li>• Simple majority usually needed to pass</li>
-                      </ul>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-semibold text-mun-purple-light mb-3">Common Points and Motions</h3>
-                    <div className="space-y-3">
-                      <div className="p-3 bg-mun-purple/10 rounded-lg">
-                        <h4 className="font-semibold text-white">Point of Order</h4>
-                        <p className="text-white/80 text-sm">Used when a delegate believes that proper procedure is not being followed.</p>
-                      </div>
-                      
-                      <div className="p-3 bg-mun-purple/10 rounded-lg">
-                        <h4 className="font-semibold text-white">Point of Personal Privilege</h4>
-                        <p className="text-white/80 text-sm">Used when a delegate experiences personal discomfort (e.g., cannot hear the speaker).</p>
-                      </div>
-                      
-                      <div className="p-3 bg-mun-purple/10 rounded-lg">
-                        <h4 className="font-semibold text-white">Point of Information</h4>
-                        <p className="text-white/80 text-sm">Used to ask questions to another delegate after their speech.</p>
-                      </div>
-                      
-                      <div className="p-3 bg-mun-purple/10 rounded-lg">
-                        <h4 className="font-semibold text-white">Motion for Moderated/Unmoderated Caucus</h4>
-                        <p className="text-white/80 text-sm">To propose a caucus, specify topic, total time, and speaking time (for moderated).</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-            
-            {/* Public Speaking */}
-            {activeTab === "speaking" && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <h2 className="text-2xl font-bold text-white mb-6">Public Speaking Tips</h2>
-                
-                <p className="text-white/80 mb-6">
-                  Effective public speaking is crucial for making your country's voice heard in committee. These tips will help you communicate confidently and persuasively.
-                </p>
-                
-                <div className="space-y-6">
-                  <div className="grid md:grid-cols-3 gap-4">
-                    <div className="glass-panel p-5 flex flex-col items-center text-center">
-                      <div className="w-12 h-12 rounded-full bg-mun-purple flex items-center justify-center mb-3">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                        </svg>
-                      </div>
-                      <h3 className="text-lg font-semibold text-white mb-2">Preparation</h3>
-                      <p className="text-white/80 text-sm">Organize your thoughts with clear structure: opening, key points, conclusion.</p>
-                    </div>
-                    
-                    <div className="glass-panel p-5 flex flex-col items-center text-center">
-                      <div className="w-12 h-12 rounded-full bg-mun-purple flex items-center justify-center mb-3">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                        </svg>
-                      </div>
-                      <h3 className="text-lg font-semibold text-white mb-2">Volume & Clarity</h3>
-                      <p className="text-white/80 text-sm">Speak clearly and loudly enough to be heard by everyone in the room.</p>
-                    </div>
-                    
-                    <div className="glass-panel p-5 flex flex-col items-center text-center">
-                      <div className="w-12 h-12 rounded-full bg-mun-purple flex items-center justify-center mb-3">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                      <h3 className="text-lg font-semibold text-white mb-2">Pacing</h3>
-                      <p className="text-white/80 text-sm">Speak at a moderate pace. Avoid rushing, especially when time is limited.</p>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    <h3 className="text-xl font-semibold text-mun-purple-light">Speech Structure</h3>
-                    
-                    <div className="bg-mun-purple/10 p-5 rounded-lg">
-                      <div className="mb-4">
-                        <h4 className="font-semibold text-white mb-1">Opening</h4>
-                        <p className="text-white/80 text-sm">
-                          "Honorable Chair, distinguished delegates, the delegation of [Country] is pleased to address the committee on the important issue of [Topic]."
-                        </p>
-                      </div>
-                      
-                      <div className="mb-4">
-                        <h4 className="font-semibold text-white mb-1">Body</h4>
-                        <p className="text-white/80 text-sm">
-                          Present 2-3 key points about your country's position and proposed solutions. Use facts, statistics, and examples to support your arguments.
-                        </p>
-                      </div>
-                      
-                      <div>
-                        <h4 className="font-semibold text-white mb-1">Conclusion</h4>
-                        <p className="text-white/80 text-sm">
-                          "In conclusion, [Country] strongly urges the committee to consider [summary of key solutions]. Thank you, Honorable Chair."
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-semibold text-mun-purple-light mb-3">Body Language Tips</h3>
-                    <ul className="space-y-2 text-white/80">
-                      <li className="flex items-start">
-                        <span className="text-mun-purple-light mr-2">•</span>
-                        <span>Stand straight with shoulders back when delivering speeches</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-mun-purple-light mr-2">•</span>
-                        <span>Make eye contact with different delegates around the room</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-mun-purple-light mr-2">•</span>
-                        <span>Use hand gestures naturally to emphasize points, but avoid excessive movement</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-mun-purple-light mr-2">•</span>
-                        <span>Project confidence even if you feel nervous</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-            
-            {/* Delegate Attire */}
-            {activeTab === "attire" && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <h2 className="text-2xl font-bold text-white mb-6">Delegate Attire</h2>
-                
-                <p className="text-white/80 mb-6">
-                  Proper attire is an important aspect of MUN conferences, reflecting the formal nature of diplomatic settings. Follow these guidelines for appropriate Western business attire.
-                </p>
-                
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-xl font-semibold text-mun-purple-light mb-4">For All Delegates</h3>
-                    
-                    <div className="space-y-4">
-                      <div className="glass-panel p-4">
-                        <h4 className="font-semibold text-white mb-2">General Guidelines</h4>
-                        <ul className="space-y-1 text-white/80 text-sm">
-                          <li>• Formal business attire is required for all sessions</li>
-                          <li>• Clothes should be clean, pressed, and conservative</li>
-                          <li>• No jeans, sneakers, or casual wear</li>
-                          <li>• Minimize flashy accessories</li>
-                          <li>• National attire may be worn if it's formal</li>
-                        </ul>
-                      </div>
-                      
-                      <div className="p-4 bg-mun-purple/10 rounded-lg">
-                        <h4 className="font-semibold text-white mb-2">What to Bring</h4>
-                        <ul className="space-y-1 text-white/80 text-sm">
-                          <li>• Notepad and pens</li>
-                          <li>• Research materials and position papers</li>
-                          <li>• Water bottle</li>
-                          <li>• Business cards (optional but useful)</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-6">
-                    <div>
-                      <h3 className="text-xl font-semibold text-mun-purple-light mb-3">Specific Attire Guidelines</h3>
-                      
-                      <div className="space-y-3">
-                        <div className="glass-panel p-4">
-                          <h4 className="font-semibold text-white mb-1">Option 1</h4>
-                          <ul className="space-y-1 text-white/80 text-sm">
-                            <li>• Business suit (matching jacket and pants/skirt)</li>
-                            <li>• Dress shirt or blouse</li>
-                            <li>• Tie (for suits)</li>
-                            <li>• Formal leather shoes</li>
-                            <li>• Conservative socks/hosiery</li>
-                          </ul>
-                        </div>
-                        
-                        <div className="glass-panel p-4">
-                          <h4 className="font-semibold text-white mb-1">Option 2</h4>
-                          <ul className="space-y-1 text-white/80 text-sm">
-                            <li>• Formal dress (knee-length or longer)</li>
-                            <li>• Formal skirt with blouse</li>
-                            <li>• Blazer or suit jacket</li>
-                            <li>• Closed-toe shoes with moderate heel</li>
-                            <li>• Conservative jewelry</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 bg-mun-purple/20 rounded-lg">
-                      <h4 className="font-semibold text-white mb-2">Remember</h4>
-                      <p className="text-white/80 text-sm">
-                        Your appearance contributes to the formal atmosphere of the conference and shows respect for the diplomatic process. When in doubt, err on the side of more formal rather than less.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </div>
-        </div>
-      </section>
     </PageTransition>
   );
 };

@@ -12,7 +12,7 @@ export const navLinks: NavLinkWithSubmenu[] = [
     path: '/about',
     submenu: [
       { name: 'About Us', path: '/about' },
-      { name: 'Committee Heads', path: '/committee-heads' }
+      { name: 'Department Heads', path: '/department-heads' }
     ]
   },
   { 

@@ -26,13 +26,7 @@ const AboutUs = () => {
       role: "Deputy-Secretary General",
       image: "/lovable-uploads/areehah.jpg",
       bio: "Greetings delegates, my name is Areehah Mitra and I am honored to be the Deputy Secretary General of JBCN Middle School MUN 2025. Middle School MUN for me serves as a tremendously bright learning opportunity for delegates in grades 6 through 8 as it allows for exhilarating debate as well as a pertinent stepping stone to diplomacy, The Secretariat this year aims to facilitate keen synchronization of conference proceedings and put in its best efforts to help satisfy all the delegates attending.\n\nIf you've ever been skeptical about attending your first MUN or getting started on such a seemingly daunting journey, I'd highly encourage you to take the leap of faith; the skills you learn are endless. At Middle School MUN, the diverse committees and mix of topics discuss some of the most interesting yet interesting disputes and serve as a brilliant base for introductory discourse. Don't let the fear of failure outweigh the possibilities of learning.\n\nWith thorough planning and your unwavering enthusiasm, I look forward to making JBCN Middle School MUN '25 a memorable adventure!",
-    },
-    { 
-      name: "Reeyan Mavani", 
-      role: "Chargé d'Affaires",
-      image: "/lovable-uploads/riaan.jpg",
-      bio: "Dear Delegates, Executive Board, and Esteemed Guests,\n\nIt is with immense pride and enthusiasm that I welcome you all to JBCN Parel Middle School MUN 2025! As the Chargé d'Affaires, I am honored to oversee an event that not only fosters debate and diplomacy but also empowers young minds to challenge global issues with intellect and empathy.\n\nModel United Nations is more than just a simulation; it is a platform where ideas transcend borders, where leadership is tested, and where voices find purpose. Having embarked on my own MUN journey as a passionate delegate, I have witnessed firsthand the transformation that this experience brings—confidence in speaking, resilience in negotiation, and a deeper understanding of the world's complexities.\n\nThis year, we aim to create an environment that fuels critical thinking, collaboration, and innovation. With dynamic committees, engaging agendas, and a talented Secretariat, we promise an experience that will challenge, inspire, and leave you with unforgettable memories. Whether you are a first-time delegate or a seasoned MUNner, your participation is what makes this conference exceptional.\n\nAs you step into the shoes of diplomats and policymakers, remember that every speech, every argument, and every resolution you draft contributes to a larger mission—a world driven by dialogue, cooperation, and change.\n\nLooking forward to an exhilarating conference!\n\nWarm regards,\nReeyan Mavani\nChargé d'Affaires\nJBCN Parel Middle School MUN 2025",
-    },
+    }
   ];
 
   return (

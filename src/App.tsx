@@ -5,7 +5,7 @@ import Index from './pages/Index';
 import AboutUs from './pages/AboutUs';
 import Committees from './pages/Committees';
 import CommitteeDetailPage from './pages/CommitteeDetailPage';
-import DepartmentHeads from './pages/CommitteeHeads';
+import DepartmentHeads from './pages/DepartmentHeads';
 import Schedule from './pages/Schedule';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
