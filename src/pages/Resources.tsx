@@ -173,7 +173,7 @@ const Resources = () => {
                             </div>
                           </div>
                           <CardHeader className="pb-2">
-                            <CardTitle className="text-xl text-white flex items-center text-center">
+                            <CardTitle className="text-xl text-white flex items-center mx-0 text-center">
                               {resource.title}
                             </CardTitle>
                             <CardDescription className="text-white/70">
