@@ -3,74 +3,55 @@ import { motion } from 'framer-motion';
 
 const BaxterMascot = () => {
   return (
-    <section className="py-20 px-4 relative overflow-hidden">
-      <div 
-        className="absolute inset-0 bg-mun-purple/5 z-0"
-        style={{
-          backgroundImage: "radial-gradient(circle at 70% 50%, rgba(155,135,245,0.2) 0%, transparent 50%)"
-        }}
-      />
-      
-      <motion.div 
-        className="container mx-auto relative z-10"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-          <motion.div 
-            className="lg:w-2/5"
-            initial={{ x: -50, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
+    <section className="py-16 relative overflow-hidden">
+      <div className="container mx-auto px-4">
+        {/* Center-aligned content */}
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.5 }}
+            className="mb-6"
           >
-            <div className="glass-panel p-4 rounded-full mb-6 w-fit mx-auto lg:mx-0">
-              <h3 className="text-sm md:text-base text-white/80 px-4">Meet Our Mascot</h3>
+            <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">Mascot</span>
+            <h2 className="text-3xl font-bold text-white">Meet Our Mascot</h2>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="relative mb-8"
+          >
+            <div className="w-48 h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 border-mun-purple/40 shadow-2xl mx-auto">
+              <img
+                src="/lovable-uploads/baxter.png"
+                alt="Baxter - JBCN MUN Mascot"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 text-center lg:text-left">
-              Baxter <span className="text-mun-purple-light">The Bear</span>
-            </h2>
-            <p className="text-xl text-white/80 mb-6 text-center lg:text-left">
-              Embodying the ideal delegate
-            </p>
-            
-            <div className="space-y-4 text-white/70">
-              <p>
-                Courage, perseverance, determination, and power are only some of the 
-                characteristics that Baxter shares with our delegates.
-              </p>
-              <p>
-                One of the more remarkable characteristics of the bear is the ability to adapt 
-                to circumstances with an open mind — a crucial skill for all delegates, 
-                especially first-timers.
-              </p>
-              <p>
-                There is so much more we can learn from the bear, making Baxter 
-                the perfect mascot for the JBCN MUN.
-              </p>
+            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-mun-purple px-4 py-1 rounded-full">
+              <span className="text-white font-bold">Baxter</span>
             </div>
           </motion.div>
           
-          <motion.div 
-            className="lg:w-3/5 flex justify-center"
-            initial={{ x: 50, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-white/80 max-w-2xl text-center mx-auto"
           >
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-mun-purple/40 to-mun-purple-light/40 rounded-full blur-md animate-pulse-soft"></div>
-              <img 
-                src="/lovable-uploads/3cef3976-5185-4338-9914-6fd6e930d15f.png" 
-                alt="Baxter the Bear - JBCN MUN Mascot" 
-                className="relative w-full max-w-md lg:max-w-lg mx-auto object-contain"
-              />
-            </div>
-          </motion.div>
+            Meet Baxter, our friendly diplomat bear who represents the spirit of JBCN MUN! 
+            Baxter embodies diplomacy, thoughtful debate, and international cooperation. 
+            As you navigate through your MUN journey, Baxter will be there to encourage 
+            collaboration and remind us all that even the most complex global challenges 
+            can be addressed with patience, respect, and teamwork.
+          </motion.p>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

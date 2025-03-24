@@ -4,8 +4,81 @@ import PageTransition from '../components/PageTransition';
 import StripeBackground from '../components/StripeBackground';
 import { motion } from 'framer-motion';
 import { Button } from '../components/ui/button';
-import { FileText, BookOpen, Users, ArrowRight } from 'lucide-react';
+import { FileText, BookOpen, Users, ArrowRight, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
+// Delegate preparation research tabs component
+const ResearchTabs = () => {
+  const tabs = ["Research", "Position Papers", "Rules of Procedure", "Public Speaking", "Delegate Attire"];
+  
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.4, duration: 0.5 }}
+      className="mb-10 max-w-4xl mx-auto"
+    >
+      <div className="flex flex-wrap justify-center gap-3">
+        {tabs.map((tab, index) => (
+          <div 
+            key={tab} 
+            className="bg-mun-purple/40 text-white px-4 py-2 rounded-full text-sm cursor-pointer hover:bg-mun-purple transition-colors duration-300"
+          >
+            {tab}
+          </div>
+        ))}
+      </div>
+    </motion.div>
+  );
+};
+
+// Research guidelines component
+const ResearchGuideSection = () => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.6, duration: 0.5 }}
+      className="glass-panel p-8 rounded-xl text-left text-white/90 max-w-4xl mx-auto mb-12"
+    >
+      <h2 className="text-2xl font-bold text-white mb-6">Research Guidelines</h2>
+      <p className="mb-4">Thorough research is the foundation of a successful MUN experience. Start by understanding your assigned country and its stance on the committee topics.</p>
+      
+      <div className="mb-8">
+        <h3 className="text-xl font-bold text-mun-purple-light mb-3">Country Profile Research</h3>
+        <ul className="list-disc ml-6 space-y-2">
+          <li>Political system and government structure</li>
+          <li>Economic status and major industries</li>
+          <li>Key allies and adversaries</li>
+          <li>Historical context relevant to the topics</li>
+          <li>Membership in international organizations</li>
+        </ul>
+      </div>
+      
+      <div className="mb-8">
+        <h3 className="text-xl font-bold text-mun-purple-light mb-3">Topic Research</h3>
+        <ul className="list-disc ml-6 space-y-2">
+          <li>Background and history of the issue</li>
+          <li>Current status and recent developments</li>
+          <li>Previous UN actions and resolutions</li>
+          <li>Your country's specific policies and statements</li>
+          <li>Potential solutions and their implications</li>
+        </ul>
+      </div>
+      
+      <div className="bg-black/30 p-6 rounded-lg">
+        <h3 className="text-lg font-bold text-white mb-3">Recommended Resources:</h3>
+        <ul className="list-disc ml-6 space-y-1 text-white/80">
+          <li>Official United Nations documents and websites</li>
+          <li>Your assigned country's government websites</li>
+          <li>News sources from your country and international outlets</li>
+          <li>Academic journals and research papers</li>
+          <li>NGO reports related to the topics</li>
+        </ul>
+      </div>
+    </motion.div>
+  );
+};
 
 // Update the import paths to match your project structure
 const DelegatePreparation = () => {
@@ -31,6 +104,12 @@ const DelegatePreparation = () => {
               resources to help you prepare for JBCN Middle School MUN 2025.
             </p>
           </motion.div>
+
+          {/* Research Tabs */}
+          <ResearchTabs />
+          
+          {/* Research Guidelines */}
+          <ResearchGuideSection />
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -163,11 +242,19 @@ const DelegatePreparation = () => {
                   <BookOpen className="w-10 h-10 text-mun-purple-light mb-3" />
                   <h3 className="text-lg font-semibold text-white mb-2">Rules of Procedure</h3>
                   <p className="text-white/70 text-sm mb-4 text-center">Master the rules that govern debate in all committees</p>
+                  <a 
+                    href="https://drive.google.com/file/d/19K56bVlyhd2piUwUKueHynqf4tN7zAei/view?usp=sharing" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-mun-purple-light hover:text-white text-sm transition-colors"
+                  >
+                    View Rules
+                  </a>
                 </div>
                 
                 <div className="flex flex-col items-center p-4 bg-black/30 rounded-lg hover:bg-black/40 transition-colors">
                   <FileText className="w-10 h-10 text-mun-purple-light mb-3" />
-                  <h3 className="text-lg font-semibold text-white mb-2">Document Templates</h3>
+                  <h3 className="text-lg font-semibold text-white mb-2">Document Examples</h3>
                   <p className="text-white/70 text-sm mb-4 text-center">Examples of position papers, resolutions, and more</p>
                 </div>
                 
@@ -176,6 +263,18 @@ const DelegatePreparation = () => {
                   <h3 className="text-lg font-semibold text-white mb-2">Committee Guides</h3>
                   <p className="text-white/70 text-sm mb-4 text-center">Detailed guides for each committee topic</p>
                 </div>
+              </div>
+              
+              {/* Country Matrix - Coming Soon */}
+              <div className="p-4 bg-black/30 rounded-lg border border-yellow-500/30 mb-8">
+                <div className="flex items-center justify-center mb-3">
+                  <AlertCircle className="text-yellow-500 mr-2" />
+                  <h3 className="text-lg font-semibold text-white">Country Matrix - Coming Soon</h3>
+                </div>
+                <p className="text-white/70 text-sm text-center">
+                  Our comprehensive country matrix is being prepared and will be available shortly. 
+                  This will help delegates identify their country's stance on various issues.
+                </p>
               </div>
               
               <Link to="/resources">

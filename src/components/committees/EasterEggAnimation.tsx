@@ -26,7 +26,7 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
         {activeEasterEgg === "Head of Photography" && <PhotographyEasterEgg />}
         {activeEasterEgg === "Head of Illustration" && <IllustrationEasterEgg />}
         {activeEasterEgg === "Head of Organizing Committee" && <OrganizingEasterEgg />}
-        {activeEasterEgg === "Chair d'affaires" && <ChairDaffairesEasterEgg />}
+        {(activeEasterEgg === "Chair d'affaires" || activeEasterEgg === "Director of Operations") && <ChairDaffairesEasterEgg />}
         
         {/* Add a small popup showing which easter egg is activated */}
         <motion.div 

@@ -1,16 +1,37 @@
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import PageTransition from '../components/PageTransition';
 import StripeBackground from '../components/StripeBackground';
 import DepartmentSection from '../components/committees/DepartmentSection';
 import { committeeHeads } from '../components/committees/committee-heads-data';
 import { motion } from 'framer-motion';
+import EasterEggAnimation from '../components/committees/EasterEggAnimation';
 
 const DepartmentHeads = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
+  const [activeEasterEgg, setActiveEasterEgg] = useState<string | null>(null);
 
+  // Listen for easter egg events
+  useEffect(() => {
+    const handleEasterEgg = (e: any) => {
+      const { title } = e.detail;
+      setActiveEasterEgg(title);
+
+      // Automatically hide easter egg after 8 seconds
+      setTimeout(() => {
+        setActiveEasterEgg(null);
+      }, 8000);
+    };
+    
+    window.addEventListener('easterEggTriggered', handleEasterEgg);
+    return () => {
+      window.removeEventListener('easterEggTriggered', handleEasterEgg);
+    };
+  }, []);
+  
   return (
     <PageTransition>
       <StripeBackground />
@@ -40,6 +61,9 @@ const DepartmentHeads = () => {
           </div>
         </div>
       </div>
+      
+      {/* Add the easter egg animation component */}
+      <EasterEggAnimation activeEasterEgg={activeEasterEgg} />
     </PageTransition>
   );
 };

@@ -55,7 +55,7 @@ const ChairDaffairesEasterEgg = () => {
         >
           <div className="w-32 h-32 rounded-full bg-mun-purple/30 flex items-center justify-center backdrop-blur-lg">
             <div className="w-24 h-24 rounded-full border-4 border-white/40 flex items-center justify-center">
-              <div className="text-white text-5xl font-bold">CD</div>
+              <div className="text-white text-5xl font-bold">DO</div>
             </div>
           </div>
         </motion.div>

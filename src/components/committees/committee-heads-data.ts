@@ -93,14 +93,14 @@ export const committeeHeads: Department[] = [{
     easterEgg: "Head of Illustration"
   }]
 }, {
-  name: "Chair d'affaires",
-  description: "Provides diplomatic support and coordination for the conference.",
+  name: "Director of Operations",
+  description: "Provides operational support and coordination for the conference.",
   chairs: [{
     name: "Reeyan Manavi",
-    title: "Chair d'affaires",
+    title: "Director of Operations",
     photo: "/lovable-uploads/arjun.jpeg",
-    department: "Chair d'affaires",
-    bio: "Reeyan provides exceptional diplomatic support and coordination throughout the conference.",
-    easterEgg: "Chair d'affaires"
+    department: "Operations",
+    bio: "Reeyan provides exceptional operational support and coordination throughout the conference.",
+    easterEgg: "Director of Operations"
   }]
 }];

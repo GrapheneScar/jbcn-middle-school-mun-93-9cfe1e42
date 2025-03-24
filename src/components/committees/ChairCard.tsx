@@ -1,10 +1,9 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CommitteeChair, DepartmentChair } from './types';
+import { ChevronRight } from 'lucide-react';
 
-// Create a merged type that works for both committee chairs and department chairs
-type ChairCardProps = {
+interface ChairCardProps {
   chair: {
     name: string;
     title: string;
@@ -13,52 +12,71 @@ type ChairCardProps = {
     department?: string;
     easterEgg?: string;
   };
-};
+}
 
 const ChairCard = ({ chair }: ChairCardProps) => {
-  const [isHovering, setIsHovering] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   
-  // Function to trigger easter egg
-  const triggerEasterEgg = () => {
+  const handleCardClick = () => {
+    // If this chair has an easter egg, trigger it
     if (chair.easterEgg) {
-      // Create and dispatch custom event
-      const easterEggEvent = new CustomEvent('easterEggTriggered', {
-        detail: { title: chair.easterEgg }
+      const event = new CustomEvent('easterEggTriggered', { 
+        detail: { title: chair.easterEgg } 
       });
-      window.dispatchEvent(easterEggEvent);
+      window.dispatchEvent(event);
     }
   };
-  
+
   return (
     <motion.div 
-      className="glass-panel overflow-hidden rounded-xl border border-mun-purple/20 relative group"
-      whileHover={{ scale: 1.02 }}
+      className="w-full"
+      whileHover={{ y: -5 }}
       transition={{ duration: 0.2 }}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-      onClick={triggerEasterEgg}
-      style={{ cursor: chair.easterEgg ? 'pointer' : 'default' }}
+      onClick={handleCardClick}
     >
-      <div className="h-64 overflow-hidden relative">
-        <img 
-          src={chair.photo || "/placeholder.svg"} 
-          alt={chair.name} 
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-        />
-        {chair.easterEgg && (
-          <div className="absolute top-2 right-2 w-2 h-2 bg-mun-purple animate-ping rounded-full"></div>
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80"></div>
-      </div>
-      
-      <div className="p-4 relative">
-        <h3 className="text-lg font-bold text-white">{chair.name}</h3>
-        <p className="text-sm text-mun-purple-light mb-2">{chair.title}</p>
-        <p className="text-xs text-white/70">{chair.bio}</p>
+      <div className="glass-panel rounded-lg overflow-hidden border border-white/10 hover:border-mun-purple/30 transition-colors cursor-pointer">
+        <div className="relative w-full aspect-[3/4] overflow-hidden">
+          <img 
+            src={chair.photo || "/placeholder.svg"} 
+            alt={chair.name} 
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
+          <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+            <h4 className="text-lg font-bold mb-1">{chair.name}</h4>
+            <p className="text-sm text-mun-purple-light">{chair.title}</p>
+          </div>
+        </div>
         
-        {chair.easterEgg && isHovering && (
-          <div className="absolute bottom-1 right-1 text-[10px] text-mun-purple-light/60 italic">
-            *click to discover
+        {chair.bio && (
+          <div className="p-4 border-t border-white/5">
+            <div 
+              className="text-white/70 text-sm cursor-pointer flex items-center justify-between"
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsExpanded(!isExpanded);
+              }}
+            >
+              <span>{isExpanded ? "Hide bio" : "Show bio"}</span>
+              <motion.div
+                animate={{ rotate: isExpanded ? 90 : 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <ChevronRight className="h-4 w-4" />
+              </motion.div>
+            </div>
+            
+            {isExpanded && (
+              <motion.div 
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="mt-3 text-white/80 text-sm"
+              >
+                <p>{chair.bio}</p>
+              </motion.div>
+            )}
           </div>
         )}
       </div>

@@ -97,7 +97,7 @@ const Contact = () => {
                 icon: Mail,
                 title: "Email",
                 content: "mohammadabdullah.khan@jbcnschool.edu.in",
-                description: "Alternate - priyal.ganger@jbcnschool.edu.in",
+                description: "priyal.ganger@jbcnschool.edu.in",
                 link: "mailto:mohammadabdullah.khan@jbcnschool.edu.in",
                 color: "bg-gradient-to-br from-purple-600/20 to-indigo-600/20"
               },
@@ -136,13 +136,13 @@ const Contact = () => {
                 <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
                 {item.title === "Email" ? (
                   <div>
-                    <p className="text-white/90 font-medium mb-1 break-words">
+                    <p className="text-white/90 font-medium mb-1 break-all">
                       <a href="mailto:mohammadabdullah.khan@jbcnschool.edu.in">
                         mohammadabdullah.khan@jbcnschool.edu.in
                       </a>
                     </p>
-                    <p className="text-white/60 text-sm mb-4 break-words">
-                      Alternate - <a href="mailto:priyal.ganger@jbcnschool.edu.in">
+                    <p className="text-white/60 text-sm mb-4 break-all">
+                      <a href="mailto:priyal.ganger@jbcnschool.edu.in">
                         priyal.ganger@jbcnschool.edu.in
                       </a>
                     </p>
