@@ -77,7 +77,7 @@ const Contact = () => {
               className="flex justify-center"
               variants={fadeInUpVariants}
             >
-              <a href="mailto:mun@jbcnschool.edu.in" className="inline-block">
+              <a href="mailto:mohammadabdullah.khan@jbcnschool.edu.in" className="inline-block">
                 <Button className="bg-mun-purple hover:bg-mun-purple-light">
                   <Mail className="mr-2 h-4 w-4" />
                   Email Us
@@ -89,7 +89,7 @@ const Contact = () => {
       </section>
       
       {/* Contact Info Cards */}
-      <section className="py-12 px-4 relative">
+      <section className="py-12 px-4 relative text-center">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -129,7 +129,7 @@ const Contact = () => {
               >
                 <div className={`absolute inset-0 opacity-50 ${item.color} -z-10`} />
                 
-                <div className="mb-4 w-14 h-14 rounded-xl bg-mun-purple/30 flex items-center justify-center">
+                <div className="mb-4 w-14 h-14 rounded-xl bg-mun-purple/30 flex items-center justify-center mx-auto">
                   <item.icon className="text-mun-purple-light h-7 w-7" />
                 </div>
                 
@@ -141,7 +141,7 @@ const Contact = () => {
                   href={item.link}
                   target={item.title === "Location" ? "_blank" : undefined}
                   rel={item.title === "Location" ? "noopener noreferrer" : undefined}
-                  className="inline-flex items-center text-mun-purple-light hover:text-white transition-colors duration-300 text-sm font-medium"
+                  className="inline-flex items-center justify-center text-mun-purple-light hover:text-white transition-colors duration-300 text-sm font-medium"
                 >
                   {item.title === "Location" ? "View on map" : "Contact us"}
                   <ExternalLink className="ml-1 h-3.5 w-3.5" />
@@ -153,7 +153,7 @@ const Contact = () => {
       </section>
       
       {/* FAQs and Social Media */}
-      <section className="py-12 px-4">
+      <section className="py-12 px-4 text-center">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             {/* FAQs */}
@@ -162,10 +162,11 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
+              className="mx-auto w-full"
             >
               <div className="space-y-6">
                 <div>
-                  <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
+                  <h2 className="text-2xl font-bold text-white mb-6 flex items-center justify-center">
                     <HelpCircle className="mr-3 text-mun-purple-light" />
                     Frequently Asked Questions
                   </h2>
@@ -182,7 +183,7 @@ const Contact = () => {
                       },
                       {
                         question: "What is the registration fee?",
-                        answer: "The registration fee is ₹XXXX per delegate, which includes conference materials, lunches, and refreshments throughout the event."
+                        answer: "The fee is Rs. 500 for JBCN associated delegates, and Rs. 1500 for external school delegates. It must be paid on the Google form itself through payment proof via receipt screenshot."
                       },
                       {
                         question: "How many delegates can each school register?",
@@ -215,7 +216,7 @@ const Contact = () => {
                 <div className="glass-panel p-6 rounded-lg border border-white/10 bg-gradient-to-br from-mun-purple/10 to-transparent">
                   <h3 className="text-xl font-bold text-white mb-4">Follow Us</h3>
                   
-                  <div className="flex">
+                  <div className="flex justify-center">
                     <a 
                       href="https://www.instagram.com/jbcnparelmun"
                       target="_blank"

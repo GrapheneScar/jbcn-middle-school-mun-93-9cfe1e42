@@ -1,9 +1,8 @@
-
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 import StripeBackground from '../components/StripeBackground';
-import { BookOpen, FileText, List, Globe, ScrollText, FileCode, FilePenLine, FileQuestion, Vote, MessageSquare, FilePlus2, Newspaper, Users, ListChecks } from 'lucide-react';
+import { BookOpen, FileText, Globe, ScrollText, FileCode, FilePenLine, FilePlus2, Newspaper, Users, ListChecks, MessageSquare, Vote } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
@@ -177,7 +176,7 @@ const Resources = () => {
               </TabsTrigger>
               <TabsTrigger value="templates" className="data-[state=active]:bg-mun-purple data-[state=active]:text-white rounded-full">
                 <FileText className="mr-2 h-4 w-4" />
-                Templates
+                Examples
               </TabsTrigger>
             </TabsList>
 

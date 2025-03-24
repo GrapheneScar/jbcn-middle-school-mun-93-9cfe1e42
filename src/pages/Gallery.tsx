@@ -42,6 +42,14 @@ const Gallery = () => {
     {
       src: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600&h=400",
       alt: "Conference Documentation"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=600&h=400",
+      alt: "MUN Session"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&q=80&w=600&h=400",
+      alt: "Conference Opening Ceremony"
     }
   ];
 
@@ -50,9 +58,9 @@ const Gallery = () => {
       <div className="container mx-auto px-4 pt-28 pb-16 sm:pt-32 md:pt-36">
         <GalleryHeader />
         
-        {/* Added placeholder images */}
+        {/* Enhanced placeholder images grid */}
         <motion.div 
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-3 mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}

@@ -26,7 +26,7 @@ const GalleryTabs = ({
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.05
       }
     }
   };
@@ -65,7 +65,7 @@ const GalleryTabs = ({
         {categories.map(category => (
           <TabsContent key={category} value={category} className="pt-6">
             <motion.div 
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" 
+              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3" 
               variants={containerVariants} 
               initial="hidden" 
               animate="visible"

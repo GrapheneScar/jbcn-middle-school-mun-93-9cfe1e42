@@ -8,24 +8,24 @@ const HomeFAQ = () => {
   
   const faqs = [
     {
-      question: "What is a Model United Nations (MUN)?",
-      answer: "MUN is an educational simulation where students can learn about diplomacy, international relations, and the United Nations. Participants role-play as delegates representing different countries in simulated UN committees."
+      question: "Who can participate in this conference?",
+      answer: "The conference is open to all delegates who are studying in Grades 6, 7 or 8 as of the Academic Year 2024-2025."
     },
     {
-      question: "Who can participate in JBCN Parel MUN?",
-      answer: "JBCN Parel MUN is specifically designed for middle school students. We welcome participants from grades 6-8 who are interested in international affairs and eager to develop their public speaking and negotiation skills."
+      question: "Where will the conference be held?",
+      answer: "The conference will be held on the 25th and 26th of April 2025 in JBCN International School Parel."
     },
     {
-      question: "Do I need prior MUN experience to participate?",
-      answer: "No prior experience is required! We welcome both new and experienced delegates. We provide comprehensive training and resources to help first-time delegates prepare for the conference."
+      question: "Which edition of the conference is this?",
+      answer: "This is the fourth year our conference has been made available to external delegates, and the first time it will be accessible to middle school externals as well."
     },
     {
-      question: "How can I prepare for the conference?",
-      answer: "Visit our Delegate Preparation page for study guides, position paper templates, and rules of procedure. We also encourage you to research your assigned country and committee topics thoroughly."
+      question: "Why visit JBCN Middle School MUN 2025?",
+      answer: "JBCN Middle School MUN 2025 is a space where senior leaders mentor young delegates, helping them build confidence, think critically, and develop essential debate skills. It serves as a very pertinent opportunity for learners to understand how MUN and real-life negotiations take place, while doubling as a fun and comprehensive introductory experience to the status quo MUN is all about."
     },
     {
-      question: "Will certificates be provided to participants?",
-      answer: "Yes, all delegates will receive participation certificates. Outstanding delegates may also receive awards based on their performance during the conference."
+      question: "What are the conference fees for the MUN?",
+      answer: "The fee is Rs. 500 for JBCN associated delegates, and Rs. 1500 for external school delegates. It must be paid on the Google form itself through payment proof via receipt screenshot."
     }
   ];
 

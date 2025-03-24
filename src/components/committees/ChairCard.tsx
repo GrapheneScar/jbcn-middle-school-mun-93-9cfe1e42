@@ -1,151 +1,60 @@
 
-import { CommitteeChair } from "./types";
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible";
-import ChairGalleryModal from "./ChairGalleryModal";
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { ChairType } from './types';
 
 interface ChairCardProps {
-  chair: CommitteeChair;
+  chair: ChairType;
 }
 
-const ChairCard = ({
-  chair
-}: ChairCardProps) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [isLongPressing, setIsLongPressing] = useState(false);
-  const [longPressTimer, setLongPressTimer] = useState<NodeJS.Timeout | null>(null);
-  const [imageError, setImageError] = useState(false);
-  const [showGallery, setShowGallery] = useState(false);
-
-  // Function to format bio text with styling
-  const formatBio = (bio: string) => {
-    // Create paragraphs from line breaks
-    const paragraphs = bio.split('\n').filter(p => p.trim() !== '');
-    return paragraphs.map((paragraph, index) => {
-      // Format text: make text after colons bold, and text in quotes italic
-      const formattedText = paragraph.replace(/(?<=:)(.*?)(?=\.|$)/g, '<strong>$1</strong>').replace(/"([^"]+)"/g, '<em>"$1"</em>').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>').replace(/\_\_(.+?)\_\_/g, '<u>$1</u>');
-      return <p key={index} className="mb-2 text-xs" dangerouslySetInnerHTML={{
-        __html: formattedText
-      }} />;
-    });
-  };
-
-  // Handle long press to trigger easter egg
-  const startLongPress = () => {
-    // Clear any existing timer
-    if (longPressTimer) {
-      clearTimeout(longPressTimer);
-    }
-
-    // Set new timer for long press (800ms)
-    const timer = setTimeout(() => {
-      // Open gallery when long pressed
-      setShowGallery(true);
-      setIsLongPressing(false);
-    }, 800);
-    setLongPressTimer(timer);
-    setIsLongPressing(true);
-  };
+const ChairCard = ({ chair }: ChairCardProps) => {
+  const [isHovering, setIsHovering] = useState(false);
   
-  const endLongPress = () => {
-    if (longPressTimer) {
-      clearTimeout(longPressTimer);
-      setLongPressTimer(null);
+  // Function to trigger easter egg
+  const triggerEasterEgg = () => {
+    if (chair.easterEgg) {
+      // Create and dispatch custom event
+      const easterEggEvent = new CustomEvent('easterEggTriggered', {
+        detail: { title: chair.easterEgg }
+      });
+      window.dispatchEvent(easterEggEvent);
     }
-    setIsLongPressing(false);
   };
-
-  // Handle image loading error
-  const handleImageError = () => {
-    setImageError(true);
-  };
-
-  // Clean up timer on unmount
-  useEffect(() => {
-    return () => {
-      if (longPressTimer) {
-        clearTimeout(longPressTimer);
-      }
-    };
-  }, [longPressTimer]);
   
   return (
-    <>
-      <motion.div 
-        initial={{
-          opacity: 0,
-          y: 20
-        }} 
-        animate={{
-          opacity: 1,
-          y: 0
-        }} 
-        transition={{
-          duration: 0.5
-        }} 
-        className="glass-panel h-full"
-      >
-        <Collapsible open={isExpanded} onOpenChange={() => setIsExpanded(!isExpanded)}>
-          <div className="p-6 flex flex-col items-center text-center relative">
-            <div 
-              className={`w-32 h-32 rounded-full overflow-hidden mb-4 flex-shrink-0 relative cursor-pointer ${isLongPressing ? 'ring-2 ring-mun-purple-light ring-opacity-70' : ''}`} 
-              onMouseDown={startLongPress} 
-              onMouseUp={endLongPress} 
-              onMouseLeave={endLongPress} 
-              onTouchStart={startLongPress} 
-              onTouchEnd={endLongPress} 
-              onTouchCancel={endLongPress}
-            >
-              {!imageError ? (
-                <img 
-                  src={chair.photo} 
-                  alt={chair.name} 
-                  className="w-full h-full object-cover" 
-                  onError={handleImageError}
-                />
-              ) : (
-                <div className="w-full h-full bg-mun-purple/30 flex items-center justify-center text-white">
-                  {chair.name.split(' ').map(n => n[0]).join('')}
-                </div>
-              )}
-              
-              {isLongPressing && (
-                <div className="absolute inset-0 bg-mun-purple/30 flex items-center justify-center">
-                  <div className="h-1 w-1 bg-white rounded-full animate-ping" />
-                </div>
-              )}
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-bold">{chair.name}</h3>
-              <p className="text-sm text-mun-purple-light">{chair.title}</p>
-              
-              <CollapsibleTrigger asChild>
-                <button className="mt-2 inline-flex items-center justify-center space-x-1 text-mun-purple hover:text-mun-purple-light transition-colors duration-200">
-                  <span>{isExpanded ? "Read Less" : "Read More"}</span>
-                  {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-                </button>
-              </CollapsibleTrigger>
-            </div>
-            
-            <CollapsibleContent className="mt-4">
-              <div className="text-white/80 whitespace-pre-line text-xs">
-                {formatBio(chair.bio)}
-              </div>
-            </CollapsibleContent>
-          </div>
-        </Collapsible>
-      </motion.div>
+    <motion.div 
+      className="glass-panel overflow-hidden rounded-xl border border-mun-purple/20 relative group"
+      whileHover={{ scale: 1.02 }}
+      transition={{ duration: 0.2 }}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      onClick={triggerEasterEgg}
+      style={{ cursor: chair.easterEgg ? 'pointer' : 'default' }}
+    >
+      <div className="h-64 overflow-hidden relative">
+        <img 
+          src={chair.photo || "/placeholder.svg"} 
+          alt={chair.name} 
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+        {chair.easterEgg && (
+          <div className="absolute top-2 right-2 w-2 h-2 bg-mun-purple animate-ping rounded-full"></div>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80"></div>
+      </div>
       
-      {/* Easter Egg Gallery Modal */}
-      <ChairGalleryModal 
-        isOpen={showGallery}
-        onClose={() => setShowGallery(false)}
-        chairName={chair.name}
-      />
-    </>
+      <div className="p-4 relative">
+        <h3 className="text-lg font-bold text-white">{chair.name}</h3>
+        <p className="text-sm text-mun-purple-light mb-2">{chair.title}</p>
+        <p className="text-xs text-white/70">{chair.bio}</p>
+        
+        {chair.easterEgg && isHovering && (
+          <div className="absolute bottom-1 right-1 text-[10px] text-mun-purple-light/60 italic">
+            *click to discover
+          </div>
+        )}
+      </div>
+    </motion.div>
   );
 };
 
