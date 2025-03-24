@@ -3,6 +3,9 @@ import { useEffect } from 'react';
 import PageTransition from '../components/PageTransition';
 import StripeBackground from '../components/StripeBackground';
 import { motion } from 'framer-motion';
+import { Button } from '../components/ui/button';
+import { FileText, BookOpen, Users, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 // Update the import paths to match your project structure
 const DelegatePreparation = () => {
@@ -154,30 +157,38 @@ const DelegatePreparation = () => {
           >
             <h2 className="text-2xl font-bold text-white mb-6">Essential Resources</h2>
             
-            <div className="flex flex-wrap justify-center gap-4 mb-6">
-              <a 
-                href="#" 
-                className="px-6 py-3 bg-mun-purple text-white rounded-full hover:bg-mun-purple-light transition-colors"
-              >
-                Rules of Procedure
-              </a>
-              <a 
-                href="#" 
-                className="px-6 py-3 bg-mun-purple text-white rounded-full hover:bg-mun-purple-light transition-colors"
-              >
-                Position Paper Template
-              </a>
-              <a 
-                href="#" 
-                className="px-6 py-3 bg-mun-purple text-white rounded-full hover:bg-mun-purple-light transition-colors"
-              >
-                Resolution Format Guide
-              </a>
+            <div className="glass-panel p-8 mt-6 bg-gradient-to-br from-mun-purple/20 to-transparent border border-mun-purple/30">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div className="flex flex-col items-center p-4 bg-black/30 rounded-lg hover:bg-black/40 transition-colors">
+                  <BookOpen className="w-10 h-10 text-mun-purple-light mb-3" />
+                  <h3 className="text-lg font-semibold text-white mb-2">Rules of Procedure</h3>
+                  <p className="text-white/70 text-sm mb-4 text-center">Master the rules that govern debate in all committees</p>
+                </div>
+                
+                <div className="flex flex-col items-center p-4 bg-black/30 rounded-lg hover:bg-black/40 transition-colors">
+                  <FileText className="w-10 h-10 text-mun-purple-light mb-3" />
+                  <h3 className="text-lg font-semibold text-white mb-2">Document Templates</h3>
+                  <p className="text-white/70 text-sm mb-4 text-center">Examples of position papers, resolutions, and more</p>
+                </div>
+                
+                <div className="flex flex-col items-center p-4 bg-black/30 rounded-lg hover:bg-black/40 transition-colors">
+                  <Users className="w-10 h-10 text-mun-purple-light mb-3" />
+                  <h3 className="text-lg font-semibold text-white mb-2">Committee Guides</h3>
+                  <p className="text-white/70 text-sm mb-4 text-center">Detailed guides for each committee topic</p>
+                </div>
+              </div>
+              
+              <Link to="/resources">
+                <Button className="bg-mun-purple hover:bg-mun-purple-light transition-colors">
+                  <span>Access All Delegate Resources</span>
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              
+              <p className="text-white/70 italic mt-4">
+                All delegates will receive detailed study guides for their specific committees after registration.
+              </p>
             </div>
-            
-            <p className="text-white/70 italic">
-              All delegates will receive detailed study guides for their specific committees after registration.
-            </p>
           </motion.div>
         </div>
       </div>

@@ -1,7 +1,6 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import ChairGalleryModal from './ChairGalleryModal';
 
 interface Chair {
   name: string;
@@ -16,27 +15,6 @@ interface CommitteeChairsProps {
 
 const CommitteeChairs = ({ chairs }: CommitteeChairsProps) => {
   const [expandedBio, setExpandedBio] = useState<string | null>(null);
-  const [galleryOpen, setGalleryOpen] = useState(false);
-  const [selectedChair, setSelectedChair] = useState('');
-  
-  // Long press handling
-  const [pressTimer, setPressTimer] = useState<NodeJS.Timeout | null>(null);
-  
-  const handleMouseDown = (chairName: string) => {
-    const timer = setTimeout(() => {
-      setSelectedChair(chairName);
-      setGalleryOpen(true);
-    }, 800); // 800ms longpress
-    
-    setPressTimer(timer);
-  };
-  
-  const handleMouseUp = () => {
-    if (pressTimer) {
-      clearTimeout(pressTimer);
-      setPressTimer(null);
-    }
-  };
   
   return (
     <div>
@@ -52,12 +30,7 @@ const CommitteeChairs = ({ chairs }: CommitteeChairsProps) => {
             className="flex flex-col items-center"
           >
             <div 
-              className="relative w-48 h-48 rounded-xl overflow-hidden mb-4 shadow-lg cursor-pointer"
-              onMouseDown={() => handleMouseDown(chair.name)}
-              onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseUp}
-              onTouchStart={() => handleMouseDown(chair.name)}
-              onTouchEnd={handleMouseUp}
+              className="relative w-48 h-48 rounded-xl overflow-hidden mb-4 shadow-lg"
             >
               <img 
                 src={chair.photo || "/placeholder.svg"} 
@@ -92,12 +65,6 @@ const CommitteeChairs = ({ chairs }: CommitteeChairsProps) => {
           </motion.div>
         ))}
       </div>
-      
-      <ChairGalleryModal 
-        isOpen={galleryOpen} 
-        onClose={() => setGalleryOpen(false)} 
-        chairName={selectedChair} 
-      />
     </div>
   );
 };

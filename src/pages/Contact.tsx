@@ -134,8 +134,25 @@ const Contact = () => {
                 </div>
                 
                 <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-white/90 font-medium mb-1">{item.content}</p>
-                <p className="text-white/60 text-sm mb-4">{item.description}</p>
+                {item.title === "Email" ? (
+                  <div>
+                    <p className="text-white/90 font-medium mb-1 break-words">
+                      <a href="mailto:mohammadabdullah.khan@jbcnschool.edu.in">
+                        mohammadabdullah.khan@jbcnschool.edu.in
+                      </a>
+                    </p>
+                    <p className="text-white/60 text-sm mb-4 break-words">
+                      Alternate - <a href="mailto:priyal.ganger@jbcnschool.edu.in">
+                        priyal.ganger@jbcnschool.edu.in
+                      </a>
+                    </p>
+                  </div>
+                ) : (
+                  <>
+                    <p className="text-white/90 font-medium mb-1">{item.content}</p>
+                    <p className="text-white/60 text-sm mb-4">{item.description}</p>
+                  </>
+                )}
                 
                 <a 
                   href={item.link}
@@ -174,28 +191,24 @@ const Contact = () => {
                   <div className="space-y-4">
                     {[
                       {
-                        question: "When and where is the conference?",
-                        answer: "JBCN Middle School MUN 2025 will be held on April 25th & 26th, 2025, at JBCN International School, Parel, Mumbai."
+                        question: "Who can participate in this conference?",
+                        answer: "The conference is open to all delegates who are studying in Grades 6, 7 or 8 as of the Academic Year 2024-2025."
                       },
                       {
-                        question: "Who can participate in the MUN?",
-                        answer: "The conference is designed for middle school students (grades 6-8). Both first-time and experienced delegates are welcome to participate."
+                        question: "Where will the conference be held?",
+                        answer: "The conference will be held on the 25th and 26th of April 2025 in JBCN International School Parel."
                       },
                       {
-                        question: "What is the registration fee?",
+                        question: "Which edition of the conference is this?",
+                        answer: "This is the fourth year our conference has been made available to external delegates, and the first time it will be accessible to middle school externals as well."
+                      },
+                      {
+                        question: "Why visit JBCN Middle School MUN 2025?",
+                        answer: "JBCN Middle School MUN 2025 is a space where senior leaders mentor young delegates, helping them build confidence, think critically, and develop essential debate skills. It serves as a very pertinent opportunity for learners to understand how MUN and real-life negotiations take place, while doubling as a fun and comprehensive introductory experience to the status quo MUN is all about."
+                      },
+                      {
+                        question: "What are the conference fees for the MUN?",
                         answer: "The fee is Rs. 500 for JBCN associated delegates, and Rs. 1500 for external school delegates. It must be paid on the Google form itself through payment proof via receipt screenshot."
-                      },
-                      {
-                        question: "How many delegates can each school register?",
-                        answer: "Schools can register up to XX delegates. For larger delegations, please contact us directly to discuss arrangements."
-                      },
-                      {
-                        question: "When does registration open?",
-                        answer: "Registration opens on March 24th, 2025, and closes on March XX, 2025."
-                      },
-                      {
-                        question: "Are accommodation arrangements available?",
-                        answer: "While we don't provide accommodation directly, we can suggest nearby hotels that offer special rates for conference participants."
                       }
                     ].map((faq, index) => (
                       <motion.div 

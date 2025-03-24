@@ -1,8 +1,9 @@
+
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 import StripeBackground from '../components/StripeBackground';
-import { BookOpen, FileText, Globe, ScrollText, FileCode, FilePenLine, FilePlus2, Newspaper, Users, ListChecks, MessageSquare, Vote } from 'lucide-react';
+import { BookOpen, FileText, Globe, ScrollText, FileCode, FilePenLine, FilePlus2, Newspaper, Users, ListChecks, MessageSquare } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
@@ -36,13 +37,7 @@ const Resources = () => {
       link: "https://drive.google.com/file/d/1vOxtInhKgnryTo7XTj3IYc9tCwWubrDx/view?usp=sharing",
       image: "/lovable-uploads/",
     },
-    {
-      title: "Voting",
-      description: "Guide to voting procedures and mechanisms in Model UN sessions",
-      icon: Vote,
-      link: "",
-      image: "/lovable-uploads/",
-    },
+    // Removed Voting card
     {
       title: "Study Guides",
       description: "Study Guides of the commitees.",
@@ -103,13 +98,7 @@ const Resources = () => {
       link: "",
       image: "/lovable-uploads/",
     },
-    {
-      title: "Transcript (communiqué)",
-      description: "Example for drafting multi-committee communications",
-      icon: Users,
-      link: "",
-      image: "/lovable-uploads/",
-    },
+    // Removed Joint Statements and Resolutions card
   ];
 
   const yieldsData = [
@@ -227,7 +216,7 @@ const Resources = () => {
                             </div>
                           </div>
                           <CardHeader className="pb-2">
-                            <CardTitle className="text-xl text-white flex items-center mx-0 text-center">
+                            <CardTitle className="text-xl text-white flex items-center mx-0 text-center justify-center">
                               {resource.title}
                             </CardTitle>
                             <CardDescription className="text-white/70">
@@ -235,16 +224,17 @@ const Resources = () => {
                             </CardDescription>
                           </CardHeader>
                           <CardFooter>
-                            <Button variant="outline" className="w-full border-mun-purple hover:bg-mun-purple/20 text-mun-purple-light">
-                              <BookOpen className="mr-2 h-4 w-4" /> View Resource
-                            </Button>
+                            <a href={resource.link} target="_blank" rel="noopener noreferrer" className="w-full">
+                              <Button variant="outline" className="w-full border-mun-purple hover:bg-mun-purple/20 text-mun-purple-light">
+                                <BookOpen className="mr-2 h-4 w-4" /> View Resource
+                              </Button>
+                            </a>
                           </CardFooter>
                         </Card>
                       </motion.div>)}
                   </div>
                 </motion.div>
 
-                {/* Yields Table */}
                 <motion.div initial={{
                 opacity: 0,
                 y: 20
@@ -364,7 +354,7 @@ const Resources = () => {
                             </div>
                           </div>
                           <CardHeader className="pb-2">
-                            <CardTitle className="text-xl text-white flex items-center">
+                            <CardTitle className="text-xl text-white flex items-center justify-center">
                               {resource.title}
                             </CardTitle>
                             <CardDescription className="text-white/70">
@@ -373,52 +363,11 @@ const Resources = () => {
                           </CardHeader>
                           <CardFooter>
                             <Button variant="outline" className="w-full border-mun-purple hover:bg-mun-purple/20 text-mun-purple-light">
-                              <FileText className="mr-2 h-4 w-4" /> Download Template
+                              <FileText className="mr-2 h-4 w-4" /> Download Example
                             </Button>
                           </CardFooter>
                         </Card>
                       </motion.div>)}
-                  </div>
-                </motion.div>
-
-                <motion.div initial={{
-                opacity: 0,
-                y: 20
-              }} animate={{
-                opacity: 1,
-                y: 0
-              }} transition={{
-                duration: 0.5,
-                delay: 0.2
-              }} className="mt-12 p-6 bg-black/30 rounded-xl border border-mun-purple/20">
-                  <h3 className="text-2xl font-bold text-white mb-4">Clauses Reference Guide</h3>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
-                    <div>
-                      <h4 className="text-xl font-semibold text-mun-purple-light mb-3">Preambulatory Phrases</h4>
-                      <ul className="space-y-2 text-white/80">
-                        <li className="pl-4 border-l border-mun-purple/30">Acknowledging</li>
-                        <li className="pl-4 border-l border-mun-purple/30">Affirming</li>
-                        <li className="pl-4 border-l border-mun-purple/30">Alarmed by</li>
-                        <li className="pl-4 border-l border-mun-purple/30">Cognizant</li>
-                        <li className="pl-4 border-l border-mun-purple/30">Deeply concerned</li>
-                        <li className="pl-4 border-l border-mun-purple/30">Fully believing</li>
-                        <li className="pl-4 border-l border-mun-purple/30">Recalling</li>
-                      </ul>
-                    </div>
-                    
-                    <div>
-                      <h4 className="text-xl font-semibold text-mun-purple-light mb-3">Operative Phrases</h4>
-                      <ul className="space-y-2 text-white/80">
-                        <li className="pl-4 border-l border-mun-purple/30">Accepts</li>
-                        <li className="pl-4 border-l border-mun-purple/30">Calls upon</li>
-                        <li className="pl-4 border-l border-mun-purple/30">Condemns</li>
-                        <li className="pl-4 border-l border-mun-purple/30">Encourages</li>
-                        <li className="pl-4 border-l border-mun-purple/30">Requests</li>
-                        <li className="pl-4 border-l border-mun-purple/30">Strongly affirms</li>
-                        <li className="pl-4 border-l border-mun-purple/30">Urges</li>
-                      </ul>
-                    </div>
                   </div>
                 </motion.div>
               </motion.div>
