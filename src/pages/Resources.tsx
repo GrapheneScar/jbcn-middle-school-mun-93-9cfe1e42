@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
@@ -7,11 +8,11 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../components/ui/table';
+
 const Resources = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-<<<<<<< HEAD
 
   const guideResources = [
     {
@@ -112,93 +113,42 @@ const Resources = () => {
     },
   ];
 
+  const yieldsData = [
+    {
+      type: "Yield to the Chair",
+      description: "When you quote \"The delegate of would like to yield to the chair\", this means that the chair will get to choose what to do with the speaker's remaining time (it is usually dissolved)."
+    },
+    {
+      type: "Yield to Questions",
+      description: "When you quote \"The delegate would like to yield to questions\", this states that other delegates are allowed to question you on your speech."
+    },
+    {
+      type: "Yield to Comments",
+      description: "When you quote, \"The delegate would like to yield to comments\", this particularly states that you, as a delegate, are allowing other delegates in the committee to comment on your speeches. Note: When you comment on a delegate's speech, make sure the comments are made in a very formal tone. Also, constructively criticising a delegate is okay validated by the Executive Board; you mustn't make any comments which attack the delegate's personal integrity or strike their persona."
+    }
+  ];
+
+  const pointsData = [
+    {
+      type: "Point of Order",
+      description: "This point is used in committee once a delegate has found a mistake or factual inaccuracy in the rules of procedure, made by a delegate or an EB member."
+    },
+    {
+      type: "Point of Information",
+      description: "This point is used in committee once a delegate catches a factual inaccuracy, or wishes to question a delegate in one of their GSLs or SSL speeches."
+    },
+    {
+      type: "Point of Parliamentary Inquiry",
+      description: "This is used if you have a doubt or question on anything that's going on in the committee, specifically regarding parliamentary procedure. Note: A point of parliamentary inquiry must not be asked or said when questioning a delegate on one of their speeches."
+    },
+    {
+      type: "Point of Personal Privilege",
+      description: "This point is used if you have a personal inconvenience. Note: Use this point if you have an emergency or an important affair to commit to (utilising the washroom, decreasing or increasing the temperature of the Air conditioner)."
+    }
+  ];
+
   return (
     <PageTransition>
-=======
-  const guideResources = [{
-    title: "Rules of Procedure (RoP)",
-    description: "Official rules of procedure for the JBCN Parel MUN 2025 conference",
-    icon: ListChecks,
-    link: "https://drive.google.com/file/d/19K56bVlyhd2piUwUKueHynqf4tN7zAei/view?usp=sharing",
-    image: "/lovable-uploads/ruhika.jpg",
-    highlight: true
-  }, {
-    title: "Operating Procedure",
-    description: "Comprehensive guide to parliamentary procedure in Model UN debates",
-    icon: ListChecks,
-    link: "https://drive.google.com/file/d/19K56bVlyhd2piUwUKueHynqf4tN7zAei/view?usp=sharing",
-    image: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png"
-  }, {
-    title: "MUN Lingo",
-    description: "Essential terminology used in Model United Nations conferences",
-    icon: MessageSquare,
-    link: "https://drive.google.com/file/d/123/view",
-    image: "/lovable-uploads/0b07c565-b971-4ccd-baf6-45fd2fe2751c.png"
-  }, {
-    title: "Voting",
-    description: "Guide to voting procedures and mechanisms in Model UN sessions",
-    icon: Vote,
-    link: "https://drive.google.com/file/d/123/view",
-    image: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png"
-  }, {
-    title: "Study Guides",
-    description: "Overview of frequently referenced articles in international law",
-    icon: ScrollText,
-    link: "https://drive.google.com/file/d/123/view",
-    image: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png"
-  }, {
-    title: "Geneva Convention",
-    description: "Summary of the Geneva Conventions and their protocols",
-    icon: Globe,
-    link: "https://drive.google.com/file/d/123/view",
-    image: "/lovable-uploads/533cf9ab-aaa1-47a9-8a45-ac085cd3b133.png"
-  }];
-  const templateResources = [{
-    title: "Directives",
-    description: "Templates for writing effective committee directives",
-    icon: FilePenLine,
-    link: "https://drive.google.com/file/d/123/view",
-    image: "/lovable-uploads/bb66d3f8-6628-4d67-b2b4-b9c9ea1686fe.png",
-    highlight: true
-  }, {
-    title: "Draft Resolution",
-    description: "Formatting guidelines and templates for draft resolutions",
-    icon: FileText,
-    link: "https://drive.google.com/file/d/123/view",
-    image: "/lovable-uploads/bb66d3f8-6628-4d67-b2b4-b9c9ea1686fe.png"
-  }, {
-    title: "Position Paper",
-    description: "Templates and examples for crafting effective position papers",
-    icon: FileCode,
-    link: "https://drive.google.com/file/d/123/view",
-    image: "/lovable-uploads/bb66d3f8-6628-4d67-b2b4-b9c9ea1686fe.png"
-  }, {
-    title: "Working Paper",
-    description: "Format and structure for collaborative working papers",
-    icon: FilePlus2,
-    link: "https://drive.google.com/file/d/123/view",
-    image: "/lovable-uploads/bb66d3f8-6628-4d67-b2b4-b9c9ea1686fe.png"
-  }, {
-    title: "Press Release",
-    description: "Templates for drafting committee press releases",
-    icon: Newspaper,
-    link: "https://drive.google.com/file/d/123/view",
-    image: "/lovable-uploads/bb66d3f8-6628-4d67-b2b4-b9c9ea1686fe.png"
-  }, {
-    title: "Chits",
-    description: "Guidelines for writing effective communication chits",
-    icon: MessageSquare,
-    link: "https://drive.google.com/file/d/123/view",
-    image: "/lovable-uploads/bb66d3f8-6628-4d67-b2b4-b9c9ea1686fe.png"
-  }, {
-    title: "Joint Statements and Resolutions",
-    description: "Templates for drafting multi-committee communications",
-    icon: Users,
-    link: "https://drive.google.com/file/d/123/view",
-    image: "/lovable-uploads/bb66d3f8-6628-4d67-b2b4-b9c9ea1686fe.png"
-  }];
-  return <PageTransition>
->>>>>>> f6def5f3cfbe5c0b687d147058ad8b9d950deb3c
       <StripeBackground />
       
       <section className="pt-32 pb-20 px-4 relative">
@@ -295,6 +245,7 @@ const Resources = () => {
                   </div>
                 </motion.div>
 
+                {/* Yields Table */}
                 <motion.div initial={{
                 opacity: 0,
                 y: 20
@@ -305,47 +256,61 @@ const Resources = () => {
                 duration: 0.5,
                 delay: 0.2
               }} className="mt-12 p-6 bg-black/30 rounded-xl border border-mun-purple/20">
-                  <h3 className="text-2xl font-bold text-white mb-4">Quick Reference: MUN Terms</h3>
+                  <h3 className="text-2xl font-bold text-white mb-4">Yields</h3>
+                  <p className="text-white/80 mb-6">Yields are something used once a delegate has left over time in their GSL speech(es).</p>
                   
                   <div className="overflow-x-auto">
                     <Table className="w-full">
                       <TableHeader>
                         <TableRow className="border-mun-purple/20">
-                          <TableHead className="text-mun-purple-light">Term</TableHead>
+                          <TableHead className="text-mun-purple-light">Type</TableHead>
                           <TableHead className="text-mun-purple-light">Description</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
-<<<<<<< HEAD
-                        {[
-                          { term: "Point of Order", desc: "A point refers to a specific type of procedural request or intervention that a delegate can make during a committee session. Points in MUN are used to seek clarification, raise issues related to the rules of procedure, or make procedural motions." },
-                          { term: "Point of Information", desc: "This point is used in committee once a delegate catches a factual inaccuracy, or wishes to question a delegate in one of their GSLs or SSL speeches." },
-                          { term: "Point of Parliamentary Inquiry", desc: "This is used if you have a doubt or question on anything that’s going on in the committee, specifically regarding parliamentary procedure. Note: A point of parliamentary inquiry must not be asked or said when questioning a delegate on one of their speeches." },
-                          { term: "Point of Personal Privilege", desc: "This point is used if you have a personal inconvenience. Note: Use this point if you have an emergency or an important affair to commit to. (utilising the washroom, decreasing or increasing the temperature of the Air conditioner)." },
-                          { term: "Roll Call Vote", desc: "Each country votes individually in alphabetical order" }
-                        ].map((item, i) => (
+                        {yieldsData.map((item, i) => (
                           <TableRow key={i} className="border-mun-purple/10 hover:bg-mun-purple/5">
-=======
-                        {[{
-                        term: "Point of Order",
-                        desc: "Raises an issue with rules or procedure"
-                      }, {
-                        term: "Motion to Caucus",
-                        desc: "Request for moderated or unmoderated discussion"
-                      }, {
-                        term: "Yielding",
-                        desc: "Giving remaining speaker's time to another delegate"
-                      }, {
-                        term: "Division of the Question",
-                        desc: "Vote on operative clauses separately"
-                      }, {
-                        term: "Roll Call Vote",
-                        desc: "Each country votes individually in alphabetical order"
-                      }].map((item, i) => <TableRow key={i} className="border-mun-purple/10 hover:bg-mun-purple/5">
->>>>>>> f6def5f3cfbe5c0b687d147058ad8b9d950deb3c
-                            <TableCell className="font-medium text-white">{item.term}</TableCell>
-                            <TableCell className="text-white/80">{item.desc}</TableCell>
-                          </TableRow>)}
+                            <TableCell className="font-medium text-white">{item.type}</TableCell>
+                            <TableCell className="text-white/80">{item.description}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+                </motion.div>
+
+                {/* Points Table */}
+                <motion.div initial={{
+                opacity: 0,
+                y: 20
+              }} animate={{
+                opacity: 1,
+                y: 0
+              }} transition={{
+                duration: 0.5,
+                delay: 0.3
+              }} className="mt-12 p-6 bg-black/30 rounded-xl border border-mun-purple/20">
+                  <h3 className="text-2xl font-bold text-white mb-4">Points</h3>
+                  <p className="text-white/80 mb-6">
+                    A point refers to a specific type of procedural request or intervention that a delegate can make during a committee session. 
+                    Points in MUN are used to seek clarification, raise issues related to the rules of procedure, or make procedural motions.
+                  </p>
+                  
+                  <div className="overflow-x-auto">
+                    <Table className="w-full">
+                      <TableHeader>
+                        <TableRow className="border-mun-purple/20">
+                          <TableHead className="text-mun-purple-light">Type</TableHead>
+                          <TableHead className="text-mun-purple-light">Description</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {pointsData.map((item, i) => (
+                          <TableRow key={i} className="border-mun-purple/10 hover:bg-mun-purple/5">
+                            <TableCell className="font-medium text-white">{item.type}</TableCell>
+                            <TableCell className="text-white/80">{item.description}</TableCell>
+                          </TableRow>
+                        ))}
                       </TableBody>
                     </Table>
                   </div>
@@ -481,6 +446,8 @@ const Resources = () => {
           </motion.div>
         </div>
       </section>
-    </PageTransition>;
+    </PageTransition>
+  );
 };
+
 export default Resources;
