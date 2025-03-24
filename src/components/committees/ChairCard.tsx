@@ -1,11 +1,19 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChairType } from './types';
+import { CommitteeChair, DepartmentChair } from './types';
 
-interface ChairCardProps {
-  chair: ChairType;
-}
+// Create a merged type that works for both committee chairs and department chairs
+type ChairCardProps = {
+  chair: {
+    name: string;
+    title: string;
+    photo: string;
+    bio: string;
+    department?: string;
+    easterEgg?: string;
+  };
+};
 
 const ChairCard = ({ chair }: ChairCardProps) => {
   const [isHovering, setIsHovering] = useState(false);
