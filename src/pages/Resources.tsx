@@ -11,6 +11,110 @@ const Resources = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+<<<<<<< HEAD
+
+  const guideResources = [
+    {
+      title: "Rules of Procedure (RoP)",
+      description: "Official rules of procedure for the JBCN Parel MUN 2025 conference",
+      icon: ListChecks,
+      link: "https://drive.google.com/file/d/19K56bVlyhd2piUwUKueHynqf4tN7zAei/view?usp=sharing",
+      image: "/lovable-uploads/Rules of Procedure (RoP).jpg",
+      highlight: false
+    },
+    {
+      title: "Preambulatory and Operative Clauses",
+      description: " A small list of Preambulatory and Operative clauses for Resolutions/Directives.",
+      icon: ListChecks,
+      link: "https://drive.google.com/file/d/1tyvIkOmvbsYUewBxbE-59Kqgis77BSPP/view?usp=sharing",
+      image: "/lovable-uploads/Phrases.png",
+    },
+    {
+      title: "MUN Lingo",
+      description: "Essential terminology used in Model United Nations conferences",
+      icon: MessageSquare,
+      link: "https://drive.google.com/file/d/1vOxtInhKgnryTo7XTj3IYc9tCwWubrDx/view?usp=sharing",
+      image: "/lovable-uploads/",
+    },
+    {
+      title: "Voting",
+      description: "Guide to voting procedures and mechanisms in Model UN sessions",
+      icon: Vote,
+      link: "",
+      image: "/lovable-uploads/",
+    },
+    {
+      title: "Study Guides",
+      description: "Study Guides of the commitees.",
+      icon: ScrollText,
+      link: "https://drive.google.com/drive/folders/1d8iPqYye3Gr-n0hpDNAKHdJevklLMzcM",
+      image: "/lovable-uploads/",
+    },
+    {
+      title: "UN charter",
+      description: " The foundational treaty of the United Nations, outlining its purpose, principles, and structure.",
+      icon: Globe,
+      link: "https://www.un.org/en/about-us/un-charter/full-text",
+      image: "/lovable-uploads/",
+    }
+  ];
+
+  const templateResources = [
+    {
+      title: "Directives",
+      description: "Example for writing effective directives.",
+      icon: FilePenLine,
+      link: "",
+      image: "/lovable-uploads/",
+      highlight: false
+    },
+    {
+      title: "Draft Resolution",
+      description: "Example for writng a excellent Draft Resolution.",
+      icon: FileText,
+      link: "",
+      image: "/lovable-uploads/",
+    },
+    {
+      title: "Position Paper",
+      description: "Example for crafting effective position papers",
+      icon: FileCode,
+      link: "",
+      image: "/lovable-uploads/",
+    },
+    {
+      title: "communiqué",
+      description: "Example for format and structure for working communiqué.",
+      icon: FilePlus2,
+      link: "",
+      image: "/lovable-uploads/",
+    },
+    {
+      title: "Press Release (communiqué)",
+      description: "Example for drafting press releases (communiqué)",
+      icon: Newspaper,
+      link: "",
+      image: "/lovable-uploads/",
+    },
+    {
+      title: "Chits",
+      description: "Example for writing effective communication chits",
+      icon: MessageSquare,
+      link: "",
+      image: "/lovable-uploads/",
+    },
+    {
+      title: "Transcript (communiqué)",
+      description: "Example for drafting multi-committee communications",
+      icon: Users,
+      link: "",
+      image: "/lovable-uploads/",
+    },
+  ];
+
+  return (
+    <PageTransition>
+=======
   const guideResources = [{
     title: "Rules of Procedure (RoP)",
     description: "Official rules of procedure for the JBCN Parel MUN 2025 conference",
@@ -94,6 +198,7 @@ const Resources = () => {
     image: "/lovable-uploads/bb66d3f8-6628-4d67-b2b4-b9c9ea1686fe.png"
   }];
   return <PageTransition>
+>>>>>>> f6def5f3cfbe5c0b687d147058ad8b9d950deb3c
       <StripeBackground />
       
       <section className="pt-32 pb-20 px-4 relative">
@@ -110,7 +215,7 @@ const Resources = () => {
             <h1 className="text-5xl font-bold text-white mb-6">Delegate Resources</h1>
             <div className="w-20 h-1 bg-mun-purple mx-auto mb-8"></div>
             <p className="text-lg text-white/80 max-w-3xl mx-auto">
-              Access our comprehensive collection of MUN guides, templates, and resources designed to help delegates prepare effectively for JBCN Parel MUN.
+              Access our comprehensive collection of MUN guides, examples, and resources designed to help delegates prepare effectively for JBCN Parel MUN.
             </p>
           </motion.div>
 
@@ -211,6 +316,16 @@ const Resources = () => {
                         </TableRow>
                       </TableHeader>
                       <TableBody>
+<<<<<<< HEAD
+                        {[
+                          { term: "Point of Order", desc: "A point refers to a specific type of procedural request or intervention that a delegate can make during a committee session. Points in MUN are used to seek clarification, raise issues related to the rules of procedure, or make procedural motions." },
+                          { term: "Point of Information", desc: "This point is used in committee once a delegate catches a factual inaccuracy, or wishes to question a delegate in one of their GSLs or SSL speeches." },
+                          { term: "Point of Parliamentary Inquiry", desc: "This is used if you have a doubt or question on anything that’s going on in the committee, specifically regarding parliamentary procedure. Note: A point of parliamentary inquiry must not be asked or said when questioning a delegate on one of their speeches." },
+                          { term: "Point of Personal Privilege", desc: "This point is used if you have a personal inconvenience. Note: Use this point if you have an emergency or an important affair to commit to. (utilising the washroom, decreasing or increasing the temperature of the Air conditioner)." },
+                          { term: "Roll Call Vote", desc: "Each country votes individually in alphabetical order" }
+                        ].map((item, i) => (
+                          <TableRow key={i} className="border-mun-purple/10 hover:bg-mun-purple/5">
+=======
                         {[{
                         term: "Point of Order",
                         desc: "Raises an issue with rules or procedure"
@@ -227,6 +342,7 @@ const Resources = () => {
                         term: "Roll Call Vote",
                         desc: "Each country votes individually in alphabetical order"
                       }].map((item, i) => <TableRow key={i} className="border-mun-purple/10 hover:bg-mun-purple/5">
+>>>>>>> f6def5f3cfbe5c0b687d147058ad8b9d950deb3c
                             <TableCell className="font-medium text-white">{item.term}</TableCell>
                             <TableCell className="text-white/80">{item.desc}</TableCell>
                           </TableRow>)}
