@@ -39,7 +39,7 @@ const DeputySecretaryGeneralSection = () => {
                 <p className="text-white/80">
                   With thorough planning and your unwavering enthusiasm, I look forward to making JBCN Middle School MUN '25 a memorable adventure!
                 </p>
-                <div className="mt-6 text-right">
+                <div className="mt-6 text-left">
                   <p className="text-mun-purple-light font-semibold">Areehah Mitra</p>
                   <p className="text-white/70 text-sm">Deputy Secretary-General, JBCN Middle School MUN</p>
                   <p className="text-white/70 text-xs">Email: secretariat.msm2025@gmail.com</p>
