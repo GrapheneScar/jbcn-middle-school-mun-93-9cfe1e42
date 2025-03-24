@@ -22,7 +22,7 @@ const SecretaryGeneralSection = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               <span className="inline-block px-4 py-1 bg-mun-purple/20 rounded-full text-sm mb-3">Leadership</span>
               <br />
-              Message from the Secretary-General
+              Message from the Secretariat
             </h2>
             <div className="w-20 h-1 bg-mun-purple mx-auto"></div>
           </div>
