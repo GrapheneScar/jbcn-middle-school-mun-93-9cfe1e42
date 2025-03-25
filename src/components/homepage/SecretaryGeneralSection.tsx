@@ -33,7 +33,7 @@ const SecretaryGeneralSection = () => {
             }} transition={{
               duration: 0.3
             }}>
-                <img src="/lovable-uploads/ruhika.jpg" alt="Ruhika Bhende - Secretary General" className="w-full h-full object-cover" />
+                <img src="/lovable-uploads/Ruhika.png" alt="Ruhika Bhende - Secretary General" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
                   <h3 className="text-xl font-bold text-white">Ruhika Bhende</h3>
