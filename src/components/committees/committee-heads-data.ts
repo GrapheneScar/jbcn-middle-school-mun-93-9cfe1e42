@@ -8,14 +8,14 @@ export const committeeHeads: Department[] = [{
   chairs: [{
     name: "Shivani Mishra",
     title: "Head of Organizing Committee",
-    photo: "/lovable-uploads/ruhika.jpg",
+    photo: "/lovable-uploads/Shivani.png",
     department: "Organizing Committee",
     bio: "Shivani leads the organizing committee with dedication and precision.",
     easterEgg: "Head of Organizing Committee"
   }, {
     name: "Udit Ravat",
     title: "Deputy Head of Organizing Committee",
-    photo: "/lovable-uploads/riaan.jpeg",
+    photo: "/lovable-uploads/Udit.png",
     department: "Organizing Committee",
     bio: "Udit brings creativity and energy to the organizing team."
   }]
@@ -25,14 +25,14 @@ export const committeeHeads: Department[] = [{
   chairs: [{
     name: "Riddhi Bavadiya",
     title: "Head of Social Media",
-    photo: "/lovable-uploads/dishita.png",
+    photo: "/lovable-uploads/Riddhi.png",
     department: "Social Media",
     bio: "Riddhi creates engaging content that keeps our followers informed and excited.",
     easterEgg: "Head of Social Media"
   }, {
     name: "Yana Mehta",
     title: "Head of Social Media",
-    photo: "/lovable-uploads/kasmia.jpg",
+    photo: "/lovable-uploads/Yana.png",
     department: "Social Media",
     bio: "Yana manages our social media strategy with creativity and insight."
   }]
@@ -42,14 +42,14 @@ export const committeeHeads: Department[] = [{
   chairs: [{
     name: "Naaham Shah",
     title: "Head of Website Design",
-    photo: "/lovable-uploads/ansh.png",
+    photo: "/lovable-uploads/Naaham.png",
     department: "Website Design",
     bio: "Naaham combines technical expertise with design intuition for our website.",
     easterEgg: "Head of Website Design"
   }, {
     name: "Samay Shah",
     title: "Head of Website Design",
-    photo: "/lovable-uploads/bharatvir.jpg",
+    photo: "/lovable-uploads/Samay.png",
     department: "Website Design",
     bio: "Samay ensures our website is user-friendly and visually appealing."
   }]
@@ -59,7 +59,7 @@ export const committeeHeads: Department[] = [{
   chairs: [{
     name: "Aarna Amberkar",
     title: "Head of Press",
-    photo: "/lovable-uploads/shaurya.png",
+    photo: "/lovable-uploads/Aarna.png",
     department: "Press",
     bio: "Aarna leads our press team with journalistic integrity and creativity.",
     easterEgg: "Head of Press"
@@ -70,14 +70,14 @@ export const committeeHeads: Department[] = [{
   chairs: [{
     name: "Keerthana Reddy",
     title: "Head of Photography",
-    photo: "/lovable-uploads/geiv.jpeg",
+    photo: "/lovable-uploads/Keerthana.png",
     department: "Photography",
     bio: "Keerthana's eye for capturing meaningful moments brings our conference to life.",
     easterEgg: "Head of Photography"
   }, {
     name: "Reehan Parikh",
     title: "Head of Photography",
-    photo: "/lovable-uploads/pratham.jpg",
+    photo: "/lovable-uploads/Reehan.png",
     department: "Photography",
     bio: "Reehan documents the conference with creativity and attention to detail."
   }]
@@ -87,7 +87,7 @@ export const committeeHeads: Department[] = [{
   chairs: [{
     name: "Radhika Dutt",
     title: "Head of Illustration",
-    photo: "/lovable-uploads/adhiraj.jpeg",
+    photo: "/lovable-uploads/Radhika.png",
     department: "Illustration",
     bio: "Radhika's artistic talents enhance all our visual materials.",
     easterEgg: "Head of Illustration"
@@ -98,7 +98,7 @@ export const committeeHeads: Department[] = [{
   chairs: [{
     name: "Reeyan Manavi",
     title: "Director of Operations",
-    photo: "/lovable-uploads/arjun.jpeg",
+    photo: "/lovable-uploads/Reeyan.png",
     department: "Operations",
     bio: "Reeyan provides exceptional operational support and coordination throughout the conference.",
     easterEgg: "Director of Operations"
