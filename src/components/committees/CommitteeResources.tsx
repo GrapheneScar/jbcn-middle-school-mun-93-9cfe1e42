@@ -1,6 +1,7 @@
 
 import { motion } from 'framer-motion';
 import { BookOpen, Globe2, Mail } from 'lucide-react';
+import { ComingSoonOverlay } from '../ui/coming-soon-overlay';
 
 interface CommitteeResourcesProps {
   studyGuideUrl?: string;
@@ -23,13 +24,11 @@ const CommitteeResources = ({ studyGuideUrl, countryMatrixUrl, committeeName, co
         <motion.div
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.2 }}
-          className="relative overflow-hidden rounded-lg group cursor-pointer"
+          className="relative overflow-hidden rounded-lg group"
         >
           <a 
             href={studyGuideUrl || "#"} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className={!studyGuideUrl ? "pointer-events-none opacity-70" : "block"}
+            className="block pointer-events-none opacity-70"
           >
             <div className="relative aspect-[4/5] overflow-hidden">
               <img 
@@ -43,22 +42,20 @@ const CommitteeResources = ({ studyGuideUrl, countryMatrixUrl, committeeName, co
                 <p className="text-white/80 text-sm mt-2 max-w-[80%] text-center">
                   Comprehensive guide for understanding {committeeName || "committee"} topics
                 </p>
-                {!studyGuideUrl && <span className="mt-4 text-xs text-white/60">Coming Soon</span>}
               </div>
             </div>
           </a>
+          <ComingSoonOverlay type="section" message="Study Guide Coming Soon" />
         </motion.div>
         
         <motion.div
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.2 }}
-          className="relative overflow-hidden rounded-lg group cursor-pointer"
+          className="relative overflow-hidden rounded-lg group"
         >
           <a 
             href={countryMatrixUrl || "#"} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className={!countryMatrixUrl ? "pointer-events-none opacity-70" : "block"}
+            className="block pointer-events-none opacity-70"
           >
             <div className="relative aspect-[4/5] overflow-hidden">
               <img 
@@ -72,10 +69,10 @@ const CommitteeResources = ({ studyGuideUrl, countryMatrixUrl, committeeName, co
                 <p className="text-white/80 text-sm mt-2 max-w-[80%] text-center">
                   Overview of country positions on {committeeName || "committee"} topics
                 </p>
-                {!countryMatrixUrl && <span className="mt-4 text-xs text-white/60">Coming Soon</span>}
               </div>
             </div>
           </a>
+          <ComingSoonOverlay type="section" message="Country Matrix Coming Soon" />
         </motion.div>
       </div>
       

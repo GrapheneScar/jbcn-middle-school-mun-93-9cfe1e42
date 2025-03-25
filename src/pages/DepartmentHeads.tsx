@@ -5,7 +5,7 @@ import StripeBackground from '../components/StripeBackground';
 import DepartmentSection from '../components/committees/DepartmentSection';
 import { committeeHeads } from '../components/committees/committee-heads-data';
 import { motion } from 'framer-motion';
-import EasterEggAnimation from '../components/committees/EasterEggAnimation';
+import EasterEggAnimation from '../components/about/EasterEggAnimation';
 
 const DepartmentHeads = () => {
   useEffect(() => {
@@ -16,7 +16,7 @@ const DepartmentHeads = () => {
 
   // Listen for easter egg events
   useEffect(() => {
-    const handleEasterEgg = (e: any) => {
+    const handleEasterEgg = (e: CustomEvent<{title: string}>) => {
       const { title } = e.detail;
       setActiveEasterEgg(title);
 
@@ -26,9 +26,10 @@ const DepartmentHeads = () => {
       }, 8000);
     };
     
-    window.addEventListener('easterEggTriggered', handleEasterEgg);
+    // Type assertion to CustomEvent
+    window.addEventListener('easterEggTriggered', handleEasterEgg as EventListener);
     return () => {
-      window.removeEventListener('easterEggTriggered', handleEasterEgg);
+      window.removeEventListener('easterEggTriggered', handleEasterEgg as EventListener);
     };
   }, []);
   
@@ -50,7 +51,10 @@ const DepartmentHeads = () => {
             <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">Team</span>
             <h1 className="text-5xl font-bold text-white mb-6">Department Heads</h1>
             <p className="text-white/80 max-w-3xl mx-auto">
-              Meet the talented individuals who lead our specialized departments and help make JBCN Middle School MUN a success.
+              Meet the talented individuals who lead our specialized departments and help make JBCN Middle School MUN a success. 
+              <span className="text-mun-purple-light italic ml-2 text-sm">
+                Tip: Hold on a head's photo to discover their special talent!
+              </span>
             </p>
           </motion.div>
           
@@ -62,7 +66,7 @@ const DepartmentHeads = () => {
         </div>
       </div>
       
-      {/* Add the easter egg animation component */}
+      {/* Easter egg animation component */}
       <EasterEggAnimation activeEasterEgg={activeEasterEgg} />
     </PageTransition>
   );
