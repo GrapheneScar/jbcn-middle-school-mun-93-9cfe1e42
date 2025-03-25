@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 const SecretaryGeneralSection = () => {
   return <motion.div initial={{
@@ -12,7 +11,7 @@ const SecretaryGeneralSection = () => {
   }} transition={{
     duration: 0.6
   }} className="container mx-auto mb-10 px-4">
-      <div className="glass-panel overflow-hidden p-4 md:p-8 relative">
+      <div className="glass-panel overflow-hidden p-4 md:p-8 relative mx-0 py-[32px] my-[40px]">
         {/* Purple gradient accents */}
         <div className="absolute -top-20 -left-20 w-40 h-40 bg-mun-purple/30 rounded-full blur-3xl" />
         <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-mun-purple/30 rounded-full blur-3xl" />
