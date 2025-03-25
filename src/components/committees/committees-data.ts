@@ -8,9 +8,9 @@ export const committeesData: Committee[] = [
     description: "Greetings Delegates,",
     shortDescription: "DISEC tackles the challenges of international peace and security, focusing on disarmament and global threats. This committee will debate the role of Private Military Organizations in modern conflict zones.",
     topics: ["Discussing if Private Military Organizations are a Threat to International Peace and Security"],
-    logo: "/lovable-uploads/60691948-0e00-49c0-92dd-0dba8ba1646f.png", 
+    logo: "/lovable-uploads/disec.png", 
     studyGuideUrl: "https://drive.google.com/file/d/1XcP5F7kN8H1Vkx_tfYqA1g5NnzITIcR9/view?usp=sharing", 
-    countryMatrixUrl: "https://docs.google.com/spreadsheets/d/1AnkMh7dEaqQ7kXAUx2tWjrsTmaPbPAap6BoL2l9sMNQ/edit?usp=sharing",
+    countryMatrixUrl: "",
     chairs: [
       {
         name: "Bharatvir Saran",
@@ -34,9 +34,9 @@ export const committeesData: Committee[] = [
     description: "Greetings delegates,",
     shortDescription: "COPUOS examines the growing frontier of space exploration and policy. In this committee, delegates will navigate the complex diplomatic challenges of space weaponization and international cooperation beyond Earth's atmosphere.",
     topics: ["Addressing the challenges and possibilities of weaponization in space"],
-    logo: "/lovable-uploads/aa3492cb-da5b-4951-9cc9-903ae3d4502a.png",
+    logo: "/lovable-uploads/uncopuos.png",
     studyGuideUrl: "https://drive.google.com/file/d/1RcP5F7kN8H1Vkx_tfYqA1g5NnzITIcR9/view?usp=sharing",
-    countryMatrixUrl: "https://docs.google.com/spreadsheets/d/1AnkMh7dEaqQ7kXAUx2tWjrsTmaPbPAap6BoL2l9sMNQ/edit?usp=sharing",
+    countryMatrixUrl: "",
     chairs: [
       {
         name: "Shaurya Kaushik",
@@ -60,9 +60,9 @@ export const committeesData: Committee[] = [
     description: "Welcome Delegates,",
     shortDescription: "The Korean War Summit transports delegates back to 1952, at a pivotal moment in the conflict. This historical committee challenges delegates to navigate complex geopolitical tensions and potentially rewrite the outcome of one of the most significant conflicts of the 20th century.",
     topics: ["To negotiate lasting peace and end the Korean War, possibly uniting or dividing the peninsula"],
-    logo: "/lovable-uploads/717087cd-22de-4d9c-a894-bf983b5f4f6c.png",
+    logo: "/lovable-uploads/kws.png",
     studyGuideUrl: "https://drive.google.com/file/d/1ZcP5F7kN8H1Vkx_tfYqA1g5NnzITIcR9/view?usp=sharing",
-    countryMatrixUrl: "https://docs.google.com/spreadsheets/d/1AnkMh7dEaqQ7kXAUx2tWjrsTmaPbPAap6BoL2l9sMNQ/edit?usp=sharing",
+    countryMatrixUrl: "",
     chairs: [
       {
         name: "Kasmia Mehra",
@@ -86,9 +86,9 @@ export const committeesData: Committee[] = [
     description: "Namaste Delegates,",
     shortDescription: "The Cabinet of India committee transports delegates to 1984, amid one of the most challenging periods in India's history. Delegates will take on the roles of key government officials navigating the complex political landscape surrounding Operation Blue Star.",
     topics: ["Evaluating the significance and implications of Operation Blue Star"],
-    logo: "/lovable-uploads/5aa913d4-deb5-4ced-8a67-e8694ed3ca00.png",
+    logo: "/lovable-uploads/coi.png",
     studyGuideUrl: "",
-    countryMatrixUrl: "https://docs.google.com/spreadsheets/d/1AnkMh7dEaqQ7kXAUx2tWjrsTmaPbPAap6BoL2l9sMNQ/edit?usp=sharing",
+    countryMatrixUrl: "",
     chairs: [
       {
         name: "Dishita Sehgal",
@@ -112,9 +112,9 @@ export const committeesData: Committee[] = [
     description: "Privet, delegaty!",
     shortDescription: "The Russian Federative Assembly offers a unique crisis-driven format where delegates must navigate the complex power dynamics within the Kremlin. As the only constant crisis committee, participants will face evolving challenges that demand quick thinking and strategic diplomacy.",
     topics: ["Ensuring transparency and accountability to tackle financial and political mismanagement in the kremlin"],
-    logo: "/lovable-uploads/fd4faac5-03e0-4080-a3e2-e0789b935a4d.png",
+    logo: "/lovable-uploads/rfa.png",
     studyGuideUrl: "",
-    countryMatrixUrl: "https://docs.google.com/spreadsheets/d/1AnkMh7dEaqQ7kXAUx2tWjrsTmaPbPAap6BoL2l9sMNQ/edit?usp=sharing",
+    countryMatrixUrl: "",
     chairs: [
       {
         name: "Arjun Asher",
