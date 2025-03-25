@@ -58,7 +58,7 @@ const DeputySecretaryGeneralSection = () => {
                 }}
               >
                 <img 
-                  src="/lovable-uploads/areehah.jpg" 
+                  src="/lovable-uploads/Areehah.png" 
                   alt="Areehah Mitra - Deputy Secretary General" 
                   className="w-full h-full object-cover"
                 />
