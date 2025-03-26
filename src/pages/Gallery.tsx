@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import PageTransition from '../components/PageTransition';
 import GalleryHeader from '../components/gallery/GalleryHeader';
 import { motion } from 'framer-motion';
-import { Eye, Image as ImageIcon, Grid3X3 } from 'lucide-react';
+import { Eye, Image as ImageIcon, Grid3X3, X } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // Temporary placeholder for gallery images

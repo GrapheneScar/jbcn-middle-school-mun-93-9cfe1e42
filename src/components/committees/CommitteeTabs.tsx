@@ -68,7 +68,13 @@ const CommitteeTabs = ({ committee }: CommitteeTabsProps) => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {committee.chairs.map((chair, index) => (
-                <ChairCard key={index} chair={chair} />
+                <ChairCard 
+                  key={index} 
+                  chair={{
+                    ...chair,
+                    department: chair.department || 'Committee' // Ensure department is always present
+                  }} 
+                />
               ))}
             </div>
           </motion.div>
