@@ -2,7 +2,6 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Button, ButtonProps } from "./button";
-import { ComingSoonOverlay } from "./coming-soon-overlay";
 
 export interface RegisterButtonProps extends Omit<ButtonProps, "variant"> {
   children?: React.ReactNode;
@@ -10,7 +9,7 @@ export interface RegisterButtonProps extends Omit<ButtonProps, "variant"> {
 }
 
 const RegisterButton = React.forwardRef<HTMLButtonElement, RegisterButtonProps>(
-  ({ className, children = "REGISTER NOW!", showComingSoon = true, ...props }, ref) => {
+  ({ className, children = "REGISTER NOW!", showComingSoon = false, ...props }, ref) => {
     const [isHovered, setIsHovered] = React.useState(false);
 
     return (
@@ -31,10 +30,6 @@ const RegisterButton = React.forwardRef<HTMLButtonElement, RegisterButtonProps>(
             <span className="absolute inset-0 bg-gradient-to-r from-mun-purple to-mun-purple-light rounded-full" />
           )}
         </Button>
-        
-        {showComingSoon && (
-          <ComingSoonOverlay type="button" message="Registration Opening Soon" />
-        )}
       </div>
     );
   }

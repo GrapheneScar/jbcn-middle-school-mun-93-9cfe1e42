@@ -37,7 +37,7 @@ const DepartmentSection = ({ department, index }: DepartmentSectionProps) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: chairIndex * 0.1, duration: 0.5 }}
-            className="w-full sm:w-64"
+            className="w-64"
           >
             <ChairCard chair={{
               name: chair.name,

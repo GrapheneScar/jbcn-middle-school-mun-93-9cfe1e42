@@ -50,7 +50,7 @@ const SecretariatSection = ({
           </p>
         </motion.div>
         
-        {/* Updated grid to center align using mx-auto and flex justify-center */}
+        {/* Centered grid layout */}
         <div className="flex justify-center">
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl">
             {secretariat.map(person => (
@@ -64,9 +64,9 @@ const SecretariatSection = ({
                 once: true
               }} transition={{
                 duration: 0.5
-              }} className="flex flex-col">
+              }} className="flex flex-col mx-auto w-full max-w-sm">
                 <div className="relative group overflow-hidden rounded-xl">
-                  <motion.div className="aspect-[3/4] cursor-pointer" whileHover={{
+                  <motion.div className="aspect-square cursor-pointer" whileHover={{
                     scale: 1.05
                   }} onClick={() => toggleExpanded(person.name)}>
                     <img src={person.image} alt={person.name} className="w-full h-full object-cover transition-transform duration-300" />
