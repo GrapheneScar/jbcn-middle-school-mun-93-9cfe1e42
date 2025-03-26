@@ -40,7 +40,7 @@ const BaxterMascot = () => {
             <img
               src="/lovable-uploads/baxter.png"
               alt="Baxter - JBCN MUN Mascot"
-              className="w-full max-w-md"
+              className="w-full max-w-md drop-shadow-[0_10px_25px_rgba(121,83,169,0.5)]"
             />
           </motion.div>
         </div>

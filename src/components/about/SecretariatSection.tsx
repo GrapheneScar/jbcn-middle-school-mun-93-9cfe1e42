@@ -50,9 +50,9 @@ const SecretariatSection = ({
           </p>
         </motion.div>
         
-        {/* Centered grid layout */}
+        {/* Centered grid layout with larger, more square cards */}
         <div className="flex justify-center">
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl">
             {secretariat.map(person => (
               <motion.div key={person.name} initial={{
                 opacity: 0,
@@ -64,15 +64,20 @@ const SecretariatSection = ({
                 once: true
               }} transition={{
                 duration: 0.5
-              }} className="flex flex-col mx-auto w-full max-w-sm">
-                <div className="relative group overflow-hidden rounded-xl">
-                  <motion.div className="aspect-square cursor-pointer" whileHover={{
-                    scale: 1.05
+              }} className="relative mx-auto w-full max-w-md">
+                {/* Purple semi-transparent curved rectangle background */}
+                <div className="absolute -inset-4 bg-mun-purple/15 rounded-2xl -z-10 backdrop-blur-sm"></div>
+                
+                <div className="relative group overflow-hidden rounded-xl glass-panel">
+                  <motion.div className="cursor-pointer" whileHover={{
+                    scale: 1.02
                   }} onClick={() => toggleExpanded(person.name)}>
-                    <img src={person.image} alt={person.name} className="w-full h-full object-cover transition-transform duration-300" />
-                    
-                    {/* Overlay that's always visible */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80" />
+                    <div className="aspect-square overflow-hidden">
+                      <img src={person.image} alt={person.name} className="w-full h-full object-cover transition-transform duration-300" />
+                      
+                      {/* Overlay that's always visible */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80" />
+                    </div>
                     
                     {/* Role and name - always visible at bottom */}
                     <div className="absolute bottom-0 left-0 right-0 p-4">

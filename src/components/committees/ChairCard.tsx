@@ -31,54 +31,59 @@ const ChairCard = ({ chair }: ChairCardProps) => {
   };
 
   return (
-    <div className="glass-panel overflow-hidden rounded-xl h-full">
-      {/* Photo Section */}
-      <motion.div 
-        className="relative aspect-square overflow-hidden"
-        whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.3 }}
-        onMouseDown={triggerEasterEgg}
-        onTouchStart={triggerEasterEgg}
-      >
-        <img 
-          src={chair.photo} 
-          alt={chair.name} 
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
-      </motion.div>
+    <div className="relative">
+      {/* Purple semi-transparent curved rectangle background */}
+      <div className="absolute -inset-3 bg-mun-purple/20 rounded-2xl -z-10 backdrop-blur-sm"></div>
       
-      {/* Info Section */}
-      <div className="p-4">
-        <h3 className="text-lg font-bold text-white mb-1">{chair.name}</h3>
-        <p className="text-sm text-mun-purple-light mb-3">{chair.title}</p>
+      <div className="glass-panel overflow-hidden rounded-xl h-full">
+        {/* Photo Section */}
+        <motion.div 
+          className="relative aspect-square overflow-hidden"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+          onMouseDown={triggerEasterEgg}
+          onTouchStart={triggerEasterEgg}
+        >
+          <img 
+            src={chair.photo} 
+            alt={chair.name} 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
+        </motion.div>
         
-        {chair.bio && (
-          <div className="mt-3">
-            <div className={`text-white/80 text-sm ${!isExpanded && chair.bio.length > 100 ? 'line-clamp-3' : ''}`}>
-              {chair.bio}
+        {/* Info Section */}
+        <div className="p-4">
+          <h3 className="text-lg font-bold text-white mb-1">{chair.name}</h3>
+          <p className="text-sm text-mun-purple-light mb-3">{chair.title}</p>
+          
+          {chair.bio && (
+            <div className="mt-3">
+              <div className={`text-white/80 text-sm ${!isExpanded && chair.bio.length > 100 ? 'line-clamp-3' : ''}`}>
+                {chair.bio}
+              </div>
+              
+              {chair.bio.length > 100 && (
+                <button
+                  onClick={() => setIsExpanded(!isExpanded)}
+                  className="mt-2 text-mun-purple-light hover:text-mun-purple text-xs flex items-center"
+                >
+                  {isExpanded ? (
+                    <>
+                      <X className="w-3 h-3 mr-1" />
+                      Show Less
+                    </>
+                  ) : (
+                    <>
+                      <BookOpen className="w-3 h-3 mr-1" />
+                      Read More
+                    </>
+                  )}
+                </button>
+              )}
             </div>
-            
-            {chair.bio.length > 100 && (
-              <button
-                onClick={() => setIsExpanded(!isExpanded)}
-                className="mt-2 text-mun-purple-light hover:text-mun-purple text-xs flex items-center"
-              >
-                {isExpanded ? (
-                  <>
-                    <X className="w-3 h-3 mr-1" />
-                    Show Less
-                  </>
-                ) : (
-                  <>
-                    <BookOpen className="w-3 h-3 mr-1" />
-                    Read More
-                  </>
-                )}
-              </button>
-            )}
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
