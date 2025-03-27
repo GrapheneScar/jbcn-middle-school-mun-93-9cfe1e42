@@ -55,7 +55,7 @@ const NewsletterGrid = ({ title, newsletters }: NewsletterGridProps) => {
         initial="hidden"
         animate="show"
       >
-        {newsletters.map((newsletter) => (
+        {newsletters.map((newsletter, index) => (
           <motion.div key={newsletter.id} variants={item} transition={{ duration: 0.5, type: "tween" }}>
             <div className="relative">
               {/* Add "Missing" overlay for 2022 newsletters */}
@@ -65,7 +65,7 @@ const NewsletterGrid = ({ title, newsletters }: NewsletterGridProps) => {
                 </div>
               )}
               
-              <NewsletterCard newsletter={newsletter} />
+              <NewsletterCard newsletter={newsletter} index={index} />
             </div>
           </motion.div>
         ))}
