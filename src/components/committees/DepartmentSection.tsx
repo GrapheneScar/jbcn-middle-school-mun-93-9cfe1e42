@@ -17,14 +17,14 @@ const DepartmentSection = ({ department, index }: DepartmentSectionProps) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5, type: "tween" }}
     >
       <motion.div 
         className="text-center mb-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ delay: 0.1, duration: 0.5 }}
+        transition={{ delay: 0.1, duration: 0.5, type: "tween" }}
       >
         <h2 className="text-3xl font-bold text-white mb-4">{department.name}</h2>
       </motion.div>
@@ -36,7 +36,7 @@ const DepartmentSection = ({ department, index }: DepartmentSectionProps) => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: chairIndex * 0.1, duration: 0.5 }}
+            transition={{ delay: chairIndex * 0.1, duration: 0.5, type: "tween" }}
             className="w-64"
           >
             <ChairCard chair={{

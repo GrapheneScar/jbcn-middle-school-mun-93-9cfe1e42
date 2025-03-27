@@ -32,7 +32,7 @@ const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.3, type: "tween" }}
           className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-black/60 text-white px-4 py-2 rounded-full text-sm backdrop-blur-sm z-50 border border-mun-purple/40"
         >
           {activeEasterEgg} Easter Egg Activated!

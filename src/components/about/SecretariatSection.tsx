@@ -41,7 +41,8 @@ const SecretariatSection = ({
         }} viewport={{
           once: true
         }} transition={{
-          duration: 0.5
+          duration: 0.5,
+          type: "tween"
         }}>
           <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">Meet Our Team</span>
           <h2 className="text-3xl font-bold text-white">Secretariat</h2>
@@ -63,7 +64,8 @@ const SecretariatSection = ({
               }} viewport={{
                 once: true
               }} transition={{
-                duration: 0.5
+                duration: 0.5,
+                type: "tween"
               }} className="relative mx-auto w-full max-w-md">
                 {/* Purple semi-transparent curved rectangle background */}
                 <div className="absolute -inset-4 bg-mun-purple/15 rounded-2xl -z-10 backdrop-blur-sm"></div>
@@ -71,7 +73,7 @@ const SecretariatSection = ({
                 <div className="relative group overflow-hidden rounded-xl glass-panel">
                   <motion.div className="cursor-pointer" whileHover={{
                     scale: 1.02
-                  }} onClick={() => toggleExpanded(person.name)}>
+                  }} transition={{ type: "tween" }} onClick={() => toggleExpanded(person.name)}>
                     <div className="aspect-square overflow-hidden">
                       <img src={person.image} alt={person.name} className="w-full h-full object-cover transition-transform duration-300" />
                       
@@ -89,7 +91,7 @@ const SecretariatSection = ({
                   {/* Expand/Collapse button */}
                   <motion.button onClick={() => toggleExpanded(person.name)} className="absolute bottom-2 right-2 w-8 h-8 bg-mun-purple/80 rounded-full flex items-center justify-center text-white" whileHover={{
                     scale: 1.1
-                  }} whileTap={{
+                  }} transition={{ type: "tween" }} whileTap={{
                     scale: 0.95
                   }}>
                     {expandedMember === person.name ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -113,7 +115,8 @@ const SecretariatSection = ({
                         opacity: 0
                       }} 
                       transition={{
-                        duration: 0.3
+                        duration: 0.3,
+                        type: "tween"
                       }} 
                       className="glass-panel mt-2 p-4 overflow-hidden"
                     >

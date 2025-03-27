@@ -10,7 +10,7 @@ const BaxterMascot = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, type: "tween" }}
             className="lg:w-1/2 text-left"
           >
             <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">Mascot</span>
@@ -34,7 +34,7 @@ const BaxterMascot = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.2, type: "tween" }}
             className="lg:w-1/2 flex justify-center mt-8 lg:mt-0"
           >
             <img
