@@ -8,9 +8,11 @@ import { ComingSoonOverlay } from '../ui/coming-soon-overlay';
 interface CommitteeResourcesProps {
   studyGuideUrl?: string;
   countryMatrixUrl?: string;
+  committeeName?: string;
+  committeeEmail?: string;
 }
 
-const CommitteeResources = ({ studyGuideUrl, countryMatrixUrl }: CommitteeResourcesProps) => {
+const CommitteeResources = ({ studyGuideUrl, countryMatrixUrl, committeeName, committeeEmail }: CommitteeResourcesProps) => {
   const [showPassword, setShowPassword] = useState(false);
   
   return (
