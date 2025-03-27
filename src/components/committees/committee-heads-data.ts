@@ -34,7 +34,7 @@ export const committeeHeads: Department[] = [{
     title: "Head of Social Media",
     photo: "/lovable-uploads/Yana.png",
     department: "Social Media",
-    bio: "Yana manages our social media strategy with creativity and insight."
+    bio: "Yana expertly manages our social media strategy with creativity and deep insight."
   }]
 }, {
   name: "Heads of Website Design",
