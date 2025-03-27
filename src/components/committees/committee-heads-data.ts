@@ -52,6 +52,12 @@ export const committeeHeads: Department[] = [{
     photo: "/lovable-uploads/Samay.png",
     department: "Website Design",
     bio: "Samay ensures our website is user-friendly and visually appealing."
+  }, {
+    name: "Dhir Jain",
+    title: "Deputy Head of Website Design",
+    photo: "/lovable-uploads/Naaham.png", // Using a placeholder image
+    department: "Website Design",
+    bio: "Dhir combines creative design thinking with technical skills to enhance the website's functionality and user experience. He works closely with the team to implement innovative features and ensure the site remains responsive across all devices."
   }]
 }, {
   name: "Heads of Press",

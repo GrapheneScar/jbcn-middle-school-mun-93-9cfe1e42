@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { SecretariatMember } from './types';
 import { BookOpen, X } from 'lucide-react';
+import ProfileCard from '../ProfileCard';
 
 interface SecretariatSectionProps {
   secretariat: SecretariatMember[];
@@ -51,12 +52,12 @@ const SecretariatSection = ({
           </p>
         </motion.div>
         
-        {/* Improved Secretariat Cards Layout */}
+        {/* Updated Secretariat Cards Layout to match Department Heads */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3, type: "tween" }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
         >
           {secretariat.map((person, index) => (
             <motion.div 
@@ -67,29 +68,16 @@ const SecretariatSection = ({
               transition={{ duration: 0.5, delay: index * 0.1, type: "tween" }}
               className="relative"
             >
-              {/* Purple semi-transparent curved rectangle background */}
-              <div className="absolute -inset-4 bg-mun-purple/15 rounded-2xl -z-10 backdrop-blur-sm"></div>
-              
-              <div className="relative glass-panel rounded-xl overflow-hidden shadow-lg hover:shadow-[0_5px_25px_rgba(121,83,169,0.3)] transition-all duration-300">
-                <div className="aspect-[3/4] overflow-hidden">
-                  <img 
-                    src={person.image} 
-                    alt={person.name} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  
-                  {/* Overlay that's always visible */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80" />
+              <div className="w-full">
+                <ProfileCard
+                  name={person.name}
+                  title={person.role}
+                  imagePath={person.image}
+                  imageAlt={`${person.name} - ${person.role}`}
+                />
                 
-                  {/* Role and name - always visible at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
-                    <h3 className="text-xl font-bold text-white">{person.name}</h3>
-                    <p className="text-mun-purple-light">{person.role}</p>
-                  </div>
-                </div>
-                
-                {/* Bio section with read more/less toggle */}
-                <div className="bg-black/40 p-4 border-t border-mun-purple/30">
+                {/* Bio toggle and content below the card */}
+                <div className="mt-3 bg-black/40 p-4 border border-mun-purple/30 rounded-lg">
                   <div className={`text-white/90 text-sm ${expandedMember !== person.name ? 'line-clamp-3' : ''}`}>
                     {formatBio(person.bio)}
                   </div>

@@ -32,7 +32,7 @@ const DepartmentSection = ({ department, index }: DepartmentSectionProps) => {
         )}
       </motion.div>
       
-      <div className="flex flex-wrap gap-6 justify-center max-w-4xl mx-auto">
+      <div className="flex flex-wrap gap-10 justify-center max-w-4xl mx-auto">
         {department.chairs.map((chair, chairIndex) => (
           <motion.div
             key={chair.name}
