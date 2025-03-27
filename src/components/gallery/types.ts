@@ -5,4 +5,5 @@ export interface GalleryImage {
   alt: string;
   category: string;
   title: string;
+  year?: string; // Added optional year property for filtering
 }
