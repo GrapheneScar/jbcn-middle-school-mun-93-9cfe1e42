@@ -20,7 +20,7 @@ const Resources = () => {
       description: "Official rules of procedure for the JBCN Parel MUN 2025 conference",
       icon: ListChecks,
       link: "https://drive.google.com/file/d/19K56bVlyhd2piUwUKueHynqf4tN7zAei/view?usp=sharing",
-      image: "/lovable-uploads/Rules of Procedure (RoP).jpg",
+      image: "/lovable-uploads/rop.png",
       highlight: false
     },
     {
@@ -28,14 +28,14 @@ const Resources = () => {
       description: " A small list of Preambulatory and Operative clauses for Resolutions/Directives.",
       icon: ListChecks,
       link: "https://drive.google.com/file/d/1tyvIkOmvbsYUewBxbE-59Kqgis77BSPP/view?usp=sharing",
-      image: "/lovable-uploads/Phrases.png",
+      image: "/lovable-uploads/clauses.png",
     },
     {
       title: "MUN Lingo",
       description: "Essential terminology used in Model United Nations conferences",
       icon: MessageSquare,
       link: "https://drive.google.com/file/d/1vOxtInhKgnryTo7XTj3IYc9tCwWubrDx/view?usp=sharing",
-      image: "/lovable-uploads/",
+      image: "/lovable-uploads/mun lingo.png",
     },
     // Removed Voting card
     {
@@ -43,14 +43,14 @@ const Resources = () => {
       description: "Study Guides of the commitees.",
       icon: ScrollText,
       link: "https://drive.google.com/drive/folders/1d8iPqYye3Gr-n0hpDNAKHdJevklLMzcM",
-      image: "/lovable-uploads/",
+      image: "/lovable-uploads/study guide.png",
     },
     {
       title: "UN charter",
       description: " The foundational treaty of the United Nations, outlining its purpose, principles, and structure.",
       icon: Globe,
       link: "https://www.un.org/en/about-us/un-charter/full-text",
-      image: "/lovable-uploads/",
+      image: "/lovable-uploads/un charter.png",
     }
   ];
 
@@ -59,7 +59,7 @@ const Resources = () => {
       title: "Directives",
       description: "Example for writing effective directives.",
       icon: FilePenLine,
-      link: "",
+      link: "https://docs.google.com/document/d/17fUQgZ_lIoubRNQcwFo6YD-LKUnHjt2cNWuUxFYw8vg/edit?usp=sharing",
       image: "/lovable-uploads/",
       highlight: false
     },
@@ -67,35 +67,35 @@ const Resources = () => {
       title: "Draft Resolution",
       description: "Example for writng a excellent Draft Resolution.",
       icon: FileText,
-      link: "",
+      link: "https://docs.google.com/document/d/11PPDUUnyy1VT29eCLhsvEicsIZ3PtjEg/edit?usp=sharing&ouid=100119734129423747207&rtpof=true&sd=true",
       image: "/lovable-uploads/",
     },
     {
       title: "Position Paper",
       description: "Example for crafting effective position papers",
       icon: FileCode,
-      link: "",
+      link: "https://docs.google.com/document/d/138mRyGFn9Tr2231kekwqnWqmm7ahtQvkjsPuSdEWoRM/edit?usp=sharing",
       image: "/lovable-uploads/",
     },
     {
       title: "communiqué",
       description: "Example for format and structure for working communiqué.",
       icon: FilePlus2,
-      link: "",
+      link: "https://drive.google.com/file/d/1MSwe-OaZGGLMpw2fde5Q9pIiZM2c9mGv/view?usp=sharing",
       image: "/lovable-uploads/",
     },
     {
       title: "Press Release (communiqué)",
       description: "Example for drafting press releases (communiqué)",
       icon: Newspaper,
-      link: "",
+      link: "https://drive.google.com/file/d/19lOGxXn5B3ouaYN3mrNeBXBTY-oUTGsO/view?usp=sharing",
       image: "/lovable-uploads/",
     },
     {
       title: "Chits",
       description: "Example for writing effective communication chits",
       icon: MessageSquare,
-      link: "",
+      link: "https://drive.google.com/file/d/1gp1suebS-P0O4Fo2pXNWS6k9TFbTOrBB/view?usp=sharing",
       image: "/lovable-uploads/",
     },
     // Removed Joint Statements and Resolutions card
