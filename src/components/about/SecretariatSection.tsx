@@ -51,74 +51,67 @@ const SecretariatSection = ({
           </p>
         </motion.div>
         
-        {/* Centered grid layout with larger, more square cards */}
-        <div className="flex justify-center">
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl">
-            {secretariat.map(person => (
-              <motion.div key={person.name} initial={{
-                opacity: 0,
-                y: 20
-              }} whileInView={{
-                opacity: 1,
-                y: 0
-              }} viewport={{
-                once: true
-              }} transition={{
-                duration: 0.5,
-                type: "tween"
-              }} className="relative mx-auto w-full max-w-md">
-                {/* Purple semi-transparent curved rectangle background */}
-                <div className="absolute -inset-4 bg-mun-purple/15 rounded-2xl -z-10 backdrop-blur-sm"></div>
-                
-                <div className="relative group overflow-hidden rounded-xl glass-panel">
-                  <motion.div className="cursor-pointer" whileHover={{
-                    scale: 1.02
-                  }} transition={{ type: "tween" }} onClick={() => toggleExpanded(person.name)}>
-                    <div className="aspect-square overflow-hidden">
-                      <img src={person.image} alt={person.name} className="w-full h-full object-cover transition-transform duration-300" />
-                      
-                      {/* Overlay that's always visible */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80" />
-                    </div>
-                    
-                    {/* Role and name - always visible at bottom */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <h3 className="text-xl font-bold text-white">{person.name}</h3>
-                      <p className="text-mun-purple-light">{person.role}</p>
-                    </div>
-                  </motion.div>
+        {/* Improved Secretariat Cards Layout */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.3, type: "tween" }}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+        >
+          {secretariat.map((person, index) => (
+            <motion.div 
+              key={person.name} 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1, type: "tween" }}
+              className="relative"
+            >
+              {/* Purple semi-transparent curved rectangle background */}
+              <div className="absolute -inset-4 bg-mun-purple/15 rounded-2xl -z-10 backdrop-blur-sm"></div>
+              
+              <div className="relative glass-panel rounded-xl overflow-hidden shadow-lg hover:shadow-[0_5px_25px_rgba(121,83,169,0.3)] transition-all duration-300">
+                <div className="aspect-[3/4] overflow-hidden">
+                  <img 
+                    src={person.image} 
+                    alt={person.name} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                   
-                  {/* Expand/Collapse button */}
-                  <motion.button onClick={() => toggleExpanded(person.name)} className="absolute bottom-2 right-2 w-8 h-8 bg-mun-purple/80 rounded-full flex items-center justify-center text-white" whileHover={{
-                    scale: 1.1
-                  }} transition={{ type: "tween" }} whileTap={{
-                    scale: 0.95
-                  }}>
-                    {expandedMember === person.name ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
-                  </motion.button>
+                  {/* Overlay that's always visible */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80" />
+                
+                  {/* Role and name - always visible at bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
+                    <h3 className="text-xl font-bold text-white">{person.name}</h3>
+                    <p className="text-mun-purple-light">{person.role}</p>
+                    
+                    {/* View Bio Button */}
+                    <motion.button 
+                      onClick={() => toggleExpanded(person.name)} 
+                      className="mt-3 px-4 py-1.5 bg-mun-purple/80 text-white text-sm rounded-full flex items-center justify-center mx-auto hover:bg-mun-purple transition-colors"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ type: "tween" }}
+                    >
+                      {expandedMember === person.name ? (
+                        <>Hide Bio <ChevronUp className="w-4 h-4 ml-1" /></>
+                      ) : (
+                        <>View Bio <ChevronDown className="w-4 h-4 ml-1" /></>
+                      )}
+                    </motion.button>
+                  </div>
                 </div>
                 
                 {/* Expandable bio section */}
                 <AnimatePresence>
                   {expandedMember === person.name && (
                     <motion.div 
-                      initial={{
-                        height: 0,
-                        opacity: 0
-                      }} 
-                      animate={{
-                        height: 'auto',
-                        opacity: 1
-                      }} 
-                      exit={{
-                        height: 0,
-                        opacity: 0
-                      }} 
-                      transition={{
-                        duration: 0.3,
-                        type: "tween"
-                      }} 
-                      className="glass-panel mt-2 p-4 overflow-hidden"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, type: "tween" }}
+                      className="bg-black/40 p-4 overflow-hidden border-t border-mun-purple/30"
                     >
                       <div className="text-white/90 text-sm">
                         {formatBio(person.bio)}
@@ -126,10 +119,10 @@ const SecretariatSection = ({
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

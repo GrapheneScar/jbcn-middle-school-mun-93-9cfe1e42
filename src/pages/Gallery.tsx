@@ -3,8 +3,17 @@ import { useEffect, useState } from 'react';
 import PageTransition from '../components/PageTransition';
 import GalleryHeader from '../components/gallery/GalleryHeader';
 import { motion } from 'framer-motion';
-import { Eye, Image as ImageIcon, Grid3X3, X } from 'lucide-react';
+import { Eye, Image as ImageIcon, Grid3X3, X, ArrowUpDown, Calendar, Tag } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { 
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from '@/components/ui/button';
 
 // Temporary placeholder for gallery images
 const placeholderImages = Array.from({ length: 100 }, (_, i) => ({
@@ -12,8 +21,11 @@ const placeholderImages = Array.from({ length: 100 }, (_, i) => ({
   title: `Image ${i + 1}`,
   src: `https://picsum.photos/id/${(i % 30) + 1}/800/600`,
   category: i % 3 === 0 ? 'conference' : i % 3 === 1 ? 'delegates' : 'events',
-  year: i % 4 === 0 ? '2022' : i % 4 === 1 ? '2023' : i % 4 === 2 ? '2024' : '2025'
+  year: i % 4 === 0 ? '2022' : i % 4 === 1 ? '2023' : i % 4 === 2 ? '2024' : '2025',
+  date: new Date(2022 + (i % 4), i % 12, (i % 28) + 1).toISOString()
 }));
+
+type SortOption = 'newest' | 'oldest' | 'random';
 
 const Gallery = () => {
   useEffect(() => {
@@ -31,10 +43,27 @@ const Gallery = () => {
     year: 'all'
   });
   
-  const filteredImages = placeholderImages.filter(img => 
-    (filters.category === 'all' || img.category === filters.category) &&
-    (filters.year === 'all' || img.year === filters.year)
-  );
+  const [sortOption, setSortOption] = useState<SortOption>('newest');
+  
+  // Filter and sort images based on current settings
+  const filteredAndSortedImages = (() => {
+    let filtered = placeholderImages.filter(img => 
+      (filters.category === 'all' || img.category === filters.category) &&
+      (filters.year === 'all' || img.year === filters.year)
+    );
+    
+    // Apply sorting
+    switch (sortOption) {
+      case 'newest':
+        return [...filtered].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      case 'oldest':
+        return [...filtered].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+      case 'random':
+        return [...filtered].sort(() => Math.random() - 0.5);
+      default:
+        return filtered;
+    }
+  })();
   
   const openLightbox = (imageId: string) => {
     setSelectedImage(imageId);
@@ -53,62 +82,102 @@ const Gallery = () => {
         
         {/* Gallery Controls */}
         <div className="flex flex-wrap items-center justify-between mb-8 gap-4">
-          <Tabs defaultValue="all" className="w-full md:w-auto">
-            <div className="mb-4">
+          <div className="w-full md:w-auto space-y-4">
+            <div>
               <h3 className="text-white mb-2 text-sm">Categories:</h3>
-              <TabsList className="bg-mun-purple/20 p-1">
-                {categories.map(category => (
-                  <TabsTrigger 
-                    key={category}
-                    value={category}
-                    onClick={() => setFilters({...filters, category})}
-                    className="data-[state=active]:bg-mun-purple"
-                  >
-                    {category.charAt(0).toUpperCase() + category.slice(1)}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
+              <Tabs defaultValue={filters.category} onValueChange={(value) => setFilters({...filters, category: value})}>
+                <TabsList className="bg-mun-purple/20 p-1">
+                  {categories.map(category => (
+                    <TabsTrigger 
+                      key={category}
+                      value={category}
+                      className="data-[state=active]:bg-mun-purple"
+                    >
+                      {category.charAt(0).toUpperCase() + category.slice(1)}
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+              </Tabs>
             </div>
             
             <div>
               <h3 className="text-white mb-2 text-sm">Years:</h3>
-              <TabsList className="bg-mun-purple/20 p-1">
-                {years.map(year => (
-                  <TabsTrigger 
-                    key={year}
-                    value={year}
-                    onClick={() => setFilters({...filters, year})}
-                    className="data-[state=active]:bg-mun-purple"
-                  >
-                    {year === 'all' ? 'All Years' : year}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
+              <Tabs defaultValue={filters.year} onValueChange={(value) => setFilters({...filters, year: value})}>
+                <TabsList className="bg-mun-purple/20 p-1">
+                  {years.map(year => (
+                    <TabsTrigger 
+                      key={year}
+                      value={year}
+                      className="data-[state=active]:bg-mun-purple"
+                    >
+                      {year === 'all' ? 'All Years' : year}
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+              </Tabs>
             </div>
-          </Tabs>
+          </div>
           
-          <div className="flex gap-2 items-center">
-            <button 
-              onClick={() => setGridColumns(3)} 
-              className={`p-2 rounded-md ${gridColumns === 3 ? 'bg-mun-purple' : 'bg-mun-purple/20'}`}
-              aria-label="3 columns"
-            >
-              <Grid3X3 size={18} />
-            </button>
-            <button 
-              onClick={() => setGridColumns(4)} 
-              className={`p-2 rounded-md ${gridColumns === 4 ? 'bg-mun-purple' : 'bg-mun-purple/20'}`}
-              aria-label="4 columns"
-            >
-              <Grid3X3 size={18} />
-            </button>
-            <button 
-              onClick={() => setGridColumns(5)} 
-              className={`p-2 rounded-md ${gridColumns === 5 ? 'bg-mun-purple' : 'bg-mun-purple/20'}`}
-              aria-label="5 columns"
-            >
-              <Grid3X3 size={18} />
-            </button>
+          <div className="flex flex-wrap gap-4 items-center">
+            {/* Sort dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" className="bg-mun-purple/20 border-mun-purple/30 hover:bg-mun-purple/40 text-white">
+                  <ArrowUpDown className="mr-2 h-4 w-4" />
+                  Sort by: {sortOption.charAt(0).toUpperCase() + sortOption.slice(1)}
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56 bg-black/90 border-mun-purple/30">
+                <DropdownMenuLabel>Sort Options</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem 
+                  className={`${sortOption === 'newest' ? 'bg-mun-purple/30' : ''} cursor-pointer`}
+                  onClick={() => setSortOption('newest')}
+                >
+                  <Calendar className="mr-2 h-4 w-4" />
+                  <span>Newest First</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  className={`${sortOption === 'oldest' ? 'bg-mun-purple/30' : ''} cursor-pointer`}
+                  onClick={() => setSortOption('oldest')}
+                >
+                  <Calendar className="mr-2 h-4 w-4" />
+                  <span>Oldest First</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  className={`${sortOption === 'random' ? 'bg-mun-purple/30' : ''} cursor-pointer`}
+                  onClick={() => setSortOption('random')}
+                >
+                  <Tag className="mr-2 h-4 w-4" />
+                  <span>Random</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
+            {/* Grid layout buttons */}
+            <div className="flex gap-2 items-center bg-mun-purple/20 p-1 rounded-md">
+              <button 
+                onClick={() => setGridColumns(3)} 
+                className={`p-2 rounded-md ${gridColumns === 3 ? 'bg-mun-purple' : 'hover:bg-mun-purple/40'}`}
+                aria-label="3 columns"
+              >
+                <Grid3X3 size={18} />
+              </button>
+              <button 
+                onClick={() => setGridColumns(4)} 
+                className={`p-2 rounded-md ${gridColumns === 4 ? 'bg-mun-purple' : 'hover:bg-mun-purple/40'}`}
+                aria-label="4 columns"
+              >
+                <Grid3X3 size={18} />
+              </button>
+              <button 
+                onClick={() => setGridColumns(5)} 
+                className={`p-2 rounded-md ${gridColumns === 5 ? 'bg-mun-purple' : 'hover:bg-mun-purple/40'}`}
+                aria-label="5 columns"
+              >
+                <Grid3X3 size={18} />
+              </button>
+            </div>
           </div>
         </div>
         
@@ -116,18 +185,18 @@ const Gallery = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-${gridColumns} gap-3 mt-8`}
+          transition={{ duration: 0.5, delay: 0.3, type: "tween" }}
+          className="grid gap-3 mt-8"
           style={{ 
             gridTemplateColumns: `repeat(${gridColumns}, minmax(0, 1fr))` 
           }}
         >
-          {filteredImages.map((image) => (
+          {filteredAndSortedImages.map((image) => (
             <motion.div 
               key={image.id}
               className="aspect-square rounded-lg overflow-hidden relative group cursor-pointer"
               whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.2, type: "tween" }}
               onClick={() => openLightbox(image.id)}
             >
               <img 
@@ -139,18 +208,28 @@ const Gallery = () => {
                 <motion.div 
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
-                  className="flex items-center gap-2 text-white"
+                  className="flex items-center gap-2 text-white bg-black/50 px-3 py-1.5 rounded-full"
                 >
-                  <Eye size={20} />
+                  <Eye size={18} />
                   <span className="text-sm">View</span>
                 </motion.div>
+              </div>
+              
+              {/* Year badge */}
+              <div className="absolute top-2 right-2 bg-mun-purple/70 text-white text-xs px-2 py-1 rounded-full">
+                {image.year}
+              </div>
+              
+              {/* Category badge */}
+              <div className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded-full capitalize">
+                {image.category}
               </div>
             </motion.div>
           ))}
         </motion.div>
         
         {/* Message for empty results */}
-        {filteredImages.length === 0 && (
+        {filteredAndSortedImages.length === 0 && (
           <div className="text-center py-20">
             <ImageIcon className="w-12 h-12 mx-auto text-mun-purple-light/50 mb-4" />
             <h3 className="text-xl font-semibold text-white mb-2">No images found</h3>
@@ -178,7 +257,7 @@ const Gallery = () => {
               <img 
                 src={placeholderImages.find(img => img.id === selectedImage)?.src} 
                 alt={placeholderImages.find(img => img.id === selectedImage)?.title}
-                className="max-h-[85vh] w-auto mx-auto object-contain rounded-lg"
+                className="max-h-[85vh] w-auto mx-auto object-contain rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
               />
             </div>
           </div>

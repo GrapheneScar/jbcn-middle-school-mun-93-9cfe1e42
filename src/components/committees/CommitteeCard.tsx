@@ -23,27 +23,30 @@ const CommitteeCard = ({
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5
+        duration: 0.5,
+        type: "tween"
       }
     }
   };
 
+  // Determine if logo should be on left or right based on index
+  const isLogoOnLeft = index % 2 === 0;
+
   return (
     <motion.div 
-      className="glass-panel overflow-hidden text-center" 
+      className="glass-panel overflow-hidden" 
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={cardVariants}
-      transition={{ delay: index * 0.1 }}
       whileHover={{
         y: -5,
         boxShadow: "0 10px 30px rgba(121,83,169,0.3)",
-        transition: { duration: 0.3 }
+        transition: { duration: 0.3, type: "tween" }
       }}
     >
-      <div className="p-8 flex flex-col md:flex-row items-stretch gap-6">
-        {/* Left side with logo */}
+      <div className={`p-8 flex flex-col ${isLogoOnLeft ? 'md:flex-row' : 'md:flex-row-reverse'} items-stretch gap-6`}>
+        {/* Logo Section */}
         <div className="flex-shrink-0 flex items-center justify-center">
           <div className="w-28 h-28 rounded-full bg-white/10 flex items-center justify-center overflow-hidden p-1 mx-auto">
             {committee.logo ? 
@@ -53,11 +56,11 @@ const CommitteeCard = ({
           </div>
         </div>
         
-        {/* Right side with committee info */}
-        <div className="flex-grow flex flex-col md:text-left text-center">
+        {/* Committee Info Section */}
+        <div className={`flex-grow flex flex-col ${isLogoOnLeft ? 'md:text-left' : 'md:text-right'} text-center`}>
           <div className="mb-4">
             <h3 className="text-2xl font-bold text-white">{committee.name}</h3>
-            <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-2">
+            <div className={`flex flex-wrap ${isLogoOnLeft ? 'justify-center md:justify-start' : 'justify-center md:justify-end'} gap-2 mt-2`}>
               <span className="inline-block px-3 py-1 text-sm bg-mun-purple/30 rounded-full">
                 {committee.abbr}
               </span>
@@ -69,23 +72,23 @@ const CommitteeCard = ({
             </div>
           </div>
           
-          <p className="text-white/80 mb-4 md:text-left text-center">
+          <p className={`text-white/80 mb-4 ${isLogoOnLeft ? 'md:text-left' : 'md:text-right'} text-center`}>
             {committee.shortDescription}
           </p>
           
           <div className="mb-4">
-            <h4 className="text-lg font-semibold text-white mb-3 md:text-left text-center">Agenda Topic:</h4>
-            <div className="flex flex-col space-y-2">
+            <h4 className={`text-lg font-semibold text-white mb-3 ${isLogoOnLeft ? 'md:text-left' : 'md:text-right'} text-center`}>Agenda Topic:</h4>
+            <div className={`flex flex-col space-y-2 ${isLogoOnLeft ? '' : 'items-end'}`}>
               {committee.topics.map((topic, topicIndex) => (
-                <div key={topicIndex} className="flex items-start">
-                  <div className="w-3 h-3 rounded-full bg-mun-purple flex-shrink-0 mt-1.5 mr-2"></div>
+                <div key={topicIndex} className={`flex items-start ${isLogoOnLeft ? '' : 'flex-row-reverse'}`}>
+                  <div className={`w-3 h-3 rounded-full bg-mun-purple flex-shrink-0 mt-1.5 ${isLogoOnLeft ? 'mr-2' : 'ml-2'}`}></div>
                   <span className="text-white/90">{topic}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-3 mt-auto">
+          <div className={`flex flex-col sm:flex-row ${isLogoOnLeft ? 'justify-center md:justify-start' : 'justify-center md:justify-end'} gap-3 mt-auto`}>
             <a 
               href={committee.studyGuideUrl || "#"} 
               target="_blank"
@@ -105,7 +108,7 @@ const CommitteeCard = ({
             </Link>
           </div>
           
-          <p className="text-white/70 text-sm italic mt-2 md:text-left text-center">
+          <p className={`text-white/70 text-sm italic mt-2 ${isLogoOnLeft ? 'md:text-left' : 'md:text-right'} text-center`}>
             NOTE: The Study Guide password will be sent with your allocation
           </p>
         </div>

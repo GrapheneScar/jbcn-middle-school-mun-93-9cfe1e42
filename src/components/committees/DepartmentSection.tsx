@@ -27,6 +27,9 @@ const DepartmentSection = ({ department, index }: DepartmentSectionProps) => {
         transition={{ delay: 0.1, duration: 0.5, type: "tween" }}
       >
         <h2 className="text-3xl font-bold text-white mb-4">{department.name}</h2>
+        {department.description && (
+          <p className="text-white/80 max-w-2xl mx-auto">{department.description}</p>
+        )}
       </motion.div>
       
       <div className="flex flex-wrap gap-6 justify-center max-w-4xl mx-auto">
@@ -44,7 +47,7 @@ const DepartmentSection = ({ department, index }: DepartmentSectionProps) => {
               title: chair.title.replace('Head', 'Director').replace('Deputy Head', 'Assistant Director'),
               photo: chair.photo,
               bio: chair.bio || '', // Provide a default empty string if bio is missing
-              department: chair.department,
+              department: chair.department || department.name.replace('Heads of ', ''), // Default department name based on section title
               easterEgg: chair.easterEgg // Pass the easter egg data
             }} />
           </motion.div>

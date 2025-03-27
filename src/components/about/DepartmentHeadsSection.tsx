@@ -39,7 +39,7 @@ const DepartmentHeadsSection = ({ departmentHeads }: DepartmentHeadsSectionProps
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, type: "tween" }}
         >
           <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">MUN Support</span>
           <h2 className="text-3xl font-bold text-white">Department Heads</h2>
@@ -48,18 +48,21 @@ const DepartmentHeadsSection = ({ departmentHeads }: DepartmentHeadsSectionProps
           </p>
         </motion.div>
         
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {departmentHeads.map((person, index) => (
             <motion.div
               key={person.role}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex flex-col"
+              transition={{ duration: 0.5, delay: index * 0.1, type: "tween" }}
+              className="relative"
             >
-              <div className="glass-panel p-6 text-center hover:shadow-[0_0_15px_rgba(121,83,169,0.3)] transition-all duration-300 flex-grow">
-                <div className="w-20 h-20 mx-auto rounded-full overflow-hidden mb-4">
+              {/* Purple semi-transparent curved rectangle background */}
+              <div className="absolute -inset-4 bg-mun-purple/15 rounded-2xl -z-10 backdrop-blur-sm"></div>
+              
+              <div className="glass-panel p-6 text-center hover:shadow-[0_0_15px_rgba(121,83,169,0.3)] transition-all duration-300 h-full flex flex-col">
+                <div className="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4 border-2 border-mun-purple/50">
                   <img 
                     src={person.image} 
                     alt={person.name}
@@ -68,7 +71,7 @@ const DepartmentHeadsSection = ({ departmentHeads }: DepartmentHeadsSectionProps
                 </div>
                 <h3 className="text-lg font-bold text-white mb-1">{person.name}</h3>
                 <p className="text-mun-purple-light text-sm mb-4">{person.role}</p>
-                <div className="text-white/80 text-sm">
+                <div className="text-white/80 text-sm flex-grow">
                   {formatBio(person.bio)}
                 </div>
               </div>
