@@ -37,14 +37,17 @@ const ChairCard = ({ chair }: ChairCardProps) => {
 
   // Handle long press/touch
   const handleMouseDown = () => {
-    const timer = setTimeout(() => {
-      triggerEasterEgg();
-    }, 800); // Trigger after 800ms hold
-    
-    // Clear timeout on mouse up
-    document.addEventListener('mouseup', () => {
-      clearTimeout(timer);
-    }, { once: true });
+    // Only trigger easter egg if available
+    if (chair.easterEgg) {
+      const timer = setTimeout(() => {
+        triggerEasterEgg();
+      }, 800); // Trigger after 800ms hold
+      
+      // Clear timeout on mouse up
+      document.addEventListener('mouseup', () => {
+        clearTimeout(timer);
+      }, { once: true });
+    }
   };
 
   return (
@@ -55,11 +58,11 @@ const ChairCard = ({ chair }: ChairCardProps) => {
       <div className="glass-panel overflow-hidden rounded-xl h-full">
         {/* Photo Section */}
         <motion.div 
-          className="relative aspect-square overflow-hidden cursor-pointer"
+          className={`relative aspect-square overflow-hidden ${chair.easterEgg ? 'cursor-pointer' : ''}`}
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
           onMouseDown={handleMouseDown}
-          onTouchStart={triggerEasterEgg}
+          onTouchStart={chair.easterEgg ? triggerEasterEgg : undefined}
         >
           <img 
             src={chair.photo} 

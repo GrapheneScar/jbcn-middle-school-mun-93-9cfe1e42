@@ -52,12 +52,12 @@ const SecretariatSection = ({
           </p>
         </motion.div>
         
-        {/* Updated Secretariat Cards Layout to match Department Heads */}
+        {/* Updated Secretariat Cards Layout - Centered Alignment */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3, type: "tween" }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+          className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto"
         >
           {secretariat.map((person, index) => (
             <motion.div 
@@ -66,7 +66,7 @@ const SecretariatSection = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1, type: "tween" }}
-              className="relative"
+              className="relative w-full max-w-sm"
             >
               <div className="w-full">
                 <ProfileCard
