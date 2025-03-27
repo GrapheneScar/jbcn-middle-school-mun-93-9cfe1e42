@@ -26,7 +26,7 @@ const DepartmentHeads = () => {
             The Team
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Department Directors
+            Department Heads
           </h1>
           <p className="text-white/70 max-w-2xl mx-auto">
             Meet the talented individuals who lead the various departments of the JBCN Middle School MUN, ensuring a smooth and enriching experience for all delegates.
