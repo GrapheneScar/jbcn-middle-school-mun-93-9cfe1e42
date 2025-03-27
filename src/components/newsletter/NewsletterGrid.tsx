@@ -60,8 +60,15 @@ const NewsletterGrid = ({ title, newsletters }: NewsletterGridProps) => {
             <div className="relative">
               {/* Add "Missing" overlay for 2022 newsletters */}
               {is2022Newsletter(newsletter) && !newsletter.comingSoon && (
-                <div className="absolute inset-0 bg-red-600/70 flex items-center justify-center z-10 rounded-lg">
-                  <p className="text-white font-bold text-2xl transform -rotate-12 border-4 border-white px-4 py-2">MISSING</p>
+                <div className="absolute inset-0 bg-red-600/70 backdrop-blur-sm flex items-center justify-center z-10 rounded-lg">
+                  <motion.div 
+                    initial={{ scale: 0.9 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", bounce: 0.4 }}
+                    className="glass-panel px-6 py-4 rounded-xl border border-red-500/50 flex flex-col items-center"
+                  >
+                    <h3 className="text-2xl font-bold text-white mb-2 transform -rotate-12 border-4 border-white px-4 py-2">MISSING</h3>
+                  </motion.div>
                 </div>
               )}
               

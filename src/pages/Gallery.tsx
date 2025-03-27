@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import PageTransition from '../components/PageTransition';
 import GalleryHeader from '../components/gallery/GalleryHeader';
@@ -49,21 +50,24 @@ const Gallery = () => {
         return filtered;
     }
   })();
+  
   const openLightbox = (imageId: string) => {
     setSelectedImage(imageId);
     document.body.style.overflow = 'hidden';
   };
+  
   const closeLightbox = () => {
     setSelectedImage(null);
     document.body.style.overflow = 'auto';
   };
+  
   return <PageTransition>
       <div className="container mx-auto px-4 pt-28 pb-16 sm:pt-32 md:pt-36 relative min-h-screen">
         <GalleryHeader />
         
         {/* Gallery Controls */}
         <div className="flex flex-wrap items-center justify-between mb-8 gap-4">
-          <div className="w-full md:w-auto space-y-4">
+          <div className="flex flex-wrap md:flex-row gap-4 items-center">
             <div>
               <h3 className="text-white mb-2 text-sm">Categories:</h3>
               <Tabs defaultValue={filters.category} onValueChange={value => setFilters({

@@ -19,15 +19,32 @@ interface ChairCardProps {
 const ChairCard = ({ chair }: ChairCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   
-  // Function to trigger the easter egg
+  // Function to trigger the easter egg with haptic feedback
   const triggerEasterEgg = () => {
     if (chair.easterEgg) {
+      // Try to use vibration API if available for haptic feedback
+      if (navigator.vibrate) {
+        navigator.vibrate(200); // Vibrate for 200ms
+      }
+      
       // Create a custom event to trigger the animation
       const event = new CustomEvent('easterEggTriggered', {
         detail: { title: chair.easterEgg }
       });
       window.dispatchEvent(event);
     }
+  };
+
+  // Handle long press/touch
+  const handleMouseDown = () => {
+    const timer = setTimeout(() => {
+      triggerEasterEgg();
+    }, 800); // Trigger after 800ms hold
+    
+    // Clear timeout on mouse up
+    document.addEventListener('mouseup', () => {
+      clearTimeout(timer);
+    }, { once: true });
   };
 
   return (
@@ -38,10 +55,10 @@ const ChairCard = ({ chair }: ChairCardProps) => {
       <div className="glass-panel overflow-hidden rounded-xl h-full">
         {/* Photo Section */}
         <motion.div 
-          className="relative aspect-square overflow-hidden"
+          className="relative aspect-square overflow-hidden cursor-pointer"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
-          onMouseDown={triggerEasterEgg}
+          onMouseDown={handleMouseDown}
           onTouchStart={triggerEasterEgg}
         >
           <img 

@@ -2,7 +2,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { SecretariatMember } from './types';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { BookOpen, X } from 'lucide-react';
 
 interface SecretariatSectionProps {
   secretariat: SecretariatMember[];
@@ -85,40 +85,32 @@ const SecretariatSection = ({
                   <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
                     <h3 className="text-xl font-bold text-white">{person.name}</h3>
                     <p className="text-mun-purple-light">{person.role}</p>
-                    
-                    {/* View Bio Button */}
-                    <motion.button 
-                      onClick={() => toggleExpanded(person.name)} 
-                      className="mt-3 px-4 py-1.5 bg-mun-purple/80 text-white text-sm rounded-full flex items-center justify-center mx-auto hover:bg-mun-purple transition-colors"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      transition={{ type: "tween" }}
-                    >
-                      {expandedMember === person.name ? (
-                        <>Hide Bio <ChevronUp className="w-4 h-4 ml-1" /></>
-                      ) : (
-                        <>View Bio <ChevronDown className="w-4 h-4 ml-1" /></>
-                      )}
-                    </motion.button>
                   </div>
                 </div>
                 
-                {/* Expandable bio section */}
-                <AnimatePresence>
-                  {expandedMember === person.name && (
-                    <motion.div 
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, type: "tween" }}
-                      className="bg-black/40 p-4 overflow-hidden border-t border-mun-purple/30"
-                    >
-                      <div className="text-white/90 text-sm">
-                        {formatBio(person.bio)}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {/* Bio section with read more/less toggle */}
+                <div className="bg-black/40 p-4 border-t border-mun-purple/30">
+                  <div className={`text-white/90 text-sm ${expandedMember !== person.name ? 'line-clamp-3' : ''}`}>
+                    {formatBio(person.bio)}
+                  </div>
+                  
+                  <button
+                    onClick={() => toggleExpanded(person.name)}
+                    className="mt-2 text-mun-purple-light hover:text-mun-purple text-xs flex items-center"
+                  >
+                    {expandedMember === person.name ? (
+                      <>
+                        <X className="w-3 h-3 mr-1" />
+                        Show Less
+                      </>
+                    ) : (
+                      <>
+                        <BookOpen className="w-3 h-3 mr-1" />
+                        Read More
+                      </>
+                    )}
+                  </button>
+                </div>
               </div>
             </motion.div>
           ))}
