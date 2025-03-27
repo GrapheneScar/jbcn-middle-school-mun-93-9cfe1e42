@@ -1,14 +1,17 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { File, Lock, Download, AlertCircle } from 'lucide-react';
 import { Button } from '../ui/button';
 import { ComingSoonOverlay } from '../ui/coming-soon-overlay';
+
 interface CommitteeResourcesProps {
   studyGuideUrl?: string;
   countryMatrixUrl?: string;
   committeeName?: string;
   committeeEmail?: string;
 }
+
 const CommitteeResources = ({
   studyGuideUrl,
   countryMatrixUrl,
@@ -16,6 +19,7 @@ const CommitteeResources = ({
   committeeEmail
 }: CommitteeResourcesProps) => {
   const [showPassword, setShowPassword] = useState(false);
+
   return <section className="mb-16">
       <h3 className="text-2xl font-bold text-white mb-6 text-center mx-0 my-[70px]">Committee Resources</h3>
       
@@ -45,7 +49,7 @@ const CommitteeResources = ({
               
               <div className="text-white/60 text-sm flex items-center justify-center mt-3">
                 <AlertCircle className="w-4 h-4 mr-1 text-mun-purple-light" />
-                <span>NOTE: Your allocation will be emailed to you via your registered email.</span>
+                <span>NOTE: Your allocation will be emailed to you via {committeeEmail || 'your registered email'}.</span>
               </div>
             </div> : <>
               <Button className="bg-mun-purple hover:bg-mun-purple-light transition-colors w-full mb-3 relative overflow-hidden" disabled>
@@ -93,4 +97,5 @@ const CommitteeResources = ({
       </div>
     </section>;
 };
+
 export default CommitteeResources;
