@@ -49,7 +49,7 @@ const BaxterMascot = () => {
               {/* Purple glow effect behind image */}
               <div className="absolute -inset-4 bg-mun-purple/30 rounded-full blur-3xl"></div>
               
-              <img alt="Baxter - JBCN MUN Mascot" className="w-full max-w-md relative z-10 drop-shadow-[0_15px_35px_rgba(121,83,169,0.8)]" src="/lovable-uploads/24f27f09-f85d-41e1-8ddc-c5f8b7ae3b6c.jpg" />
+              <img alt="Baxter - JBCN MUN Mascot" className="w-full max-w-md relative z-10 drop-shadow-[0_15px_35px_rgba(121,83,169,0.8)]" src="/lovable-uploads/baxter.jpg" />
             </div>
           </motion.div>
         </div>
