@@ -45,7 +45,7 @@ const CommitteeCard = ({
         transition: { duration: 0.3, type: "tween" }
       }}
     >
-      <div className={`p-8 flex flex-col ${isLogoOnLeft ? 'md:flex-row' : 'md:flex-row-reverse'} items-stretch gap-6`}>
+      <div className={`p-8 flex flex-col ${isLogoOnLeft ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-6`}>
         {/* Logo Section */}
         <div className="flex-shrink-0 flex items-center justify-center">
           <div className="w-28 h-28 rounded-full bg-white/10 flex items-center justify-center overflow-hidden p-1 mx-auto">
@@ -57,7 +57,7 @@ const CommitteeCard = ({
         </div>
         
         {/* Committee Info Section */}
-        <div className={`flex-grow flex flex-col ${isLogoOnLeft ? 'md:text-left' : 'md:text-right'} text-center`}>
+        <div className={`flex-grow flex flex-col ${isLogoOnLeft ? 'md:text-left' : 'md:text-right'} text-center w-full`}>
           <div className="mb-4">
             <h3 className="text-2xl font-bold text-white">{committee.name}</h3>
             <div className={`flex flex-wrap ${isLogoOnLeft ? 'justify-center md:justify-start' : 'justify-center md:justify-end'} gap-2 mt-2`}>
@@ -76,12 +76,12 @@ const CommitteeCard = ({
             {committee.shortDescription}
           </p>
           
-          <div className="mb-4">
+          <div className="mb-4 w-full">
             <h4 className={`text-lg font-semibold text-white mb-3 ${isLogoOnLeft ? 'md:text-left' : 'md:text-right'} text-center`}>Agenda Topic:</h4>
-            <div className={`flex flex-col space-y-2 ${isLogoOnLeft ? '' : 'items-end'}`}>
+            <div className={`flex flex-col space-y-2 ${isLogoOnLeft ? '' : 'items-center md:items-end'}`}>
               {committee.topics.map((topic, topicIndex) => (
-                <div key={topicIndex} className={`flex items-start ${isLogoOnLeft ? '' : 'flex-row-reverse'}`}>
-                  <div className={`w-3 h-3 rounded-full bg-mun-purple flex-shrink-0 mt-1.5 ${isLogoOnLeft ? 'mr-2' : 'ml-2'}`}></div>
+                <div key={topicIndex} className={`flex items-center ${isLogoOnLeft ? '' : 'flex-row-reverse'} gap-2`}>
+                  <div className={`w-3 h-3 rounded-full bg-mun-purple flex-shrink-0`}></div>
                   <span className="text-white/90">{topic}</span>
                 </div>
               ))}
@@ -89,23 +89,22 @@ const CommitteeCard = ({
           </div>
 
           <div className={`flex flex-col sm:flex-row ${isLogoOnLeft ? 'justify-center md:justify-start' : 'justify-center md:justify-end'} gap-3 mt-auto`}>
-            <a 
-              href={committee.studyGuideUrl || "#"} 
-              target="_blank"
-              rel="noopener noreferrer"
-              className={!committee.studyGuideUrl ? "pointer-events-none opacity-50" : ""}
-            >
-              <Button className="bg-mun-purple hover:bg-mun-purple-light w-full">
-                <FileText className="mr-2 w-4 h-4" />
-                Access Study Guide
-              </Button>
-            </a>
             <Link to={`/committees/${committee.abbr.toLowerCase()}`}>
               <Button variant="secondary" className="bg-mun-purple/40 hover:bg-mun-purple/60 w-full">
                 View Details
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>
+            <a 
+              href={committee.studyGuideUrl || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="bg-mun-purple hover:bg-mun-purple-light w-full">
+                <FileText className="mr-2 w-4 h-4" />
+                Study Guide
+              </Button>
+            </a>
           </div>
           
           <p className={`text-white/70 text-sm italic mt-2 ${isLogoOnLeft ? 'md:text-left' : 'md:text-right'} text-center`}>

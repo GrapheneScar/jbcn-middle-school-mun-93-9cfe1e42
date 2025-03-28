@@ -4,10 +4,12 @@ import PageTransition from '../components/PageTransition';
 import StripeBackground from '../components/StripeBackground';
 import { Mail, Phone, MapPin, Instagram, ExternalLink, HelpCircle } from 'lucide-react';
 import { Button } from '../components/ui/button';
+
 const Contact = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
   const fadeInUpVariants = {
     hidden: {
       opacity: 0,
@@ -21,7 +23,9 @@ const Contact = () => {
       }
     }
   };
-  return <PageTransition>
+  
+  return (
+    <PageTransition>
       <StripeBackground />
       
       {/* Hero Section */}
@@ -30,31 +34,48 @@ const Contact = () => {
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-mun-purple/10 rounded-full blur-3xl" />
         
         <div className="container mx-auto relative z-10">
-          <motion.div className="text-center max-w-3xl mx-auto" initial="hidden" animate="visible" variants={{
-          hidden: {
-            opacity: 0
-          },
-          visible: {
-            opacity: 1,
-            transition: {
-              staggerChildren: 0.2
-            }
-          }
-        }}>
-            <motion.div className="inline-block px-4 py-1.5 bg-mun-purple/20 rounded-full text-sm text-white/90 font-medium mb-6 border border-mun-purple/30" variants={fadeInUpVariants}>
+          <motion.div 
+            className="text-center max-w-3xl mx-auto" 
+            initial="hidden" 
+            animate="visible"
+            variants={{
+              hidden: {
+                opacity: 0
+              },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.2
+                }
+              }
+            }}
+          >
+            <motion.div 
+              className="inline-block px-4 py-1.5 bg-mun-purple/20 rounded-full text-sm text-white/90 font-medium mb-6 border border-mun-purple/30" 
+              variants={fadeInUpVariants}
+            >
               Get in Touch
             </motion.div>
             
-            <motion.h1 className="text-4xl md:text-6xl font-bold text-white mb-6" variants={fadeInUpVariants}>
+            <motion.h1 
+              className="text-4xl md:text-6xl font-bold text-white mb-6" 
+              variants={fadeInUpVariants}
+            >
               We'd Love to Hear From You
             </motion.h1>
             
-            <motion.p className="text-lg text-white/70 mb-8" variants={fadeInUpVariants}>
+            <motion.p 
+              className="text-lg text-white/70 mb-8" 
+              variants={fadeInUpVariants}
+            >
               Have questions about JBCN Middle School MUN 2025? Our team is here to help.
               Reach out to us for information about registration, committees, or any other inquiries.
             </motion.p>
             
-            <motion.div className="flex justify-center" variants={fadeInUpVariants}>
+            <motion.div 
+              className="flex justify-center" 
+              variants={fadeInUpVariants}
+            >
               <a href="mailto:mohammadabdullah.khan@jbcnschool.edu.in" className="inline-block">
                 <Button className="bg-mun-purple hover:bg-mun-purple-light">
                   <Mail className="mr-2 h-4 w-4" />
@@ -70,40 +91,60 @@ const Contact = () => {
       <section className="py-12 px-4 relative text-center">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[{
-            icon: Mail,
-            title: "Email",
-            content: "mohammadabdullah.khan@jbcnschool.edu.in",
-            description: "priyal.ganger@jbcnschool.edu.in",
-            link: "mailto:mohammadabdullah.khan@jbcnschool.edu.in",
-            color: "bg-gradient-to-br from-purple-600/20 to-indigo-600/20"
-          }, {
-            icon: Phone,
-            title: "Phone",
-            content: "+91 98201 48168",
-            description: "Mohammad Abdullah Khan, MUN Facilitator",
-            link: "tel:+919820148168",
-            color: "bg-gradient-to-br from-mun-purple/20 to-violet-600/20"
-          }, {
-            icon: MapPin,
-            title: "Location",
-            content: "JBCN International School, Parel",
-            description: "Parel, Mumbai, Maharashtra",
-            link: "https://maps.google.com/?q=JBCN+International+School+Parel",
-            color: "bg-gradient-to-br from-blue-600/20 to-mun-purple/20"
-          }].map((item, index) => <motion.div key={item.title} initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.6,
-            delay: index * 0.1
-          }} className={`glass-panel p-6 backdrop-blur-md rounded-xl border border-white/10 
-                  hover:shadow-[0_0_25px_rgba(121,83,169,0.3)] transition-all duration-300 relative overflow-hidden group`}>
+            {[
+              {
+                icon: Mail,
+                title: "Email",
+                content: [
+                  {
+                    email: "mohammadabdullah.khan@jbcnschool.edu.in",
+                    description: "MUN Facilitator - Primary Contact"
+                  },
+                  {
+                    email: "priyal.gangar@jbcnschool.edu.in",
+                    description: "MUN Co-Facilitator"
+                  }
+                ],
+                link: "mailto:mohammadabdullah.khan@jbcnschool.edu.in",
+                color: "bg-gradient-to-br from-purple-600/20 to-indigo-600/20"
+              },
+              {
+                icon: Phone,
+                title: "Phone",
+                content: "+91 98201 48168",
+                description: "Mohammad Abdullah Khan, MUN Facilitator",
+                link: "tel:+919820148168",
+                color: "bg-gradient-to-br from-mun-purple/20 to-violet-600/20"
+              },
+              {
+                icon: MapPin,
+                title: "Location",
+                content: "JBCN International School, Parel",
+                description: "Parel, Mumbai, Maharashtra",
+                link: "https://maps.google.com/?q=JBCN+International+School+Parel",
+                color: "bg-gradient-to-br from-blue-600/20 to-mun-purple/20"
+              }
+            ].map((item, index) => (
+              <motion.div 
+                key={item.title}
+                initial={{
+                  opacity: 0,
+                  y: 20
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0
+                }}
+                viewport={{
+                  once: true
+                }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.1
+                }}
+                className={`glass-panel p-6 backdrop-blur-md rounded-xl border border-white/10 
+                  hover:shadow-[0_0_25px_rgba(121,83,169,0.3)] transition-all duration-300 relative overflow-hidden group`}
+              >
                 <div className={`absolute inset-0 opacity-50 ${item.color} -z-10`} />
                 
                 <div className="mb-4 w-14 h-14 rounded-xl bg-mun-purple/30 flex items-center justify-center mx-auto">
@@ -111,27 +152,40 @@ const Contact = () => {
                 </div>
                 
                 <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                {item.title === "Email" ? <div>
-                    <p className="text-white/90 font-medium mb-1 break-all">
-                      <a href="mailto:mohammadabdullah.khan@jbcnschool.edu.in">
-                        mohammadabdullah.khan@jbcnschool.edu.in
-                      </a>
-                    </p>
-                    <p className="text-white/60 text-sm mb-4 break-all">
-                      <a href="mailto:priyal.ganger@jbcnschool.edu.in">
-                        priyal.ganger@jbcnschool.edu.in
-                      </a>
-                    </p>
-                  </div> : <>
+                
+                {item.title === "Email" ? (
+                  <div>
+                    {item.content.map((contact, idx) => (
+                      <div key={idx} className="mb-3">
+                        <p className="text-white/90 font-medium break-all">
+                          <a href={`mailto:${contact.email}`}>
+                            {contact.email}
+                          </a>
+                        </p>
+                        <p className="text-white/60 text-sm">
+                          {contact.description}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <>
                     <p className="text-white/90 font-medium mb-1">{item.content}</p>
                     <p className="text-white/60 text-sm mb-4">{item.description}</p>
-                  </>}
+                  </>
+                )}
                 
-                <a href={item.link} target={item.title === "Location" ? "_blank" : undefined} rel={item.title === "Location" ? "noopener noreferrer" : undefined} className="inline-flex items-center justify-center text-mun-purple-light hover:text-white transition-colors duration-300 text-sm font-medium">
+                <a 
+                  href={item.link} 
+                  target={item.title === "Location" ? "_blank" : undefined} 
+                  rel={item.title === "Location" ? "noopener noreferrer" : undefined}
+                  className="inline-flex items-center justify-center text-mun-purple-light hover:text-white transition-colors duration-300 text-sm font-medium"
+                >
                   {item.title === "Location" ? "View on map" : "Contact us"}
                   <ExternalLink className="ml-1 h-3.5 w-3.5" />
                 </a>
-              </motion.div>)}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -227,6 +281,8 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    </PageTransition>;
+    </PageTransition>
+  );
 };
+
 export default Contact;
