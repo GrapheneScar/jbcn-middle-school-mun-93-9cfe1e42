@@ -1,9 +1,8 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { File, Lock, Download, AlertCircle } from 'lucide-react';
+import { File, Download, AlertCircle, BookOpen, Globe } from 'lucide-react';
 import { Button } from '../ui/button';
-import { ComingSoonOverlay } from '../ui/coming-soon-overlay';
 
 interface CommitteeResourcesProps {
   studyGuideUrl?: string;
@@ -18,84 +17,134 @@ const CommitteeResources = ({
   committeeName,
   committeeEmail
 }: CommitteeResourcesProps) => {
-  const [showPassword, setShowPassword] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
-  return <section className="mb-16">
-      <h3 className="text-2xl font-bold text-white mb-6 text-center mx-0 my-[70px]">Committee Resources</h3>
+  return (
+    <section className="mb-16">
+      <h1 className="text-3xl font-bold text-white mb-12 text-center mx-auto">Committee Resources</h1>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        {/* Study Guide */}
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.5
-      }} className="relative glass-panel p-6 text-center hover:shadow-[0_0_20px_rgba(121,83,169,0.3)] transition-all duration-300">
-          <div className="bg-mun-purple/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-            <File className="text-mun-purple-light w-8 h-8" />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {/* Study Guide Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="relative glass-panel rounded-2xl overflow-hidden border border-mun-purple/30 h-full"
+          onMouseEnter={() => setHoveredItem('study-guide')}
+          onMouseLeave={() => setHoveredItem(null)}
+        >
+          <div className="relative h-64 overflow-hidden">
+            <img 
+              src="/lovable-uploads/study guide.png" 
+              alt="Study Guide" 
+              className={`w-full h-full object-cover transition-all duration-700 ${hoveredItem === 'study-guide' ? 'saturate-100' : 'saturate-0'}`}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80"></div>
+            
+            {/* Icon Overlay */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <div className="bg-black/50 rounded-full p-6 backdrop-blur-md border border-mun-purple/30">
+                <BookOpen className="w-12 h-12 text-white" />
+              </div>
+            </div>
           </div>
           
-          <h4 className="text-xl font-bold text-white mb-2">Study Guide</h4>
-          <p className="text-white/70 mb-6">Comprehensive guide to help delegates understand the committee topic and prepare effectively.</p>
-          
-          {studyGuideUrl ? <div>
-              <Button className="bg-mun-purple hover:bg-mun-purple-light transition-colors w-full mb-3" onClick={() => window.open(studyGuideUrl, '_blank')}>
-                <Download className="mr-2 h-4 w-4" />
-                Download Study Guide
-              </Button>
+          <div className="p-6 text-center">
+            <h3 className="text-2xl font-bold text-white mb-3">Study Guide</h3>
+            <p className="text-white/70 mb-6 max-w-md mx-auto">
+              Comprehensive guide for understanding the committee topics and preparing effectively.
+            </p>
+            
+            <div className="flex flex-col space-y-4">
+              {studyGuideUrl ? (
+                <a href={studyGuideUrl} target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-mun-purple hover:bg-mun-purple-light w-full transition-all duration-300">
+                    <Download className="mr-2 h-4 w-4" />
+                    Download Study Guide
+                  </Button>
+                </a>
+              ) : (
+                <Button disabled className="bg-mun-purple/50 cursor-not-allowed w-full">
+                  <File className="mr-2 h-4 w-4" />
+                  Study Guide Coming Soon
+                </Button>
+              )}
               
-              <div className="text-white/60 text-sm flex items-center justify-center mt-3">
-                <AlertCircle className="w-4 h-4 mr-1 text-mun-purple-light" />
-                <span>NOTE: Your allocation will be emailed to you via {committeeEmail || 'your registered email'}.</span>
+              <div className="bg-black/30 p-3 rounded-lg border border-mun-purple/20">
+                <div className="flex items-center text-white/80 text-sm">
+                  <AlertCircle className="w-4 h-4 mr-2 text-mun-purple-light flex-shrink-0" />
+                  <span>
+                    Your allocation will be emailed to you via{" "}
+                    <span className="text-mun-purple-light font-medium">
+                      {committeeEmail || "your registered email"}
+                    </span>
+                  </span>
+                </div>
               </div>
-            </div> : <>
-              <Button className="bg-mun-purple hover:bg-mun-purple-light transition-colors w-full mb-3 relative overflow-hidden" disabled>
-                <Lock className="mr-2 h-4 w-4" />
-                Study Guide Coming Soon
-              </Button>
-              <ComingSoonOverlay type="button" message="Study Guide Coming Soon" />
-            </>}
+            </div>
+          </div>
         </motion.div>
         
-        {/* Country Matrix */}
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        delay: 0.2,
-        duration: 0.5
-      }} className="relative glass-panel p-6 text-center hover:shadow-[0_0_20px_rgba(121,83,169,0.3)] transition-all duration-300">
-          <div className="bg-mun-purple/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-mun-purple-light w-8 h-8">
-              <rect width="18" height="18" x="3" y="3" rx="2" />
-              <path d="M3 9h18" />
-              <path d="M3 15h18" />
-              <path d="M9 3v18" />
-              <path d="M15 3v18" />
-            </svg>
+        {/* Country Matrix Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="relative glass-panel rounded-2xl overflow-hidden border border-mun-purple/30 h-full"
+          onMouseEnter={() => setHoveredItem('country-matrix')}
+          onMouseLeave={() => setHoveredItem(null)}
+        >
+          <div className="relative h-64 overflow-hidden">
+            <img 
+              src="/lovable-uploads/Country Matrix Middle School MUN 2025.png" 
+              alt="Country Matrix" 
+              className={`w-full h-full object-cover transition-all duration-700 ${hoveredItem === 'country-matrix' ? 'saturate-100' : 'saturate-0'}`}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80"></div>
+            
+            {/* Icon Overlay */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <div className="bg-black/50 rounded-full p-6 backdrop-blur-md border border-mun-purple/30">
+                <Globe className="w-12 h-12 text-white" />
+              </div>
+            </div>
           </div>
           
-          <h4 className="text-xl font-bold text-white mb-2">Country Matrix</h4>
-          <p className="text-white/70 mb-6">Complete list of countries and their allocations for this committee session.</p>
-          
-          {countryMatrixUrl ? <Button className="bg-mun-purple hover:bg-mun-purple-light transition-colors w-full" onClick={() => window.open(countryMatrixUrl, '_blank')}>
-              <Download className="mr-2 h-4 w-4" />
-              Download Country Matrix
-            </Button> : <>
-              <Button className="bg-mun-purple hover:bg-mun-purple-light transition-colors w-full relative overflow-hidden" disabled>
-                Country Matrix Coming Soon
-              </Button>
-              <ComingSoonOverlay type="button" message="Country Matrix Coming Soon" />
-            </>}
+          <div className="p-6 text-center">
+            <h3 className="text-2xl font-bold text-white mb-3">Country Matrix</h3>
+            <p className="text-white/70 mb-6 max-w-md mx-auto">
+              Overview of country positions on committee topics and delegate allocations.
+            </p>
+            
+            <div className="flex flex-col space-y-4">
+              {countryMatrixUrl ? (
+                <a href={countryMatrixUrl} target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-mun-purple hover:bg-mun-purple-light w-full transition-all duration-300">
+                    <Download className="mr-2 h-4 w-4" />
+                    Download Country Matrix
+                  </Button>
+                </a>
+              ) : (
+                <Button disabled className="bg-mun-purple/50 cursor-not-allowed w-full">
+                  <File className="mr-2 h-4 w-4" />
+                  Country Matrix Coming Soon
+                </Button>
+              )}
+              
+              <div className="bg-black/30 p-3 rounded-lg border border-mun-purple/20">
+                <div className="flex items-center text-white/80 text-sm">
+                  <AlertCircle className="w-4 h-4 mr-2 text-mun-purple-light flex-shrink-0" />
+                  <span>
+                    Check back regularly for updates on committee resources.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
-    </section>;
+    </section>
+  );
 };
 
 export default CommitteeResources;
