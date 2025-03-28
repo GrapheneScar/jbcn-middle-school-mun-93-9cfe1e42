@@ -1,9 +1,25 @@
+
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import PageTransition from '../components/PageTransition';
 import StripeBackground from '../components/StripeBackground';
 import { Mail, Phone, MapPin, Instagram, ExternalLink, HelpCircle } from 'lucide-react';
 import { Button } from '../components/ui/button';
+
+// Define types for our contact cards to handle different content structures
+type EmailContact = {
+  email: string;
+  description: string;
+};
+
+type ContactCardData = {
+  icon: any;
+  title: string;
+  content: string | EmailContact[];
+  description?: string;
+  link: string;
+  color: string;
+};
 
 const Contact = () => {
   useEffect(() => {
@@ -23,6 +39,42 @@ const Contact = () => {
       }
     }
   };
+
+  // Contact card data with proper typing
+  const contactCards: ContactCardData[] = [
+    {
+      icon: Mail,
+      title: "Email",
+      content: [
+        {
+          email: "mohammadabdullah.khan@jbcnschool.edu.in",
+          description: "MUN Facilitator - Primary Contact"
+        },
+        {
+          email: "priyal.gangar@jbcnschool.edu.in",
+          description: "MUN Co-Facilitator"
+        }
+      ],
+      link: "mailto:mohammadabdullah.khan@jbcnschool.edu.in",
+      color: "bg-gradient-to-br from-purple-600/20 to-indigo-600/20"
+    },
+    {
+      icon: Phone,
+      title: "Phone",
+      content: "+91 98201 48168",
+      description: "Mohammad Abdullah Khan, MUN Facilitator",
+      link: "tel:+919820148168",
+      color: "bg-gradient-to-br from-mun-purple/20 to-violet-600/20"
+    },
+    {
+      icon: MapPin,
+      title: "Location",
+      content: "JBCN International School, Parel",
+      description: "Parel, Mumbai, Maharashtra",
+      link: "https://maps.google.com/?q=JBCN+International+School+Parel",
+      color: "bg-gradient-to-br from-blue-600/20 to-mun-purple/20"
+    }
+  ];
   
   return (
     <PageTransition>
@@ -91,40 +143,7 @@ const Contact = () => {
       <section className="py-12 px-4 relative text-center">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                icon: Mail,
-                title: "Email",
-                content: [
-                  {
-                    email: "mohammadabdullah.khan@jbcnschool.edu.in",
-                    description: "MUN Facilitator - Primary Contact"
-                  },
-                  {
-                    email: "priyal.gangar@jbcnschool.edu.in",
-                    description: "MUN Co-Facilitator"
-                  }
-                ],
-                link: "mailto:mohammadabdullah.khan@jbcnschool.edu.in",
-                color: "bg-gradient-to-br from-purple-600/20 to-indigo-600/20"
-              },
-              {
-                icon: Phone,
-                title: "Phone",
-                content: "+91 98201 48168",
-                description: "Mohammad Abdullah Khan, MUN Facilitator",
-                link: "tel:+919820148168",
-                color: "bg-gradient-to-br from-mun-purple/20 to-violet-600/20"
-              },
-              {
-                icon: MapPin,
-                title: "Location",
-                content: "JBCN International School, Parel",
-                description: "Parel, Mumbai, Maharashtra",
-                link: "https://maps.google.com/?q=JBCN+International+School+Parel",
-                color: "bg-gradient-to-br from-blue-600/20 to-mun-purple/20"
-              }
-            ].map((item, index) => (
+            {contactCards.map((item, index) => (
               <motion.div 
                 key={item.title}
                 initial={{
@@ -155,7 +174,7 @@ const Contact = () => {
                 
                 {item.title === "Email" ? (
                   <div>
-                    {item.content.map((contact, idx) => (
+                    {Array.isArray(item.content) && item.content.map((contact: EmailContact, idx) => (
                       <div key={idx} className="mb-3">
                         <p className="text-white/90 font-medium break-all">
                           <a href={`mailto:${contact.email}`}>
@@ -170,7 +189,7 @@ const Contact = () => {
                   </div>
                 ) : (
                   <>
-                    <p className="text-white/90 font-medium mb-1">{item.content}</p>
+                    <p className="text-white/90 font-medium mb-1">{item.content as string}</p>
                     <p className="text-white/60 text-sm mb-4">{item.description}</p>
                   </>
                 )}
