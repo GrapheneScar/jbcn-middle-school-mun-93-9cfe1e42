@@ -6,32 +6,53 @@ const CommitteeStructure = () => {
   const debateModes = [
     {
       title: "General Speaker's List (GSL)",
-      description: "The default mode of debate. Delegates speak in order for a set time on the overall topic. Can be interrupted by moderated/unmoderated caucuses.",
+      description: [
+        "The default mode of debate.",
+        "Delegates speak in order for a set time on the overall topic.",
+        "Can be interrupted by moderated/unmoderated caucuses."
+      ],
       icon: Mic
     },
     {
       title: "Special Speaker's List (SSL)",
-      description: "A separate speaker's list for a specific purpose (e.g., discussing amendments, procedural motions, etc.). Not common in all MUNs but useful in detailed discussions.",
+      description: [
+        "A separate speaker's list for a specific purpose (e.g., discussing amendments, procedural motions, etc.).",
+        "Not common in all MUNs but useful in detailed discussions."
+      ],
       icon: List
     },
     {
       title: "Moderated Caucus",
-      description: "Structured debate on a specific sub-topic. Shorter speaking times (e.g., 30–90 seconds). Delegates must raise their placards and get recognized to speak.",
+      description: [
+        "Structured debate on a specific sub-topic.",
+        "Shorter speaking times (e.g., 30–90 seconds).",
+        "Delegates must raise their placards and get recognized to speak."
+      ],
       icon: Clock
     },
     {
       title: "Unmoderated Caucus",
-      description: "Informal discussion where delegates move around and negotiate freely. Used for lobbying, alliances, and drafting resolutions.",
+      description: [
+        "Informal discussion where delegates move around and negotiate freely.",
+        "Used for lobbying, alliances, and drafting resolutions."
+      ],
       icon: Users
     },
     {
       title: "Round Robin",
-      description: "Each delegate gets a chance to speak once before anyone speaks again. Ensures equal participation. Often used in opening statements.",
+      description: [
+        "Each delegate gets a chance to speak once before anyone speaks again.",
+        "Ensures equal participation.",
+        "Often used in opening statements."
+      ],
       icon: MessageSquare
     },
     {
       title: "Open Floor",
-      description: "Delegates can speak freely by raising placards instead of following a fixed list. Encourages spontaneous and interactive discussions.",
+      description: [
+        "Delegates can speak freely by raising placards instead of following a fixed list.",
+        "Encourages spontaneous and interactive discussions."
+      ],
       icon: FileText
     }
   ];
@@ -78,8 +99,15 @@ const CommitteeStructure = () => {
                   <mode.icon className="w-6 h-6 text-mun-purple-light" />
                 </div>
                 
-                <h3 className="text-xl font-bold text-white mb-2">{mode.title}</h3>
-                <p className="text-white/80 text-sm">{mode.description}</p>
+                <h3 className="text-xl font-bold text-white mb-3">{mode.title}</h3>
+                <ul className="text-white/80 text-sm space-y-2">
+                  {mode.description.map((line, i) => (
+                    <li key={i} className="flex items-start">
+                      <div className="w-1.5 h-1.5 rounded-full bg-mun-purple/70 mt-1.5 mr-2 flex-shrink-0"></div>
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </motion.div>
           ))}
