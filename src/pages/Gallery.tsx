@@ -186,20 +186,14 @@ const Gallery = () => {
               
               <div className="mt-4 flex flex-col md:flex-row items-start md:items-center justify-between bg-black/40 p-2 md:p-4 rounded-lg">
                 <div className="text-white mb-2 md:mb-0">
-                  <h3 className="text-xl font-bold">
-                    {galleryImages.find(img => img.id === selectedImage)?.title}
-                  </h3>
-                  <p className="text-white/70">
-                    {galleryImages.find(img => img.id === selectedImage)?.alt}
-                  </p>
+                  
+                  
                 </div>
                 <div className="text-white text-sm">
                   <span className="bg-mun-purple/40 px-2 py-1 rounded-full mr-2">
                     {galleryImages.find(img => img.id === selectedImage)?.year || '2024'}
                   </span>
-                  <span className="bg-black/40 px-2 py-1 rounded-full capitalize">
-                    {galleryImages.find(img => img.id === selectedImage)?.category}
-                  </span>
+                  
                 </div>
               </div>
             </div>
