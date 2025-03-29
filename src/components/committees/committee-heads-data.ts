@@ -7,14 +7,14 @@ export const committeeHeads: Department[] = [{
   description: "The team responsible for coordinating all aspects of the MUN conference.",
   chairs: [{
     name: "Shivani Mishra",
-    title: "Head of Organizing Committee",
+    title: "Co-Head of Organizing Committee",
     photo: "/lovable-uploads/Shivani.png",
     department: "Organizing Committee",
     bio: "Shivani leads the organizing committee with dedication and precision.",
     easterEgg: "Head of Organizing Committee"
   }, {
     name: "Udit Ravat",
-    title: "Deputy Head of Organizing Committee",
+    title: "Co-Head of Organizing Committee",
     photo: "/lovable-uploads/Udit.png",
     department: "Organizing Committee",
     bio: "Udit brings creativity and energy to the organizing team."
