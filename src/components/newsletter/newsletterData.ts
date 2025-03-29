@@ -15,7 +15,7 @@ export const middleSchoolNewsletters: Newsletter[] = [
     title: "JBCN MIDDLE SCHOOL MUN 2025",
     date: "2025",
     description: "Stay tuned for the upcoming 2025 Middle School MUN newsletter featuring highlights, committee previews, and what to expect at the conference.",
-    coverImage: "/lovable-uploads/",
+    coverImage: "/lovable-uploads/placeholder.png",
     pdfUrl: "#",
     comingSoon: true
   },
