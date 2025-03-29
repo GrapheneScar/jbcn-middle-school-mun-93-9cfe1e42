@@ -56,11 +56,11 @@ const CommitteeCard = ({
           </div>
         </div>
         
-        {/* Committee Info Section */}
-        <div className={`flex-grow flex flex-col ${isLogoOnLeft ? 'md:text-left' : 'md:text-right'} text-center w-full`}>
+        {/* Committee Info Section - Now center aligned */}
+        <div className="flex-grow flex flex-col text-center w-full">
           <div className="mb-4">
             <h3 className="text-2xl font-bold text-white">{committee.name}</h3>
-            <div className={`flex flex-wrap ${isLogoOnLeft ? 'justify-center md:justify-start' : 'justify-center md:justify-end'} gap-2 mt-2`}>
+            <div className="flex flex-wrap justify-center gap-2 mt-2">
               <span className="inline-block px-3 py-1 text-sm bg-mun-purple/30 rounded-full">
                 {committee.abbr}
               </span>
@@ -72,23 +72,23 @@ const CommitteeCard = ({
             </div>
           </div>
           
-          <p className={`text-white/80 mb-4 ${isLogoOnLeft ? 'md:text-left' : 'md:text-right'} text-center`}>
+          <p className="text-white/80 mb-4 text-center">
             {committee.shortDescription}
           </p>
           
           <div className="mb-4 w-full">
-            <h4 className={`text-lg font-semibold text-white mb-3 ${isLogoOnLeft ? 'md:text-left' : 'md:text-right'} text-center`}>Agenda Topic:</h4>
-            <div className={`flex flex-col space-y-2 ${isLogoOnLeft ? '' : 'items-center md:items-end'}`}>
+            <h4 className="text-lg font-semibold text-white mb-3 text-center">Agenda Topic:</h4>
+            <div className="flex flex-col items-center space-y-2">
               {committee.topics.map((topic, topicIndex) => (
-                <div key={topicIndex} className={`flex items-center ${isLogoOnLeft ? '' : 'flex-row-reverse'} gap-2`}>
-                  <div className={`w-3 h-3 rounded-full bg-mun-purple flex-shrink-0`}></div>
+                <div key={topicIndex} className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-mun-purple flex-shrink-0"></div>
                   <span className="text-white/90">{topic}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className={`flex flex-col sm:flex-row ${isLogoOnLeft ? 'justify-center md:justify-start' : 'justify-center md:justify-end'} gap-3 mt-auto`}>
+          <div className="flex flex-col sm:flex-row justify-center gap-3 mt-auto">
             <Link to={`/committees/${committee.abbr.toLowerCase()}`}>
               <Button variant="secondary" className="bg-mun-purple/40 hover:bg-mun-purple/60 w-full">
                 View Details
@@ -107,7 +107,7 @@ const CommitteeCard = ({
             </a>
           </div>
           
-          <p className={`text-white/70 text-sm italic mt-2 ${isLogoOnLeft ? 'md:text-left' : 'md:text-right'} text-center`}>
+          <p className="text-white/70 text-sm italic mt-2 text-center">
             NOTE: The Study Guide password will be sent with your allocation
           </p>
         </div>

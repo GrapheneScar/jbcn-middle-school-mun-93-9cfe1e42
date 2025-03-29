@@ -1,7 +1,41 @@
 
 import { motion } from 'framer-motion';
+import { Mic, Users, MessageSquare, FileText, Clock, List } from 'lucide-react';
 
 const CommitteeStructure = () => {
+  const debateModes = [
+    {
+      title: "General Speaker's List (GSL)",
+      description: "The default mode of debate. Delegates speak in order for a set time on the overall topic. Can be interrupted by moderated/unmoderated caucuses.",
+      icon: Mic
+    },
+    {
+      title: "Special Speaker's List (SSL)",
+      description: "A separate speaker's list for a specific purpose (e.g., discussing amendments, procedural motions, etc.). Not common in all MUNs but useful in detailed discussions.",
+      icon: List
+    },
+    {
+      title: "Moderated Caucus",
+      description: "Structured debate on a specific sub-topic. Shorter speaking times (e.g., 30–90 seconds). Delegates must raise their placards and get recognized to speak.",
+      icon: Clock
+    },
+    {
+      title: "Unmoderated Caucus",
+      description: "Informal discussion where delegates move around and negotiate freely. Used for lobbying, alliances, and drafting resolutions.",
+      icon: Users
+    },
+    {
+      title: "Round Robin",
+      description: "Each delegate gets a chance to speak once before anyone speaks again. Ensures equal participation. Often used in opening statements.",
+      icon: MessageSquare
+    },
+    {
+      title: "Open Floor",
+      description: "Delegates can speak freely by raising placards instead of following a fixed list. Encourages spontaneous and interactive discussions.",
+      icon: FileText
+    }
+  ];
+
   return (
     <section className="py-16 px-4 relative overflow-hidden">
       <div 
@@ -11,7 +45,7 @@ const CommitteeStructure = () => {
         }}
       />
       
-      <div className="container mx-auto relative z-10 max-w-4xl">
+      <div className="container mx-auto relative z-10 max-w-5xl">
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -19,62 +53,36 @@ const CommitteeStructure = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">Process</span>
-          <h2 className="text-3xl font-bold text-white">Committee Structure</h2>
+          <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">Committee Flow</span>
+          <h2 className="text-3xl font-bold text-white">Debate Modes</h2>
+          <p className="mt-4 text-white/70 max-w-2xl mx-auto">
+            Understanding the different debate formats will help you participate effectively in your committee sessions.
+          </p>
         </motion.div>
         
-        <div className="glass-panel p-8">
-          <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {debateModes.map((mode, index) => (
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="glass-panel p-6 rounded-xl border border-mun-purple/20 relative overflow-hidden group"
             >
-              <h3 className="text-xl font-bold text-white mb-4">During Sessions</h3>
+              {/* Curved background gradient */}
+              <div className="absolute -top-24 -right-24 w-48 h-48 bg-mun-purple/10 rounded-full blur-xl opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
               
-              <ul className="space-y-4">
-                {[
-                  "Roll Call & Setting the Agenda",
-                  "Opening Statements",
-                  "Moderated & Unmoderated Caucuses",
-                  "Working Paper Development",
-                  "Draft Resolution Presentation",
-                  "Amendments & Voting Procedures"
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start">
-                    <div className="w-8 h-8 rounded-full bg-mun-purple/20 flex items-center justify-center mr-3 flex-shrink-0">
-                      <span className="text-mun-purple-light font-semibold">{index + 1}</span>
-                    </div>
-                    <span className="text-white/80 pt-1">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <h3 className="text-xl font-bold text-white mb-4">Committee Roles</h3>
-              
-              <div className="space-y-4">
-                {[
-                  { role: "Chair", description: "Presides over the committee, maintains order, and ensures rules of procedure are followed." },
-                  { role: "Vice Chair", description: "Assists the Chair and may take over proceedings when needed." },
-                  { role: "OC (Organizing Committee)", description: "Assists in the smooth functioning of the committee by managing logistics, coordinating communication, and ensuring procedural efficiency." },
-                  { role: "Delegates", description: "Represent assigned allocations, participate in debates, and work towards resolution." }
-                ].map((item, index) => (
-                  <div key={index} className="glass-panel p-4">
-                    <h4 className="text-lg font-semibold text-mun-purple-light mb-1">{item.role}</h4>
-                    <p className="text-white/80 text-sm">{item.description}</p>
-                  </div>
-                ))}
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-full bg-mun-purple/20 flex items-center justify-center mb-4">
+                  <mode.icon className="w-6 h-6 text-mun-purple-light" />
+                </div>
+                
+                <h3 className="text-xl font-bold text-white mb-2">{mode.title}</h3>
+                <p className="text-white/80 text-sm">{mode.description}</p>
               </div>
             </motion.div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

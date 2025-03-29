@@ -1,149 +1,160 @@
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { File, Download, AlertCircle, BookOpen, Globe } from 'lucide-react';
-import { Button } from '../ui/button';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { BookOpen, FileText, Mail } from 'lucide-react';
+import { useState } from 'react';
 
 interface CommitteeResourcesProps {
   studyGuideUrl?: string;
   countryMatrixUrl?: string;
-  committeeName?: string;
+  committeeName: string;
   committeeEmail?: string;
 }
 
-const CommitteeResources = ({
-  studyGuideUrl,
-  countryMatrixUrl,
+const CommitteeResources = ({ 
+  studyGuideUrl, 
+  countryMatrixUrl, 
   committeeName,
   committeeEmail
 }: CommitteeResourcesProps) => {
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-
+  const [isCountryMatrixHovered, setIsCountryMatrixHovered] = useState(false);
+  
   return (
-    <section className="mb-16">
-      <h1 className="text-3xl font-bold text-white mb-12 text-center mx-auto">Committee Resources</h1>
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      className="mt-16"
+    >
+      <h2 className="text-2xl font-bold text-white text-center mb-8">
+        Committee Resources
+      </h2>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        {/* Study Guide Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="relative glass-panel rounded-2xl overflow-hidden border border-mun-purple/30 h-full"
-          onMouseEnter={() => setHoveredItem('study-guide')}
-          onMouseLeave={() => setHoveredItem(null)}
+      <div className="grid md:grid-cols-2 gap-6">
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="glass-panel p-6 rounded-xl border border-mun-purple/20 relative overflow-hidden group"
         >
-          <div className="relative h-64 overflow-hidden">
-            <img 
-              src="/lovable-uploads/study guide.png" 
-              alt="Study Guide" 
-              className={`w-full h-full object-cover transition-all duration-700 ${hoveredItem === 'study-guide' ? 'saturate-100' : 'saturate-0'}`}
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80"></div>
-            
-            {/* Icon Overlay */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <div className="bg-black/50 rounded-full p-6 backdrop-blur-md border border-mun-purple/30">
-                <BookOpen className="w-12 h-12 text-white" />
-              </div>
-            </div>
-          </div>
+          {/* Gradient background */}
+          <div className="absolute -top-24 -right-24 w-48 h-48 bg-mun-purple/10 rounded-full blur-xl opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
           
-          <div className="p-6 text-center">
-            <h3 className="text-2xl font-bold text-white mb-3">Study Guide</h3>
-            <p className="text-white/70 mb-6 max-w-md mx-auto">
-              Comprehensive guide for understanding the committee topics and preparing effectively.
+          <div className="relative z-10">
+            <div className="w-16 h-16 rounded-full bg-mun-purple/20 flex items-center justify-center mb-4 mx-auto">
+              <BookOpen className="w-8 h-8 text-mun-purple-light" />
+            </div>
+            
+            <h3 className="text-xl font-bold text-white text-center mb-2">Study Guide</h3>
+            <p className="text-white/70 text-center mb-6">
+              Access the official study guide for the {committeeName} committee. This document contains essential information about the agenda topics, background, and expectations.
             </p>
             
-            <div className="flex flex-col space-y-4">
-              {studyGuideUrl ? (
-                <a href={studyGuideUrl} target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-mun-purple hover:bg-mun-purple-light w-full transition-all duration-300">
-                    <Download className="mr-2 h-4 w-4" />
-                    Download Study Guide
-                  </Button>
-                </a>
-              ) : (
-                <Button disabled className="bg-mun-purple/50 cursor-not-allowed w-full">
-                  <File className="mr-2 h-4 w-4" />
-                  Study Guide Coming Soon
+            <div className="flex justify-center">
+              <a 
+                href={studyGuideUrl || "#"} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <Button className="bg-mun-purple hover:bg-mun-purple-light">
+                  <BookOpen className="mr-2 w-4 h-4" />
+                  Download Study Guide
                 </Button>
-              )}
-              
-              <div className="bg-black/30 p-3 rounded-lg border border-mun-purple/20">
-                <div className="flex items-center text-white/80 text-sm">
-                  <AlertCircle className="w-4 h-4 mr-2 text-mun-purple-light flex-shrink-0" />
-                  <span>
-                    Your allocation will be emailed to you via{" "}
-                    <span className="text-mun-purple-light font-medium">
-                      {committeeEmail || "your registered email"}
-                    </span>
-                  </span>
-                </div>
-              </div>
+              </a>
             </div>
+            
+            <p className="text-white/50 text-sm text-center mt-4 italic">
+              Note: Study Guide is password protected. The password will be provided with your allocation.
+            </p>
           </div>
         </motion.div>
         
-        {/* Country Matrix Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="relative glass-panel rounded-2xl overflow-hidden border border-mun-purple/30 h-full"
-          onMouseEnter={() => setHoveredItem('country-matrix')}
-          onMouseLeave={() => setHoveredItem(null)}
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="glass-panel p-6 rounded-xl border border-mun-purple/20 relative overflow-hidden group"
+          onMouseEnter={() => setIsCountryMatrixHovered(true)}
+          onMouseLeave={() => setIsCountryMatrixHovered(false)}
         >
-          <div className="relative h-64 overflow-hidden">
-            <img 
-              src="/lovable-uploads/Country Matrix Middle School MUN 2025.png" 
-              alt="Country Matrix" 
-              className={`w-full h-full object-cover transition-all duration-700 ${hoveredItem === 'country-matrix' ? 'saturate-100' : 'saturate-0'}`}
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80"></div>
-            
-            {/* Icon Overlay */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <div className="bg-black/50 rounded-full p-6 backdrop-blur-md border border-mun-purple/30">
-                <Globe className="w-12 h-12 text-white" />
-              </div>
-            </div>
-          </div>
+          {/* Gradient background */}
+          <div className="absolute -top-24 -left-24 w-48 h-48 bg-mun-purple/10 rounded-full blur-xl opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
           
-          <div className="p-6 text-center">
-            <h3 className="text-2xl font-bold text-white mb-3">Country Matrix</h3>
-            <p className="text-white/70 mb-6 max-w-md mx-auto">
-              Overview of country positions on committee topics and delegate allocations.
+          <div className="relative z-10">
+            <div className="h-48 mx-auto mb-4 overflow-hidden rounded-lg shadow-lg relative">
+              {/* Hover effect for country matrix */}
+              <img 
+                src="/lovable-uploads/fb90c03d-d4a5-4394-8250-6fa259a9253d.png" 
+                alt="Country Matrix Cover (Colored)" 
+                className={`w-full h-full object-contain transition-opacity duration-500 ${isCountryMatrixHovered ? 'opacity-100' : 'opacity-0'}`}
+              />
+              <img 
+                src="/lovable-uploads/a288ae58-b038-4b97-a2db-d64d63ca1d65.png" 
+                alt="Country Matrix Cover (Black and White)" 
+                className={`w-full h-full object-contain absolute inset-0 transition-opacity duration-500 ${isCountryMatrixHovered ? 'opacity-0' : 'opacity-100'}`}
+              />
+            </div>
+            
+            <h3 className="text-xl font-bold text-white text-center mb-2">Country Matrix</h3>
+            <p className="text-white/70 text-center mb-6">
+              The country matrix provides details about the countries involved in this committee, their positions, and relevant policy information.
             </p>
             
-            <div className="flex flex-col space-y-4">
-              {countryMatrixUrl ? (
-                <a href={countryMatrixUrl} target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-mun-purple hover:bg-mun-purple-light w-full transition-all duration-300">
-                    <Download className="mr-2 h-4 w-4" />
-                    Download Country Matrix
-                  </Button>
-                </a>
-              ) : (
-                <Button disabled className="bg-mun-purple/50 cursor-not-allowed w-full">
-                  <File className="mr-2 h-4 w-4" />
-                  Country Matrix Coming Soon
+            <div className="flex justify-center">
+              <a 
+                href={countryMatrixUrl || "#"} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <Button className="bg-mun-purple hover:bg-mun-purple-light">
+                  <FileText className="mr-2 w-4 h-4" />
+                  Download Country Matrix
                 </Button>
-              )}
-              
-              <div className="bg-black/30 p-3 rounded-lg border border-mun-purple/20">
-                <div className="flex items-center text-white/80 text-sm">
-                  <AlertCircle className="w-4 h-4 mr-2 text-mun-purple-light flex-shrink-0" />
-                  <span>
-                    Check back regularly for updates on committee resources.
-                  </span>
-                </div>
-              </div>
+              </a>
             </div>
+            
+            <p className="text-white/50 text-sm text-center mt-4 italic">
+              Note: Country Matrix is password protected. The password will be provided with your allocation.
+            </p>
           </div>
         </motion.div>
       </div>
-    </section>
+      
+      {/* Email Support Card */}
+      {committeeEmail && (
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-6 glass-panel p-6 rounded-xl border border-mun-purple/20"
+        >
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="text-center md:text-left">
+              <h3 className="text-xl font-bold text-white mb-2">Have Questions?</h3>
+              <p className="text-white/70">
+                Contact the committee directors directly at:{' '}
+                <span className="text-mun-purple-light">{committeeEmail}</span>
+              </p>
+            </div>
+            
+            <a 
+              href={`mailto:${committeeEmail}`} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <Button variant="outline" className="border-mun-purple hover:bg-mun-purple/20 text-mun-purple-light">
+                <Mail className="mr-2 w-4 h-4" />
+                Email Committee
+              </Button>
+            </a>
+          </div>
+        </motion.div>
+      )}
+    </motion.div>
   );
 };
 

@@ -7,10 +7,12 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../components/ui/table';
+
 const Resources = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
   const guideResources = [{
     title: "Rules of Procedure (RoP)",
     description: "Official rules of procedure for the JBCN Parel MUN 2025 conference",
@@ -22,7 +24,7 @@ const Resources = () => {
     title: "Preambulatory and Operative Clauses",
     description: " A small list of Preambulatory and Operative clauses for Resolutions/Directives.",
     icon: ListChecks,
-    link: "https://drive.google.com/file/d/1tyvIkOmvbsYUewBxbE-59Kqgis77BSPP/view?usp=sharing",
+    link: "https://drive.google.com/file/d/1CFI4_ZMuY_ALIK6hnhwwlO0izuvYpUGs/view?usp=sharing",
     image: "/lovable-uploads/clauses.png"
   }, {
     title: "MUN Lingo",
@@ -45,6 +47,7 @@ const Resources = () => {
     link: "https://www.un.org/en/about-us/un-charter/full-text",
     image: "/lovable-uploads/un charter.png"
   }];
+  
   const templateResources = [{
     title: "Directives",
     description: "Example for writing effective directives.",
@@ -85,6 +88,7 @@ const Resources = () => {
   }
   // Removed Joint Statements and Resolutions card
   ];
+  
   const yieldsData = [{
     type: "Yield to the Chair",
     description: "When you quote \"The delegate of would like to yield to the chair\", this means that the chair will get to choose what to do with the speaker's remaining time (it is usually dissolved)."
@@ -95,6 +99,7 @@ const Resources = () => {
     type: "Yield to Comments",
     description: "When you quote, \"The delegate would like to yield to comments\", this particularly states that you, as a delegate, are allowing other delegates in the committee to comment on your speeches. Note: When you comment on a delegate's speech, make sure the comments are made in a very formal tone. Also, constructively criticising a delegate is okay validated by the Executive Board; you mustn't make any comments which attack the delegate's personal integrity or strike their persona."
   }];
+  
   const pointsData = [{
     type: "Point of Order",
     description: "This point is used in committee once a delegate has found a mistake or factual inaccuracy in the rules of procedure, made by a delegate or an EB member."
@@ -108,6 +113,7 @@ const Resources = () => {
     type: "Point of Personal Privilege",
     description: "This point is used if you have a personal inconvenience. Note: Use this point if you have an emergency or an important affair to commit to (utilising the washroom, decreasing or increasing the temperature of the Air conditioner)."
   }];
+  
   return <PageTransition>
       <StripeBackground />
       
@@ -181,7 +187,11 @@ const Resources = () => {
                   }} className={`${resource.highlight ? 'ring-2 ring-mun-purple' : ''} rounded-xl overflow-hidden hover:shadow-lg hover:shadow-mun-purple/20 transition-all duration-300`}>
                         <Card className="h-full bg-black/60 border-mun-purple/30 text-white">
                           <div className="h-40 relative overflow-hidden">
-                            <img src={resource.image} alt={resource.title} className="w-full h-full object-cover opacity-30" />
+                            <img src={resource.image} alt={resource.title} className="w-full h-full object-cover opacity-30" onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.onerror = null;
+                              target.src = "/placeholder.svg";
+                            }} />
                             <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-90"></div>
                             <div className="absolute inset-0 flex items-center justify-center">
                               <resource.icon className="h-16 w-16 text-mun-purple-light opacity-80" />
@@ -315,7 +325,7 @@ const Resources = () => {
                   }} className={`${resource.highlight ? 'ring-2 ring-mun-purple' : ''} rounded-xl overflow-hidden hover:shadow-lg hover:shadow-mun-purple/20 transition-all duration-300`}>
                         <Card className="h-full bg-black/60 border-mun-purple/30 text-white">
                           <div className="h-40 relative overflow-hidden">
-                            <img src={resource.image} alt={resource.title} className="w-full h-full object-cover opacity-30" />
+                            <img src={resource.image || "/placeholder.svg"} alt={resource.title} className="w-full h-full object-cover opacity-30" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-90"></div>
                             <div className="absolute inset-0 flex items-center justify-center">
                               <resource.icon className="h-16 w-16 text-mun-purple-light opacity-80" />
@@ -330,9 +340,11 @@ const Resources = () => {
                             </CardDescription>
                           </CardHeader>
                           <CardFooter>
-                            <Button variant="outline" className="w-full border-mun-purple hover:bg-mun-purple/20 text-mun-purple-light">
-                              <FileText className="mr-2 h-4 w-4" /> Download Example
-                            </Button>
+                            <a href={resource.link} target="_blank" rel="noopener noreferrer" className="w-full">
+                              <Button variant="outline" className="w-full border-mun-purple hover:bg-mun-purple/20 text-mun-purple-light">
+                                <FileText className="mr-2 h-4 w-4" /> Download Example
+                              </Button>
+                            </a>
                           </CardFooter>
                         </Card>
                       </motion.div>)}
@@ -364,4 +376,5 @@ const Resources = () => {
       </section>
     </PageTransition>;
 };
+
 export default Resources;
