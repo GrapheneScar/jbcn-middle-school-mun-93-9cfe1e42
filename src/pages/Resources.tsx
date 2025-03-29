@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
@@ -8,135 +7,108 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../components/ui/table';
-
 const Resources = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const guideResources = [
-    {
-      title: "Rules of Procedure (RoP)",
-      description: "Official rules of procedure for the JBCN Parel MUN 2025 conference",
-      icon: ListChecks,
-      link: "https://drive.google.com/file/d/19K56bVlyhd2piUwUKueHynqf4tN7zAei/view?usp=sharing",
-      image: "/lovable-uploads/rop.png",
-      highlight: false
-    },
-    {
-      title: "Preambulatory and Operative Clauses",
-      description: " A small list of Preambulatory and Operative clauses for Resolutions/Directives.",
-      icon: ListChecks,
-      link: "https://drive.google.com/file/d/1tyvIkOmvbsYUewBxbE-59Kqgis77BSPP/view?usp=sharing",
-      image: "/lovable-uploads/clauses.png",
-    },
-    {
-      title: "MUN Lingo",
-      description: "Essential terminology used in Model United Nations conferences",
-      icon: MessageSquare,
-      link: "https://drive.google.com/file/d/1vOxtInhKgnryTo7XTj3IYc9tCwWubrDx/view?usp=sharing",
-      image: "/lovable-uploads/mun lingo.png",
-    },
-    // Removed Voting card
-    {
-      title: "Study Guides",
-      description: "Study Guides of the commitees.",
-      icon: ScrollText,
-      link: "https://drive.google.com/drive/folders/1d8iPqYye3Gr-n0hpDNAKHdJevklLMzcM",
-      image: "/lovable-uploads/study guide.png",
-    },
-    {
-      title: "UN charter",
-      description: " The foundational treaty of the United Nations, outlining its purpose, principles, and structure.",
-      icon: Globe,
-      link: "https://www.un.org/en/about-us/un-charter/full-text",
-      image: "/lovable-uploads/un charter.png",
-    }
+  const guideResources = [{
+    title: "Rules of Procedure (RoP)",
+    description: "Official rules of procedure for the JBCN Parel MUN 2025 conference",
+    icon: ListChecks,
+    link: "https://drive.google.com/file/d/19K56bVlyhd2piUwUKueHynqf4tN7zAei/view?usp=sharing",
+    image: "/lovable-uploads/rop.png",
+    highlight: false
+  }, {
+    title: "Preambulatory and Operative Clauses",
+    description: " A small list of Preambulatory and Operative clauses for Resolutions/Directives.",
+    icon: ListChecks,
+    link: "https://drive.google.com/file/d/1tyvIkOmvbsYUewBxbE-59Kqgis77BSPP/view?usp=sharing",
+    image: "/lovable-uploads/clauses.png"
+  }, {
+    title: "MUN Lingo",
+    description: "Essential terminology used in Model United Nations conferences",
+    icon: MessageSquare,
+    link: "https://drive.google.com/file/d/1vOxtInhKgnryTo7XTj3IYc9tCwWubrDx/view?usp=sharing",
+    image: "/lovable-uploads/mun lingo.png"
+  },
+  // Removed Voting card
+  {
+    title: "Study Guides",
+    description: "Study Guides of the commitees.",
+    icon: ScrollText,
+    link: "https://drive.google.com/drive/folders/1d8iPqYye3Gr-n0hpDNAKHdJevklLMzcM",
+    image: "/lovable-uploads/study guide.png"
+  }, {
+    title: "UN charter",
+    description: " The foundational treaty of the United Nations, outlining its purpose, principles, and structure.",
+    icon: Globe,
+    link: "https://www.un.org/en/about-us/un-charter/full-text",
+    image: "/lovable-uploads/un charter.png"
+  }];
+  const templateResources = [{
+    title: "Directives",
+    description: "Example for writing effective directives.",
+    icon: FilePenLine,
+    link: "https://docs.google.com/document/d/17fUQgZ_lIoubRNQcwFo6YD-LKUnHjt2cNWuUxFYw8vg/edit?usp=sharing",
+    image: "/lovable-uploads/",
+    highlight: false
+  }, {
+    title: "Draft Resolution",
+    description: "Example for writng a excellent Draft Resolution.",
+    icon: FileText,
+    link: "https://docs.google.com/document/d/11PPDUUnyy1VT29eCLhsvEicsIZ3PtjEg/edit?usp=sharing&ouid=100119734129423747207&rtpof=true&sd=true",
+    image: "/lovable-uploads/"
+  }, {
+    title: "Position Paper",
+    description: "Example for crafting effective position papers",
+    icon: FileCode,
+    link: "https://docs.google.com/document/d/138mRyGFn9Tr2231kekwqnWqmm7ahtQvkjsPuSdEWoRM/edit?usp=sharing",
+    image: "/lovable-uploads/"
+  }, {
+    title: "communiqué",
+    description: "Example for format and structure for working communiqué.",
+    icon: FilePlus2,
+    link: "https://drive.google.com/file/d/1MSwe-OaZGGLMpw2fde5Q9pIiZM2c9mGv/view?usp=sharing",
+    image: "/lovable-uploads/"
+  }, {
+    title: "Press Release (communiqué)",
+    description: "Example for drafting press releases (communiqué)",
+    icon: Newspaper,
+    link: "https://drive.google.com/file/d/19lOGxXn5B3ouaYN3mrNeBXBTY-oUTGsO/view?usp=sharing",
+    image: "/lovable-uploads/"
+  }, {
+    title: "Chits",
+    description: "Example for writing effective communication chits",
+    icon: MessageSquare,
+    link: "https://drive.google.com/file/d/1gp1suebS-P0O4Fo2pXNWS6k9TFbTOrBB/view?usp=sharing",
+    image: "/lovable-uploads/"
+  }
+  // Removed Joint Statements and Resolutions card
   ];
-
-  const templateResources = [
-    {
-      title: "Directives",
-      description: "Example for writing effective directives.",
-      icon: FilePenLine,
-      link: "https://docs.google.com/document/d/17fUQgZ_lIoubRNQcwFo6YD-LKUnHjt2cNWuUxFYw8vg/edit?usp=sharing",
-      image: "/lovable-uploads/",
-      highlight: false
-    },
-    {
-      title: "Draft Resolution",
-      description: "Example for writng a excellent Draft Resolution.",
-      icon: FileText,
-      link: "https://docs.google.com/document/d/11PPDUUnyy1VT29eCLhsvEicsIZ3PtjEg/edit?usp=sharing&ouid=100119734129423747207&rtpof=true&sd=true",
-      image: "/lovable-uploads/",
-    },
-    {
-      title: "Position Paper",
-      description: "Example for crafting effective position papers",
-      icon: FileCode,
-      link: "https://docs.google.com/document/d/138mRyGFn9Tr2231kekwqnWqmm7ahtQvkjsPuSdEWoRM/edit?usp=sharing",
-      image: "/lovable-uploads/",
-    },
-    {
-      title: "communiqué",
-      description: "Example for format and structure for working communiqué.",
-      icon: FilePlus2,
-      link: "https://drive.google.com/file/d/1MSwe-OaZGGLMpw2fde5Q9pIiZM2c9mGv/view?usp=sharing",
-      image: "/lovable-uploads/",
-    },
-    {
-      title: "Press Release (communiqué)",
-      description: "Example for drafting press releases (communiqué)",
-      icon: Newspaper,
-      link: "https://drive.google.com/file/d/19lOGxXn5B3ouaYN3mrNeBXBTY-oUTGsO/view?usp=sharing",
-      image: "/lovable-uploads/",
-    },
-    {
-      title: "Chits",
-      description: "Example for writing effective communication chits",
-      icon: MessageSquare,
-      link: "https://drive.google.com/file/d/1gp1suebS-P0O4Fo2pXNWS6k9TFbTOrBB/view?usp=sharing",
-      image: "/lovable-uploads/",
-    },
-    // Removed Joint Statements and Resolutions card
-  ];
-
-  const yieldsData = [
-    {
-      type: "Yield to the Chair",
-      description: "When you quote \"The delegate of would like to yield to the chair\", this means that the chair will get to choose what to do with the speaker's remaining time (it is usually dissolved)."
-    },
-    {
-      type: "Yield to Questions",
-      description: "When you quote \"The delegate would like to yield to questions\", this states that other delegates are allowed to question you on your speech."
-    },
-    {
-      type: "Yield to Comments",
-      description: "When you quote, \"The delegate would like to yield to comments\", this particularly states that you, as a delegate, are allowing other delegates in the committee to comment on your speeches. Note: When you comment on a delegate's speech, make sure the comments are made in a very formal tone. Also, constructively criticising a delegate is okay validated by the Executive Board; you mustn't make any comments which attack the delegate's personal integrity or strike their persona."
-    }
-  ];
-
-  const pointsData = [
-    {
-      type: "Point of Order",
-      description: "This point is used in committee once a delegate has found a mistake or factual inaccuracy in the rules of procedure, made by a delegate or an EB member."
-    },
-    {
-      type: "Point of Information",
-      description: "This point is used in committee once a delegate catches a factual inaccuracy, or wishes to question a delegate in one of their GSLs or SSL speeches."
-    },
-    {
-      type: "Point of Parliamentary Inquiry",
-      description: "This is used if you have a doubt or question on anything that's going on in the committee, specifically regarding parliamentary procedure. Note: A point of parliamentary inquiry must not be asked or said when questioning a delegate on one of their speeches."
-    },
-    {
-      type: "Point of Personal Privilege",
-      description: "This point is used if you have a personal inconvenience. Note: Use this point if you have an emergency or an important affair to commit to (utilising the washroom, decreasing or increasing the temperature of the Air conditioner)."
-    }
-  ];
-
-  return (
-    <PageTransition>
+  const yieldsData = [{
+    type: "Yield to the Chair",
+    description: "When you quote \"The delegate of would like to yield to the chair\", this means that the chair will get to choose what to do with the speaker's remaining time (it is usually dissolved)."
+  }, {
+    type: "Yield to Questions",
+    description: "When you quote \"The delegate would like to yield to questions\", this states that other delegates are allowed to question you on your speech."
+  }, {
+    type: "Yield to Comments",
+    description: "When you quote, \"The delegate would like to yield to comments\", this particularly states that you, as a delegate, are allowing other delegates in the committee to comment on your speeches. Note: When you comment on a delegate's speech, make sure the comments are made in a very formal tone. Also, constructively criticising a delegate is okay validated by the Executive Board; you mustn't make any comments which attack the delegate's personal integrity or strike their persona."
+  }];
+  const pointsData = [{
+    type: "Point of Order",
+    description: "This point is used in committee once a delegate has found a mistake or factual inaccuracy in the rules of procedure, made by a delegate or an EB member."
+  }, {
+    type: "Point of Information",
+    description: "This point is used in committee once a delegate catches a factual inaccuracy, or wishes to question a delegate in one of their GSLs or SSL speeches."
+  }, {
+    type: "Point of Parliamentary Inquiry",
+    description: "This is used if you have a doubt or question on anything that's going on in the committee, specifically regarding parliamentary procedure. Note: A point of parliamentary inquiry must not be asked or said when questioning a delegate on one of their speeches."
+  }, {
+    type: "Point of Personal Privilege",
+    description: "This point is used if you have a personal inconvenience. Note: Use this point if you have an emergency or an important affair to commit to (utilising the washroom, decreasing or increasing the temperature of the Air conditioner)."
+  }];
+  return <PageTransition>
       <StripeBackground />
       
       <section className="pt-32 pb-20 px-4 relative">
@@ -246,7 +218,7 @@ const Resources = () => {
                 delay: 0.2
               }} className="mt-12 p-6 bg-black/30 rounded-xl border border-mun-purple/20">
                   <h3 className="text-2xl font-bold text-white mb-4">Yields</h3>
-                  <p className="text-white/80 mb-6">Yields are something used once a delegate has left over time in their GSL speech(es).</p>
+                  <p className="text-white/80 mb-6">Yields are something used once a delegate has left over time in their Speech(es).</p>
                   
                   <div className="overflow-x-auto">
                     <Table className="w-full">
@@ -257,12 +229,10 @@ const Resources = () => {
                         </TableRow>
                       </TableHeader>
                       <TableBody>
-                        {yieldsData.map((item, i) => (
-                          <TableRow key={i} className="border-mun-purple/10 hover:bg-mun-purple/5">
+                        {yieldsData.map((item, i) => <TableRow key={i} className="border-mun-purple/10 hover:bg-mun-purple/5">
                             <TableCell className="font-medium text-white">{item.type}</TableCell>
                             <TableCell className="text-white/80">{item.description}</TableCell>
-                          </TableRow>
-                        ))}
+                          </TableRow>)}
                       </TableBody>
                     </Table>
                   </div>
@@ -294,12 +264,10 @@ const Resources = () => {
                         </TableRow>
                       </TableHeader>
                       <TableBody>
-                        {pointsData.map((item, i) => (
-                          <TableRow key={i} className="border-mun-purple/10 hover:bg-mun-purple/5">
+                        {pointsData.map((item, i) => <TableRow key={i} className="border-mun-purple/10 hover:bg-mun-purple/5">
                             <TableCell className="font-medium text-white">{item.type}</TableCell>
                             <TableCell className="text-white/80">{item.description}</TableCell>
-                          </TableRow>
-                        ))}
+                          </TableRow>)}
                       </TableBody>
                     </Table>
                   </div>
@@ -394,8 +362,6 @@ const Resources = () => {
           </motion.div>
         </div>
       </section>
-    </PageTransition>
-  );
+    </PageTransition>;
 };
-
 export default Resources;
