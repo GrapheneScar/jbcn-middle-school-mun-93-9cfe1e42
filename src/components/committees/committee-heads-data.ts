@@ -24,14 +24,14 @@ export const committeeHeads: Department[] = [{
   description: "Manages the online presence and social media communications for the MUN.",
   chairs: [{
     name: "Riddhi Bavadiya",
-    title: "Head of Social Media",
+    title: "Co-Head of Social Media",
     photo: "/lovable-uploads/Riddhi.png",
     department: "Social Media",
     bio: "Riddhi creates engaging content that keeps our followers informed and excited.",
     easterEgg: "Head of Social Media"
   }, {
     name: "Yana Mehta",
-    title: "Head of Social Media",
+    title: "Co-Head of Social Media",
     photo: "/lovable-uploads/Yana.png",
     department: "Social Media",
     bio: "Yana expertly manages our social media strategy with creativity and deep insight."
@@ -41,14 +41,14 @@ export const committeeHeads: Department[] = [{
   description: "Responsible for designing and maintaining the conference website.",
   chairs: [{
     name: "Naaham Shah",
-    title: "Head of Website Design",
+    title: "Co-Head of Website Design",
     photo: "/lovable-uploads/Naaham.png",
     department: "Website Design",
     bio: "Naaham combines technical expertise with design intuition for our website.",
     easterEgg: "Head of Website Design"
   }, {
     name: "Samay Shah",
-    title: "Head of Website Design",
+    title: "Co-Head of Website Design",
     photo: "/lovable-uploads/Samay.png",
     department: "Website Design",
     bio: "Samay ensures our website is user-friendly, visually engaging and appealing."
@@ -82,7 +82,7 @@ export const committeeHeads: Department[] = [{
     easterEgg: "Head of Photography"
   }, {
     name: "Rehaan Shah",
-    title: "Head of Photography",
+    title: "Deputy Head of Photography",
     photo: "/lovable-uploads/Rehaan.png",
     department: "Photography",
     bio: "Reehan documents the conference with creativity and attention to detail."
