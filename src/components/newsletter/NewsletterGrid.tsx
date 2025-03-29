@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import NewsletterCard from './NewsletterCard';
 interface Newsletter {
@@ -65,7 +64,7 @@ const NewsletterGrid = ({
       }}>
             <div className="relative">
               {/* Updated "Missing" overlay for 2022 newsletters */}
-              {is2022Newsletter(newsletter) && !newsletter.comingSoon && <div className="absolute inset-0 bg-red-600/50 backdrop-blur-sm flex items-center justify-center z-10 rounded-2xl">
+              {is2022Newsletter(newsletter) && !newsletter.comingSoon && <div className="absolute inset-0 bg-red-600/50 backdrop-blur-sm flex items-center justify-center z-10 rounded-xl">
                   <motion.div initial={{
               scale: 0.9
             }} animate={{
