@@ -99,7 +99,7 @@ export const committeesData: Committee[] = [
       {
         name: "Pratham Nigotiya",
         title: "Assistant Director",
-        photo: "/lovable-uploadsPratham.png",
+        photo: "/lovable-uploads/Pratham.png",
         bio: "Namaste Delegates! Being the assistant director of this Cabinet of India- discussing the infamous Operation Bluestar, is something that I always longed to do.\n\nApart from supporting the BJP and highlighting what all India's best PM has done, I love reading different kinds of books and writing my thoughts in the form of poetry. I love debating, and aspire to practice law. I'm very approachable for almost everything, so don't give a second thought if you want to ask me something, clarify something or just have fun with me.\n\nWhen I had done my first ever MUN, I did not care about what people would think of me. (that's because no one really knew me) I advise you to do the same, and debate your heart out. This committee will be one of the most entertaining ones you've ever been a part of."
       }
     ],
