@@ -57,9 +57,10 @@ const DepartmentSection = ({ department, index }: DepartmentSectionProps) => {
               className="w-64"
             >
               <ChairCard chair={{
+                id: chair.name, // Generate a unique ID based on the name
                 name: chair.name,
                 title: transformedTitle,
-                photo: chair.photo,
+                image: chair.photo, // Map photo to image to match Chair interface
                 bio: chair.bio || '', // Provide a default empty string if bio is missing
                 department: chair.department || department.name.replace('Heads of ', ''), // Default department name based on section title
                 easterEgg: enableEasterEgg ? chair.easterEgg : undefined // Only pass easter egg if role allows it

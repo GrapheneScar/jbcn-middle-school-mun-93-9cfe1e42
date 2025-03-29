@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { Committee } from './types';
+import { Committee, Chair } from './types';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ChairCard from './ChairCard';
 
@@ -67,15 +67,25 @@ const CommitteeTabs = ({ committee }: CommitteeTabsProps) => {
             <h3 className="text-xl font-bold text-white mb-4">Meet Your Directors</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {committee.chairs.map((chair, index) => (
-                <ChairCard 
-                  key={index} 
-                  chair={{
-                    ...chair,
-                    department: chair.department || 'Committee' // Ensure department is always present
-                  }} 
-                />
-              ))}
+              {committee.chairs.map((chair, index) => {
+                // Convert CommitteeChair to Chair type
+                const chairProps: Chair = {
+                  id: chair.name, // Generate a unique ID based on the name
+                  name: chair.name,
+                  title: chair.title,
+                  image: chair.photo,
+                  bio: chair.bio,
+                  department: chair.department || committee.name,
+                  easterEgg: chair.easterEgg
+                };
+                
+                return (
+                  <ChairCard 
+                    key={index} 
+                    chair={chairProps}
+                  />
+                );
+              })}
             </div>
           </motion.div>
         </TabsContent>
