@@ -24,7 +24,7 @@ export const middleSchoolNewsletters: Newsletter[] = [
     title: "JBCN MIDDLE SCHOOL MUN 2024",
     date: "2024",
     description: "A complete overview of JBCN MUN 2024, capturing the essence of diplomacy, leadership, and collaboration throughout the conference.",
-    coverImage: "/lovable-uploads/,
+    coverImage: "/lovable-uploads/",
     pdfUrl: "https://drive.google.com/file/d/1vfQWceFRk_dt6fT10_cvn2FSsIVyZhQH/view",
     comingSoon: false
   },
