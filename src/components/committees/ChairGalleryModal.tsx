@@ -12,12 +12,26 @@ interface ChairGalleryModalProps {
 const ChairGalleryModal = ({ isOpen, onClose, chairName }: ChairGalleryModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
-  // Sample gallery images - in a real application these would be fetched from a database
+  // Updated gallery images with new links
   const galleryImages = [
-    `/lovable-uploads/chairs-gallery/${chairName.toLowerCase().replace(/\s+/g, '-')}-1.jpg`,
-    `/lovable-uploads/chairs-gallery/${chairName.toLowerCase().replace(/\s+/g, '-')}-2.jpg`,
-    `/lovable-uploads/chairs-gallery/${chairName.toLowerCase().replace(/\s+/g, '-')}-3.jpg`,
+    `https://i.postimg.cc/${getChairImagePath(chairName)}-1.jpg`,
+    `https://i.postimg.cc/${getChairImagePath(chairName)}-2.jpg`,
+    `https://i.postimg.cc/${getChairImagePath(chairName)}-3.jpg`,
   ];
+
+  // Helper function to get image paths based on chair name
+  function getChairImagePath(name: string): string {
+    // This is a placeholder function - in a real app, you would have a mapping
+    // of chair names to specific image IDs
+    const chairMap: Record<string, string> = {
+      'Jane Doe': 'tJsc8jgX/IMG-9442',
+      'John Smith': 'GpPqfpJP/image',
+      'Maria Garcia': '5tkqTFQC/image',
+      'Default Chair': 'VkqqfVrm/image',
+    };
+    
+    return chairMap[name] || 'GpPqfpJP/image'; // Default fallback image
+  }
 
   // Close when clicking outside
   useEffect(() => {

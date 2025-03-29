@@ -8,26 +8,26 @@ import { ChevronRight, ChevronLeft, Image, ExternalLink } from 'lucide-react';
 const HomeGallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   
-  // Gallery images - add the uploaded images
+  // Gallery images - updated with new URLs
   const galleryImages = [
     {
-      src: "/lovable-uploads/1a525605-4000-4566-a984-16a8da77a94d.png",
-      alt: "Children building bridges across communities",
-      title: "Building Bridges"
+      src: "https://i.postimg.cc/GpPqfpJP/image.jpg",
+      alt: "MUN Conference Assembly",
+      title: "General Assembly"
     },
     {
-      src: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80&w=600&h=400",
-      alt: "MUN Conference Discussion",
+      src: "https://i.postimg.cc/5tkqTFQC/image.jpg",
+      alt: "Delegate Discussion Session",
       title: "Conference Discussions"
     },
     {
-      src: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600&h=400",
-      alt: "Documentation",
-      title: "Conference Documentation"
+      src: "https://i.postimg.cc/W3TTRhRs/DSC03134.jpg",
+      alt: "Committee Group Meeting",
+      title: "Committee Session"
     },
     {
-      src: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=600&h=400",
-      alt: "Conference Notes",
+      src: "https://i.postimg.cc/J0Qyw9Y2/DSC03269.jpg",
+      alt: "Policy Discussion",
       title: "Conference Planning"
     }
   ];

@@ -1,805 +1,807 @@
+
 import { GalleryImage } from "./types";
 
 // Gallery image data
 export const galleryImages: GalleryImage[] = [
   {
     id: "img1",
-    src: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
-    alt: "Technology - Laptop",
-    category: "technology",
-    title: "Digital Innovation"
+    src: "https://i.postimg.cc/GpPqfpJP/image.jpg",
+    alt: "MUN Conference",
+    category: "conference",
+    title: "General Assembly Session",
+    year: "2024"
   },
   {
     id: "img2",
-    src: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
-    alt: "Technology - MacBook Pro",
-    category: "technology",
-    title: "Modern Workspace"
+    src: "https://i.postimg.cc/5tkqTFQC/image.jpg",
+    alt: "Delegate Discussion",
+    category: "delegates",
+    title: "Delegate Discussions",
+    year: "2024"
   },
   {
     id: "img3",
-    src: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
-    alt: "Code on Monitor",
-    category: "code",
-    title: "Programming Excellence"
+    src: "https://i.postimg.cc/VkqqfVrm/image.jpg",
+    alt: "Committee Session",
+    category: "conference",
+    title: "Security Council Session",
+    year: "2024"
   },
   {
     id: "img4",
-    src: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5",
-    alt: "Matrix Code",
-    category: "code",
-    title: "Digital Matrix"
+    src: "https://i.postimg.cc/MKktzRP0/image.jpg",
+    alt: "Delegate Presentation",
+    category: "delegates",
+    title: "Formal Address",
+    year: "2024"
   },
   {
     id: "img5",
-    src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
-    alt: "Developer Workspace",
-    category: "workspace",
-    title: "Productive Environment"
+    src: "https://i.postimg.cc/0jGSk6jZ/image.jpg",
+    alt: "Conference Hall",
+    category: "conference",
+    title: "Conference Opening",
+    year: "2024"
   },
   {
     id: "img6",
-    src: "https://images.unsplash.com/photo-1483058712412-4245e9b90334",
-    alt: "Clean Workspace",
-    category: "workspace",
-    title: "Minimalist Setup"
+    src: "https://i.postimg.cc/VknRSNTy/image.jpg",
+    alt: "Delegates Group",
+    category: "delegates",
+    title: "Working Group",
+    year: "2024"
   },
   {
     id: "img7",
-    src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
-    alt: "Team Collaboration",
+    src: "https://i.postimg.cc/BnmxP1gV/image.jpg",
+    alt: "Panel Discussion",
     category: "events",
-    title: "Collaborative Session"
+    title: "Expert Panel",
+    year: "2024"
   },
   {
     id: "img8",
-    src: "https://images.unsplash.com/photo-1531482615713-2afd69097998",
-    alt: "Conference Room",
+    src: "https://i.postimg.cc/G36g962y/image.png",
+    alt: "Opening Ceremony",
     category: "events",
-    title: "Strategic Planning"
+    title: "Opening Ceremony",
+    year: "2024"
   },
   {
     id: "img9",
-    src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87",
-    alt: "MUN Session",
-    category: "events",
-    title: "Diplomatic Discussions"
+    src: "https://i.postimg.cc/7hh9bnvX/image.jpg",
+    alt: "Debate Session",
+    category: "conference",
+    title: "Formal Debate",
+    year: "2024"
   },
   {
     id: "img10",
-    src: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
-    alt: "MUN Conference Panel",
-    category: "events",
-    title: "Panel Discussion"
+    src: "https://i.postimg.cc/cCfRv99R/image.jpg",
+    alt: "Committee Chairs",
+    category: "delegates",
+    title: "Committee Leadership",
+    year: "2024"
   },
   {
     id: "img11",
-    src: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205",
-    alt: "MUN Delegates",
-    category: "events",
-    title: "Delegate Assembly"
+    src: "https://i.postimg.cc/JnnZQ7Tz/image.jpg",
+    alt: "Resolution Drafting",
+    category: "conference",
+    title: "Resolution Workshop",
+    year: "2024"
   },
   {
     id: "img12",
-    src: "https://images.unsplash.com/photo-1560439513-74b037a25d84",
-    alt: "Committee Session",
+    src: "https://i.postimg.cc/tC568VL4/image.jpg",
+    alt: "Secretary General Address",
     category: "events",
-    title: "Committee Debate"
+    title: "Secretary General's Address",
+    year: "2024"
   },
   {
     id: "img13",
-    src: "https://images.unsplash.com/photo-1556761175-b413da4baf72",
-    alt: "Preparation Room",
+    src: "https://i.postimg.cc/GtDQkh2s/image.jpg",
+    alt: "Delegate Awards",
     category: "events",
-    title: "Delegate Preparation"
+    title: "Award Ceremony",
+    year: "2024"
   },
   {
     id: "img14",
-    src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7",
-    alt: "Working Group",
+    src: "https://i.postimg.cc/0Q2dH0Nx/image.jpg",
+    alt: "Working Paper Session",
+    category: "conference",
+    title: "Document Preparation",
+    year: "2024"
+  },
+  {
+    id: "img15",
+    src: "https://i.postimg.cc/50CvrKMh/image.jpg",
+    alt: "Group Photo",
+    category: "delegates",
+    title: "Delegate Group Photo",
+    year: "2024"
+  },
+  {
+    id: "img16",
+    src: "https://i.postimg.cc/dVj5H192/image.jpg",
+    alt: "Committee Vote",
+    category: "conference",
+    title: "Voting Procedure",
+    year: "2024"
+  },
+  {
+    id: "img17",
+    src: "https://i.postimg.cc/hPb8gY7g/image.png",
+    alt: "Moderated Caucus",
+    category: "conference",
+    title: "Moderated Caucus",
+    year: "2024"
+  },
+  {
+    id: "img18",
+    src: "https://i.postimg.cc/pyNjxfPm/image.png",
+    alt: "Delegate Speech",
+    category: "delegates",
+    title: "Position Statement",
+    year: "2024"
+  },
+  {
+    id: "img19",
+    src: "https://i.postimg.cc/bJz3fj37/image.jpg",
+    alt: "Coffee Break",
     category: "events",
-    title: "Working Group Session"
+    title: "Networking Break",
+    year: "2024"
   },
-  
   {
-    id: "mun-img1",
-    src: "https://drive.google.com/uc?export=view&id=1KWlvoR7F9qNJYMrYEVyFQTWwB7PPKEvi",
-    alt: "MUN Conference 2024",
+    id: "img20",
+    src: "https://i.postimg.cc/632LX5C1/image.jpg",
+    alt: "Diplomatic Discussion",
     category: "conference",
-    title: "MUN Conference 2024"
+    title: "Diplomatic Exchange",
+    year: "2024"
   },
   {
-    id: "mun-img2",
-    src: "https://drive.google.com/uc?export=view&id=1cQ1KXkPWESLOCIWiubz5eoWyvbICQLOO",
-    alt: "Delegate Discussion 2024",
+    id: "img21",
+    src: "https://i.postimg.cc/43XzmQVt/image.jpg",
+    alt: "Unmoderated Caucus",
     category: "delegates",
-    title: "Delegate Discussion 2024"
+    title: "Informal Discussions",
+    year: "2024"
   },
   {
-    id: "mun-img3",
-    src: "https://drive.google.com/uc?export=view&id=1AA5HEcFQmD_MMCbUx-3BrCJzfzGPXo9H",
-    alt: "Committee Session 2024",
-    category: "conference",
-    title: "Committee Session 2024"
-  },
-  {
-    id: "mun-img4",
-    src: "https://drive.google.com/uc?export=view&id=1wvGMY7cyaythJ6qR18DIl7x0GzSZ6KO1",
-    alt: "Delegate Presentation 2024",
-    category: "delegates",
-    title: "Delegate Presentation 2024"
-  },
-  {
-    id: "mun-img5",
-    src: "https://drive.google.com/uc?export=view&id=1Cu2DOA9UkgM6iME1Hr0JEy2MemxpBr2c",
-    alt: "Conference Hall 2024",
-    category: "conference",
-    title: "Conference Hall 2024"
-  },
-  {
-    id: "mun-img6",
-    src: "https://drive.google.com/uc?export=view&id=10hE6NV8AMNcxGFGxr5Td1UDrEYrAYLtG",
-    alt: "Delegates Group 2024",
-    category: "delegates",
-    title: "Delegates Group 2024"
-  },
-  {
-    id: "mun-img7",
-    src: "https://drive.google.com/uc?export=view&id=1gEBb7ISTl6jsJQPEScfoSJVuJ57sdwig",
-    alt: "Panel Discussion 2024",
+    id: "img22",
+    src: "https://i.postimg.cc/FsjpzR8M/image.jpg",
+    alt: "Keynote Speaker",
     category: "events",
-    title: "Panel Discussion 2024"
+    title: "Keynote Address",
+    year: "2024"
   },
   {
-    id: "mun-img8",
-    src: "https://drive.google.com/uc?export=view&id=1BIfLjlgAxSJPYdWUU5itbgmGWTKW2L9j",
-    alt: "Opening Ceremony 2024",
+    id: "img23",
+    src: "https://i.postimg.cc/h4VTbYsx/image.jpg",
+    alt: "Committee Chair Discussion",
+    category: "delegates",
+    title: "Leadership Meeting",
+    year: "2024"
+  },
+  {
+    id: "img24",
+    src: "https://i.postimg.cc/xdQPL2DX/image.jpg",
+    alt: "Roll Call",
+    category: "conference",
+    title: "Roll Call Procedure",
+    year: "2024"
+  },
+  {
+    id: "img25",
+    src: "https://i.postimg.cc/43np6N2N/image.jpg",
+    alt: "Closing Ceremony",
     category: "events",
-    title: "Opening Ceremony 2024"
+    title: "Closing Session",
+    year: "2024"
   },
   {
-    id: "mun-img9",
-    src: "https://drive.google.com/uc?export=view&id=1koioZAAHZ7DMWfhvEwC24EVPr3A1iWiU",
-    alt: "Debate Session 2024",
-    category: "conference",
-    title: "Debate Session 2024"
-  },
-  {
-    id: "mun-img10",
-    src: "https://drive.google.com/uc?export=view&id=1VG5o9l9Fh31OwFvUxgtMlo588e-JuXD-",
-    alt: "Committee Chairs 2024",
+    id: "img26",
+    src: "https://i.postimg.cc/wTJfNFyb/image.png",
+    alt: "Delegate Huddle",
     category: "delegates",
-    title: "Committee Chairs 2024"
+    title: "Strategy Meeting",
+    year: "2024"
   },
   {
-    id: "mun-img11",
-    src: "https://drive.google.com/uc?export=view&id=1HXmKwwRKPvKHyixuZAHDOR9_grSoB3CG",
-    alt: "Resolution Drafting 2024",
+    id: "img27",
+    src: "https://i.postimg.cc/HnN2M8dm/image.jpg",
+    alt: "Resolution Presentation",
     category: "conference",
-    title: "Resolution Drafting 2024"
+    title: "Resolution Defense",
+    year: "2024"
   },
   {
-    id: "mun-img12",
-    src: "https://drive.google.com/uc?export=view&id=1WpNSX02xKxhSfVnMGhdRle_PlIM35uJ-",
-    alt: "Secretary General Address 2024",
+    id: "img28",
+    src: "https://i.postimg.cc/QN7kYC8F/image.png",
+    alt: "Debate Session",
+    category: "conference",
+    title: "Active Debate",
+    year: "2024"
+  },
+  {
+    id: "img29",
+    src: "https://i.postimg.cc/3RcpfM6C/image.png",
+    alt: "Team Building",
     category: "events",
-    title: "Secretary General Address 2024"
+    title: "Team Activity",
+    year: "2024"
   },
   {
-    id: "mun-img13",
-    src: "https://drive.google.com/uc?export=view&id=1z8dW5-TSK7vguJlgcsMsc6T3d6pgUI9b",
-    alt: "Delegate Awards 2024",
+    id: "img30",
+    src: "https://i.postimg.cc/N00kdxFt/image.jpg",
+    alt: "Delegate Negotiation",
+    category: "delegates",
+    title: "Negotiation Session",
+    year: "2024"
+  },
+  {
+    id: "img31",
+    src: "https://i.postimg.cc/YCKNwHSd/image.jpg",
+    alt: "Welcome Session",
     category: "events",
-    title: "Delegate Awards 2024"
+    title: "Welcome Address",
+    year: "2024"
   },
   {
-    id: "mun-img14",
-    src: "https://drive.google.com/uc?export=view&id=1CRdPx8xC44YT1R4BlRJ5-SkwJ3s1FSag",
-    alt: "Working Paper Session 2024",
+    id: "img32",
+    src: "https://i.postimg.cc/HkkMmkg4/image.jpg",
+    alt: "Committee Work",
     category: "conference",
-    title: "Working Paper Session 2024"
+    title: "Committee Progress",
+    year: "2024"
   },
   {
-    id: "mun-img15",
-    src: "https://drive.google.com/uc?export=view&id=1IzXhcgf95Mfe_xq4-xRUnOagemDmWvl8",
-    alt: "Group Photo 2024",
+    id: "img33",
+    src: "https://i.postimg.cc/44HBCw5N/image.jpg",
+    alt: "Delegate Briefing",
     category: "delegates",
-    title: "Group Photo 2024"
+    title: "Briefing Session",
+    year: "2024"
   },
   {
-    id: "mun-img16",
-    src: "https://drive.google.com/uc?export=view&id=1LlZbmLr48xsdQHoy_DldFHsJHUn1xW_h",
-    alt: "Committee Vote 2024",
+    id: "img34",
+    src: "https://i.postimg.cc/rmnC6Rd4/image.jpg",
+    alt: "Committee Photo",
     category: "conference",
-    title: "Committee Vote 2024"
+    title: "Committee Group",
+    year: "2024"
   },
   {
-    id: "mun-img17",
-    src: "https://drive.google.com/uc?export=view&id=1dkxGCUHoVFZsVaNrqzpHyr7JanTLAd1U",
-    alt: "Moderated Caucus 2024",
-    category: "conference",
-    title: "Moderated Caucus 2024"
-  },
-  {
-    id: "mun-img18",
-    src: "https://drive.google.com/uc?export=view&id=173qPtWcSdvcNPN2pg1WH0YoKnxKWn4ZI",
-    alt: "Delegate Speech 2024",
-    category: "delegates",
-    title: "Delegate Speech 2024"
-  },
-  {
-    id: "mun-img19",
-    src: "https://drive.google.com/uc?export=view&id=1eZYjtUgAeRSySbDc0kDZYEYzqaEIPpBT",
-    alt: "Coffee Break 2024",
+    id: "img35",
+    src: "https://i.postimg.cc/J0CJC3rG/image.jpg",
+    alt: "Delegate Award Ceremony",
     category: "events",
-    title: "Coffee Break 2024"
+    title: "Recognition Ceremony",
+    year: "2024"
   },
   {
-    id: "mun-img20",
-    src: "https://drive.google.com/uc?export=view&id=1IPNPvD_JmsLlyS3Ym9rXBso3E-V15_F3",
-    alt: "Diplomatic Discussion 2024",
+    id: "img36",
+    src: "https://i.postimg.cc/HkYwLtQM/image.png",
+    alt: "Committee Discussion",
     category: "conference",
-    title: "Diplomatic Discussion 2024"
+    title: "Policy Discussion",
+    year: "2024"
   },
   {
-    id: "mun-img21",
-    src: "https://drive.google.com/uc?export=view&id=1Hq6lVpKZ880v7b2AQWFQn5YRHbmHnKVo",
-    alt: "Unmoderated Caucus 2024",
+    id: "img37",
+    src: "https://i.postimg.cc/852dPQHk/image.jpg",
+    alt: "Delegate Preparation",
     category: "delegates",
-    title: "Unmoderated Caucus 2024"
+    title: "Preparation Time",
+    year: "2024"
   },
   {
-    id: "mun-img22",
-    src: "https://drive.google.com/uc?export=view&id=1SwbEfb3NbFM5f5pIt3WKhc-XFW6U85ro",
-    alt: "Keynote Speaker 2024",
+    id: "img38",
+    src: "https://i.postimg.cc/Dz51s4PN/image.jpg",
+    alt: "Committee Chair Meeting",
+    category: "delegates",
+    title: "Chair Coordination",
+    year: "2024"
+  },
+  {
+    id: "img39",
+    src: "https://i.postimg.cc/y8sPZKzk/image.jpg",
+    alt: "Resolution Voting",
+    category: "conference",
+    title: "Resolution Voting",
+    year: "2024"
+  },
+  {
+    id: "img40",
+    src: "https://i.postimg.cc/15P6WK7d/image.jpg",
+    alt: "Networking Event",
     category: "events",
-    title: "Keynote Speaker 2024"
+    title: "Networking Session",
+    year: "2024"
   },
   {
-    id: "mun-img23",
-    src: "https://drive.google.com/uc?export=view&id=1CVSvwD_YW8dnE_mNUqZOeSqkk32MCKvV",
-    alt: "Committee Chair Discussion 2024",
-    category: "delegates",
-    title: "Committee Chair Discussion 2024"
-  },
-  {
-    id: "mun-img24",
-    src: "https://drive.google.com/uc?export=view&id=101cf2Md83Yf-SQKChdlnqcxOFPjmiNoC",
-    alt: "Roll Call 2024",
-    category: "conference",
-    title: "Roll Call 2024"
-  },
-  {
-    id: "mun-img25",
-    src: "https://drive.google.com/uc?export=view&id=1m1z1I3T4j-0wcunnQvT13JR5gYP_M80X",
-    alt: "Closing Ceremony 2024",
+    id: "img41",
+    src: "https://i.postimg.cc/XvhdQStK/image.jpg",
+    alt: "Conference Registration",
     category: "events",
-    title: "Closing Ceremony 2024"
+    title: "Registration Desk",
+    year: "2024"
   },
   {
-    id: "mun-img26",
-    src: "https://drive.google.com/uc?export=view&id=1Ee6UAXLJ01zyujWblXxnDHsnUqW2unBD",
-    alt: "Delegate Huddle 2024",
+    id: "img42",
+    src: "https://i.postimg.cc/4xg8Qtp4/image.jpg",
+    alt: "Security Council Session",
+    category: "conference",
+    title: "Security Council",
+    year: "2024"
+  },
+  {
+    id: "img43",
+    src: "https://i.postimg.cc/brSnKCfX/image.png",
+    alt: "Delegate Coordination",
     category: "delegates",
-    title: "Delegate Huddle 2024"
+    title: "Coordination Meeting",
+    year: "2024"
   },
   {
-    id: "mun-img27",
-    src: "https://drive.google.com/uc?export=view&id=1RZiIAADfYPvZ6j4dwseupFORpoqgroBj",
-    alt: "Resolution Presentation 2024",
-    category: "conference",
-    title: "Resolution Presentation 2024"
-  },
-  {
-    id: "mun-img28",
-    src: "https://drive.google.com/uc?export=view&id=1a244nY-Nwk-uPkfheNRwb7MekHk-kThO",
-    alt: "Debate Session 2024",
-    category: "conference",
-    title: "Debate Session 2024"
-  },
-  {
-    id: "mun-img29",
-    src: "https://drive.google.com/uc?export=view&id=1PZWFiPSEfA1jkjeYmta6HsjCavcleb0H",
-    alt: "Team Building 2024",
+    id: "img44",
+    src: "https://i.postimg.cc/zBrXJxhZ/DSC02190.jpg",
+    alt: "Conference Lounge",
     category: "events",
-    title: "Team Building 2024"
+    title: "Delegate Lounge",
+    year: "2024"
   },
   {
-    id: "mun-img30",
-    src: "https://drive.google.com/uc?export=view&id=19JtoQPJxsW-scj8NZ_eduxD_Z1oIj3cI",
-    alt: "Delegate Negotiation 2024",
+    id: "img45",
+    src: "https://i.postimg.cc/j54qCy6W/DSC02194.jpg",
+    alt: "Delegate Interaction",
     category: "delegates",
-    title: "Delegate Negotiation 2024"
+    title: "Inter-Delegate Discussion",
+    year: "2024"
   },
   {
-    id: "mun-img31",
-    src: "https://drive.google.com/uc?export=view&id=1i4qlBfgA62Ejm2FhbqBsMDlO_48fvxHz",
-    alt: "Welcome Session 2024",
+    id: "img46",
+    src: "https://i.postimg.cc/zDpXrSX6/DSC02197.jpg",
+    alt: "Committee Session",
+    category: "conference",
+    title: "Committee Progress",
+    year: "2024"
+  },
+  {
+    id: "img47",
+    src: "https://i.postimg.cc/NfzsysXx/DSC02211.jpg",
+    alt: "Delegate Speech",
+    category: "delegates",
+    title: "Policy Statement",
+    year: "2024"
+  },
+  {
+    id: "img48",
+    src: "https://i.postimg.cc/SNsQN2ns/DSC02213.jpg",
+    alt: "Discussion Group",
+    category: "conference",
+    title: "Discussion Circle",
+    year: "2024"
+  },
+  {
+    id: "img49",
+    src: "https://i.postimg.cc/sgGV7k9C/DSC02224.jpg",
+    alt: "MUN Team",
+    category: "delegates",
+    title: "Delegation Team",
+    year: "2024"
+  },
+  {
+    id: "img50",
+    src: "https://i.postimg.cc/LsdmTxNY/DSC02238.jpg",
+    alt: "Committee Break",
     category: "events",
-    title: "Welcome Session 2024"
+    title: "Between Sessions",
+    year: "2024"
   },
   {
-    id: "mun-img32",
-    src: "https://drive.google.com/uc?export=view&id=1dD3h-wdyM-QRpck96FXBTeE0Gpz20wKX",
-    alt: "Committee Work 2024",
+    id: "img51",
+    src: "https://i.postimg.cc/wM3KHNwY/DSC02761.jpg",
+    alt: "General Assembly",
     category: "conference",
-    title: "Committee Work 2024"
+    title: "General Assembly",
+    year: "2024"
   },
   {
-    id: "mun-img33",
-    src: "https://drive.google.com/uc?export=view&id=1c99uwR_JzG-j4TJSWdUu-WR60xvk0iQ4",
-    alt: "Delegate Briefing 2024",
+    id: "img52",
+    src: "https://i.postimg.cc/0j4TNN4M/DSC02795.jpg",
+    alt: "Committee Chairs",
     category: "delegates",
-    title: "Delegate Briefing 2024"
+    title: "Committee Leadership",
+    year: "2024"
   },
   {
-    id: "mun-img34",
-    src: "https://drive.google.com/uc?export=view&id=1FID6GpoQhcH_0V9eJ86JkGKx-f8N3Eps",
-    alt: "Committee Photo 2024",
+    id: "img53",
+    src: "https://i.postimg.cc/nVwb2dLF/DSC02801.jpg",
+    alt: "Resolution Writing",
     category: "conference",
-    title: "Committee Photo 2024"
+    title: "Resolution Draft",
+    year: "2024"
   },
   {
-    id: "mun-img35",
-    src: "https://drive.google.com/uc?export=view&id=1QFIwisrFfkabJpLkYQGGu-Ay_lAL3rl1",
-    alt: "Delegate Award Ceremony 2024",
+    id: "img54",
+    src: "https://i.postimg.cc/X7GMzwZw/DSC02971.jpg",
+    alt: "Conference Venue",
     category: "events",
-    title: "Delegate Award Ceremony 2024"
+    title: "Conference Center",
+    year: "2024"
   },
   {
-    id: "mun-img36",
-    src: "https://drive.google.com/uc?export=view&id=1LIQOP63lPtPBB2d_6e5EUf2VEL4ApsWl",
-    alt: "Committee Discussion 2024",
-    category: "conference",
-    title: "Committee Discussion 2024"
-  },
-  {
-    id: "mun-img37",
-    src: "https://drive.google.com/uc?export=view&id=1Iw7IYR2RoBXBDhdee80bgt_A9tdxtx5B",
-    alt: "Delegate Preparation 2024",
+    id: "img55",
+    src: "https://i.postimg.cc/nLvpwqPd/DSC03128.jpg",
+    alt: "Delegation Meeting",
     category: "delegates",
-    title: "Delegate Preparation 2024"
+    title: "Delegation Meeting",
+    year: "2024"
   },
   {
-    id: "mun-img38",
-    src: "https://drive.google.com/uc?export=view&id=1TyRTu3kehWMkCa7aPWyWvTkw8bc7L7lj",
-    alt: "Committee Chair Meeting 2024",
-    category: "delegates",
-    title: "Committee Chair Meeting 2024"
-  },
-  {
-    id: "mun-img39",
-    src: "https://drive.google.com/uc?export=view&id=1cMug8-1QYAfjO0qY5Q977KYULFXdyQMD",
-    alt: "Resolution Voting 2024",
+    id: "img56",
+    src: "https://i.postimg.cc/W3TTRhRs/DSC03134.jpg",
+    alt: "Committee Group",
     category: "conference",
-    title: "Resolution Voting 2024"
+    title: "Committee Members",
+    year: "2024"
   },
   {
-    id: "mun-img40",
-    src: "https://drive.google.com/uc?export=view&id=13ZimNOr2Hjuj5iyY2O0IYAYPkpNNfqAT",
-    alt: "Networking Event 2024",
+    id: "img57",
+    src: "https://i.postimg.cc/Tw0GTfGg/DSC03136.jpg",
+    alt: "Delegate Caucus",
+    category: "delegates",
+    title: "Caucus Session",
+    year: "2024"
+  },
+  {
+    id: "img58",
+    src: "https://i.postimg.cc/T1PxwFYS/DSC03165.jpg",
+    alt: "Note Passing",
+    category: "conference",
+    title: "Diplomatic Notes",
+    year: "2024"
+  },
+  {
+    id: "img59",
+    src: "https://i.postimg.cc/qMPfVznW/DSC03191.jpg",
+    alt: "Committee Chairs Panel",
+    category: "delegates",
+    title: "Chair Panel",
+    year: "2024"
+  },
+  {
+    id: "img60",
+    src: "https://i.postimg.cc/W1gB2Twz/DSC03256.jpg",
+    alt: "Conference Setup",
     category: "events",
-    title: "Networking Event 2024"
+    title: "Conference Preparation",
+    year: "2024"
   },
   {
-    id: "mun-img41",
-    src: "https://drive.google.com/uc?export=view&id=1Xk9HahDFn5n-xsV9cnKdebpH6iOEcZIM",
-    alt: "Conference Registration 2024",
+    id: "img61",
+    src: "https://i.postimg.cc/J0Qyw9Y2/DSC03269.jpg",
+    alt: "Committee Discussion",
+    category: "conference",
+    title: "Policy Discussion",
+    year: "2024"
+  },
+  {
+    id: "img62",
+    src: "https://i.postimg.cc/qBc6C3Bx/DSC03274.jpg",
+    alt: "Delegate Group",
+    category: "delegates",
+    title: "Delegate Group",
+    year: "2024"
+  },
+  {
+    id: "img63",
+    src: "https://i.postimg.cc/d3SYT6h0/DSC-0143.jpg",
+    alt: "Conference Registration",
     category: "events",
-    title: "Conference Registration 2024"
+    title: "Registration Process",
+    year: "2024"
   },
   {
-    id: "mun-img42",
-    src: "https://drive.google.com/uc?export=view&id=1DYFkdnZrvgCiNC-ilKsiOJj2Kn2yGEKK",
-    alt: "Security Council Session 2024",
+    id: "img64",
+    src: "https://i.postimg.cc/SQZq5Sgp/DSC-0168.jpg",
+    alt: "Committee Work",
     category: "conference",
-    title: "Security Council Session 2024"
+    title: "Working Session",
+    year: "2024"
   },
   {
-    id: "mun-img43",
-    src: "https://drive.google.com/uc?export=view&id=1n8s2n2FDW48PnW491EDS-bp95WAkzV2K",
-    alt: "Delegate Coordination 2024",
+    id: "img65",
+    src: "https://i.postimg.cc/qvVFDWHT/DSC-0212.jpg",
+    alt: "Delegate Meeting",
     category: "delegates",
-    title: "Delegate Coordination 2024"
+    title: "Delegate Meeting",
+    year: "2024"
   },
   {
-    id: "mun-img44",
-    src: "https://drive.google.com/uc?export=view&id=1vpiiF-R88JBNRJWG7aZ2hLqG54BU1rSz",
-    alt: "Conference Lounge 2024",
+    id: "img66",
+    src: "https://i.postimg.cc/FsDfTXLf/DSC-0216.jpg",
+    alt: "Opening Address",
     category: "events",
-    title: "Conference Lounge 2024"
+    title: "Opening Speech",
+    year: "2024"
   },
   {
-    id: "mun-img45",
-    src: "https://drive.google.com/uc?export=view&id=1e3SmE4HjpTe7IQ5jowHhpG7VoUobacCI",
-    alt: "Delegate Interaction 2024",
-    category: "delegates",
-    title: "Delegate Interaction 2024"
-  },
-  {
-    id: "mun-img46",
-    src: "https://drive.google.com/uc?export=view&id=1HYqEW57L8-nXeKr0OVmFeDAwX7uqQOmk",
-    alt: "Committee Session 2024",
+    id: "img67",
+    src: "https://i.postimg.cc/YqhkB5PL/DSC-0269.jpg",
+    alt: "Committee Session",
     category: "conference",
-    title: "Committee Session 2024"
+    title: "Full Committee",
+    year: "2024"
   },
   {
-    id: "mun-img47",
-    src: "https://drive.google.com/uc?export=view&id=1LNb-shI0s3Q_4HvMWYWcBniKM-LlYzkX",
-    alt: "Delegate Speech 2024",
+    id: "img68",
+    src: "https://i.postimg.cc/kgSmBxqn/DSC-0352.jpg",
+    alt: "Delegate Networking",
     category: "delegates",
-    title: "Delegate Speech 2024"
+    title: "Networking Time",
+    year: "2024"
   },
   {
-    id: "mun-img48",
-    src: "https://drive.google.com/uc?export=view&id=1lg7YSL7q8ZnZHw9Q6D2MjuQKEWfjgnrw",
-    alt: "Discussion Group 2024",
+    id: "img69",
+    src: "https://i.postimg.cc/25FNxr1M/DSC-0353.jpg",
+    alt: "Committee Photo",
     category: "conference",
-    title: "Discussion Group 2024"
+    title: "Committee Photo",
+    year: "2024"
   },
   {
-    id: "mun-img49",
-    src: "https://drive.google.com/uc?export=view&id=1kUD1ZyLcKyPCeFVfXlE05bLNBskSOCX-",
-    alt: "MUN Team 2024",
+    id: "img70",
+    src: "https://i.postimg.cc/85Z8q4Bb/DSC-0358.jpg",
+    alt: "Delegation Photo",
     category: "delegates",
-    title: "MUN Team 2024"
+    title: "Delegation Photo",
+    year: "2024"
   },
   {
-    id: "mun-img50",
-    src: "https://drive.google.com/uc?export=view&id=1mH7BHNX0L1Kd_-AqENDK8UrExw8MLr23",
-    alt: "Committee Break 2024",
+    id: "img71",
+    src: "https://i.postimg.cc/4dfkLqtd/DSC-0362.jpg",
+    alt: "Conference Panel",
     category: "events",
-    title: "Committee Break 2024"
+    title: "Expert Panel",
+    year: "2024"
   },
   {
-    id: "mun-img51",
-    src: "https://drive.google.com/uc?export=view&id=1l195mZgTmqpW1w0afiujxOewEZHY7Wj9",
-    alt: "General Assembly 2024",
+    id: "img72",
+    src: "https://i.postimg.cc/1zZZ6f3D/DSC-0379.jpg",
+    alt: "Committee Debate",
     category: "conference",
-    title: "General Assembly 2024"
+    title: "Formal Debate",
+    year: "2024"
   },
   {
-    id: "mun-img52",
-    src: "https://drive.google.com/uc?export=view&id=17e9OaJqYusY4Qbtg--fxieJqfkOFd0JJ",
-    alt: "Committee Chairs 2024",
+    id: "img73",
+    src: "https://i.postimg.cc/bwZvLDPM/DSC-0382.jpg",
+    alt: "Delegate Discussion",
     category: "delegates",
-    title: "Committee Chairs 2024"
+    title: "Policy Discussion",
+    year: "2024"
   },
   {
-    id: "mun-img53",
-    src: "https://drive.google.com/uc?export=view&id=1Xu4AgY5FEVZze7RLY9-bFV5nj8m0RD-L",
-    alt: "Resolution Writing 2024",
-    category: "conference",
-    title: "Resolution Writing 2024"
-  },
-  {
-    id: "mun-img54",
-    src: "https://drive.google.com/uc?export=view&id=1_8fIppthx0BYVvYgY07ebCW4egHq5rVM",
-    alt: "Conference Venue 2024",
+    id: "img74",
+    src: "https://i.postimg.cc/P5057Xrq/DSC-0396.jpg",
+    alt: "Coffee Break",
     category: "events",
-    title: "Conference Venue 2024"
+    title: "Refreshment Break",
+    year: "2024"
   },
   {
-    id: "mun-img55",
-    src: "https://drive.google.com/uc?export=view&id=1p7BjFcJBhWxjTeXiC7Ja7xjV9ncHKkpO",
-    alt: "Delegation Meeting 2024",
-    category: "delegates",
-    title: "Delegation Meeting 2024"
-  },
-  {
-    id: "mun-img56",
-    src: "https://drive.google.com/uc?export=view&id=1SK7ULCVOcBwfbMyjIP1XoqelqwTteSQ_",
-    alt: "Committee Group 2024",
+    id: "img75",
+    src: "https://i.postimg.cc/cC1x36TF/DSC-0402.jpg",
+    alt: "Committee Session",
     category: "conference",
-    title: "Committee Group 2024"
+    title: "Committee in Session",
+    year: "2024"
   },
   {
-    id: "mun-img57",
-    src: "https://drive.google.com/uc?export=view&id=1Mpse2KxSMGTbu-AiyY0bro_HI1uJSwZW",
-    alt: "Delegate Caucus 2024",
+    id: "img76",
+    src: "https://i.postimg.cc/fyHwfZrD/DSC-0403.jpg",
+    alt: "Delegate Working Group",
     category: "delegates",
-    title: "Delegate Caucus 2024"
+    title: "Working Group",
+    year: "2024"
   },
   {
-    id: "mun-img58",
-    src: "https://drive.google.com/uc?export=view&id=1PCyILmA4-AOgU5K5I5N-d0A8qSyP9pZS",
-    alt: "Note Passing 2024",
-    category: "conference",
-    title: "Note Passing 2024"
-  },
-  {
-    id: "mun-img59",
-    src: "https://drive.google.com/uc?export=view&id=1_JbFPg-HSGZtieK9JH_6t4QJO3Tups40",
-    alt: "Committee Chairs Panel 2024",
-    category: "delegates",
-    title: "Committee Chairs Panel 2024"
-  },
-  {
-    id: "mun-img60",
-    src: "https://drive.google.com/uc?export=view&id=1YknSPKrqRINKmAR1-wzIka6izfVXNJYK",
-    alt: "Conference Setup 2024",
+    id: "img77",
+    src: "https://i.postimg.cc/pd8LbwpJ/DSC-0440.jpg",
+    alt: "Awards Ceremony",
     category: "events",
-    title: "Conference Setup 2024"
+    title: "Awards Presentation",
+    year: "2024"
   },
   {
-    id: "mun-img61",
-    src: "https://drive.google.com/uc?export=view&id=1WDstYoJSNgVH5X52FedpnEV017MIMjlk",
-    alt: "Committee Discussion 2024",
+    id: "img78",
+    src: "https://i.postimg.cc/65gKWHsj/IMG-8175.jpg",
+    alt: "Committee Vote",
     category: "conference",
-    title: "Committee Discussion 2024"
+    title: "Voting Procedure",
+    year: "2024"
   },
   {
-    id: "mun-img62",
-    src: "https://drive.google.com/uc?export=view&id=1ZxXa7M-qhvjNhbCXULoH7NMdpgBuWt2E",
-    alt: "Delegate Group 2024",
+    id: "img79",
+    src: "https://i.postimg.cc/pX2hQLpb/IMG-9233.jpg",
+    alt: "Delegate Team",
     category: "delegates",
-    title: "Delegate Group 2024"
+    title: "Team Members",
+    year: "2024"
   },
   {
-    id: "mun-img63",
-    src: "https://drive.google.com/uc?export=view&id=1hp0Hh9GTC6aUqz4e6NLJRp3RoLY065I9",
-    alt: "Conference Registration 2024",
+    id: "img80",
+    src: "https://i.postimg.cc/Cx5RtrGc/IMG-9240.jpg",
+    alt: "Conference Presentation",
     category: "events",
-    title: "Conference Registration 2024"
+    title: "Featured Presentation",
+    year: "2024"
   },
   {
-    id: "mun-img64",
-    src: "https://drive.google.com/uc?export=view&id=1uuOwjD5v3-SE9rgvriRMMJ5wCVhaZKpo",
-    alt: "Committee Work 2024",
+    id: "img81",
+    src: "https://i.postimg.cc/VkhJc94m/IMG-9245.jpg",
+    alt: "Committee Discussion",
     category: "conference",
-    title: "Committee Work 2024"
+    title: "Topic Discussion",
+    year: "2024"
   },
   {
-    id: "mun-img65",
-    src: "https://drive.google.com/uc?export=view&id=1pvGMBzaHVSuH6EVMbe4lLZliPSB-l9Lf",
-    alt: "Delegate Meeting 2024",
+    id: "img82",
+    src: "https://i.postimg.cc/85Qs71qY/IMG-9247.jpg",
+    alt: "Delegate Preparation",
     category: "delegates",
-    title: "Delegate Meeting 2024"
+    title: "Research Time",
+    year: "2024"
   },
   {
-    id: "mun-img66",
-    src: "https://drive.google.com/uc?export=view&id=1wjyV_dnM1gC6F1JzNQO_aSwn9b7U2e2f",
-    alt: "Opening Address 2024",
+    id: "img83",
+    src: "https://i.postimg.cc/rptKydYW/IMG-9276.jpg",
+    alt: "Networking Break",
     category: "events",
-    title: "Opening Address 2024"
+    title: "Between Sessions",
+    year: "2024"
   },
   {
-    id: "mun-img67",
-    src: "https://drive.google.com/uc?export=view&id=1SK7ZhqOfRlciWITV2K_J4NkZFOK4fhpj",
-    alt: "Committee Session 2024",
+    id: "img84",
+    src: "https://i.postimg.cc/1RK4z1MW/IMG-9284.jpg",
+    alt: "Committee Work",
     category: "conference",
-    title: "Committee Session 2024"
+    title: "Collaborative Work",
+    year: "2024"
   },
   {
-    id: "mun-img68",
-    src: "https://drive.google.com/uc?export=view&id=1cu5rmzUxwyCVs4Co5S21dCPacD_ZDacT",
-    alt: "Delegate Networking 2024",
+    id: "img85",
+    src: "https://i.postimg.cc/1XMz7Dfx/IMG-9294.jpg",
+    alt: "Delegate Group Discussion",
     category: "delegates",
-    title: "Delegate Networking 2024"
+    title: "Group Consultation",
+    year: "2024"
   },
   {
-    id: "mun-img69",
-    src: "https://drive.google.com/uc?export=view&id=1MEHntQZXVjw1HfHeBup1I7edthBt8OIb",
-    alt: "Committee Photo 2024",
+    id: "img86",
+    src: "https://i.postimg.cc/SRmsGgQ7/IMG-9297.jpg",
+    alt: "Opening Address",
+    category: "events",
+    title: "Official Opening",
+    year: "2024"
+  },
+  {
+    id: "img87",
+    src: "https://i.postimg.cc/zBCvWsNG/IMG-9310.jpg",
+    alt: "Committee Resolution",
     category: "conference",
-    title: "Committee Photo 2024"
+    title: "Resolution Session",
+    year: "2024"
   },
   {
-    id: "mun-img70",
-    src: "https://drive.google.com/uc?export=view&id=1f5XdHwgWOf9_oiC43NacuV49IiO-EvKp",
-    alt: "Delegation Photo 2024",
+    id: "img88",
+    src: "https://i.postimg.cc/nccrjSPn/IMG-9315.jpg",
+    alt: "Delegate Presentation",
     category: "delegates",
-    title: "Delegation Photo 2024"
+    title: "Position Presentation",
+    year: "2024"
   },
   {
-    id: "mun-img71",
-    src: "https://drive.google.com/uc?export=view&id=1usHIsrXdP1waplVAaEwhBH17rXp-T1HZ",
-    alt: "Conference Panel 2024",
+    id: "img89",
+    src: "https://i.postimg.cc/Kvqzn76B/IMG-9322.jpg",
+    alt: "Closing Session",
     category: "events",
-    title: "Conference Panel 2024"
+    title: "Closing Ceremony",
+    year: "2024"
   },
   {
-    id: "mun-img72",
-    src: "https://drive.google.com/uc?export=view&id=1M-PgwzE5B20ePdxCllmFDtoLkFECl1ab",
-    alt: "Committee Debate 2024",
+    id: "img90",
+    src: "https://i.postimg.cc/VNw3vpKR/IMG-9391.jpg",
+    alt: "Committee Panel",
     category: "conference",
-    title: "Committee Debate 2024"
+    title: "Committee Leadership",
+    year: "2024"
   },
   {
-    id: "mun-img73",
-    src: "https://drive.google.com/uc?export=view&id=1gtpu3cnOda2GCt--C1i05Th2V6vNZJuO",
-    alt: "Delegate Discussion 2024",
+    id: "img91",
+    src: "https://i.postimg.cc/Pxr9zZsv/IMG-9407.jpg",
+    alt: "Delegate Team Work",
     category: "delegates",
-    title: "Delegate Discussion 2024"
+    title: "Teamwork Session",
+    year: "2024"
   },
   {
-    id: "mun-img74",
-    src: "https://drive.google.com/uc?export=view&id=1DNM-WyJEYhWvY_67CTnUz2fozPgVZHdE",
-    alt: "Coffee Break 2024",
+    id: "img92",
+    src: "https://i.postimg.cc/ydQ5fdsQ/IMG-9409.jpg",
+    alt: "Award Ceremony",
     category: "events",
-    title: "Coffee Break 2024"
+    title: "Recognition Ceremony",
+    year: "2024"
   },
   {
-    id: "mun-img75",
-    src: "https://drive.google.com/uc?export=view&id=1eY-bkac0SFLIl_puRTdiSOjt8gK0frnP",
-    alt: "Committee Session 2024",
+    id: "img93",
+    src: "https://i.postimg.cc/N0xZHDVw/IMG-9426.jpg",
+    alt: "Committee Voting",
     category: "conference",
-    title: "Committee Session 2024"
+    title: "Voting Procedure",
+    year: "2024"
   },
   {
-    id: "mun-img76",
-    src: "https://drive.google.com/uc?export=view&id=17aGJdyFDREzz5HL95loYinajMJLjCDUd",
-    alt: "Delegate Working Group 2024",
+    id: "img94",
+    src: "https://i.postimg.cc/tJsc8jgX/IMG-9442.jpg",
+    alt: "Delegate Discussion",
     category: "delegates",
-    title: "Delegate Working Group 2024"
+    title: "Inter-Delegate Talks",
+    year: "2024"
   },
   {
-    id: "mun-img77",
-    src: "https://drive.google.com/uc?export=view&id=11kByUri4ng6DpuOSkUplNskA_pC7uYou",
-    alt: "Awards Ceremony 2024",
+    id: "img95",
+    src: "https://i.postimg.cc/fT0FKDFC/IMG-9497.jpg",
+    alt: "Lunch Break",
     category: "events",
-    title: "Awards Ceremony 2024"
+    title: "Lunch Session",
+    year: "2024"
   },
   {
-    id: "mun-img78",
-    src: "https://drive.google.com/uc?export=view&id=1eCCAdpo9VcQM0-8ePyoN2CfjV9gH30Uh",
-    alt: "Committee Vote 2024",
+    id: "img96",
+    src: "https://i.postimg.cc/WpyCgh9t/IMG-9498.jpg",
+    alt: "Committee Meeting",
     category: "conference",
-    title: "Committee Vote 2024"
+    title: "Committee Meeting",
+    year: "2024"
   },
   {
-    id: "mun-img79",
-    src: "https://drive.google.com/uc?export=view&id=1pUroyxz4sS-uEaRR-p1-C5rNWNgCJ4fZ",
-    alt: "Delegate Team 2024",
+    id: "img97",
+    src: "https://i.postimg.cc/BbRz0V82/IMG-9503.jpg",
+    alt: "Delegate Award",
     category: "delegates",
-    title: "Delegate Team 2024"
+    title: "Award Winner",
+    year: "2024"
   },
   {
-    id: "mun-img80",
-    src: "https://drive.google.com/uc?export=view&id=1sLoWPjmcfD9dLlnE6aYzbsJJUtKC9WYe",
-    alt: "Conference Presentation 2024",
+    id: "img98",
+    src: "https://i.postimg.cc/YStsMgSD/IMG-9504.jpg",
+    alt: "Closing Ceremony",
     category: "events",
-    title: "Conference Presentation 2024"
+    title: "Closing Session",
+    year: "2024"
   },
   {
-    id: "mun-img81",
-    src: "https://drive.google.com/uc?export=view&id=1QElVnpLcPpCJZwwXfvy1yUZWy7_8vpuc",
-    alt: "Committee Discussion 2024",
+    id: "img99",
+    src: "https://i.postimg.cc/W1GHBSsJ/IMG-9507.jpg",
+    alt: "Committee Photo",
     category: "conference",
-    title: "Committee Discussion 2024"
+    title: "Full Committee",
+    year: "2024"
   },
   {
-    id: "mun-img82",
-    src: "https://drive.google.com/uc?export=view&id=1fiQq7DKSLZT-rXK7-VSjQ36ye6v_tEip",
-    alt: "Delegate Preparation 2024",
-    category: "delegates",
-    title: "Delegate Preparation 2024"
-  },
-  {
-    id: "mun-img83",
-    src: "https://drive.google.com/uc?export=view&id=1f5XdHwgWOf9_oiC43NacuV49IiO-EvKp",
-    alt: "Networking Break 2024",
+    id: "img100",
+    src: "https://i.postimg.cc/vHQh1MyD/Whats-App-Image-2025-03-22-at-22-33-07-7a851ca0.jpg",
+    alt: "MUN Conference",
     category: "events",
-    title: "Networking Break 2024"
-  },
-  {
-    id: "mun-img84",
-    src: "https://drive.google.com/uc?export=view&id=1MaYixVC_dx-Yq5gwf66VWTUFmXv4wMg7",
-    alt: "Committee Work 2024",
-    category: "conference",
-    title: "Committee Work 2024"
-  },
-  {
-    id: "mun-img85",
-    src: "https://drive.google.com/uc?export=view&id=1MpIQSyH59v2HSFMGhKetAtbcd6lIAHEY",
-    alt: "Delegate Group Discussion 2024",
-    category: "delegates",
-    title: "Delegate Group Discussion 2024"
-  },
-  {
-    id: "mun-img86",
-    src: "https://drive.google.com/uc?export=view&id=131tekepDbljWddYQiWI0VM2nJt8kRA5R",
-    alt: "Opening Address 2024",
-    category: "events",
-    title: "Opening Address 2024"
-  },
-  {
-    id: "mun-img87",
-    src: "https://drive.google.com/uc?export=view&id=1eucMkoiSf1Uy6cDk7eK_NLQ7Bt54TgY8",
-    alt: "Committee Resolution 2024",
-    category: "conference",
-    title: "Committee Resolution 2024"
-  },
-  {
-    id: "mun-img88",
-    src: "https://drive.google.com/uc?export=view&id=1VsG-bhEmeurLHFjDrgK3X9I4U_0YRhBl",
-    alt: "Delegate Presentation 2024",
-    category: "delegates",
-    title: "Delegate Presentation 2024"
-  },
-  {
-    id: "mun-img89",
-    src: "https://drive.google.com/uc?export=view&id=1VkBvttRgIKT-7SaIplwWVj4AGtEfUyu0",
-    alt: "Closing Session 2024",
-    category: "events",
-    title: "Closing Session 2024"
-  },
-  {
-    id: "mun-img90",
-    src: "https://drive.google.com/uc?export=view&id=1f5XdHwgWOf9_oiC43NacuV49IiO-EvKp",
-    alt: "Committee Panel 2024",
-    category: "conference",
-    title: "Committee Panel 2024"
-  },
-  {
-    id: "mun-img91",
-    src: "https://drive.google.com/uc?export=view&id=1FOQnETR5q7ZzlEigUDNQSD3KT2NxJcfg",
-    alt: "Delegate Team Work 2024",
-    category: "delegates",
-    title: "Delegate Team Work 2024"
-  },
-  {
-    id: "mun-img92",
-    src: "https://drive.google.com/uc?export=view&id=1TaO1yy1uXmFyYr_hEjUk0m-Eflv418fG",
-    alt: "Award Ceremony 2024",
-    category: "events",
-    title: "Award Ceremony 2024"
-  },
-  {
-    id: "mun-img93",
-    src: "https://drive.google.com/uc?export=view&id=1xQxTXAKiXLjnBVoXIVVlEVMiCmkERr_T",
-    alt: "Committee Voting 2024",
-    category: "conference",
-    title: "Committee Voting 2024"
-  },
-  {
-    id: "mun-img94",
-    src: "https://drive.google.com/uc?export=view&id=11Wps0EDQ8ccdpqZyD1qEqBGvit3zEcrr",
-    alt: "Delegate Discussion 2024",
-    category: "delegates",
-    title: "Delegate Discussion 2024"
-  },
-  {
-    id: "mun-img95",
-    src: "https://drive.google.com/uc?export=view&id=1tWVI3sJffnkdd-ewg4lgSrJyDRd5yrdi",
-    alt: "Lunch Break 2024",
-    category: "events",
-    title: "Lunch Break 2024"
-  },
-  {
-    id: "mun-img96",
-    src: "https://drive.google.com/uc?export=view&id=1xPg0hRrs0K7y8ihiGIw_fhm3UIy9Kv9E",
-    alt: "Committee Meeting 2024",
-    category: "conference",
-    title: "Committee Meeting 2024"
-  },
-  {
-    id: "mun-img97",
-    src: "https://drive.google.com/uc?export=view&id=1EcjX-FyYKWjOPcULtgnY9LFigkaH2gNX",
-    alt: "Delegate Award 2024",
-    category: "delegates",
-    title: "Delegate Award 2024"
-  },
-  {
-    id: "mun-img98",
-    src: "https://drive.google.com/uc?export=view&id=1nXcAQyAB2rcMkXehDrXsUfJkfNxVFB6V",
-    alt: "Closing Ceremony 2024",
-    category: "events",
-    title: "Closing Ceremony 2024"
-  },
-  {
-    id: "mun-img99",
-    src: "https://drive.google.com/uc?export=download&id=17dawdeRGMJ7FXkMgTY3JcO5fZSaqQOPX",
-    alt: "Committee Photo 2024",
-    category: "conference",
-    title: "Committee Photo 2024"
-  },
-  {
-    id: "mun-img100",
-    src: "https://drive.google.com/uc?export=download&id=16NUWftqSJuAsrBt9ecFSfTgP9Lb_XqmJ",
-    alt: "MUN Conference 2024",
-    category: "events",
-    title: "MUN Conference 2024"
+    title: "Conference Highlight",
+    year: "2024"
   }
 ];
 
