@@ -27,7 +27,7 @@ const guideResources = [{
   title: "Study Guides",
   description: "Study Guides of the commitees.",
   icon: ScrollText,
-  link: "https://drive.google.com/drive/folders/1d8iPqYye3Gr-n0hpDNAKHdJevklLMzcM",
+  link: "https://drive.google.com/drive/folders/1D_jJuMTzNRoSGnL5hnxCkedSeG2dXGVA?usp=sharing",
   image: "/lovable-uploads/study guide.png"
 }, {
   title: "UN charter",
