@@ -72,7 +72,7 @@ export const seniorMUNNewsletters: Newsletter[] = [
     title: "JBCN SENIOR MUN 2025",
     date: "2025",
     description: "Coming soon! The 2025 Senior MUN newsletter will provide insights into the upcoming conference, committee details, and important information for delegates.",
-    coverImage: "/lovable-uploads/",
+    coverImage: "/lovable-uploads/placeholder.png",
     pdfUrl: "#",
     comingSoon: true
   },
