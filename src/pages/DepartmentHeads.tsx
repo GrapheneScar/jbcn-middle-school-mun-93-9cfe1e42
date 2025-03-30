@@ -1,30 +1,28 @@
-
 import { useEffect } from 'react';
 import PageTransition from '../components/PageTransition';
 import { committeeHeads } from '../components/committees/committee-heads-data';
 import DepartmentSection from '../components/committees/DepartmentSection';
 import StripeBackground from '../components/StripeBackground';
 import { motion } from 'framer-motion';
-
 const DepartmentHeads = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  return (
-    <PageTransition>
+  return <PageTransition>
       <StripeBackground />
       
       <div className="pt-32 pb-12 container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, type: "tween" }}
-          className="text-center mb-12"
-        >
-          <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">
-            The Team
-          </span>
+        <motion.div initial={{
+        opacity: 0,
+        y: 20
+      }} animate={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.6,
+        type: "tween"
+      }} className="text-center mb-12">
+          <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">Meet The Team</span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Department Heads
           </h1>
@@ -42,20 +40,21 @@ const DepartmentHeads = () => {
         </div>
         
         {/* Introduction Card */}
-        <motion.div 
-          className="glass-panel p-8 max-w-4xl mx-auto mb-16 border border-mun-purple/20"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, type: "tween" }}
-        >
+        <motion.div className="glass-panel p-8 max-w-4xl mx-auto mb-16 border border-mun-purple/20" initial={{
+        opacity: 0,
+        y: 20
+      }} animate={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.6,
+        delay: 0.2,
+        type: "tween"
+      }}>
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="md:w-1/3">
               <div className="relative aspect-square rounded-xl overflow-hidden border-2 border-mun-purple/30">
-                <img 
-                  src="/lovable-uploads/logo.png" 
-                  alt="JBCN MUN Logo" 
-                  className="w-full h-full object-contain" 
-                />
+                <img src="/lovable-uploads/logo.png" alt="JBCN MUN Logo" className="w-full h-full object-contain" />
                 <div className="absolute inset-0 bg-mun-purple/10"></div>
               </div>
             </div>
@@ -73,17 +72,9 @@ const DepartmentHeads = () => {
         
         {/* Department Sections */}
         <div className="max-w-6xl mx-auto">
-          {committeeHeads.map((department, index) => (
-            <DepartmentSection 
-              key={department.name} 
-              department={department} 
-              index={index} 
-            />
-          ))}
+          {committeeHeads.map((department, index) => <DepartmentSection key={department.name} department={department} index={index} />)}
         </div>
       </div>
-    </PageTransition>
-  );
+    </PageTransition>;
 };
-
 export default DepartmentHeads;
