@@ -15,19 +15,19 @@ const BaxterMascot = () => {
           duration: 0.5,
           type: "tween"
         }} className="lg:w-1/2 text-left">
-            <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">Meet Our Mascot</span>
+            <span className="inline-block px-4 py-1 text-sm bg-mun-purple rounded-full mb-3 text-center">Meet Our Mascot</span>
             <h2 className="text-5xl font-bold text-white mb-4">Baxter <span className="text-mun-purple-light">The Bear</span></h2>
-            <p className="text-white/90 mb-4">Embodying the ideal delegate</p>
+            <p className="text-white/90 mb-4 text-center">Embodying the ideal delegate</p>
             
-            <p className="text-white/80 mb-4">
+            <p className="text-white/80 mb-4 text-center">
               Courage, perseverance, determination, and power are only some of the characteristics that Baxter shares with our delegates.
             </p>
             
-            <p className="text-white/80 mb-4">
+            <p className="text-white/80 mb-4 text-center">
               One of the more remarkable characteristics of the bear is the ability to adapt to circumstances with an open mind — a crucial skill for all delegates, especially first-timers.
             </p>
             
-            <p className="text-white/80">
+            <p className="text-white/80 text-center">
               There is so much more we can learn from the bear, making Baxter the perfect mascot for the JBCN MUN.
             </p>
           </motion.div>
