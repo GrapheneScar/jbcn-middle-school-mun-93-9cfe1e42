@@ -57,7 +57,7 @@ const SecretaryGeneralSection = () => {
                 <div className="mt-6 text-right">
                   <p className="text-mun-purple-light font-semibold">Ruhika Bhende</p>
                   <p className="text-white/70 text-sm">Secretary-General, JBCN Middle School MUN</p>
-                  <p className="text-white/70 text-xs">Email: secretariat.msm2025@gmail.com</p>
+                  <p className="text-white/70 text-xs">EMAIL: secretariat.msm2025@gmail.com</p>
                 </div>
               </div>
             </div>
