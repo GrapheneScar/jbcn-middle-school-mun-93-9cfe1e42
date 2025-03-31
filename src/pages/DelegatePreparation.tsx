@@ -176,7 +176,7 @@ const RulesOfProcedureContent = () => <motion.div initial={{
     <p className="mb-4">Understanding the rules of procedure is crucial for effective participation in committee sessions.</p>
     
     <div className="mb-8">
-      <h3 className="text-xl font-bold text-mun-purple-light mb-3">Types of Debate</h3>
+      <h3 className="text-xl font-bold text-mun-purple-light mb-3 text-center">Types of Debate</h3>
       <ul className="list-disc ml-6 space-y-2">
         <li><strong>Formal Debate:</strong> Structured speeches followed by questions</li>
         <li><strong>Moderated Caucus:</strong> Focused discussion on a specific aspect of the topic</li>
@@ -186,7 +186,7 @@ const RulesOfProcedureContent = () => <motion.div initial={{
     </div>
     
     <div className="mb-8">
-      <h3 className="text-xl font-bold text-mun-purple-light mb-3">Common Motions</h3>
+      <h3 className="text-xl font-bold text-mun-purple-light mb-3 text-center">Common Motions</h3>
       <ul className="list-disc ml-6 space-y-2">
         <li><strong>Motion for a Moderated Caucus:</strong> Specify topic, total time, and speaking time</li>
         <li><strong>Motion for an Unmoderated Caucus:</strong> Specify total time and purpose</li>
@@ -198,7 +198,7 @@ const RulesOfProcedureContent = () => <motion.div initial={{
     </div>
     
     <div className="bg-black/30 p-6 rounded-lg">
-      <h3 className="text-lg font-bold text-white mb-3">Resolution Process:</h3>
+      <h3 className="text-lg font-bold text-white mb-3 text-center">Resolution Process:</h3>
       <ol className="list-decimal ml-6 space-y-1 text-white/80">
         <li>Working Papers: Initial ideas and proposals</li>
         <li>Draft Resolutions: Formal documents with sponsors and signatories</li>
