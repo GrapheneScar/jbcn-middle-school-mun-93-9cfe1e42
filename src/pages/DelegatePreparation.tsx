@@ -274,7 +274,7 @@ const DelegateAttireContent = () => <motion.div initial={{
       <h3 className="text-xl font-bold text-mun-purple-light mb-3">Western Business Attire</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
-          <h4 className="font-bold text-white mb-2">Option 1:</h4>
+          <h4 className="font-bold text-white mb-2">Boys:</h4>
           <ul className="list-disc ml-6 space-y-2">
             <li>Business suit (solid colors: navy, black, gray)</li>
             <li>Dress shirt (white or light colors)</li>
@@ -284,7 +284,7 @@ const DelegateAttireContent = () => <motion.div initial={{
           </ul>
         </div>
         <div>
-          <h4 className="font-bold text-white mb-2">Option 2:</h4>
+          <h4 className="font-bold text-white mb-2">Girls:</h4>
           <ul className="list-disc ml-6 space-y-2">
             <li>Business suit or blazer with professional skirt/pants</li>
             <li>Blouse or dress shirt</li>
@@ -297,7 +297,7 @@ const DelegateAttireContent = () => <motion.div initial={{
     </div>
     
     <div className="mb-8">
-      <h3 className="text-xl font-bold text-mun-purple-light mb-3">General Guidelines</h3>
+      <h3 className="text-xl font-bold text-mun-purple-light mb-3 text-center">General Guidelines</h3>
       <ul className="list-disc ml-6 space-y-2">
         <li>Attire should be conservative, clean, and pressed</li>
         <li>Avoid flashy accessories or distracting patterns</li>
@@ -308,7 +308,7 @@ const DelegateAttireContent = () => <motion.div initial={{
     </div>
     
     <div className="bg-black/30 p-6 rounded-lg">
-      <h3 className="text-lg font-bold text-white mb-3">What Not to Wear:</h3>
+      <h3 className="text-lg font-bold text-white mb-3 text-center">What Not to Wear:</h3>
       <ul className="list-disc ml-6 space-y-1 text-white/80">
         <li>Jeans, t-shirts, or casual attire</li>
         <li>Sneakers or athletic shoes</li>
