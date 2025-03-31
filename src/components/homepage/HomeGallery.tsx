@@ -11,24 +11,24 @@ const HomeGallery = () => {
   // Gallery images - updated with new URLs
   const galleryImages = [
     {
-      src: "https://i.postimg.cc/GpPqfpJP/image.jpg",
-      alt: "MUN Conference Assembly",
-      title: "General Assembly"
+      src: "https://i.postimg.cc/zDpXrSX6/DSC02197.jpg",
+      alt: "",
+      title: ""
     },
     {
-      src: "https://i.postimg.cc/5tkqTFQC/image.jpg",
-      alt: "Delegate Discussion Session",
-      title: "Conference Discussions"
+      src: "https://i.postimg.cc/VknRSNTy/image.jpg",
+      alt: "",
+      title: ""
     },
     {
       src: "https://i.postimg.cc/W3TTRhRs/DSC03134.jpg",
-      alt: "Committee Group Meeting",
-      title: "Committee Session"
+      alt: "",
+      title: ""
     },
     {
-      src: "https://i.postimg.cc/J0Qyw9Y2/DSC03269.jpg",
+      src: "https://i.postimg.cc/LsdmTxNY/DSC02238.jpg",
       alt: "Policy Discussion",
-      title: "Conference Planning"
+      title: ""
     }
   ];
 
