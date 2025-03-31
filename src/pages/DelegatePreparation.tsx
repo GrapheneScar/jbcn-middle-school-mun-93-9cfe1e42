@@ -224,7 +224,7 @@ const PublicSpeakingContent = () => <motion.div initial={{
     <p className="mb-4">Effective public speaking is key to successful diplomacy in Model UN.</p>
     
     <div className="mb-8">
-      <h3 className="text-xl font-bold text-mun-purple-light mb-3">Opening Speech</h3>
+      <h3 className="text-xl font-bold text-mun-purple-light mb-3 text-center">Opening Speech</h3>
       <ul className="list-disc ml-6 space-y-2">
         <li>Keep it concise (typically 1-1.5 minutes)</li>
         <li>Introduce your country's position and priorities</li>
@@ -234,7 +234,7 @@ const PublicSpeakingContent = () => <motion.div initial={{
     </div>
     
     <div className="mb-8">
-      <h3 className="text-xl font-bold text-mun-purple-light mb-3">Speaking Techniques</h3>
+      <h3 className="text-xl font-bold text-mun-purple-light mb-3 text-center">Speaking Techniques</h3>
       <ul className="list-disc ml-6 space-y-2">
         <li><strong>Structure:</strong> Clear introduction, body, and conclusion</li>
         <li><strong>Pace:</strong> Speak slowly and deliberately</li>
@@ -245,7 +245,7 @@ const PublicSpeakingContent = () => <motion.div initial={{
     </div>
     
     <div className="bg-black/30 p-6 rounded-lg">
-      <h3 className="text-lg font-bold text-white mb-3">Practice Tips:</h3>
+      <h3 className="text-lg font-bold text-white mb-3 text-center">Practice Tips:</h3>
       <ul className="list-disc ml-6 space-y-1 text-white/80">
         <li>Rehearse your speeches aloud multiple times</li>
         <li>Time yourself to stay within allotted speaking time</li>
