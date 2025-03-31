@@ -15,7 +15,7 @@ const BaxterMascot = () => {
           duration: 0.5,
           type: "tween"
         }} className="lg:w-1/2 text-left">
-            <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">Meet our Mascot</span>
+            <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">Meet Our Mascot</span>
             <h2 className="text-5xl font-bold text-white mb-4">Baxter <span className="text-mun-purple-light">The Bear</span></h2>
             <p className="text-white/90 mb-4">Embodying the ideal delegate</p>
             
