@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import PageTransition from '../components/PageTransition';
 import StripeBackground from '../components/StripeBackground';
@@ -11,54 +10,77 @@ import { Link } from 'react-router-dom';
 type PreparationTopic = 'research' | 'position-papers' | 'rules-of-procedure' | 'public-speaking' | 'delegate-attire';
 
 // Delegate preparation research tabs component
-const ResearchTabs = ({ activeTab, setActiveTab }: { activeTab: PreparationTopic, setActiveTab: (tab: PreparationTopic) => void }) => {
-  const tabs: Array<{ id: PreparationTopic, label: string, icon: React.ReactNode }> = [
-    { id: 'research', label: 'Research', icon: <Book className="w-4 h-4 mr-1" /> },
-    { id: 'position-papers', label: 'Position Papers', icon: <FileCheck className="w-4 h-4 mr-1" /> },
-    { id: 'rules-of-procedure', label: 'Rules of Procedure', icon: <Award className="w-4 h-4 mr-1" /> },
-    { id: 'public-speaking', label: 'Public Speaking', icon: <Mic className="w-4 h-4 mr-1" /> },
-    { id: 'delegate-attire', label: 'Delegate Attire', icon: <Pencil className="w-4 h-4 mr-1" /> }
-  ];
-  
-  return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.4, duration: 0.5 }}
-      className="mb-10 max-w-4xl mx-auto"
-    >
+const ResearchTabs = ({
+  activeTab,
+  setActiveTab
+}: {
+  activeTab: PreparationTopic;
+  setActiveTab: (tab: PreparationTopic) => void;
+}) => {
+  const tabs: Array<{
+    id: PreparationTopic;
+    label: string;
+    icon: React.ReactNode;
+  }> = [{
+    id: 'research',
+    label: 'Research',
+    icon: <Book className="w-4 h-4 mr-1" />
+  }, {
+    id: 'position-papers',
+    label: 'Position Papers',
+    icon: <FileCheck className="w-4 h-4 mr-1" />
+  }, {
+    id: 'rules-of-procedure',
+    label: 'Rules of Procedure',
+    icon: <Award className="w-4 h-4 mr-1" />
+  }, {
+    id: 'public-speaking',
+    label: 'Public Speaking',
+    icon: <Mic className="w-4 h-4 mr-1" />
+  }, {
+    id: 'delegate-attire',
+    label: 'Delegate Attire',
+    icon: <Pencil className="w-4 h-4 mr-1" />
+  }];
+  return <motion.div initial={{
+    opacity: 0,
+    y: 20
+  }} animate={{
+    opacity: 1,
+    y: 0
+  }} transition={{
+    delay: 0.4,
+    duration: 0.5
+  }} className="mb-10 max-w-4xl mx-auto">
       <div className="flex flex-wrap justify-center gap-3">
-        {tabs.map((tab) => (
-          <div 
-            key={tab.id} 
-            className={`${activeTab === tab.id ? 'bg-mun-purple' : 'bg-mun-purple/40'} 
+        {tabs.map(tab => <div key={tab.id} className={`${activeTab === tab.id ? 'bg-mun-purple' : 'bg-mun-purple/40'} 
                        text-white px-4 py-2 rounded-full text-sm cursor-pointer 
-                       hover:bg-mun-purple transition-colors duration-300 flex items-center`}
-            onClick={() => setActiveTab(tab.id)}
-          >
+                       hover:bg-mun-purple transition-colors duration-300 flex items-center`} onClick={() => setActiveTab(tab.id)}>
             {tab.icon}
             {tab.label}
-          </div>
-        ))}
+          </div>)}
       </div>
-    </motion.div>
-  );
+    </motion.div>;
 };
 
 // Content sections for each preparation topic
-const ResearchContent = () => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -20 }}
-    transition={{ duration: 0.5 }}
-    className="glass-panel p-8 rounded-xl text-left text-white/90 max-w-4xl mx-auto mb-12"
-  >
+const ResearchContent = () => <motion.div initial={{
+  opacity: 0,
+  y: 20
+}} animate={{
+  opacity: 1,
+  y: 0
+}} exit={{
+  opacity: 0,
+  y: -20
+}} transition={{
+  duration: 0.5
+}} className="glass-panel p-8 rounded-xl text-left text-white/90 max-w-4xl mx-auto mb-12">
     <h2 className="text-2xl font-bold text-white mb-6">Research Guidelines</h2>
     <p className="mb-4">Thorough research is the foundation of a successful MUN experience. Start by understanding your assigned country and its stance on the committee topics.</p>
     
     <div className="mb-8">
-      <h3 className="text-xl font-bold text-mun-purple-light mb-3">Country Profile Research</h3>
+      <h3 className="text-xl font-bold text-mun-purple-light mb-3 text-center">Allocation Profile Research</h3>
       <ul className="list-disc ml-6 space-y-2">
         <li>Political system and government structure</li>
         <li>Economic status and major industries</li>
@@ -69,7 +91,7 @@ const ResearchContent = () => (
     </div>
     
     <div className="mb-8">
-      <h3 className="text-xl font-bold text-mun-purple-light mb-3">Topic Research</h3>
+      <h3 className="text-xl font-bold text-mun-purple-light mb-3 text-center">Topic Research</h3>
       <ul className="list-disc ml-6 space-y-2">
         <li>Background and history of the issue</li>
         <li>Current status and recent developments</li>
@@ -80,7 +102,7 @@ const ResearchContent = () => (
     </div>
     
     <div className="bg-black/30 p-6 rounded-lg">
-      <h3 className="text-lg font-bold text-white mb-3">Recommended Resources:</h3>
+      <h3 className="text-lg font-bold text-white mb-3 text-center">Recommended Resources:</h3>
       <ul className="list-disc ml-6 space-y-1 text-white/80">
         <li>Official United Nations documents and websites</li>
         <li>Your assigned country's government websites</li>
@@ -89,17 +111,19 @@ const ResearchContent = () => (
         <li>NGO reports related to the topics</li>
       </ul>
     </div>
-  </motion.div>
-);
-
-const PositionPapersContent = () => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -20 }}
-    transition={{ duration: 0.5 }}
-    className="glass-panel p-8 rounded-xl text-left text-white/90 max-w-4xl mx-auto mb-12"
-  >
+  </motion.div>;
+const PositionPapersContent = () => <motion.div initial={{
+  opacity: 0,
+  y: 20
+}} animate={{
+  opacity: 1,
+  y: 0
+}} exit={{
+  opacity: 0,
+  y: -20
+}} transition={{
+  duration: 0.5
+}} className="glass-panel p-8 rounded-xl text-left text-white/90 max-w-4xl mx-auto mb-12">
     <h2 className="text-2xl font-bold text-white mb-6">Position Paper Guidelines</h2>
     <p className="mb-4">A position paper outlines your country's stance on the committee topics and demonstrates your understanding of the issues.</p>
     
@@ -135,17 +159,19 @@ const PositionPapersContent = () => (
         <li>Submit by the deadline specified by your committee</li>
       </ul>
     </div>
-  </motion.div>
-);
-
-const RulesOfProcedureContent = () => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -20 }}
-    transition={{ duration: 0.5 }}
-    className="glass-panel p-8 rounded-xl text-left text-white/90 max-w-4xl mx-auto mb-12"
-  >
+  </motion.div>;
+const RulesOfProcedureContent = () => <motion.div initial={{
+  opacity: 0,
+  y: 20
+}} animate={{
+  opacity: 1,
+  y: 0
+}} exit={{
+  opacity: 0,
+  y: -20
+}} transition={{
+  duration: 0.5
+}} className="glass-panel p-8 rounded-xl text-left text-white/90 max-w-4xl mx-auto mb-12">
     <h2 className="text-2xl font-bold text-white mb-6">Rules of Procedure</h2>
     <p className="mb-4">Understanding the rules of procedure is crucial for effective participation in committee sessions.</p>
     
@@ -181,17 +207,19 @@ const RulesOfProcedureContent = () => (
       </ol>
       <p className="mt-4 text-mun-purple-light">NOTE: Your allocation will be emailed to you via your registered email.</p>
     </div>
-  </motion.div>
-);
-
-const PublicSpeakingContent = () => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -20 }}
-    transition={{ duration: 0.5 }}
-    className="glass-panel p-8 rounded-xl text-left text-white/90 max-w-4xl mx-auto mb-12"
-  >
+  </motion.div>;
+const PublicSpeakingContent = () => <motion.div initial={{
+  opacity: 0,
+  y: 20
+}} animate={{
+  opacity: 1,
+  y: 0
+}} exit={{
+  opacity: 0,
+  y: -20
+}} transition={{
+  duration: 0.5
+}} className="glass-panel p-8 rounded-xl text-left text-white/90 max-w-4xl mx-auto mb-12">
     <h2 className="text-2xl font-bold text-white mb-6">Public Speaking Guide</h2>
     <p className="mb-4">Effective public speaking is key to successful diplomacy in Model UN.</p>
     
@@ -226,17 +254,19 @@ const PublicSpeakingContent = () => (
         <li>Prepare speaking points on key aspects of the topic</li>
       </ul>
     </div>
-  </motion.div>
-);
-
-const DelegateAttireContent = () => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -20 }}
-    transition={{ duration: 0.5 }}
-    className="glass-panel p-8 rounded-xl text-left text-white/90 max-w-4xl mx-auto mb-12"
-  >
+  </motion.div>;
+const DelegateAttireContent = () => <motion.div initial={{
+  opacity: 0,
+  y: 20
+}} animate={{
+  opacity: 1,
+  y: 0
+}} exit={{
+  opacity: 0,
+  y: -20
+}} transition={{
+  duration: 0.5
+}} className="glass-panel p-8 rounded-xl text-left text-white/90 max-w-4xl mx-auto mb-12">
     <h2 className="text-2xl font-bold text-white mb-6">Delegate Attire</h2>
     <p className="mb-4">Professional appearance is an important aspect of Model UN conferences.</p>
     
@@ -287,28 +317,27 @@ const DelegateAttireContent = () => (
         <li>Excessive or flashy jewelry</li>
       </ul>
     </div>
-  </motion.div>
-);
+  </motion.div>;
 
 // Update the import paths to match your project structure
 const DelegatePreparation = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
   const [activeTab, setActiveTab] = useState<PreparationTopic>('research');
-
-  return (
-    <PageTransition>
+  return <PageTransition>
       <StripeBackground />
       <div className="pt-32 pb-20 px-4 container mx-auto">
         <div className="max-w-3xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-12"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.5
+        }} className="mb-12">
             <h1 className="text-4xl font-bold text-white mb-6">Delegate Preparation</h1>
             <p className="text-white/80 mb-8">
               Preparing for a Model United Nations conference requires thorough research, 
@@ -329,12 +358,16 @@ const DelegatePreparation = () => {
             {activeTab === 'delegate-attire' && <DelegateAttireContent />}
           </AnimatePresence>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="mb-16"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          delay: 0.2,
+          duration: 0.5
+        }} className="mb-16">
             <h2 className="text-2xl font-bold text-white mb-6">Preparation Timeline</h2>
             
             <div className="glass-panel p-6 text-left">
@@ -403,12 +436,16 @@ const DelegatePreparation = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-            className="mb-16 text-center"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          delay: 0.4,
+          duration: 0.5
+        }} className="mb-16 text-center">
             <h2 className="text-2xl font-bold text-white mb-6">Tips for First-Time Delegates</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -446,12 +483,16 @@ const DelegatePreparation = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
-            className="text-center"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          delay: 0.6,
+          duration: 0.5
+        }} className="text-center">
             <h2 className="text-2xl font-bold text-white mb-6">Essential Resources</h2>
             
             <div className="glass-panel p-8 mt-6 bg-gradient-to-br from-mun-purple/20 to-transparent border border-mun-purple/30">
@@ -460,12 +501,7 @@ const DelegatePreparation = () => {
                   <BookOpen className="w-10 h-10 text-mun-purple-light mb-3" />
                   <h3 className="text-lg font-semibold text-white mb-2">Rules of Procedure</h3>
                   <p className="text-white/70 text-sm mb-4 text-center">Master the rules that govern debate in all committees</p>
-                  <a 
-                    href="https://drive.google.com/file/d/19K56bVlyhd2piUwUKueHynqf4tN7zAei/view?usp=sharing" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-mun-purple-light hover:text-white text-sm transition-colors"
-                  >
+                  <a href="https://drive.google.com/file/d/19K56bVlyhd2piUwUKueHynqf4tN7zAei/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-mun-purple-light hover:text-white text-sm transition-colors">
                     View Rules
                   </a>
                 </div>
@@ -509,8 +545,6 @@ const DelegatePreparation = () => {
           </motion.div>
         </div>
       </div>
-    </PageTransition>
-  );
+    </PageTransition>;
 };
-
 export default DelegatePreparation;
