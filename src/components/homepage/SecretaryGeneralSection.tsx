@@ -45,13 +45,13 @@ const SecretaryGeneralSection = () => {
             <div className="md:w-2/3">
               <div className="bg-black/30 p-6 rounded-xl border border-mun-purple/20">
                 <p className="text-white/90 italic text-lg mb-4"><strong>Greetings! Dear Delegates,</strong></p>
-                <p className="text-white/80 mb-4">
+                <p className="text-white/80 mb-4 text-sm">
                   I, Ruhika Bhende, am honoured to serve as your Secretary-General for JBCN Middle School MUN 2025. I am truly privileged to lead this platform that fosters diplomacy, critical thinking, and global awareness. My journey with MUN began in the 5th grade, and over the years, it has transformed the way I engage with international affairs, debate pressing global issues, and develop leadership skills. MUN has taught me that effective diplomacy isn't just about speaking well but also about listening, adapting, and working towards solutions that benefit all.
                 </p>
-                <p className="text-white/80 mb-4">
+                <p className="text-white/80 mb-4 text-sm">
                   Beyond MUN, I am deeply passionate about international relations, politics, and youth advocacy. I believe that young voices have the power to drive meaningful change, and platforms like MUN equip us with the confidence and knowledge to do so. Being a martial arts athlete has also been a significant part of my personal growth, teaching me perseverance and resilience, which I believe are just as essential in debate and leadership. A little outside of academics, I'm big on music (I love rock bands) and literature. I enjoy watching musicals and travelling(I love exploring new places) in my free time.
                 </p>
-                <p className="text-white/80">
+                <p className="text-white/80 text-sm">
                   To all delegates, whether this is your first conference or one of many, remember that MUN is more than just awards and competition; it's a space to learn, to challenge your perspectives, and to step into the shoes of global leaders. As Nelson Mandela wisely said, "It always seems impossible until it's done." The most impactful delegates are not just those who speak the loudest but those who engage thoughtfully, collaborate effectively, and remain open to new ideas. Step out of your comfort zone, embrace every debate as an opportunity to grow, and most importantly, enjoy the process. I look forward to meeting each one of you, hearing the voices of our future, and having a truly fruitful and unforgettable conference!
                 </p>
                 <div className="mt-6 text-right">

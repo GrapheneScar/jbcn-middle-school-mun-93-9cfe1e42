@@ -21,13 +21,13 @@ const DeputySecretaryGeneralSection = () => {
             <div className="md:w-2/3 order-2 md:order-1">
               <div className="bg-black/30 p-6 rounded-xl border border-mun-purple/20">
                 <p className="text-white/90 italic text-lg mb-4"><strong>Greetings delegates!</strong></p>
-                <p className="text-white/80 mb-4">
+                <p className="text-white/80 mb-4 text-sm">
                   My name is Areehah Mitra and I am honored to be the Deputy Secretary General of JBCN Middle School MUN 2025. Middle School MUN for me serves as a tremendously bright learning opportunity for delegates in grades 6 through 8 as it allows for exhilarating debate as well as a pertinent stepping stone to diplomacy, The Secretariat this year aims to facilitate keen synchronization of conference proceedings and put in its best efforts to help satisfy all the delegates attending.
                 </p>
-                <p className="text-white/80 mb-4">
+                <p className="text-white/80 mb-4 text-sm">
                   If you've ever been skeptical about attending your first MUN or getting started on such a seemingly daunting journey, I'd highly encourage you to take the leap of faith; the skills you learn are endless. At Middle School MUN, the diverse committees and mix of topics discuss some of the most interesting yet pivotal disputes and serve as a brilliant base for introductory discourse. <em>Don't let the fear of failure outweigh the possibilities of learning.</em>
                 </p>
-                <p className="text-white/80">
+                <p className="text-white/80 text-sm">
                   With thorough planning and your unwavering enthusiasm, I look forward to making JBCN Middle School MUN '25 a memorable adventure!
                 </p>
                 <div className="mt-6 text-left">
