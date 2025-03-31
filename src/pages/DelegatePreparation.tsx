@@ -128,7 +128,7 @@ const PositionPapersContent = () => <motion.div initial={{
     <p className="mb-4">A position paper outlines your country's stance on the committee topics and demonstrates your understanding of the issues.</p>
     
     <div className="mb-8">
-      <h3 className="text-xl font-bold text-mun-purple-light mb-3">Position Paper Structure</h3>
+      <h3 className="text-xl font-bold text-mun-purple-light mb-3 text-center">Position Paper Structure</h3>
       <ul className="list-disc ml-6 space-y-2">
         <li><strong>Introduction:</strong> Brief overview of the topic and its relevance to your country</li>
         <li><strong>Country's Position:</strong> Your country's official stance, including relevant statements and policies</li>
@@ -139,7 +139,7 @@ const PositionPapersContent = () => <motion.div initial={{
     </div>
     
     <div className="mb-8">
-      <h3 className="text-xl font-bold text-mun-purple-light mb-3">Formatting Guidelines</h3>
+      <h3 className="text-xl font-bold text-mun-purple-light mb-3 text-center">Formatting Guidelines</h3>
       <ul className="list-disc ml-6 space-y-2">
         <li>1-2 pages per topic</li>
         <li>Times New Roman, 12pt font</li>
