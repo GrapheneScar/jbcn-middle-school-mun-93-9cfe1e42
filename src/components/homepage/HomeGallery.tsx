@@ -27,7 +27,7 @@ const HomeGallery = () => {
     },
     {
       src: "https://i.postimg.cc/LsdmTxNY/DSC02238.jpg",
-      alt: "Policy Discussion",
+      alt: "",
       title: ""
     }
   ];
