@@ -1,16 +1,10 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-
-interface Chair {
-  name: string;
-  title: string;
-  photo: string;
-  bio: string;
-}
+import { CommitteeChair } from './types';
 
 interface CommitteeChairsProps {
-  chairs: Chair[];
+  chairs: CommitteeChair[];
 }
 
 const CommitteeChairs = ({ chairs }: CommitteeChairsProps) => {
@@ -33,7 +27,7 @@ const CommitteeChairs = ({ chairs }: CommitteeChairsProps) => {
               className="relative w-48 h-48 rounded-xl overflow-hidden mb-4 shadow-lg"
             >
               <img 
-                src={chair.photo || "/placeholder.svg"} 
+                src={chair.photo || chair.image || "/placeholder.svg"} 
                 alt={chair.name} 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />

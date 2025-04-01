@@ -1,3 +1,4 @@
+
 import { Committee } from "./types";
 
 // Updated data for department heads with proper photos and updated names
@@ -21,13 +22,17 @@ export const committeesData: Committee[] = [
         id: "disec-chair-1",
         name: "Kasmia Gafoor",
         title: "Chairperson",
-        image: "/lovable-uploads/Kasmia.png"
+        image: "/lovable-uploads/Kasmia.png",
+        bio: "Experienced delegate with a focus on disarmament and international security issues.",
+        department: "DISEC"
       },
       {
         id: "disec-chair-2",
         name: "Bharatvir Singh",
         title: "Vice Chair",
-        image: "/lovable-uploads/Bharatvir.png"
+        image: "/lovable-uploads/Bharatvir.png",
+        bio: "Specialized in conflict resolution and peacekeeping operations.",
+        department: "DISEC"
       }
     ]
   },
@@ -50,13 +55,17 @@ export const committeesData: Committee[] = [
         id: "copuos-chair-1",
         name: "Adhiraj Sen",
         title: "Chairperson",
-        image: "/lovable-uploads/Adhiraj.png"
+        image: "/lovable-uploads/Adhiraj.png",
+        bio: "Expert in space law and policies regarding the peaceful use of outer space.",
+        department: "COPUOS"
       },
       {
         id: "copuos-chair-2",
         name: "Geiv Jivanji",
         title: "Vice Chair",
-        image: "/lovable-uploads/Geiv.png"
+        image: "/lovable-uploads/Geiv.png",
+        bio: "Advocate for international cooperation in space exploration missions.",
+        department: "COPUOS"
       }
     ]
   },
@@ -79,13 +88,17 @@ export const committeesData: Committee[] = [
         id: "kws-chair-1",
         name: "Ansh Agarwal",
         title: "Chairperson",
-        image: "/lovable-uploads/Ansh.png"
+        image: "/lovable-uploads/Ansh.png",
+        bio: "Historian with extensive knowledge of the Korean War and its diplomatic challenges.",
+        department: "KWS"
       },
       {
         id: "kws-chair-2",
         name: "Niaan Kothari",
         title: "Vice Chair",
-        image: "/lovable-uploads/Niaan.png"
+        image: "/lovable-uploads/Niaan.png",
+        bio: "Specializes in crisis management and historical conflict resolution.",
+        department: "KWS"
       }
     ]
   },
@@ -108,13 +121,17 @@ export const committeesData: Committee[] = [
         id: "coi-chair-1",
         name: "Arjun Khanna",
         title: "Chairperson",
-        image: "/lovable-uploads/Arjun.png"
+        image: "/lovable-uploads/Arjun.png",
+        bio: "Expert in Indian politics and governmental policy-making processes.",
+        department: "COI"
       },
       {
         id: "coi-chair-2",
         name: "Dishita Desai",
         title: "Vice Chair",
-        image: "/lovable-uploads/Dishita.png"
+        image: "/lovable-uploads/Dishita.png",
+        bio: "Specialized in South Asian geopolitics and regional security challenges.",
+        department: "COI"
       }
     ]
   },
@@ -137,13 +154,17 @@ export const committeesData: Committee[] = [
         id: "rfa-chair-1",
         name: "Pratham Chitnis",
         title: "Chairperson",
-        image: "/lovable-uploads/Pratham.png"
+        image: "/lovable-uploads/Pratham.png",
+        bio: "Authority on Russian political systems and parliamentary procedures.",
+        department: "RFA"
       },
       {
         id: "rfa-chair-2",
         name: "Chit Tandon",
         title: "Vice Chair",
-        image: "/lovable-uploads/Chit.png"
+        image: "/lovable-uploads/Chit.png",
+        bio: "Experienced in Eastern European politics and regional dynamics.",
+        department: "RFA"
       }
     ]
   }

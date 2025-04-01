@@ -70,10 +70,10 @@ const CommitteeTabs = ({ committee }: CommitteeTabsProps) => {
               {committee.chairs.map((chair, index) => {
                 // Convert CommitteeChair to Chair type
                 const chairProps: Chair = {
-                  id: chair.name, // Generate a unique ID based on the name
+                  id: chair.id || chair.name, // Generate a unique ID based on the name if id is not present
                   name: chair.name,
                   title: chair.title,
-                  image: chair.photo,
+                  image: chair.image || chair.photo,
                   bio: chair.bio,
                   department: chair.department || committee.name,
                   easterEgg: chair.easterEgg

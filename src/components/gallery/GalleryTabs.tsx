@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { GalleryImage } from "./types";
@@ -74,7 +75,7 @@ const GalleryTabs = ({
                   key={image.id}
                   image={image}
                   index={index}
-                  onClick={() => handleImageClick(image)}
+                  onClick={() => onImageClick(image)}
                 />
               ))}
             </motion.div>
