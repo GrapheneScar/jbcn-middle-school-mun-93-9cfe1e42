@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { SecretariatMember } from './types';
 import { BookOpen, X } from 'lucide-react';
-import ProfileCard from '../ProfileCard';
 
 interface SecretariatSectionProps {
   secretariat: SecretariatMember[];
@@ -23,28 +22,27 @@ const SecretariatSection = ({
     const paragraphs = bio.split('\n').filter(p => p.trim() !== '');
     return paragraphs.map((paragraph, index) => {
       // Format text: make text after colons bold, and text in quotes italic
-      const formattedText = paragraph.replace(/(?<=:)(.*?)(?=\.|$)/g, '<strong>$1</strong>').replace(/"([^"]+)"/g, '<em>"$1"</em>').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>').replace(/\_\_(.+?)\_\_/g, '<u>$1</u>');
-      return <p key={index} className="mb-2" dangerouslySetInnerHTML={{
-        __html: formattedText
-      }} />;
+      const formattedText = paragraph
+        .replace(/(?<=:)(.*?)(?=\.|$)/g, '<strong>$1</strong>')
+        .replace(/"([^"]+)"/g, '<em>"$1"</em>')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.+?)\*/g, '<em>$1</em>')
+        .replace(/\_\_(.+?)\_\_/g, '<u>$1</u>');
+      
+      return <p key={index} className="mb-2" dangerouslySetInnerHTML={{ __html: formattedText }} />;
     });
   };
 
   return (
     <section className="py-16 px-4">
       <div className="container mx-auto">
-        <motion.div className="text-center mb-16" initial={{
-          opacity: 0,
-          y: 20
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.5,
-          type: "tween"
-        }}>
+        <motion.div 
+          className="text-center mb-16" 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, type: "tween" }}
+        >
           <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">Meet Our Team</span>
           <h2 className="text-3xl font-bold text-white">Secretariat</h2>
           <p className="text-white/80 max-w-2xl mx-auto mt-4">
@@ -69,12 +67,21 @@ const SecretariatSection = ({
               className="relative w-full max-w-sm"
             >
               <div className="w-full">
-                <ProfileCard
-                  name={person.name}
-                  title={person.role}
-                  imagePath={person.image}
-                  imageAlt={`${person.name} - ${person.role}`}
-                />
+                <div className="glass-panel p-4 overflow-hidden">
+                  <div className="flex flex-col items-center">
+                    {/* Square image with curved corners */}
+                    <div className="w-36 h-36 rounded-xl overflow-hidden mb-4 border-2 border-mun-purple/30">
+                      <img 
+                        src={person.image} 
+                        alt={`${person.name} - ${person.role}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    
+                    <h3 className="text-xl font-bold text-white mb-1">{person.name}</h3>
+                    <p className="text-mun-purple-light text-sm mb-4">{person.role}</p>
+                  </div>
+                </div>
                 
                 {/* Bio toggle and content below the card */}
                 <div className="mt-3 bg-black/40 p-4 border border-mun-purple/30 rounded-lg">

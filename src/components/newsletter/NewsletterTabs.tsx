@@ -1,83 +1,51 @@
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import NewsletterGrid from './NewsletterGrid';
 
-interface Newsletter {
-  id: number;
-  title: string;
-  date: string;
-  description: string;
-  coverImage: string;
-  pdfUrl: string;
-  comingSoon?: boolean;
-}
-
 interface NewsletterTabsProps {
-  seniorMUNNewsletters: Newsletter[];
-  middleSchoolNewsletters: Newsletter[];
+  seniorMUNNewsletters: any[];
+  middleSchoolNewsletters: any[];
 }
 
 const NewsletterTabs = ({ seniorMUNNewsletters, middleSchoolNewsletters }: NewsletterTabsProps) => {
-  const [activeTab, setActiveTab] = useState('middle');
+  const [activeTab, setActiveTab] = useState('middle-school');
   
   return (
-    <div className="mb-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, type: "tween" }}
-        className="glass-panel p-8 border border-mun-purple/20 rounded-3xl mb-8"
+    <div className="mb-20">
+      <Tabs 
+        defaultValue={activeTab} 
+        onValueChange={setActiveTab}
+        className="w-full"
       >
-        <h2 className="text-2xl font-bold text-white text-center mb-6">JBCN MUN Newsletters Archive</h2>
-        <p className="text-white/80 text-center max-w-3xl mx-auto mb-8">
-          Our newsletters capture the essence of each conference, highlighting key moments, delegate achievements, and committee developments. Browse through our archive to relive past conferences or discover what makes JBCN MUN special.
-        </p>
-        
-        <Tabs 
-          defaultValue="middle" 
-          value={activeTab}
-          onValueChange={setActiveTab}
-          className="w-full"
-        >
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8 bg-black/30 p-1 rounded-full border border-mun-purple/30">
+        <div className="flex justify-center mb-8">
+          <TabsList className="grid grid-cols-2 w-full max-w-md bg-black/40 backdrop-blur-md border border-mun-purple/30 p-1 rounded-full">
             <TabsTrigger 
-              value="middle" 
-              className="data-[state=active]:bg-mun-purple data-[state=active]:text-white rounded-full"
+              value="middle-school" 
+              className="rounded-full py-2.5 px-4 data-[state=active]:bg-mun-purple data-[state=active]:shadow-[0_0_15px_rgba(155,135,245,0.5)] data-[state=active]:text-white"
             >
-              JBCN Middle School MUN
+              <div className="flex items-center justify-center text-center w-full">
+                <span className="block sm:inline whitespace-nowrap text-xs sm:text-sm">Middle School</span>
+              </div>
             </TabsTrigger>
             <TabsTrigger 
               value="senior" 
-              className="data-[state=active]:bg-mun-purple data-[state=active]:text-white rounded-full"
+              className="rounded-full py-2.5 px-4 data-[state=active]:bg-mun-purple data-[state=active]:shadow-[0_0_15px_rgba(155,135,245,0.5)] data-[state=active]:text-white"
             >
-              JBCN Senior MUN
+              <div className="flex items-center justify-center text-center w-full">
+                <span className="block sm:inline whitespace-nowrap text-xs sm:text-sm">Senior MUN</span>
+              </div>
             </TabsTrigger>
           </TabsList>
-          
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, type: "tween" }}
-          >
-            <TabsContent value="middle">
-              <NewsletterGrid 
-                title="JBCN Middle School MUN Newsletters" 
-                newsletters={middleSchoolNewsletters} 
-              />
-            </TabsContent>
-            
-            <TabsContent value="senior">
-              <NewsletterGrid 
-                title="JBCN Senior MUN Newsletters" 
-                newsletters={seniorMUNNewsletters} 
-              />
-            </TabsContent>
-          </motion.div>
-        </Tabs>
-      </motion.div>
+        </div>
+        
+        <TabsContent value="middle-school" className="animate-fade-in">
+          <NewsletterGrid newsletters={middleSchoolNewsletters} />
+        </TabsContent>
+        <TabsContent value="senior" className="animate-fade-in">
+          <NewsletterGrid newsletters={seniorMUNNewsletters} />
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };

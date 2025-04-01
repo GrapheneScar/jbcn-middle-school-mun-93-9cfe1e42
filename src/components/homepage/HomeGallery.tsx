@@ -4,52 +4,57 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, ChevronLeft, Image, ExternalLink } from 'lucide-react';
+import { galleryImages } from '../gallery/gallery-data';
 
 const HomeGallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [randomizedImages, setRandomizedImages] = useState<typeof galleryImages>([]);
   
-  // Gallery images - updated with new URLs
-  const galleryImages = [
-    {
-      src: "https://i.postimg.cc/zDpXrSX6/DSC02197.jpg",
-      alt: "",
-      title: ""
-    },
-    {
-      src: "https://i.postimg.cc/VknRSNTy/image.jpg",
-      alt: "",
-      title: ""
-    },
-    {
-      src: "https://i.postimg.cc/W3TTRhRs/DSC03134.jpg",
-      alt: "",
-      title: ""
-    },
-    {
-      src: "https://i.postimg.cc/LsdmTxNY/DSC02238.jpg",
-      alt: "",
-      title: ""
-    }
-  ];
+  // On component mount, randomize a selection of gallery images
+  useEffect(() => {
+    const shuffleArray = (array: any[]) => {
+      // Create a copy of the array to avoid mutating the original
+      const shuffled = [...array];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    };
+    
+    // Get random subset of gallery images (up to 8 images)
+    const displayCount = Math.min(8, galleryImages.length);
+    const randomSample = shuffleArray([...galleryImages]).slice(0, displayCount);
+    setRandomizedImages(randomSample);
+  }, []);
 
   // Auto advance the slideshow
   useEffect(() => {
+    if (randomizedImages.length === 0) return;
+    
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => 
-        prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
+        prevIndex === randomizedImages.length - 1 ? 0 : prevIndex + 1
       );
     }, 4000); // Change slide every 4 seconds
     
     return () => clearInterval(interval);
-  }, [galleryImages.length]);
+  }, [randomizedImages.length]);
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
+    if (randomizedImages.length === 0) return;
+    setCurrentIndex((prev) => (prev === randomizedImages.length - 1 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
+    if (randomizedImages.length === 0) return;
+    setCurrentIndex((prev) => (prev === 0 ? randomizedImages.length - 1 : prev - 1));
   };
+
+  // If no images are available yet, don't render the component
+  if (randomizedImages.length === 0) {
+    return null;
+  }
 
   return (
     <section className="py-20 px-4 bg-black/30">
@@ -84,14 +89,11 @@ const HomeGallery = () => {
                 className="absolute inset-0"
               >
                 <img
-                  src={galleryImages[currentIndex].src}
-                  alt={galleryImages[currentIndex].alt}
+                  src={randomizedImages[currentIndex].src}
+                  alt={randomizedImages[currentIndex].alt}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col items-center justify-end p-8">
-                  <h3 className="text-2xl font-bold text-white mb-2">{galleryImages[currentIndex].title}</h3>
-                  <p className="text-white/80 text-center max-w-lg">{galleryImages[currentIndex].alt}</p>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
               </motion.div>
             </AnimatePresence>
 
@@ -114,7 +116,7 @@ const HomeGallery = () => {
 
           {/* Small thumbnails below */}
           <div className="flex justify-center mt-4 gap-2">
-            {galleryImages.map((image, index) => (
+            {randomizedImages.map((image, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}

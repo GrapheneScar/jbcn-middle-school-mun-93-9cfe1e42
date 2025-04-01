@@ -1,53 +1,33 @@
 
-import { motion } from 'framer-motion';
+import { CalendarDays, Download, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Download, CalendarIcon } from 'lucide-react';
 
 interface ScheduleActionsProps {
   downloadSchedule: () => void;
 }
 
 const ScheduleActions = ({ downloadSchedule }: ScheduleActionsProps) => {
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5, ease: "easeOut" }
-    }
-  };
-
   return (
-    <motion.div 
-      className="mb-10 flex flex-col sm:flex-row items-center justify-between gap-4"
-      variants={itemVariants}
-    >
-      <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-        <Button 
-          variant="outline" 
-          className="w-full sm:w-auto border-mun-purple text-white hover:bg-mun-purple/20 hover:text-mun-purple-light rounded-full py-6 px-6"
-          onClick={downloadSchedule}
-        >
-          <Download className="w-5 h-5 mr-2" />
+    <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
+      <div className="flex items-center gap-2">
+        <CalendarDays className="text-mun-purple-light h-6 w-6" />
+        <h2 className="text-white font-semibold">Conference Days: June 18-19, 2025</h2>
+      </div>
+      
+      <div className="flex gap-3 flex-wrap justify-center">
+        <a href="mailto:secretariat.msm2025@gmail.com" target="_blank" rel="noopener noreferrer">
+          <Button variant="outline" className="border-mun-purple/50 hover:bg-mun-purple/20">
+            <Mail className="mr-2 h-4 w-4" />
+            Contact Secretariat
+          </Button>
+        </a>
+        
+        <Button onClick={downloadSchedule} className="bg-mun-purple hover:bg-mun-purple-light">
+          <Download className="mr-2 h-4 w-4" />
           Download Schedule
         </Button>
-        <Button 
-          variant="outline" 
-          className="w-full sm:w-auto border-mun-purple text-white hover:bg-mun-purple/20 hover:text-mun-purple-light rounded-full py-6 px-6"
-        >
-          <CalendarIcon className="w-5 h-5 mr-2" />
-          Add to Calendar
-        </Button>
       </div>
-      <div className="flex flex-wrap items-center justify-center gap-2 mt-4 sm:mt-0">
-        <span className="text-white/70 mr-1">Event Type:</span>
-        <Badge className="bg-mun-purple-light/20 text-mun-purple-light border border-mun-purple-light hover:bg-mun-purple-light/30 rounded-full px-3 py-1">Ceremony</Badge>
-        <Badge className="bg-blue-500/20 text-blue-400 border border-blue-400 hover:bg-blue-500/30 rounded-full px-3 py-1">Session</Badge>
-        <Badge className="bg-green-500/20 text-green-400 border border-green-400 hover:bg-green-500/30 rounded-full px-3 py-1">Break</Badge>
-        <Badge className="bg-amber-500/20 text-amber-400 border border-amber-400 hover:bg-amber-500/30 rounded-full px-3 py-1">Meeting</Badge>
-      </div>
-    </motion.div>
+    </div>
   );
 };
 

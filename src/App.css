@@ -1,156 +1,45 @@
-#root {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0;
-  text-align: center;
-}
 
-@media (min-width: 768px) {
-  #root {
-    padding: 0 1rem;
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(155, 135, 245, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(155, 135, 245, 0.8), 0 0 30px rgba(155, 135, 245, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(155, 135, 245, 0.5);
   }
 }
 
-@media (min-width: 1024px) {
-  #root {
-    padding: 0 2rem;
-  }
+.glow-effect {
+  animation: glow 2s ease-in-out;
 }
 
-/* Gallery page specific styles */
-.gallery-image {
-  transition: all 0.5s ease;
+/* Add registration button styling */
+.registration-button {
+  background-image: linear-gradient(135deg, #9b87f5 0%, #7953A9 100%);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(155, 135, 245, 0.4);
 }
 
-.gallery-image:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.lightbox-overlay {
-  backdrop-filter: blur(5px);
-}
-
-/* Responsive container for all pages */
-.page-container {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-@media (min-width: 768px) {
-  .page-container {
-    padding: 0 2rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .page-container {
-    padding: 0 3rem;
-  }
-}
-
-/* Mobile optimizations */
-@media (max-width: 767px) {
-  .mobile-py {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-  
-  .mobile-px {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  .mobile-text-center {
-    text-align: center;
-  }
-  
-  .mobile-stack {
-    flex-direction: column;
-  }
-  
-  .mobile-full-width {
-    width: 100%;
-  }
-}
-
-/* Tablet optimizations */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .tablet-py {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-  
-  .tablet-px {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-}
-
-/* Button hover effects */
-button:not(.disabled):hover {
+.registration-button:hover {
   transform: translateY(-2px);
-  transition: transform 0.3s ease;
+  box-shadow: 0 6px 20px rgba(155, 135, 245, 0.6);
 }
 
-/* Custom transitions */
-.transition-all-custom {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Add styles for the RegisterButton component */
+.register-pulse {
+  animation: pulse 2s infinite;
 }
 
-/* Custom hover effects for cards and panels */
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover-lift:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(155, 135, 245, 0.2);
-}
-
-/* Purple glow effect for highlighted elements */
-.purple-glow {
-  box-shadow: 0 0 15px rgba(155, 135, 245, 0.5);
-}
-
-.purple-glow:hover {
-  box-shadow: 0 0 25px rgba(155, 135, 245, 0.7);
-}
-
-/* New button styling */
-.custom-button,
-.gallery-button {
-  @apply border border-mun-purple bg-transparent hover:bg-mun-purple hover:shadow-[0_0_15px_rgba(155,135,245,0.4)] transition-all duration-300;
-}
-
-/* Calendar event styling */
-.booked-day {
-  @apply bg-mun-purple/50 text-white font-bold;
-}
-
-/* Team section title enhancement */
-.team-section-title {
-  @apply text-4xl md:text-5xl font-bold;
-}
-
-/* Section title enhancements */
-.section-title-enhanced {
-  @apply text-3xl md:text-4xl font-bold relative;
-}
-
-.section-title-enhanced::after {
-  content: '';
-  @apply block w-24 h-1 bg-mun-purple mx-auto mt-4;
-}
-
-/* Calendar widget styles */
-.calendar-container {
-  @apply bg-black/40 rounded-xl p-4 border border-mun-purple/20;
-}
-
-/* Enhanced navigation panels */
-.enhanced-panel-title {
-  @apply text-2xl font-bold mb-2;
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(155, 135, 245, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(155, 135, 245, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(155, 135, 245, 0);
+  }
 }

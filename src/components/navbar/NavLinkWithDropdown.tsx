@@ -1,63 +1,96 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
-import { NavLinkWithSubmenu } from '../../hooks/useNavbarState';
+import { NavLinkWithSubmenu } from './navData';
 import DropdownMenu from './DropdownMenu';
+import { useNavbar } from '../../hooks/useNavbarState';
+import { committeeLinks } from './committeeLinks';
 
-interface NavLinkWithDropdownProps {
-  link: NavLinkWithSubmenu;
-  isActive: (path: string) => boolean;
-  activeDropdown: string | null;
-  toggleDropdown: (linkName: string) => void;
-  handleDropdownRef: (el: HTMLDivElement | null, linkName: string) => void;
+interface Props {
+  item: NavLinkWithSubmenu;
 }
 
-const NavLinkWithDropdown = ({
-  link,
-  isActive,
-  activeDropdown,
-  toggleDropdown,
-  handleDropdownRef,
-}: NavLinkWithDropdownProps) => {
-  const [isHovered, setIsHovered] = useState(false);
-  
+const NavLinkWithDropdown = ({ item }: Props) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const { closeMenu } = useNavbar();
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const linkRef = useRef<HTMLDivElement>(null);
+
+  // For committees, use special committee links
+  const isCommitteesLink = item.name === 'COMMITTEES';
+  const submenuItems = isCommitteesLink ? committeeLinks : item.submenu;
+
   const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-  
-  const handleMouseLeave = () => {
-    setIsHovered(false);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setIsOpen(true);
   };
 
-  const isDropdownOpen = isHovered || activeDropdown === link.name;
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 150);
+  };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current && 
+        !dropdownRef.current.contains(event.target as Node) && 
+        linkRef.current && 
+        !linkRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <div 
-      className="relative"
-      ref={el => handleDropdownRef(el, link.name)}
+      className="relative" 
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <button
-        onClick={() => toggleDropdown(link.name)}
-        className={`flex items-center px-4 py-2.5 rounded-full transition-colors duration-300 text-left
-          ${isActive(link.path) 
-            ? 'text-mun-purple-light bg-mun-purple/10' 
-            : 'text-white hover:text-mun-purple-light hover:bg-white/5'}`}
+      <div
+        ref={linkRef}
+        className="flex items-center gap-1 cursor-pointer"
       >
-        {link.name}
-        <ChevronDown 
-          className={`ml-1.5 h-4 w-4 transition-transform duration-300 ${
-            isDropdownOpen ? 'rotate-180' : ''
-          }`} 
+        <Link
+          to={item.path === '#' ? (submenuItems && submenuItems.length > 0 ? submenuItems[0].path : '#') : item.path}
+          className={`text-white hover:text-mun-purple-light transition-colors py-2`}
+          onClick={() => {
+            // If this is a real link (not #), close the mobile menu
+            if (item.path !== '#') {
+              closeMenu();
+            }
+          }}
+        >
+          {item.name}
+        </Link>
+        <ChevronDown
+          size={16}
+          className={`transition-transform duration-300 text-mun-purple-light ${
+            isOpen ? 'rotate-180' : ''
+          }`}
         />
-      </button>
-      
-      <DropdownMenu 
-        isOpen={isDropdownOpen}
-        submenu={link.submenu || []}
-        isActive={isActive}
-      />
+      </div>
+
+      {/* Dropdown Menu */}
+      {submenuItems && submenuItems.length > 0 && (
+        <div ref={dropdownRef}>
+          <DropdownMenu items={submenuItems} isOpen={isOpen} closeMenu={closeMenu} />
+        </div>
+      )}
     </div>
   );
 };

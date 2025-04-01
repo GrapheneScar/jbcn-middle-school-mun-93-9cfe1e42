@@ -1,16 +1,15 @@
+
 import { motion } from "framer-motion";
+
 const SecretaryGeneralSection = () => {
-  return <motion.div initial={{
-    opacity: 0,
-    y: 20
-  }} whileInView={{
-    opacity: 1,
-    y: 0
-  }} viewport={{
-    once: true
-  }} transition={{
-    duration: 0.6
-  }} className="container mx-auto mb-10 px-4">
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="container mx-auto mb-10 px-4"
+    >
       <div className="glass-panel overflow-hidden p-4 md:p-8 relative mx-0 py-[32px] my-[40px]">
         {/* Purple gradient accents */}
         <div className="absolute -top-20 -left-20 w-40 h-40 bg-mun-purple/30 rounded-full blur-3xl" />
@@ -28,12 +27,17 @@ const SecretaryGeneralSection = () => {
           
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="md:w-1/3">
-              <motion.div className="relative rounded-xl overflow-hidden shadow-xl h-80 w-full" whileHover={{
-              scale: 1.02
-            }} transition={{
-              duration: 0.3
-            }}>
-                <img src="/lovable-uploads/Ruhika.png" alt="Ruhika Bhende - Secretary General" className="w-full h-full object-cover" />
+              <motion.div 
+                className="relative rounded-xl overflow-hidden shadow-xl w-full" 
+                style={{ aspectRatio: '1/1' }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <img 
+                  src="/lovable-uploads/Ruhika.png" 
+                  alt="Ruhika Bhende - Secretary General" 
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
                   <h3 className="text-xl font-bold text-white">Ruhika Bhende</h3>
@@ -64,6 +68,8 @@ const SecretaryGeneralSection = () => {
           </div>
         </div>
       </div>
-    </motion.div>;
+    </motion.div>
+  );
 };
+
 export default SecretaryGeneralSection;
