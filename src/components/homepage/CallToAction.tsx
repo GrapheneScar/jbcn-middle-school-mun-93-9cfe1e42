@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { RegisterButton } from '../ui/register-button';
+import RegisterButton from '../RegisterButton';
 
 const CallToAction = () => {
   return (
