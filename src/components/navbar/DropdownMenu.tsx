@@ -6,9 +6,10 @@ interface DropdownMenuProps {
   isOpen: boolean;
   submenu: { name: string; path: string }[];
   isActive: (path: string) => boolean;
+  closeMenu?: () => void;
 }
 
-const DropdownMenu = ({ isOpen, submenu, isActive }: DropdownMenuProps) => {
+const DropdownMenu = ({ isOpen, submenu, isActive, closeMenu }: DropdownMenuProps) => {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -26,6 +27,7 @@ const DropdownMenu = ({ isOpen, submenu, isActive }: DropdownMenuProps) => {
               path={subitem.path}
               isActive={isActive(subitem.path)}
               className="block px-5 py-2.5 text-left hover:bg-mun-purple/20 text-left"
+              onClick={closeMenu}
             />
           ))}
         </motion.div>

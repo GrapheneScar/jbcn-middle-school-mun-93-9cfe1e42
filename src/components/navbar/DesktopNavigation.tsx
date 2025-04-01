@@ -33,11 +33,7 @@ const DesktopNavigation = ({
         link.submenu ? (
           <NavLinkWithDropdown 
             key={link.name}
-            link={link}
-            isActive={isActive}
-            activeDropdown={activeDropdown}
-            toggleDropdown={toggleDropdown}
-            handleDropdownRef={handleDropdownRef}
+            item={link}
           />
         ) : (
           <SimpleNavLink

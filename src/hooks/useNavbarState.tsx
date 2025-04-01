@@ -98,3 +98,6 @@ export const useNavbarState = () => {
     dropdownRefs,
   };
 };
+
+// Add alias for useNavbar
+export const useNavbar = useNavbarState;

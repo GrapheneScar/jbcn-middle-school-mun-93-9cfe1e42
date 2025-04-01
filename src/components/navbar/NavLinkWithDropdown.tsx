@@ -2,9 +2,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
-import { NavLinkWithSubmenu } from './navData';
+import { NavLinkWithSubmenu, useNavbar } from '../../hooks/useNavbarState';
 import DropdownMenu from './DropdownMenu';
-import { useNavbar } from '../../hooks/useNavbarState';
 import { committeeLinks } from './committeeLinks';
 
 interface Props {
@@ -13,7 +12,7 @@ interface Props {
 
 const NavLinkWithDropdown = ({ item }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { closeMenu } = useNavbar();
+  const { closeMobileMenu: closeMenu } = useNavbar();
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const linkRef = useRef<HTMLDivElement>(null);
@@ -88,7 +87,11 @@ const NavLinkWithDropdown = ({ item }: Props) => {
       {/* Dropdown Menu */}
       {submenuItems && submenuItems.length > 0 && (
         <div ref={dropdownRef}>
-          <DropdownMenu items={submenuItems} isOpen={isOpen} closeMenu={closeMenu} />
+          <DropdownMenu 
+            isOpen={isOpen} 
+            submenu={submenuItems}
+            isActive={item => false} // We'll fix this in the next update
+          />
         </div>
       )}
     </div>
