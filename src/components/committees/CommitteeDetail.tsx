@@ -82,6 +82,14 @@ const CommitteeDetail = () => {
             >
               Directors
             </button>
+            <button
+              className={`px-6 py-2 rounded-full text-sm md:text-base ${
+                activeTab === 'resources' ? 'bg-mun-purple text-white' : 'text-white/70 hover:text-white'
+              }`}
+              onClick={() => setActiveTab('resources')}
+            >
+              Resources
+            </button>
           </div>
         </div>
 
@@ -101,10 +109,19 @@ const CommitteeDetail = () => {
           {activeTab === 'chairs' && (
             <CommitteeChairs chairs={committee.chairs} />
           )}
+          
+          {activeTab === 'resources' && (
+            <CommitteeResources 
+              studyGuideUrl={committee.studyGuideUrl} 
+              countryMatrixUrl={committee.countryMatrixUrl}
+              committeeName={committee.name}
+              committeeEmail={committeeEmail}
+            />
+          )}
         </div>
 
-        {/* Committee Resources Section - Only show when not on chairs tab */}
-        {activeTab !== 'chairs' && (
+        {/* Show Committee Resources at the bottom of Overview and Agenda tabs */}
+        {(activeTab === 'overview' || activeTab === 'agenda') && (
           <CommitteeResources 
             studyGuideUrl={committee.studyGuideUrl} 
             countryMatrixUrl={committee.countryMatrixUrl}

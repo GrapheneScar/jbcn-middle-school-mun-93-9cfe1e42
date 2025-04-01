@@ -1,8 +1,7 @@
 
 import { useState } from 'react';
-import { Card, CardContent } from "@/components/ui/card";
-import { FileText, FileSpreadsheet, Mail } from "lucide-react";
 import { motion } from 'framer-motion';
+import { FileText, FileSpreadsheet, Mail, Download } from "lucide-react";
 
 interface CommitteeResourcesProps {
   studyGuideUrl?: string;
@@ -17,110 +16,105 @@ const CommitteeResources = ({
   committeeName,
   committeeEmail
 }: CommitteeResourcesProps) => {
-  const [hoveredImage, setHoveredImage] = useState<string | null>(null);
-
-  // Study guide images
-  const studyGuideImage = "/lovable-uploads/dfc3a29f-1a33-4772-b672-9c86967073d2.png"; // Purple version
-  const studyGuideImageBW = "/lovable-uploads/d40cb1bd-6eef-4b7d-b927-5c8bd19bc3fd.png"; // Black and white version
-  
   return (
-    <Card className="mt-12 bg-black/30 backdrop-blur-md border-white/10">
-      <CardContent className="py-6">
-        <h3 className="text-xl font-bold text-white mb-4">Committee Resources</h3>
+    <div className="mt-12">
+      <h2 className="text-2xl font-bold text-white mb-8 text-center">Committee Resources</h2>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Study Guide Section */}
+        {studyGuideUrl && (
+          <motion.div
+            whileHover={{ y: -5 }}
+            transition={{ duration: 0.3 }}
+            className="bg-[#121218] rounded-xl p-8 flex flex-col items-center text-center border border-[#2a2a3a]"
+          >
+            <div className="bg-mun-purple/20 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+              <FileText className="text-mun-purple h-8 w-8" />
+            </div>
+            
+            <h3 className="text-xl font-bold text-white mb-2">Study Guide</h3>
+            <p className="text-white/70 mb-6">
+              Access the official study guide for the {committeeName} committee. This document contains essential information about the agenda topics, background, and expectations.
+            </p>
+            
+            <a 
+              href={studyGuideUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-6 py-3 bg-mun-purple rounded-full text-white font-medium hover:bg-mun-purple-light transition-colors"
+            >
+              <Download className="h-4 w-4 mr-2" />
+              Download Study Guide
+            </a>
+            
+            <p className="text-white/50 text-sm mt-4 italic">
+              NOTE: Your Allocation will be sent to you via your registered Email
+            </p>
+          </motion.div>
+        )}
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          {/* Study Guide Resource */}
-          {studyGuideUrl && (
-            <motion.div
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.3 }}
-              className="relative group"
+        {/* Country Matrix Section */}
+        {countryMatrixUrl && (
+          <motion.div
+            whileHover={{ y: -5 }}
+            transition={{ duration: 0.3 }}
+            className="bg-[#121218] rounded-xl p-8 flex flex-col items-center text-center border border-[#2a2a3a]"
+          >
+            <div className="mb-4 bg-white/5 p-3 rounded-lg">
+              <img 
+                src={`/lovable-uploads/7217db9a-a50d-4b88-9285-08ba350abdb2.png`}
+                alt="Country Matrix Sample"
+                className="w-full h-auto rounded"
+              />
+            </div>
+            
+            <h3 className="text-xl font-bold text-white mb-2">Country Matrix</h3>
+            <p className="text-white/70 mb-6">
+              The country matrix provides details about the countries involved in this committee, their positions, and relevant policy information.
+            </p>
+            
+            <a 
+              href={countryMatrixUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-6 py-3 bg-mun-purple rounded-full text-white font-medium hover:bg-mun-purple-light transition-colors"
             >
-              <a 
-                href={studyGuideUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block relative overflow-hidden rounded-xl transition-all duration-300 shadow-md hover:shadow-xl"
-                onMouseEnter={() => setHoveredImage('studyGuide')}
-                onMouseLeave={() => setHoveredImage(null)}
-              >
-                <div className="aspect-[3/4] overflow-hidden">
-                  <img 
-                    src={hoveredImage === 'studyGuide' ? studyGuideImage : studyGuideImageBW}
-                    alt={`${committeeName} Study Guide`}
-                    className="w-full h-full object-cover transition-transform duration-500 transform scale-110 group-hover:scale-125"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80"></div>
-                  <div className="absolute bottom-4 left-4 right-4 text-center">
-                    <div className="bg-mun-purple/70 backdrop-blur-sm rounded-lg p-3 shadow-lg">
-                      <FileText className="h-6 w-6 text-white mx-auto mb-2" />
-                      <h4 className="text-white font-semibold text-lg">Study Guide</h4>
-                      <p className="text-white/80 text-sm mt-1">Access committee materials</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </motion.div>
-          )}
-          
-          {/* Country Matrix Resource */}
-          {countryMatrixUrl && (
-            <motion.div
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.3 }}
+              <FileSpreadsheet className="h-4 w-4 mr-2" />
+              Download Country Matrix
+            </a>
+            
+            <p className="text-white/50 text-sm mt-4 italic">
+              NOTE: The Country Matrix will be open after registration closes.
+            </p>
+          </motion.div>
+        )}
+      </div>
+      
+      {/* Have Questions Section */}
+      {committeeEmail && (
+        <motion.div
+          whileHover={{ y: -5 }}
+          transition={{ duration: 0.3 }}
+          className="mt-6 bg-[#121218] rounded-xl p-8 border border-[#2a2a3a]"
+        >
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div>
+              <h3 className="text-xl font-bold text-white mb-2">Have Questions?</h3>
+              <p className="text-white/70">
+                Contact the committee directors directly at: <a href={`mailto:${committeeEmail}`} className="text-mun-purple hover:text-mun-purple-light">{committeeEmail}</a>
+              </p>
+            </div>
+            <a 
+              href={`mailto:${committeeEmail}`}
+              className="mt-4 md:mt-0 inline-flex items-center justify-center px-6 py-3 border border-mun-purple rounded-full text-white font-medium hover:bg-mun-purple/10 transition-colors"
             >
-              <a 
-                href={countryMatrixUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block relative overflow-hidden rounded-xl transition-all duration-300 shadow-md hover:shadow-xl"
-              >
-                <div className="aspect-[3/4] overflow-hidden bg-black/50">
-                  <img 
-                    src="/lovable-uploads/Country Matrix Middle School MUN 2025.png"
-                    alt={`${committeeName} Country Matrix`}
-                    className="w-full h-full object-cover opacity-70 transition-transform duration-500 transform scale-110 hover:scale-125"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80"></div>
-                  <div className="absolute bottom-4 left-4 right-4 text-center">
-                    <div className="bg-mun-purple/70 backdrop-blur-sm rounded-lg p-3 shadow-lg">
-                      <FileSpreadsheet className="h-6 w-6 text-white mx-auto mb-2" />
-                      <h4 className="text-white font-semibold text-lg">Country Matrix</h4>
-                      <p className="text-white/80 text-sm mt-1">View country allocations</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </motion.div>
-          )}
-          
-          {/* Email Contact */}
-          {committeeEmail && (
-            <motion.div
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.3 }}
-            >
-              <a 
-                href={`mailto:${committeeEmail}`}
-                className="block relative overflow-hidden rounded-xl transition-all duration-300 shadow-md hover:shadow-xl"
-              >
-                <div className="aspect-[3/4] overflow-hidden bg-gradient-to-br from-mun-purple/30 to-black/50">
-                  <div className="flex items-center justify-center h-full">
-                    <div className="text-center p-6">
-                      <div className="bg-mun-purple/70 backdrop-blur-sm rounded-lg p-6 shadow-lg">
-                        <Mail className="h-12 w-12 text-white mx-auto mb-4" />
-                        <h4 className="text-white font-semibold text-xl mb-2">Contact Committee</h4>
-                        <p className="text-white/80 text-sm break-all">{committeeEmail}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </motion.div>
-          )}
-        </div>
-      </CardContent>
-    </Card>
+              <Mail className="h-4 w-4 mr-2" />
+              Email Committee
+            </a>
+          </div>
+        </motion.div>
+      )}
+    </div>
   );
 };
 
