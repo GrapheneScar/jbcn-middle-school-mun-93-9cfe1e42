@@ -5,10 +5,11 @@ import { GalleryImage } from "./types";
 
 interface GalleryImageCardProps {
   image: GalleryImage;
-  onClick: (image: GalleryImage) => void;
+  index: number; // Added index prop
+  onClick: () => void;
 }
 
-const GalleryImageCard = ({ image, onClick }: GalleryImageCardProps) => {
+const GalleryImageCard = ({ image, index, onClick }: GalleryImageCardProps) => {
   return (
     <motion.div 
       key={image.id}

@@ -40,10 +40,16 @@ const NewsletterTabs = ({ seniorMUNNewsletters, middleSchoolNewsletters }: Newsl
         </div>
         
         <TabsContent value="middle-school" className="animate-fade-in">
-          <NewsletterGrid newsletters={middleSchoolNewsletters} />
+          <NewsletterGrid 
+            newsletters={middleSchoolNewsletters} 
+            title="Middle School Newsletters" 
+          />
         </TabsContent>
         <TabsContent value="senior" className="animate-fade-in">
-          <NewsletterGrid newsletters={seniorMUNNewsletters} />
+          <NewsletterGrid 
+            newsletters={seniorMUNNewsletters}
+            title="Senior MUN Newsletters" 
+          />
         </TabsContent>
       </Tabs>
     </div>

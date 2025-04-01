@@ -16,6 +16,7 @@ export interface Department {
 }
 
 export interface CommitteeChair {
+  id?: string; // Added id as optional property
   name: string;
   title: string;
   photo: string;
@@ -31,6 +32,11 @@ export interface Committee {
   shortDescription?: string;
   topics: string[];
   logo?: string;
+  logoDark?: string;
+  logoLight?: string;
+  logoBW?: string;
+  countryMatrixLight?: string;
+  countryMatrixDark?: string;
   chairs: CommitteeChair[];
   background?: string;
   style?: string;
