@@ -30,7 +30,7 @@ export const RegisterButton = ({ className = "" }: RegisterButtonProps) => {
 
   return (
     <a 
-      href="https://www.google.com" 
+      href="https://docs.google.com/forms/d/e/1FAIpQLSdGzaYOB7xSR68bbpr1BVqTIYFATwuytbIXk5IRTXoviu9U_g/viewform" 
       target="_blank" 
       rel="noopener noreferrer"
       className={`transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className} flex justify-center`}
