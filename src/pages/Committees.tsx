@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import PageTransition from '../components/PageTransition';
 import StripeBackground from '../components/StripeBackground';
@@ -7,38 +6,37 @@ import CommitteeList from '../components/committees/CommitteeList';
 import CommitteeStructure from '../components/committees/CommitteeStructure';
 import { committeesData } from '../components/committees/committees-data';
 import { motion } from 'framer-motion';
-
 const Committees = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  return (
-    <PageTransition>
+  return <PageTransition>
       <StripeBackground />
       
       <div className="pt-28 sm:pt-32 md:pt-36 container mx-auto px-4">
-        <CommitteeHeader 
-          title="COMMITTEES" 
-          description="Explore our five diverse committees designed to provide middle school students with an enriching simulation of international diplomacy and historical events." 
-        />
+        <CommitteeHeader title="COMMITTEES" description="Explore our five diverse committees designed to provide middle school students with an enriching simulation of international diplomacy and historical events." />
         
         {/* Enhanced Committee Overview Section */}
-        <motion.div 
-          className="max-w-4xl mx-auto mb-16 overflow-hidden" 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, type: "tween" }}
-        >
+        <motion.div className="max-w-4xl mx-auto mb-16 overflow-hidden" initial={{
+        opacity: 0,
+        y: 20
+      }} animate={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.6,
+        delay: 0.2,
+        type: "tween"
+      }}>
           <div className="glass-panel p-8 border border-mun-purple/20 relative">
             {/* Purple gradient accents */}
             <div className="absolute -top-20 -left-20 w-40 h-40 bg-mun-purple/30 rounded-full blur-3xl" />
             <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-mun-purple/30 rounded-full blur-3xl" />
             
-            <h3 className="text-2xl font-bold text-white mb-4 relative z-10">Committees Overview</h3>
+            <h3 className="text-2xl font-bold text-white mb-4 relative z-10 text-center">Committees Overview</h3>
             
             <div className="relative z-10 space-y-4 text-white/90 leading-relaxed">
-              <p>
+              <p className="text-center">
                 Our committees this year offer a diverse array of challenges and perspectives. Delegates will engage in diplomatic simulation that spans history, crisis management, and future-oriented policy making.
               </p>
               
@@ -85,8 +83,6 @@ const Committees = () => {
         
         <CommitteeStructure />
       </div>
-    </PageTransition>
-  );
+    </PageTransition>;
 };
-
 export default Committees;
