@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import NewsletterCard from './NewsletterCard';
 
@@ -13,8 +12,7 @@ interface Newsletter {
 }
 
 interface NewsletterGridProps {
-  newsletters: Newsletter[];
-  // Make title optional with a default value
+  newsletters: any[];
   title?: string;
 }
 
@@ -45,7 +43,6 @@ const NewsletterGrid = ({
     }
   };
 
-  // Determine which newsletters are from 2022 by checking if the title or date contains "2022"
   const is2022Newsletter = (newsletter: Newsletter) => {
     return newsletter.title.includes('2022') || newsletter.date.includes('2022');
   };
@@ -76,7 +73,6 @@ const NewsletterGrid = ({
             transition={{ duration: 0.5, type: "tween" }}
           >
             <div className="relative">
-              {/* Updated "Missing" overlay for 2022 newsletters */}
               {is2022Newsletter(newsletter) && !newsletter.comingSoon && (
                 <div className="absolute inset-0 bg-red-600/50 backdrop-blur-sm flex items-center justify-center z-10 rounded-xl">
                   <motion.div 

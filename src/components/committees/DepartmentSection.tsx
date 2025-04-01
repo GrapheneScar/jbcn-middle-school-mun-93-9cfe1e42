@@ -1,11 +1,14 @@
+
 import { motion } from 'framer-motion';
 import { Department } from './types';
 import { useState } from 'react';
 import { BookOpen, X } from 'lucide-react';
+
 interface DepartmentSectionProps {
   department: Department;
   index: number;
 }
+
 const DepartmentSection = ({
   department,
   index
@@ -55,6 +58,7 @@ const DepartmentSection = ({
       }} />;
     });
   };
+
   return <motion.div className="w-full mb-16" initial={{
     opacity: 0,
     y: 20
@@ -105,22 +109,30 @@ const DepartmentSection = ({
           duration: 0.5,
           type: "tween"
         }} className="w-full max-w-sm">
-              <div className={`glass-panel p-4 overflow-hidden transition-transform duration-300 ${activeEasterEggChair === chair.name ? 'glow-effect' : ''}`} onMouseDown={() => {
-            pressTimer = startEasterEggTimer(chair);
-          }} onMouseUp={() => {
-            if (pressTimer) clearTimeout(pressTimer);
-          }} onMouseLeave={() => {
-            if (pressTimer) clearTimeout(pressTimer);
-          }} onTouchStart={() => {
-            pressTimer = startEasterEggTimer(chair);
-          }} onTouchEnd={() => {
-            if (pressTimer) clearTimeout(pressTimer);
-          }} onTouchCancel={() => {
-            if (pressTimer) clearTimeout(pressTimer);
-          }}>
+              <div className={`glass-panel p-4 overflow-hidden transition-transform duration-300 ${activeEasterEggChair === chair.name ? 'glow-effect' : ''}`}>
                 <div className="flex flex-col items-center">
-                  {/* Square image with curved corners */}
-                  <div className="w-36 h-36 rounded-xl overflow-hidden mb-4 border-2 border-mun-purple/30">
+                  {/* Square image with curved corners - Make it trigger easter egg on hold */}
+                  <div 
+                    className="w-36 h-36 rounded-xl overflow-hidden mb-4 border-2 border-mun-purple/30 cursor-pointer"
+                    onMouseDown={() => {
+                      pressTimer = startEasterEggTimer(chair);
+                    }} 
+                    onMouseUp={() => {
+                      if (pressTimer) clearTimeout(pressTimer);
+                    }}
+                    onMouseLeave={() => {
+                      if (pressTimer) clearTimeout(pressTimer);
+                    }}
+                    onTouchStart={() => {
+                      pressTimer = startEasterEggTimer(chair);
+                    }}
+                    onTouchEnd={() => {
+                      if (pressTimer) clearTimeout(pressTimer);
+                    }}
+                    onTouchCancel={() => {
+                      if (pressTimer) clearTimeout(pressTimer);
+                    }}
+                  >
                     {chair.photo ? <img src={chair.photo} alt={`${chair.name} - ${displayTitle}`} className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center bg-mun-purple/20">
                         <span className="text-3xl font-bold text-mun-purple-light">
                           {chair.name.charAt(0)}
@@ -131,7 +143,7 @@ const DepartmentSection = ({
                   <h3 className="text-xl font-bold text-white mb-1">{chair.name}</h3>
                   <p className="text-mun-purple-light text-sm mb-4">{displayTitle}</p>
                   
-                  {hasEasterEgg && <p className="text-white/30 text-xs italic mt-1 mb-2">Hold for a surprise</p>}
+                  {hasEasterEgg && <p className="text-white/30 text-xs italic mt-1 mb-2">Hold photo for a surprise</p>}
                 </div>
               </div>
               
@@ -141,11 +153,28 @@ const DepartmentSection = ({
                   {formatBio(chair.bio || '')}
                 </div>
                 
-                
+                {/* Bio toggle button */}
+                <button
+                  onClick={() => toggleBio(chair.name)}
+                  className="mt-2 text-mun-purple-light text-xs font-medium flex items-center"
+                >
+                  {expandedBios[chair.name] ? (
+                    <>
+                      <X size={14} className="mr-1" />
+                      Show Less
+                    </>
+                  ) : (
+                    <>
+                      <BookOpen size={14} className="mr-1" />
+                      Read More
+                    </>
+                  )}
+                </button>
               </div>
             </motion.div>;
       })}
       </div>
     </motion.div>;
 };
+
 export default DepartmentSection;

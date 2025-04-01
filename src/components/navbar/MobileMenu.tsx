@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Instagram } from 'lucide-react';
 import { NavLinkWithSubmenu } from './navData';
+import { committeeLinks } from './committeeLinks';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -49,76 +50,87 @@ const MobileMenu = ({ isOpen, navLinks, isActive, onLinkClick }: MobileMenuProps
         >
           <div className="h-full pt-24 pb-20 px-6 overflow-y-auto">
             <div className="flex flex-col h-full space-y-2">
-              {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.3 }}
-                  className="border-b border-white/10 py-2"
-                >
-                  {link.submenu ? (
-                    <div>
-                      <button
-                        onClick={() => toggleSubmenu(link.name)}
-                        className="flex items-center justify-between w-full text-left py-3 px-2"
-                      >
-                        <span className={`text-lg font-medium ${
-                          expandedMenu === link.name 
-                            ? 'text-mun-purple-light' 
-                            : 'text-white'
-                        }`}>
-                          {link.name}
-                        </span>
-                        <ChevronDown 
-                          className={`h-5 w-5 transition-transform duration-300 ${
-                            expandedMenu === link.name ? 'rotate-180 text-mun-purple-light' : 'text-white'
-                          }`} 
-                        />
-                      </button>
-                      
-                      <AnimatePresence>
-                        {expandedMenu === link.name && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="ml-4 pl-4 border-l border-white/10 overflow-hidden"
+              {navLinks.map((link, index) => {
+                // Use committeeLinks for the COMMITTEES menu item
+                const submenuItems = link.name === "COMMITTEES" ? committeeLinks : link.submenu;
+                
+                return (
+                  <motion.div
+                    key={link.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.3 }}
+                    className="border-b border-white/10 py-2"
+                  >
+                    {submenuItems ? (
+                      <div>
+                        <div className="flex items-center justify-between">
+                          <Link
+                            to={link.path}
+                            className={`text-lg font-medium py-3 px-2 ${
+                              isActive(link.path) 
+                                ? 'text-mun-purple-light' 
+                                : 'text-white hover:text-mun-purple-light'
+                            } transition-colors duration-300`}
+                            onClick={onLinkClick}
                           >
-                            {link.submenu.map(subitem => (
-                              <Link
-                                key={subitem.name}
-                                to={subitem.path}
-                                className={`block py-3 px-2 text-base text-left ${
-                                  isActive(subitem.path) 
-                                    ? 'text-mun-purple-light' 
-                                    : 'text-white/80 hover:text-mun-purple-light'
-                                } transition-colors duration-300`}
-                                onClick={onLinkClick}
-                              >
-                                {subitem.name}
-                              </Link>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  ) : (
-                    <Link
-                      to={link.path}
-                      className={`block py-3 px-2 text-lg font-medium text-left ${
-                        isActive(link.path) 
-                          ? 'text-mun-purple-light' 
-                          : 'text-white hover:text-mun-purple-light'
-                      } transition-colors duration-300`}
-                      onClick={onLinkClick}
-                    >
-                      {link.name}
-                    </Link>
-                  )}
-                </motion.div>
-              ))}
+                            {link.name}
+                          </Link>
+                          <button
+                            onClick={() => toggleSubmenu(link.name)}
+                            className="p-2"
+                          >
+                            <ChevronDown 
+                              className={`h-5 w-5 transition-transform duration-300 ${
+                                expandedMenu === link.name ? 'rotate-180 text-mun-purple-light' : 'text-white'
+                              }`} 
+                            />
+                          </button>
+                        </div>
+                        
+                        <AnimatePresence>
+                          {expandedMenu === link.name && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="ml-4 pl-4 border-l border-white/10 overflow-hidden"
+                            >
+                              {submenuItems.map(subitem => (
+                                <Link
+                                  key={subitem.name}
+                                  to={subitem.path}
+                                  className={`block py-3 px-2 text-base text-left ${
+                                    isActive(subitem.path) 
+                                      ? 'text-mun-purple-light' 
+                                      : 'text-white/80 hover:text-mun-purple-light'
+                                  } transition-colors duration-300`}
+                                  onClick={onLinkClick}
+                                >
+                                  {subitem.name}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    ) : (
+                      <Link
+                        to={link.path}
+                        className={`block py-3 px-2 text-lg font-medium text-left ${
+                          isActive(link.path) 
+                            ? 'text-mun-purple-light' 
+                            : 'text-white hover:text-mun-purple-light'
+                        } transition-colors duration-300`}
+                        onClick={onLinkClick}
+                      >
+                        {link.name}
+                      </Link>
+                    )}
+                  </motion.div>
+                );
+              })}
               
               {/* Instagram Link in Mobile Menu Footer */}
               <div className="mt-6 pt-4 border-t border-white/10">

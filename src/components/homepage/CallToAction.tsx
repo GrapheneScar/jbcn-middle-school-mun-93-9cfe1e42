@@ -24,7 +24,9 @@ const CallToAction = () => {
           <p className="text-xl text-white/80 mb-10">
             Become part of a transformative experience that builds leadership, public speaking, and critical thinking skills.
           </p>
-          <RegisterButton />
+          <div className="flex justify-center">
+            <RegisterButton />
+          </div>
         </div>
       </motion.div>
     </section>

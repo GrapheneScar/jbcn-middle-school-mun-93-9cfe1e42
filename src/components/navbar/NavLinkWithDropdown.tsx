@@ -18,7 +18,7 @@ const NavLinkWithDropdown = ({ item }: Props) => {
   const linkRef = useRef<HTMLDivElement>(null);
 
   // Use the committee links for the Committees dropdown
-  const submenuItems = item.name === "Committees" ? committeeLinks : item.submenu;
+  const submenuItems = item.name === "COMMITTEES" ? committeeLinks : item.submenu;
 
   // Handle outside clicks
   useEffect(() => {
@@ -53,8 +53,10 @@ const NavLinkWithDropdown = ({ item }: Props) => {
   };
 
   const handleClick = (e: React.MouseEvent) => {
-    // If it's a parent link with submenu and has a real path (not "#")
-    if (submenuItems && submenuItems.length > 0 && item.path !== "#") {
+    // Always allow navigation to the committee main page
+    if (item.path === '/committees') {
+      // Allow click through to navigate to committees page
+    } else if (submenuItems && submenuItems.length > 0 && item.path !== "#") {
       // Allow the click to proceed normally (navigate to the page)
     } else if (submenuItems && submenuItems.length > 0) {
       // It's a dropdown toggle with no real path

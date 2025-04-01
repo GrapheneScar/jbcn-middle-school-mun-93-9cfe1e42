@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { GalleryImage } from "./types";
@@ -70,8 +69,13 @@ const GalleryTabs = ({
               initial="hidden" 
               animate="visible"
             >
-              {filterImages(category).map(image => (
-                <GalleryImageCard key={image.id} image={image} onClick={onImageClick} />
+              {filterImages(category).map((image, index) => (
+                <GalleryImageCard 
+                  key={image.id}
+                  image={image}
+                  index={index}
+                  onClick={() => handleImageClick(image)}
+                />
               ))}
             </motion.div>
           </TabsContent>

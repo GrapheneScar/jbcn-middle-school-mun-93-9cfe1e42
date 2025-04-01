@@ -1,6 +1,8 @@
+
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+
 const ScheduleNotes = () => {
   return <Card className="bg-black/40 backdrop-blur-md border-white/10">
       <CardHeader>
@@ -52,10 +54,13 @@ const ScheduleNotes = () => {
         <p className="text-white/60 text-sm">
           Schedule subject to minor changes. Updates will be announced during the conference.
         </p>
-        <Button className="bg-mun-purple hover:bg-mun-purple-light text-white">
-          Contact Secretariat
-        </Button>
+        <a href="mailto:secretariat.msm2025@gmail.com" target="_blank" rel="noopener noreferrer">
+          <Button className="bg-mun-purple hover:bg-mun-purple-light text-white">
+            Contact Secretariat
+          </Button>
+        </a>
       </CardFooter>
     </Card>;
 };
+
 export default ScheduleNotes;

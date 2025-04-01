@@ -33,7 +33,7 @@ export const RegisterButton = ({ className = "" }: RegisterButtonProps) => {
       href="https://www.google.com" 
       target="_blank" 
       rel="noopener noreferrer"
-      className={`transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
+      className={`transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className} flex justify-center`}
     >
       <Button 
         className={`registration-button text-white font-medium px-6 py-5 flex items-center rounded-full ${isVisible ? 'register-pulse' : ''}`}

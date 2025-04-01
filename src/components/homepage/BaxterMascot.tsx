@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 const BaxterMascot = () => {
   return <section className="relative py-16 overflow-hidden">
@@ -14,9 +15,9 @@ const BaxterMascot = () => {
         }} transition={{
           duration: 0.5,
           type: "tween"
-        }} className="lg:w-1/2 text-left">
-            <span className="inline-block px-4 py-1 text-sm bg-mun-purple rounded-full mb-3 text-center">Meet Our Mascot</span>
-            <h2 className="text-5xl font-bold text-white mb-4">Baxter <span className="text-mun-purple-light">The Bear</span></h2>
+        }} className="lg:w-1/2 text-center">
+            <span className="inline-block px-4 py-1 text-sm bg-mun-purple rounded-full mb-3">Meet Our Mascot</span>
+            <h2 className="text-5xl font-bold text-white mb-4 text-center">Baxter <span className="text-mun-purple-light">The Bear</span></h2>
             <p className="text-white/90 mb-4 text-center">Embodying the ideal delegate</p>
             
             <p className="text-white/80 mb-4 text-center">

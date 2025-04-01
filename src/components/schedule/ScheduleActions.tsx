@@ -1,5 +1,5 @@
 
-import { CalendarDays, Download, Mail } from "lucide-react";
+import { CalendarDays, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface ScheduleActionsProps {
@@ -14,14 +14,7 @@ const ScheduleActions = ({ downloadSchedule }: ScheduleActionsProps) => {
         <h2 className="text-white font-semibold">Conference Days: June 18-19, 2025</h2>
       </div>
       
-      <div className="flex gap-3 flex-wrap justify-center">
-        <a href="mailto:secretariat.msm2025@gmail.com" target="_blank" rel="noopener noreferrer">
-          <Button variant="outline" className="border-mun-purple/50 hover:bg-mun-purple/20">
-            <Mail className="mr-2 h-4 w-4" />
-            Contact Secretariat
-          </Button>
-        </a>
-        
+      <div className="flex gap-3 flex-wrap justify-center">        
         <Button onClick={downloadSchedule} className="bg-mun-purple hover:bg-mun-purple-light">
           <Download className="mr-2 h-4 w-4" />
           Download Schedule

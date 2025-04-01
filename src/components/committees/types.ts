@@ -1,4 +1,3 @@
-
 // Type definitions for committee structure
 export interface DepartmentChair {
   name: string;
@@ -16,13 +15,12 @@ export interface Department {
 }
 
 export interface CommitteeChair {
-  id?: string; // Added id as optional property
   name: string;
   title: string;
-  photo: string;
   bio: string;
-  department?: string;
-  easterEgg?: string;
+  photo?: string;
+  id?: string;
+  image?: string;
 }
 
 export interface Committee {
