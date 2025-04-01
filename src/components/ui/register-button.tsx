@@ -7,7 +7,7 @@ interface RegisterButtonProps {
   className?: string;
 }
 
-const RegisterButton = ({ className = "" }: RegisterButtonProps) => {
+export const RegisterButton = ({ className = "" }: RegisterButtonProps) => {
   const [isVisible, setIsVisible] = useState(true);
   
   // Dynamic pulse effect based on scroll position
