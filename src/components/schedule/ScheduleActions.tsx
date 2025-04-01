@@ -1,17 +1,15 @@
-
 import { CalendarDays, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
 interface ScheduleActionsProps {
   downloadSchedule: () => void;
 }
-
-const ScheduleActions = ({ downloadSchedule }: ScheduleActionsProps) => {
-  return (
-    <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
+const ScheduleActions = ({
+  downloadSchedule
+}: ScheduleActionsProps) => {
+  return <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
       <div className="flex items-center gap-2">
         <CalendarDays className="text-mun-purple-light h-6 w-6" />
-        <h2 className="text-white font-semibold">Conference Days: June 18-19, 2025</h2>
+        <h2 className="text-white font-semibold">Conference Days: April 25-26, 2025</h2>
       </div>
       
       <div className="flex gap-3 flex-wrap justify-center">        
@@ -20,8 +18,6 @@ const ScheduleActions = ({ downloadSchedule }: ScheduleActionsProps) => {
           Download Schedule
         </Button>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default ScheduleActions;
