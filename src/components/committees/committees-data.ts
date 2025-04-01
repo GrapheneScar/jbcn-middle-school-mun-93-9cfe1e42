@@ -4,7 +4,7 @@ export const committeesData: Committee[] = [
   {
     name: "Disarmament and International Security Committee",
     abbr: "DISEC",
-    logo: "/lovable-uploads/DISEC - Color.png",
+    logo: "/lovable-uploads/disec.png",
     logoDark: "/lovable-uploads/DISEC - dark.png",
     logoLight: "/lovable-uploads/DISEC - light.png",
     logoBW: "/lovable-uploads/DISEC - BW.png",
@@ -35,7 +35,7 @@ export const committeesData: Committee[] = [
   {
     name: "Committee on the Peaceful Uses of Outer Space Affairs",
     abbr: "COPUOS",
-    logo: "/lovable-uploads/COPUOS - Color.png",
+    logo: "/lovable-uploads/uncopuos.png",
     logoDark: "/lovable-uploads/COPUOS - dark.png",
     logoLight: "/lovable-uploads/COPUOS - light.png",
     logoBW: "/lovable-uploads/COPUOS - BW.png",
@@ -66,7 +66,7 @@ export const committeesData: Committee[] = [
   {
     name: "Korean War Summit, 1952",
     abbr: "KWS",
-    logo: "/lovable-uploads/KWS - Color.png", 
+    logo: "/lovable-uploads/kws.png", 
     logoDark: "/lovable-uploads/KWS - dark.png",
     logoLight: "/lovable-uploads/KWS - light.png",
     logoBW: "/lovable-uploads/KWS - BW.png", 
@@ -97,7 +97,7 @@ export const committeesData: Committee[] = [
   {
     name: "Cabinet of India, 1984",
     abbr: "COI",
-    logo: "/lovable-uploads/COI - Color.png",
+    logo: "/lovable-uploads/coi.png",
     logoDark: "/lovable-uploads/COI - dark.png",
     logoLight: "/lovable-uploads/COI - light.png",
     logoBW: "/lovable-uploads/COI - BW.png", 
@@ -125,7 +125,7 @@ export const committeesData: Committee[] = [
   {
     name: "Russian Federative Assembly",
     abbr: "RFA",
-    logo: "/lovable-uploads/RFA - Color.png",
+    logo: "/lovable-uploads/rfa.png",
     logoDark: "/lovable-uploads/RFA - dark.png",
     logoLight: "/lovable-uploads/RFA - light.png",
     logoBW: "/lovable-uploads/RFA - BW.png", 
