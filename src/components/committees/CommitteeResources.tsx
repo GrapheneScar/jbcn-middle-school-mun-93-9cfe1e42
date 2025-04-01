@@ -1,21 +1,40 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FileText, FileSpreadsheet, Mail, Download } from "lucide-react";
+import { FileText, FileSpreadsheet, Mail } from "lucide-react";
+import { Button } from "../ui/button";
 
 interface CommitteeResourcesProps {
   studyGuideUrl?: string;
   countryMatrixUrl?: string;
   committeeName: string;
   committeeEmail: string;
+  committeeAbbr?: string; // Add abbreviation to determine which logo to show
 }
 
 const CommitteeResources = ({
   studyGuideUrl,
   countryMatrixUrl,
   committeeName,
-  committeeEmail
+  committeeEmail,
+  committeeAbbr
 }: CommitteeResourcesProps) => {
+  const [studyGuideHovered, setStudyGuideHovered] = useState(false);
+  const [countryMatrixHovered, setCountryMatrixHovered] = useState(false);
+  
+  // Get the appropriate logos based on committee abbreviation
+  const getLogos = () => {
+    if (!committeeAbbr) return { light: '', dark: '' };
+    
+    const abbr = committeeAbbr.toLowerCase();
+    return {
+      light: `/lovable-uploads/${abbr.toUpperCase()} - light.png`,
+      dark: `/lovable-uploads/${abbr.toUpperCase()} - dark.png`
+    };
+  };
+  
+  const logos = getLogos();
+
   return (
     <div className="mt-12">
       <h2 className="text-2xl font-bold text-white mb-8 text-center">Committee Resources</h2>
@@ -24,17 +43,21 @@ const CommitteeResources = ({
         {/* Study Guide Section */}
         {studyGuideUrl && (
           <motion.div
-            whileHover={{ y: -5 }}
-            transition={{ duration: 0.3 }}
             className="bg-[#121218] rounded-xl p-8 flex flex-col items-center text-center border border-[#2a2a3a]"
           >
-            <div className="bg-mun-purple/20 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+            <div 
+              className="bg-mun-purple/20 w-16 h-16 rounded-full flex items-center justify-center mb-4"
+              onMouseEnter={() => setStudyGuideHovered(true)}
+              onMouseLeave={() => setStudyGuideHovered(false)}
+            >
               <FileText className="text-mun-purple h-8 w-8" />
             </div>
             
             <h3 className="text-xl font-bold text-white mb-2">Study Guide</h3>
             <p className="text-white/70 mb-6">
-              Access the official study guide for the {committeeName} committee. This document contains essential information about the agenda topics, background, and expectations.
+              Access the official study guide for the {committeeName} committee. This
+              document contains essential information about the agenda
+              topics, background, and expectations.
             </p>
             
             <a 
@@ -43,7 +66,7 @@ const CommitteeResources = ({
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-mun-purple rounded-full text-white font-medium hover:bg-mun-purple-light transition-colors"
             >
-              <Download className="h-4 w-4 mr-2" />
+              <FileText className="h-4 w-4 mr-2" />
               Download Study Guide
             </a>
             
@@ -56,16 +79,20 @@ const CommitteeResources = ({
         {/* Country Matrix Section */}
         {countryMatrixUrl && (
           <motion.div
-            whileHover={{ y: -5 }}
-            transition={{ duration: 0.3 }}
             className="bg-[#121218] rounded-xl p-8 flex flex-col items-center text-center border border-[#2a2a3a]"
           >
-            <div className="mb-4 bg-white/5 p-3 rounded-lg">
-              <img 
-                src={`/lovable-uploads/7217db9a-a50d-4b88-9285-08ba350abdb2.png`}
-                alt="Country Matrix Sample"
-                className="w-full h-auto rounded"
-              />
+            <div 
+              className="mb-4 w-36 h-36 flex items-center justify-center"
+              onMouseEnter={() => setCountryMatrixHovered(true)}
+              onMouseLeave={() => setCountryMatrixHovered(false)}
+            >
+              {committeeAbbr && (
+                <img 
+                  src={countryMatrixHovered ? `/lovable-uploads/${committeeAbbr.toUpperCase()} - BW.png` : `/lovable-uploads/${committeeAbbr.toUpperCase()} - Color.png`}
+                  alt="Committee Logo"
+                  className="w-full h-auto transition-opacity duration-300"
+                />
+              )}
             </div>
             
             <h3 className="text-xl font-bold text-white mb-2">Country Matrix</h3>
@@ -92,9 +119,7 @@ const CommitteeResources = ({
       
       {/* Have Questions Section */}
       {committeeEmail && (
-        <motion.div
-          whileHover={{ y: -5 }}
-          transition={{ duration: 0.3 }}
+        <div
           className="mt-6 bg-[#121218] rounded-xl p-8 border border-[#2a2a3a]"
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
@@ -112,7 +137,7 @@ const CommitteeResources = ({
               Email Committee
             </a>
           </div>
-        </motion.div>
+        </div>
       )}
     </div>
   );

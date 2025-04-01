@@ -116,6 +116,7 @@ const CommitteeDetail = () => {
               countryMatrixUrl={committee.countryMatrixUrl}
               committeeName={committee.name}
               committeeEmail={committeeEmail}
+              committeeAbbr={committee.abbr}
             />
           )}
         </div>
@@ -127,6 +128,7 @@ const CommitteeDetail = () => {
             countryMatrixUrl={committee.countryMatrixUrl}
             committeeName={committee.name}
             committeeEmail={committeeEmail}
+            committeeAbbr={committee.abbr}
           />
         )}
       </div>
