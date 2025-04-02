@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import StripeBackground from '../components/StripeBackground';
 import HeroSection from '../components/homepage/HeroSection';
@@ -12,27 +11,17 @@ import PageTransition from '../components/PageTransition';
 import SecretaryGeneralSection from '../components/homepage/SecretaryGeneralSection';
 import DeputySecretaryGeneralSection from '../components/homepage/DeputySecretaryGeneralSection';
 import RegisterButton from '../components/RegisterButton';
-
 const Index = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  return (
-    <PageTransition>
+  return <PageTransition>
       <div className="relative w-full min-h-screen overflow-hidden">
         <StripeBackground />
         <HeroSection />
 
         {/* Registration Note */}
-        <div className="text-center mt-4 mb-8 px-4">
-          <div className="inline-block max-w-md mx-auto">
-            <RegisterButton />
-            <p className="mt-2 text-sm text-white/60 italic">
-              Note: This registration form is for external delegates only. Internal delegates have received the registration form via MSO.
-            </p>
-          </div>
-        </div>
+        
         
         {/* Secretary General Section */}
         <SecretaryGeneralSection />
@@ -66,8 +55,6 @@ const Index = () => {
         <BaxterMascot />
         <CallToAction />
       </div>
-    </PageTransition>
-  );
+    </PageTransition>;
 };
-
 export default Index;
