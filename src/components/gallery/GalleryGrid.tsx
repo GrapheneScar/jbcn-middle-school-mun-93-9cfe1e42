@@ -62,17 +62,7 @@ const GalleryGrid = ({
   };
   return <div className="mb-10">
       {/* Actions bar */}
-      <div className="flex justify-end gap-3 mb-6 flex-wrap">
-        <Button onClick={handleRandomize} variant="outline" className="border-mun-purple/50 hover:bg-mun-purple/20">
-          <Shuffle className="mr-2 h-4 w-4" />
-          Shuffle Gallery
-        </Button>
-        
-        <Button onClick={handleRandomSpotlight} className="bg-mun-purple hover:bg-mun-purple-light">
-          <Shuffle className="mr-2 h-4 w-4" />
-          Random Spotlight
-        </Button>
-      </div>
+      
 
       {/* Random spotlight image */}
       {spotlightImage && <motion.div className="w-full h-[60vh] mb-8 rounded-xl overflow-hidden" initial={{
