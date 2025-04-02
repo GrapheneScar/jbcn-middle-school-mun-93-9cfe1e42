@@ -46,7 +46,7 @@ const OrganizingEasterEgg = () => {
           }}
           transition={{ 
             duration: 4 + Math.random() * 6,
-            ease: "circOut",
+            ease: "easeOut",
             delay: Math.random() * 0.5,
             opacity: { 
               times: [0, 0.5, 1],
@@ -106,10 +106,10 @@ const OrganizingEasterEgg = () => {
             scale: [0.8, 1, 1, 0.9]
           }}
           transition={{ 
-            duration: 5,
+            duration: 3,
             delay: 1.2 + i * 0.8,
             times: [0, 0.2, 0.8, 1],
-            ease: "easeInOut" // Use easeInOut instead of spring
+            ease: "easeInOut"
           }}
           style={{
             bottom: `${10 + (i * 5)}%`,

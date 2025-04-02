@@ -58,9 +58,8 @@ const SocialMediaEasterEgg = () => {
           scale: [1, 5, 8, 12, 15] 
         }}
         transition={{ 
-          duration: 12,
-          repeat: 1, 
-          repeatType: "reverse" 
+          duration: 4,
+          ease: "easeInOut"
         }}
         className="fixed inset-0 bg-purple-600 rounded-full z-[-1]"
         style={{ transformOrigin: "center" }}
@@ -69,10 +68,9 @@ const SocialMediaEasterEgg = () => {
       <motion.div
         animate={{ 
           scale: [1, 1.3, 1],
-          rotateZ: [0, 10, -10, 0],
           filter: ["drop-shadow(0 0 8px rgba(121,83,169,0.3))", "drop-shadow(0 0 20px rgba(121,83,169,0.8))", "drop-shadow(0 0 8px rgba(121,83,169,0.3))"]
         }}
-        transition={{ duration: 6, repeat: 1 }}
+        transition={{ duration: 3, ease: "easeInOut" }}
         className={`p-6 md:p-10 rounded-full bg-purple-600/30 backdrop-blur-md`}
       >
         <Hash className={`text-white ${isMobile ? 'h-12 w-12' : 'h-20 w-20'}`} />
@@ -83,8 +81,7 @@ const SocialMediaEasterEgg = () => {
           }}
           transition={{ 
             duration: 4,
-            repeat: 2, 
-            repeatType: "reverse" 
+            ease: "easeInOut"
           }}
           className="absolute inset-0 flex items-center justify-center"
         >
@@ -105,13 +102,13 @@ const SocialMediaEasterEgg = () => {
           }}
           animate={{ 
             opacity: [0, 1, 1, 0],
-            y: [-20, -40, -60],
-            scale: [0.8, 1, 1.1, 0.9],
+            y: [-20, -40],
+            scale: [0.8, 1],
           }}
           transition={{ 
-            duration: 4,
-            delay: 1 + i * 1.5,
-            times: [0, 0.2, 0.8, 1]
+            duration: 3,
+            delay: 1 + i * 0.5,
+            ease: "easeInOut"
           }}
           style={{
             left: `${20 + Math.random() * 60}%`,

@@ -15,11 +15,11 @@ const PhotographyEasterEgg = () => {
           opacity: [0, 1, 0],
           backgroundColor: ["rgba(255,255,255,0)", "rgba(255,255,255,1)", "rgba(255,255,255,0)"]
         }}
-        transition={{ duration: 0.5, times: [0, 0.1, 1] }}
+        transition={{ duration: 0.5, times: [0, 0.1, 1], ease: "easeOut" }}
         className="fixed inset-0"
       />
       
-      {/* Camera shutter animation with improved visuals */}
+      {/* Camera shutter animation */}
       <motion.div className="fixed inset-0 flex items-center justify-center pointer-events-none">
         <motion.div 
           className="relative h-screen w-screen overflow-hidden"
@@ -35,7 +35,8 @@ const PhotographyEasterEgg = () => {
             transition={{ 
               duration: 1.2, 
               times: [0, 0.2, 0.8, 1],
-              delay: 0.5
+              delay: 0.5,
+              ease: "easeInOut"
             }}
             style={{ transformOrigin: "center" }}
           />
@@ -46,11 +47,11 @@ const PhotographyEasterEgg = () => {
           <motion.div 
             className="w-full max-w-3xl aspect-video border-[20px] border-white shadow-2xl relative overflow-hidden"
             initial={{ scale: 0, rotate: -5 }}
-            animate={{ scale: [0, 1.2, 1], rotate: [-5, 5, 0] }}
+            animate={{ scale: [0, 1], rotate: [-5, 0] }}
             transition={{ 
               duration: 0.8, 
               delay: 1.5,
-              type: "spring"
+              ease: "easeOut"
             }}
           >
             <motion.div 
@@ -95,8 +96,8 @@ const PhotographyEasterEgg = () => {
       {/* Camera icon and sound visualization */}
       <motion.div 
         initial={{ scale: 0 }}
-        animate={{ scale: [0, 1.2, 1] }}
-        transition={{ type: "spring", stiffness: 200, damping: 10, delay: 0.7 }}
+        animate={{ scale: [0, 1] }}
+        transition={{ ease: "easeOut", delay: 0.7 }}
         className="relative"
       >
         <motion.div
@@ -109,9 +110,8 @@ const PhotographyEasterEgg = () => {
             ]
           }}
           transition={{ 
-            duration: 2, 
-            repeat: 1,
-            repeatType: "reverse"
+            duration: 2,
+            ease: "easeInOut"
           }}
         >
           <Camera className="text-white h-20 w-20" />
@@ -124,9 +124,9 @@ const PhotographyEasterEgg = () => {
             initial={{ opacity: 0, scale: 1 }}
             animate={{ opacity: [0, 0.5, 0], scale: [1, 1.5 + i * 0.3] }}
             transition={{ 
-              repeat: 2,
               duration: 1.5,
-              delay: 0.8 + i * 0.2
+              delay: 0.8 + i * 0.2,
+              ease: "easeOut"
             }}
             className="absolute inset-0 border-2 border-white/20 rounded-full z-0"
             style={{
@@ -134,35 +134,6 @@ const PhotographyEasterEgg = () => {
             }}
           />
         ))}
-        
-        {/* Aperture blades effect */}
-        <motion.div 
-          className="absolute inset-0 pointer-events-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.5 }}
-        >
-          {[...Array(6)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-full h-full origin-center"
-              style={{ 
-                transform: `rotate(${i * 30}deg)`,
-              }}
-            >
-              <motion.div 
-                className="absolute top-0 left-1/2 w-1 h-1/3 bg-white/10 -translate-x-1/2 origin-bottom"
-                animate={{ scaleY: [1, 0.2, 1] }}
-                transition={{ 
-                  duration: 1.5, 
-                  delay: 1.2 + i * 0.1,
-                  repeat: 1,
-                  repeatType: "reverse"
-                }}
-              />
-            </motion.div>
-          ))}
-        </motion.div>
       </motion.div>
 
       {/* Photography tooltip popups */}
@@ -180,7 +151,7 @@ const PhotographyEasterEgg = () => {
           transition={{ 
             duration: 3,
             delay: 2 + i * 0.7,
-            times: [0, 0.2, 0.8, 1]
+            ease: "easeInOut"
           }}
           style={{
             bottom: `${30 + Math.random() * 20}%`,

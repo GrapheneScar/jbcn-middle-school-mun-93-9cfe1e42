@@ -60,7 +60,7 @@ const DepartmentSection = ({ department, index }: DepartmentSectionProps) => {
               onClick={() => chair.easterEgg && handleEasterEggTrigger(chair.easterEgg)}
             >
               <div className="flex items-center mb-4">
-                <div className="w-20 h-20 mr-4 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-mun-purple/50">
+                <div className="w-20 h-20 mr-4 md:w-40 md:h-40 rounded-lg overflow-hidden border-2 border-mun-purple/50">
                   <img 
                     src={chair.photo} 
                     alt={chair.name}

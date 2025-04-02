@@ -1,7 +1,9 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FileText, FileSpreadsheet, Mail } from "lucide-react";
 import { Button } from "../ui/button";
+
 interface CommitteeResourcesProps {
   studyGuideUrl?: string;
   countryMatrixUrl?: string;
@@ -9,6 +11,7 @@ interface CommitteeResourcesProps {
   committeeEmail: string;
   committeeAbbr?: string; // Add abbreviation to determine which logo to show
 }
+
 const CommitteeResources = ({
   studyGuideUrl,
   countryMatrixUrl,
@@ -33,18 +36,21 @@ const CommitteeResources = ({
       color: `/lovable-uploads/${abbr.toUpperCase()} - Color.png`
     };
   };
+  
   const logos = getLogos();
+  
   return <div className="mt-12">
       <h2 className="text-2xl font-bold text-white mb-8 text-center">Committee Resources</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Study Guide Section */}
         {studyGuideUrl && <motion.div className="bg-[#121218] rounded-xl p-8 flex flex-col items-center text-center border border-[#2a2a3a]">
+            <h3 className="text-xl font-bold text-white mb-4">Study Guide</h3>
+            
             <div className="mb-4 w-32 h-32 flex items-center justify-center" onMouseEnter={() => setStudyGuideHovered(true)} onMouseLeave={() => setStudyGuideHovered(false)}>
               {committeeAbbr && <img src={studyGuideHovered ? logos.bw : logos.color} alt="Committee Logo" className="w-full h-auto transition-opacity duration-300" />}
             </div>
             
-            <h3 className="text-xl font-bold text-white mb-2 px-0 my-[14px] py-[8px]">Study Guide</h3>
             <p className="text-white/70 mb-6">
               Access the official study guide for the {committeeName} committee. This
               document contains essential information about the agenda
@@ -63,11 +69,12 @@ const CommitteeResources = ({
         
         {/* Country Matrix Section */}
         {countryMatrixUrl && <motion.div className="bg-[#121218] rounded-xl p-8 flex flex-col items-center text-center border border-[#2a2a3a]">
+            <h3 className="text-xl font-bold text-white mb-4">Country Matrix</h3>
+            
             <div className="mb-4 w-32 h-32 flex items-center justify-center" onMouseEnter={() => setCountryMatrixHovered(true)} onMouseLeave={() => setCountryMatrixHovered(false)}>
               {committeeAbbr && <img src={countryMatrixHovered ? logos.bw : logos.light} alt="Committee Logo" className="w-full h-auto transition-opacity duration-300" />}
             </div>
             
-            <h3 className="text-xl font-bold text-white mb-2 my-[14px] py-[8px]">Country Matrix</h3>
             <p className="text-white/70 mb-6">
               The country matrix provides details about the countries involved in this committee, their positions, and relevant policy information.
             </p>
@@ -100,4 +107,5 @@ const CommitteeResources = ({
         </div>}
     </div>;
 };
+
 export default CommitteeResources;

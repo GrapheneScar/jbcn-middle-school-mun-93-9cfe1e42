@@ -27,8 +27,7 @@ const ChairDaffairesEasterEgg = () => {
               repeat: Infinity,
               repeatType: "loop",
               delay: Math.random() * 2,
-              // Remove spring type to allow more than 2 keyframes for opacity
-              ease: "easeInOut"
+              ease: "easeInOut" // Using easeInOut instead of spring
             }}
           >
             <div className="w-12 h-16 bg-white opacity-60 shadow-lg transform rotate-12">

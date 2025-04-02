@@ -5,7 +5,6 @@ import { Paintbrush } from 'lucide-react';
 const IllustrationEasterEgg = () => {
   return (
     <>
-      {/* Drawing canvas effect */}
       <div className="fixed inset-0 pointer-events-none z-10">
         <svg 
           viewBox="0 0 100 100" 
@@ -22,7 +21,7 @@ const IllustrationEasterEgg = () => {
             fill="#7953a9"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 0.6, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
           />
           <motion.circle
             cx="40"
@@ -31,7 +30,7 @@ const IllustrationEasterEgg = () => {
             fill="#9c6ade"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 0.6, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
           />
           <motion.circle
             cx="60"
@@ -40,7 +39,7 @@ const IllustrationEasterEgg = () => {
             fill="#b080ff"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 0.6, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
+            transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
           />
           <motion.circle
             cx="80"
@@ -49,7 +48,7 @@ const IllustrationEasterEgg = () => {
             fill="#c09aff"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 0.6, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
+            transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
           />
           
           {/* Decorative paths being drawn */}
@@ -91,7 +90,7 @@ const IllustrationEasterEgg = () => {
             fill="none"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
-            transition={{ duration: 2, delay: 3 }}
+            transition={{ duration: 2, delay: 3, ease: "easeInOut" }}
           />
           <motion.circle
             cx="50"
@@ -102,7 +101,7 @@ const IllustrationEasterEgg = () => {
             strokeWidth="1.5"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
-            transition={{ duration: 2, delay: 3.5 }}
+            transition={{ duration: 2, delay: 3.5, ease: "easeInOut" }}
           />
         </svg>
         
@@ -118,7 +117,7 @@ const IllustrationEasterEgg = () => {
             y: [30, 0, -50, 30, 0]
           }}
           transition={{ 
-            duration: 6,
+            duration: 3,
             times: [0, 0.2, 0.4, 0.6, 1],
             ease: "easeInOut"
           }}
@@ -132,14 +131,13 @@ const IllustrationEasterEgg = () => {
             animate={{ 
               height: [0, 30, 30, 30],
               opacity: [0, 0.8, 0.8, 0],
-              y: [0, 0, 30, 60]
+              y: [0, 0, 30]
             }}
             transition={{ 
               duration: 3,
               times: [0, 0.3, 0.6, 1],
               delay: 2.5,
-              repeat: 1,
-              repeatDelay: 2
+              ease: "easeInOut"
             }}
           />
         </motion.div>

@@ -23,8 +23,6 @@ const WebsiteDesignEasterEgg = () => {
         animate={{ opacity: [0, 0.05, 0.2, 0.05, 0.15, 0.05] }}
         transition={{ 
           duration: 4, 
-          repeat: 1, 
-          repeatType: "reverse",
           ease: "linear" // Use linear instead of spring
         }}
       >
@@ -42,8 +40,6 @@ const WebsiteDesignEasterEgg = () => {
             }}
             transition={{ 
               duration: 2 + Math.random() * 2, 
-              repeat: Infinity, 
-              repeatType: "reverse",
               ease: "linear" // Use linear instead of spring
             }}
           />
@@ -59,8 +55,6 @@ const WebsiteDesignEasterEgg = () => {
             animate={{ y: window.innerHeight + 300 }}
             transition={{ 
               duration: 4 + Math.random() * 4,
-              repeat: 1,
-              repeatType: "loop",
               ease: "linear",
               delay: i * 0.15
             }}
@@ -81,9 +75,6 @@ const WebsiteDesignEasterEgg = () => {
                 }}
                 transition={{ 
                   duration: 1.5 + Math.random() * 2,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  delay: j * 0.05,
                   ease: "linear" // Use linear instead of spring
                 }}
               >
@@ -108,8 +99,6 @@ const WebsiteDesignEasterEgg = () => {
           }}
           transition={{ 
             duration: 4, 
-            repeat: Infinity,
-            repeatType: "reverse",
             ease: "easeInOut" // Use easeInOut instead of spring
           }}
         >
@@ -125,7 +114,7 @@ const WebsiteDesignEasterEgg = () => {
           <p className="text-green-400 font-mono text-lg">&gt; Website functioning perfectly.</p>
           <motion.div
             animate={{ opacity: [1, 0, 1] }}
-            transition={{ repeat: Infinity, duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
             className="h-4 w-3 bg-green-400 inline-block ml-1"
           />
         </motion.div>
@@ -142,8 +131,6 @@ const WebsiteDesignEasterEgg = () => {
           }}
           transition={{ 
             duration: 2, 
-            repeat: Infinity, 
-            repeatType: "reverse",
             ease: "linear" // Use linear instead of spring
           }}
         />

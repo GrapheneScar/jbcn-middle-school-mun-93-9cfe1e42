@@ -68,7 +68,7 @@ const PressEasterEgg = () => {
       <motion.div
         initial={{ scale: 0, rotate: -10 }}
         animate={{ scale: [0, 1.2, 1], rotate: [-10, 5, 0] }}
-        transition={{ duration: 0.8, type: "spring" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className="bg-white text-black p-6 shadow-2xl rounded-sm relative w-full max-w-xl z-20"
         style={{ maxHeight: '80vh', overflowY: 'auto' }}
       >
@@ -118,13 +118,13 @@ const PressEasterEgg = () => {
           initial={{ opacity: 0, y: 20, scale: 0.9 }}
           animate={{ 
             opacity: [0, 1, 1, 0],
-            y: [-10, -30, -50],
+            y: [-10, -30],
             scale: [0.9, 1, 1, 0.9]
           }}
           transition={{ 
             duration: 3,
             delay: 1.5 + i * 0.7,
-            times: [0, 0.2, 0.8, 1]
+            ease: "easeInOut"
           }}
           style={{
             bottom: `${30 + (i * 15)}%`,

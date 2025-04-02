@@ -49,16 +49,6 @@ const MiniGalleryCarousel = ({
                     alt={image.alt} 
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" 
                   />
-                  
-                  {/* Overlay with details */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                    {image.title && (
-                      <h3 className="text-white font-medium text-lg">{image.title}</h3>
-                    )}
-                    {image.category && (
-                      <p className="text-white/80 text-sm">{image.category}</p>
-                    )}
-                  </div>
                 </AspectRatio>
               </div>
             </CarouselItem>)}

@@ -5,7 +5,7 @@ import StripeBackground from '../components/StripeBackground';
 import DepartmentSection from '../components/committees/DepartmentSection';
 import { committeeHeads } from '../components/committees/committee-heads-data';
 import { motion } from 'framer-motion';
-import EasterEggAnimation from '../components/about/EasterEggAnimation';
+import EasterEggAnimation from '../components/committees/EasterEggAnimation';
 
 const DepartmentHeads = () => {
   useEffect(() => {

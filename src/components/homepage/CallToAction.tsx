@@ -24,8 +24,11 @@ const CallToAction = () => {
           <p className="text-xl text-white/80 mb-10">
             Become part of a transformative experience that builds leadership, public speaking, and critical thinking skills.
           </p>
-          <div className="flex justify-center">
+          <div className="flex flex-col items-center justify-center">
             <RegisterButton />
+            <p className="mt-4 text-sm text-white/60 italic">
+              Note: This registration form is for external delegates only. Internal delegates have received the registration form via MSO.
+            </p>
           </div>
         </div>
       </motion.div>
