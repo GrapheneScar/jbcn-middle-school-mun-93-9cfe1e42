@@ -68,10 +68,7 @@ const ResponsiveMiniGallery = ({
                     <img src={image.src} alt={image.alt || image.title || "Gallery image"} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
                     
                     {/* Overlay with details */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                      {image.title}
-                      {image.category}
-                    </div>
+                    
                   </AspectRatio>
                 </div>
               </CarouselItem>)}
