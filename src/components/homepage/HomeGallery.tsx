@@ -1,158 +1,91 @@
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { ChevronRight, ChevronLeft, Image, ExternalLink } from 'lucide-react';
-import { galleryImages } from '../gallery/gallery-data';
+import { motion } from 'framer-motion';
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const HomeGallery = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [randomizedImages, setRandomizedImages] = useState<typeof galleryImages>([]);
-  
-  // On component mount, randomize a selection of gallery images
-  useEffect(() => {
-    const shuffleArray = (array: any[]) => {
-      // Create a copy of the array to avoid mutating the original
-      const shuffled = [...array];
-      for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-      }
-      return shuffled;
-    };
-    
-    // Get random subset of gallery images (up to 8 images)
-    const displayCount = Math.min(8, galleryImages.length);
-    const randomSample = shuffleArray([...galleryImages]).slice(0, displayCount);
-    setRandomizedImages(randomSample);
-  }, []);
-
-  // Auto advance the slideshow
-  useEffect(() => {
-    if (randomizedImages.length === 0) return;
-    
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
-        prevIndex === randomizedImages.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 4000); // Change slide every 4 seconds
-    
-    return () => clearInterval(interval);
-  }, [randomizedImages.length]);
-
-  const nextSlide = () => {
-    if (randomizedImages.length === 0) return;
-    setCurrentIndex((prev) => (prev === randomizedImages.length - 1 ? 0 : prev + 1));
-  };
-
-  const prevSlide = () => {
-    if (randomizedImages.length === 0) return;
-    setCurrentIndex((prev) => (prev === 0 ? randomizedImages.length - 1 : prev - 1));
-  };
-
-  // If no images are available yet, don't render the component
-  if (randomizedImages.length === 0) {
-    return null;
-  }
+  // Showcase just 5 images with better organization
+  const galleryImages = [
+    {
+      src: "/lovable-uploads/dfc3a29f-1a33-4772-b672-9c86967073d2.png",
+      alt: "MUN Conference Image 1",
+    },
+    {
+      src: "/lovable-uploads/fb90c03d-d4a5-4394-8250-6fa259a9253d.png",
+      alt: "MUN Conference Image 2",
+    },
+    {
+      src: "/lovable-uploads/a288ae58-b038-4b97-a2db-d64d63ca1d65.png",
+      alt: "MUN Conference Image 3",
+    },
+    {
+      src: "/lovable-uploads/d40cb1bd-6eef-4b7d-b927-5c8bd19bc3fd.png",
+      alt: "MUN Conference Image 4",
+    },
+    {
+      src: "/lovable-uploads/b0505600-5e16-4571-9ede-4209e1c71e69.png",
+      alt: "MUN Conference Image 5",
+    }
+  ];
 
   return (
-    <section className="py-20 px-4 bg-black/30">
+    <section className="py-20 px-4 relative overflow-hidden">
       <div className="container mx-auto">
-        <motion.div
+        <motion.div 
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-white">
-            <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">Memories</span>
-            <br />
-            Conference Gallery
-          </h2>
-          <p className="text-white/70 max-w-2xl mx-auto mt-4">
-            Capturing the diplomatic spirit and memorable moments from our past conferences
+          <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">Memories</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Gallery Highlights</h2>
+          <p className="text-white/80 max-w-2xl mx-auto">
+            Explore moments from previous MUN conferences through our curated photo collection.
           </p>
         </motion.div>
-
-        <div className="relative max-w-5xl mx-auto mb-12">
-          {/* Main showcase image with carousel */}
-          <div className="relative h-[60vh] max-h-[500px] overflow-hidden rounded-xl">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                className="absolute inset-0"
-              >
-                <img
-                  src={randomizedImages[currentIndex].src}
-                  alt={randomizedImages[currentIndex].alt}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Navigation arrows */}
-            <button 
-              onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-mun-purple/80 transition-colors z-10"
-              aria-label="Previous image"
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+          {galleryImages.slice(0, 3).map((image, index) => (
+            <motion.div
+              key={index}
+              className="overflow-hidden rounded-lg relative aspect-[4/3]"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
             >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button 
-              onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-mun-purple/80 transition-colors z-10"
-              aria-label="Next image"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-          </div>
-
-          {/* Small thumbnails below */}
-          <div className="flex justify-center mt-4 gap-2">
-            {randomizedImages.map((image, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`relative w-16 h-16 rounded-md overflow-hidden transition-all duration-200 ${
-                  currentIndex === index 
-                    ? 'ring-2 ring-mun-purple scale-110' 
-                    : 'opacity-70 hover:opacity-100'
-                }`}
-              >
-                <img 
-                  src={image.src} 
-                  alt={`Thumbnail ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </button>
-            ))}
-          </div>
+              <img 
+                src={image.src} 
+                alt={image.alt}
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              />
+            </motion.div>
+          ))}
+          
+          <motion.div
+            className="overflow-hidden rounded-lg relative aspect-[4/3] md:col-span-2"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            <img 
+              src={galleryImages[3].src} 
+              alt={galleryImages[3].alt}
+              className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+            />
+          </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center"
-        >
-          <Link to="/gallery">
-            <Button 
-              className="gallery-button border border-mun-purple bg-transparent hover:bg-mun-purple hover:shadow-[0_0_15px_rgba(155,135,245,0.4)] transition-all duration-300"
-            >
-              <Image className="mr-2 h-4 w-4" />
-              View Full Gallery
-              <ExternalLink className="ml-2 h-4 w-4" />
-            </Button>
-          </Link>
-        </motion.div>
+        
+        <div className="text-center">
+          <Button asChild variant="outline" className="bg-transparent border-white/20 hover:bg-white/10 text-white">
+            <Link to="/gallery">
+              View Full Gallery <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
       </div>
     </section>
   );

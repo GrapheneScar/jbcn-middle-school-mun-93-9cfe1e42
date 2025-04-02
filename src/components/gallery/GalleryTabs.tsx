@@ -1,88 +1,102 @@
 
-import { motion } from 'framer-motion';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { GalleryImage } from "./types";
-import GalleryImageCard from "./GalleryImageCard";
-import { getCategories, filterImages } from "./gallery-data";
+import { useState } from "react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "../ui/tabs";
+import { Button } from "../ui/button";
+import { Shuffle, Zap } from "lucide-react";
+import GalleryGrid from "./GalleryGrid";
+import { GalleryItem } from "./types";
+import { toast } from "../ui/use-toast";
 
 interface GalleryTabsProps {
-  activeTab: string;
-  setActiveTab: (tab: string) => void;
-  onImageClick: (image: GalleryImage) => void;
+  items: GalleryItem[];
+  categories: string[];
+  onSpotlight: (item: GalleryItem) => void;
 }
 
-const GalleryTabs = ({
-  activeTab,
-  setActiveTab,
-  onImageClick
-}: GalleryTabsProps) => {
-  const categories = getCategories();
+const GalleryTabs = ({ items, categories, onSpotlight }: GalleryTabsProps) => {
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
-  // Image container variants for animation
-  const containerVariants = {
-    hidden: {
-      opacity: 0
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05
-      }
-    }
+  const filteredItems =
+    selectedCategory === "all"
+      ? items
+      : items.filter((item) => item.category === selectedCategory);
+
+  const handleShuffle = () => {
+    toast({
+      title: "Gallery Shuffled!",
+      description: "Images have been randomly rearranged for variety.",
+    });
+  };
+
+  const handleSpotlight = () => {
+    // Pick a random item from the filtered list
+    const randomIndex = Math.floor(Math.random() * filteredItems.length);
+    const randomItem = filteredItems[randomIndex];
+    onSpotlight(randomItem);
+    toast({
+      title: "Random Spotlight!",
+      description: `Now viewing: ${randomItem.title}`,
+    });
   };
 
   return (
-    <motion.div 
-      className="mb-12" 
-      initial={{
-        opacity: 0,
-        y: 20
-      }} 
-      animate={{
-        opacity: 1,
-        y: 0
-      }} 
-      transition={{
-        duration: 0.5,
-        delay: 0.3
-      }}
-    >
-      <Tabs defaultValue={activeTab} onValueChange={setActiveTab} className="w-full">
-        <div className="overflow-x-auto pb-2">
-          <TabsList className="grid grid-flow-col auto-cols-max sm:grid-cols-3 md:grid-cols-5 max-w-2xl mx-auto bg-mun-purple/20 p-1 rounded-full">
-            {categories.map(category => (
-              <TabsTrigger 
-                key={category} 
-                value={category} 
-                className="data-[state=active]:bg-mun-purple rounded-full whitespace-nowrap px-4 py-2"
-              >
-                {category.charAt(0).toUpperCase() + category.slice(1)}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-        </div>
-        
-        {categories.map(category => (
-          <TabsContent key={category} value={category} className="pt-6">
-            <motion.div 
-              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3" 
-              variants={containerVariants} 
-              initial="hidden" 
-              animate="visible"
+    <Tabs defaultValue="all" className="mb-8 w-full">
+      <div className="flex flex-col space-y-6">
+        <TabsList className="w-full justify-start overflow-auto whitespace-nowrap rounded-none border-b border-white/20 bg-transparent p-0">
+          <TabsTrigger
+            onClick={() => setSelectedCategory("all")}
+            value="all"
+            className="rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:border-mun-purple data-[state=active]:bg-transparent data-[state=active]:shadow-none"
+          >
+            All Photos
+          </TabsTrigger>
+
+          {categories.map((category) => (
+            <TabsTrigger
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              value={category}
+              className="rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:border-mun-purple data-[state=active]:bg-transparent data-[state=active]:shadow-none"
             >
-              {filterImages(category).map((image, index) => (
-                <GalleryImageCard 
-                  key={image.id}
-                  image={image}
-                  index={index}
-                  onClick={() => onImageClick(image)}
-                />
-              ))}
-            </motion.div>
+              {category}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+
+        {/* Action buttons - Centered */}
+        <div className="flex justify-center gap-3">
+          <Button
+            onClick={handleShuffle}
+            size="sm"
+            className="bg-mun-purple hover:bg-mun-purple-light"
+          >
+            <Shuffle className="mr-2 h-4 w-4" />
+            Shuffle Gallery
+          </Button>
+          <Button
+            onClick={handleSpotlight}
+            size="sm"
+            variant="outline"
+            className="border-mun-purple text-mun-purple hover:text-white hover:bg-mun-purple"
+          >
+            <Zap className="mr-2 h-4 w-4" />
+            Random Spotlight
+          </Button>
+        </div>
+
+        <TabsContent value="all" className="mt-0">
+          <GalleryGrid items={items} />
+        </TabsContent>
+
+        {categories.map((category) => (
+          <TabsContent key={category} value={category} className="mt-0">
+            <GalleryGrid
+              items={items.filter((item) => item.category === category)}
+            />
           </TabsContent>
         ))}
-      </Tabs>
-    </motion.div>
+      </div>
+    </Tabs>
   );
 };
 

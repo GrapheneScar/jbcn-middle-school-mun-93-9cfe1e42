@@ -29,7 +29,9 @@ const CommitteeResources = ({
     const abbr = committeeAbbr.toLowerCase();
     return {
       light: `/lovable-uploads/${abbr.toUpperCase()} - light.png`,
-      dark: `/lovable-uploads/${abbr.toUpperCase()} - dark.png`
+      dark: `/lovable-uploads/${abbr.toUpperCase()} - dark.png`,
+      bw: `/lovable-uploads/${abbr.toUpperCase()} - BW.png`,
+      color: `/lovable-uploads/${abbr.toUpperCase()} - Color.png`
     };
   };
   
@@ -46,11 +48,17 @@ const CommitteeResources = ({
             className="bg-[#121218] rounded-xl p-8 flex flex-col items-center text-center border border-[#2a2a3a]"
           >
             <div 
-              className="bg-mun-purple/20 w-16 h-16 rounded-full flex items-center justify-center mb-4"
+              className="mb-4 w-32 h-32 flex items-center justify-center"
               onMouseEnter={() => setStudyGuideHovered(true)}
               onMouseLeave={() => setStudyGuideHovered(false)}
             >
-              <FileText className="text-mun-purple h-8 w-8" />
+              {committeeAbbr && (
+                <img 
+                  src={studyGuideHovered ? logos.bw : logos.color}
+                  alt="Committee Logo"
+                  className="w-full h-auto transition-opacity duration-300"
+                />
+              )}
             </div>
             
             <h3 className="text-xl font-bold text-white mb-2">Study Guide</h3>
@@ -82,13 +90,13 @@ const CommitteeResources = ({
             className="bg-[#121218] rounded-xl p-8 flex flex-col items-center text-center border border-[#2a2a3a]"
           >
             <div 
-              className="mb-4 w-36 h-36 flex items-center justify-center"
+              className="mb-4 w-32 h-32 flex items-center justify-center"
               onMouseEnter={() => setCountryMatrixHovered(true)}
               onMouseLeave={() => setCountryMatrixHovered(false)}
             >
               {committeeAbbr && (
                 <img 
-                  src={countryMatrixHovered ? `/lovable-uploads/${committeeAbbr.toUpperCase()} - BW.png` : `/lovable-uploads/${committeeAbbr.toUpperCase()} - Color.png`}
+                  src={countryMatrixHovered ? logos.bw : logos.light}
                   alt="Committee Logo"
                   className="w-full h-auto transition-opacity duration-300"
                 />

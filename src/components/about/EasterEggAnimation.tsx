@@ -1,5 +1,5 @@
 
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import SocialMediaEasterEgg from '../committees/eastereggs/SocialMediaEasterEgg';
 import WebsiteDesignEasterEgg from '../committees/eastereggs/WebsiteDesignEasterEgg';
 import PressEasterEgg from '../committees/eastereggs/PressEasterEgg';
@@ -7,13 +7,26 @@ import PhotographyEasterEgg from '../committees/eastereggs/PhotographyEasterEgg'
 import IllustrationEasterEgg from '../committees/eastereggs/IllustrationEasterEgg';
 import OrganizingEasterEgg from '../committees/eastereggs/OrganizingEasterEgg';
 import ChairDaffairesEasterEgg from '../committees/eastereggs/ChairDaffairesEasterEgg';
-import { motion } from 'framer-motion';
+import { useToast } from '@/components/ui/use-toast';
+import { useEffect } from 'react';
 
 interface EasterEggAnimationProps {
   activeEasterEgg: string | null;
 }
 
 const EasterEggAnimation = ({ activeEasterEgg }: EasterEggAnimationProps) => {
+  const { toast } = useToast();
+
+  useEffect(() => {
+    if (activeEasterEgg) {
+      toast({
+        title: "Easter Egg Found!",
+        description: `You found the ${activeEasterEgg} Easter Egg!`,
+        duration: 5000,
+      });
+    }
+  }, [activeEasterEgg, toast]);
+  
   if (!activeEasterEgg) return null;
   
   return (

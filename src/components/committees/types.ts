@@ -18,7 +18,7 @@ export interface Department {
 export interface CommitteeChair {
   name: string;
   title: string;
-  bio: string;
+  bio?: string; // Make bio optional
   photo?: string;
   id?: string;
   image?: string;
