@@ -11,6 +11,7 @@ import EventCalendar from '../components/homepage/EventCalendar';
 import PageTransition from '../components/PageTransition';
 import SecretaryGeneralSection from '../components/homepage/SecretaryGeneralSection';
 import DeputySecretaryGeneralSection from '../components/homepage/DeputySecretaryGeneralSection';
+import RegisterButton from '../components/RegisterButton';
 
 const Index = () => {
   useEffect(() => {
@@ -22,6 +23,16 @@ const Index = () => {
       <div className="relative w-full min-h-screen overflow-hidden">
         <StripeBackground />
         <HeroSection />
+
+        {/* Registration Note */}
+        <div className="text-center mt-4 mb-8 px-4">
+          <div className="inline-block max-w-md mx-auto">
+            <RegisterButton />
+            <p className="mt-2 text-sm text-white/60 italic">
+              Note: This registration form is for external delegates only. Internal delegates have received the registration form via MSO.
+            </p>
+          </div>
+        </div>
         
         {/* Secretary General Section */}
         <SecretaryGeneralSection />

@@ -52,12 +52,12 @@ const DepartmentSection = ({ department, index }: DepartmentSectionProps) => {
         <p className="text-white/80">{department.description}</p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto max-w-5xl">
         {department.chairs.map((chair) => (
           <div key={chair.name} className="bg-black/20 backdrop-filter backdrop-blur-sm rounded-lg overflow-hidden border border-mun-purple/30">
             <div 
-              className={`p-4 ${chair.easterEgg ? 'cursor-pointer' : ''}`}
-              onClick={() => chair.easterEgg && handleEasterEggTrigger(chair.easterEgg)}
+              className={`p-4 ${chair.title && 'cursor-pointer'}`}
+              onClick={() => chair.title && handleEasterEggTrigger(chair.title)}
             >
               <div className="flex items-center mb-4">
                 <div className="w-20 h-20 mr-4 md:w-40 md:h-40 rounded-lg overflow-hidden border-2 border-mun-purple/50">

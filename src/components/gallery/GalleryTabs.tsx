@@ -1,15 +1,17 @@
+
 import { useState } from "react";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "../ui/tabs";
 import { Button } from "../ui/button";
 import { Shuffle, Zap } from "lucide-react";
 import GalleryGrid from "./GalleryGrid";
 import { GalleryImage } from "./types";
 import { toast } from "../ui/use-toast";
+
 interface GalleryTabsProps {
   items: GalleryImage[];
   categories: string[];
   onSpotlight: (item: GalleryImage) => void;
 }
+
 const GalleryTabs = ({
   items,
   categories,
@@ -17,12 +19,14 @@ const GalleryTabs = ({
 }: GalleryTabsProps) => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const filteredItems = selectedCategory === "all" ? items : items.filter(item => item.category === selectedCategory);
+  
   const handleShuffle = () => {
     toast({
       title: "Gallery Shuffled!",
       description: "Images have been randomly rearranged for variety."
     });
   };
+  
   const handleSpotlight = () => {
     // Pick a random item from the filtered list
     const randomIndex = Math.floor(Math.random() * filteredItems.length);
@@ -33,13 +37,10 @@ const GalleryTabs = ({
       description: `Now viewing: ${randomItem.title}`
     });
   };
-  return <Tabs defaultValue="all" className="mb-8 w-full">
+  
+  return (
+    <div className="mb-8 w-full">
       <div className="flex flex-col space-y-6">
-        {/* Tab list for categories - Add this back */}
-        <div className="mx-auto">
-          
-        </div>
-
         {/* Action buttons - Centered */}
         <div className="flex justify-center gap-3">
           <Button onClick={handleShuffle} size="sm" className="bg-mun-purple hover:bg-mun-purple-light">
@@ -52,14 +53,12 @@ const GalleryTabs = ({
           </Button>
         </div>
 
-        <TabsContent value="all" className="mt-0">
-          <GalleryGrid images={items} onImageClick={() => {}} />
-        </TabsContent>
-
-        {categories.map(category => <TabsContent key={category} value={category} className="mt-0">
-            <GalleryGrid images={items.filter(item => item.category === category)} onImageClick={() => {}} />
-          </TabsContent>)}
+        <div className="mt-4">
+          <GalleryGrid images={items} onImageClick={onSpotlight} />
+        </div>
       </div>
-    </Tabs>;
+    </div>
+  );
 };
+
 export default GalleryTabs;

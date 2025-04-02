@@ -47,15 +47,29 @@ const CommitteeResources = ({
         {studyGuideUrl && <motion.div className="bg-[#121218] rounded-xl p-8 flex flex-col items-center text-center border border-[#2a2a3a]">
             <h3 className="text-xl font-bold text-white mb-4">Study Guide</h3>
             
-            <div className="mb-4 w-32 h-32 flex items-center justify-center" onMouseEnter={() => setStudyGuideHovered(true)} onMouseLeave={() => setStudyGuideHovered(false)}>
-              {committeeAbbr && <img src={studyGuideHovered ? logos.bw : logos.color} alt="Committee Logo" className="w-full h-auto transition-opacity duration-300" />}
+            <div 
+              className="mb-4 relative w-32 h-32 flex items-center justify-center overflow-hidden" 
+              onMouseEnter={() => setStudyGuideHovered(true)} 
+              onMouseLeave={() => setStudyGuideHovered(false)}
+            >
+              {committeeAbbr && (
+                <div className="transition-all duration-300">
+                  <img 
+                    src={studyGuideHovered ? logos.bw : logos.color} 
+                    alt="Committee Logo" 
+                    className="w-full h-auto transition-opacity duration-300" 
+                  />
+                </div>
+              )}
             </div>
             
-            <p className="text-white/70 mb-6">
-              Access the official study guide for the {committeeName} committee. This
-              document contains essential information about the agenda
-              topics, background, and expectations.
-            </p>
+            <div className="h-32 overflow-y-auto mb-6">
+              <p className="text-white/70 px-2">
+                Access the official study guide for the {committeeName} committee. This
+                document contains essential information about the agenda
+                topics, background, and expectations.
+              </p>
+            </div>
             
             <a href={studyGuideUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-3 bg-mun-purple rounded-full text-white font-medium hover:bg-mun-purple-light transition-colors">
               <FileText className="h-4 w-4 mr-2" />
@@ -71,13 +85,27 @@ const CommitteeResources = ({
         {countryMatrixUrl && <motion.div className="bg-[#121218] rounded-xl p-8 flex flex-col items-center text-center border border-[#2a2a3a]">
             <h3 className="text-xl font-bold text-white mb-4">Country Matrix</h3>
             
-            <div className="mb-4 w-32 h-32 flex items-center justify-center" onMouseEnter={() => setCountryMatrixHovered(true)} onMouseLeave={() => setCountryMatrixHovered(false)}>
-              {committeeAbbr && <img src={countryMatrixHovered ? logos.bw : logos.light} alt="Committee Logo" className="w-full h-auto transition-opacity duration-300" />}
+            <div 
+              className="mb-4 relative w-32 h-32 flex items-center justify-center overflow-hidden"
+              onMouseEnter={() => setCountryMatrixHovered(true)} 
+              onMouseLeave={() => setCountryMatrixHovered(false)}
+            >
+              {committeeAbbr && (
+                <div className="transition-all duration-300">
+                  <img 
+                    src={countryMatrixHovered ? logos.bw : logos.light} 
+                    alt="Committee Logo" 
+                    className="w-full h-auto transition-opacity duration-300" 
+                  />
+                </div>
+              )}
             </div>
             
-            <p className="text-white/70 mb-6">
-              The country matrix provides details about the countries involved in this committee, their positions, and relevant policy information.
-            </p>
+            <div className="h-32 overflow-y-auto mb-6">
+              <p className="text-white/70 px-2">
+                The country matrix provides details about the countries involved in this committee, their positions, and relevant policy information.
+              </p>
+            </div>
             
             <a href={countryMatrixUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-3 bg-mun-purple rounded-full text-white font-medium hover:bg-mun-purple-light transition-colors">
               <FileSpreadsheet className="h-4 w-4 mr-2" />

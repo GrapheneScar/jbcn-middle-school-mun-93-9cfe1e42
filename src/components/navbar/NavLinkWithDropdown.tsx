@@ -53,15 +53,21 @@ const NavLinkWithDropdown = ({ item }: Props) => {
   };
 
   const handleClick = (e: React.MouseEvent) => {
-    // Always allow navigation to the committee main page
-    if (item.path === '/committees') {
-      // Allow click through to navigate to committees page
-    } else if (submenuItems && submenuItems.length > 0 && item.path !== "#") {
-      // Allow the click to proceed normally (navigate to the page)
-    } else if (submenuItems && submenuItems.length > 0) {
-      // It's a dropdown toggle with no real path
-      e.preventDefault();
-      setIsOpen(!isOpen);
+    // For mobile view or direct navigation
+    if (window.innerWidth <= 1024) {
+      if (submenuItems && submenuItems.length > 0 && item.path === "#") {
+        e.preventDefault();
+        setIsOpen(!isOpen);
+      }
+    } else {
+      // For desktop view
+      if (item.path !== "#" && item.path !== "/committees") {
+        // Allow navigation to non-dropdown paths
+      } else if (submenuItems && submenuItems.length > 0 && item.path === "#") {
+        // Toggle dropdown for placeholder links
+        e.preventDefault();
+        setIsOpen(!isOpen);
+      }
     }
   };
 
