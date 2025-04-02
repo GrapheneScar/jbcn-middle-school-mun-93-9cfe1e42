@@ -7,3 +7,12 @@ export interface GalleryImage {
   title: string;
   year?: string; // Added optional year property for filtering
 }
+
+export interface GalleryItem {
+  id: number;
+  title: string;
+  thumbnail: string;
+  fullImage: string;
+  date: string;
+  category: string;
+}

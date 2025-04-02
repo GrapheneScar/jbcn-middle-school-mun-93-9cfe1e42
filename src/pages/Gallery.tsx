@@ -2,10 +2,11 @@
 import { useEffect, useState } from 'react';
 import PageTransition from '../components/PageTransition';
 import GalleryHeader from '../components/gallery/GalleryHeader';
-import { galleryImages } from '../components/gallery/gallery-data';
-import GalleryGrid from '../components/gallery/GalleryGrid';
+import { galleryImages, getCategories } from '../components/gallery/gallery-data';
 import GalleryLightbox from '../components/gallery/GalleryLightbox';
 import GalleryEmptyState from '../components/gallery/GalleryEmptyState';
+import GalleryTabs from '../components/gallery/GalleryTabs';
+import { GalleryImage } from '../components/gallery/types';
 
 const Gallery = () => {
   useEffect(() => {
@@ -13,6 +14,7 @@ const Gallery = () => {
   }, []);
   
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [spotlightImage, setSpotlightImage] = useState<GalleryImage | null>(null);
   
   const openLightbox = (imageId: string) => {
     setSelectedImage(imageId);
@@ -23,6 +25,11 @@ const Gallery = () => {
     setSelectedImage(null);
     document.body.style.overflow = 'auto';
   };
+
+  const handleSpotlight = (image: GalleryImage) => {
+    setSpotlightImage(image);
+    setSelectedImage(image.id);
+  };
   
   return (
     <PageTransition>
@@ -30,9 +37,10 @@ const Gallery = () => {
         <GalleryHeader />
         
         {galleryImages.length > 0 ? (
-          <GalleryGrid 
-            images={galleryImages} 
-            onImageClick={openLightbox} 
+          <GalleryTabs 
+            items={galleryImages} 
+            categories={getCategories().filter(cat => cat !== 'all')}
+            onSpotlight={handleSpotlight}
           />
         ) : (
           <GalleryEmptyState />

@@ -4,13 +4,13 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "../ui/tabs";
 import { Button } from "../ui/button";
 import { Shuffle, Zap } from "lucide-react";
 import GalleryGrid from "./GalleryGrid";
-import { GalleryItem } from "./types";
+import { GalleryImage, GalleryItem } from "./types";
 import { toast } from "../ui/use-toast";
 
 interface GalleryTabsProps {
-  items: GalleryItem[];
+  items: GalleryImage[];
   categories: string[];
-  onSpotlight: (item: GalleryItem) => void;
+  onSpotlight: (item: GalleryImage) => void;
 }
 
 const GalleryTabs = ({ items, categories, onSpotlight }: GalleryTabsProps) => {
@@ -85,13 +85,17 @@ const GalleryTabs = ({ items, categories, onSpotlight }: GalleryTabsProps) => {
         </div>
 
         <TabsContent value="all" className="mt-0">
-          <GalleryGrid items={items} />
+          <GalleryGrid 
+            images={items} 
+            onImageClick={() => {}} 
+          />
         </TabsContent>
 
         {categories.map((category) => (
           <TabsContent key={category} value={category} className="mt-0">
             <GalleryGrid
-              items={items.filter((item) => item.category === category)}
+              images={items.filter((item) => item.category === category)}
+              onImageClick={() => {}}
             />
           </TabsContent>
         ))}
