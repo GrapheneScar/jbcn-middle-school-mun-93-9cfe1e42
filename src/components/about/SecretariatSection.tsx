@@ -69,8 +69,8 @@ const SecretariatSection = ({
               <div className="w-full">
                 <div className="glass-panel p-4 overflow-hidden">
                   <div className="flex flex-col items-center">
-                    {/* Square image with curved corners */}
-                    <div className="w-36 h-36 rounded-xl overflow-hidden mb-4 border-2 border-mun-purple/30">
+                    {/* Square image with curved corners - Updated sizes */}
+                    <div className="w-30 h-30 md:w-50 md:h-50 rounded-xl overflow-hidden mb-4 border-2 border-mun-purple/30">
                       <img 
                         src={person.image} 
                         alt={`${person.name} - ${person.role}`}
