@@ -8,7 +8,11 @@ const WebsiteDesignEasterEgg = () => {
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: [0, 0.3, 0.1, 0.5, 0.2, 0.7, 0.3, 1, 0] }}
-        transition={{ duration: 5, times: [0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 1] }}
+        transition={{ 
+          duration: 5, 
+          times: [0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 1],
+          ease: "linear" // Use linear instead of spring
+        }}
         className="fixed inset-0 bg-black/40 backdrop-blur-[4px]"
       />
       
@@ -17,7 +21,12 @@ const WebsiteDesignEasterEgg = () => {
         className="fixed inset-0 opacity-20 mix-blend-overlay pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: [0, 0.05, 0.2, 0.05, 0.15, 0.05] }}
-        transition={{ duration: 4, repeat: 1, repeatType: "reverse" }}
+        transition={{ 
+          duration: 4, 
+          repeat: 1, 
+          repeatType: "reverse",
+          ease: "linear" // Use linear instead of spring
+        }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-transparent to-blue-900/30" />
         
@@ -34,7 +43,8 @@ const WebsiteDesignEasterEgg = () => {
             transition={{ 
               duration: 2 + Math.random() * 2, 
               repeat: Infinity, 
-              repeatType: "reverse" 
+              repeatType: "reverse",
+              ease: "linear" // Use linear instead of spring
             }}
           />
         ))}
@@ -73,7 +83,8 @@ const WebsiteDesignEasterEgg = () => {
                   duration: 1.5 + Math.random() * 2,
                   repeat: Infinity,
                   repeatType: "reverse",
-                  delay: j * 0.05
+                  delay: j * 0.05,
+                  ease: "linear" // Use linear instead of spring
                 }}
               >
                 {Math.random().toString(36).substring(2, 2 + Math.random() * 10)}
@@ -85,9 +96,9 @@ const WebsiteDesignEasterEgg = () => {
       
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: [0, 1.2, 0.9, 1], opacity: [0, 1] }}
+        animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0, opacity: 0 }}
-        transition={{ duration: 0.6, times: [0, 0.6, 0.8, 1] }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="z-10 bg-black/80 p-8 rounded-xl border border-green-500 shadow-[0_0_30px_rgba(0,255,0,0.5)]"
       >
         <motion.div 
@@ -98,7 +109,8 @@ const WebsiteDesignEasterEgg = () => {
           transition={{ 
             duration: 4, 
             repeat: Infinity,
-            repeatType: "reverse"
+            repeatType: "reverse",
+            ease: "easeInOut" // Use easeInOut instead of spring
           }}
         >
           <Terminal className="text-green-400 h-16 w-16 mb-4 mx-auto drop-shadow-[0_0_8px_rgba(74,222,128,0.8)]" />
@@ -128,7 +140,12 @@ const WebsiteDesignEasterEgg = () => {
               "0 0 10px rgba(74,222,128,0.3) inset"
             ]
           }}
-          transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+          transition={{ 
+            duration: 2, 
+            repeat: Infinity, 
+            repeatType: "reverse",
+            ease: "linear" // Use linear instead of spring
+          }}
         />
       </motion.div>
     </>

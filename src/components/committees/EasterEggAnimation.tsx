@@ -8,7 +8,6 @@ import IllustrationEasterEgg from './eastereggs/IllustrationEasterEgg';
 import OrganizingEasterEgg from './eastereggs/OrganizingEasterEgg';
 import ChairDaffairesEasterEgg from './eastereggs/ChairDaffairesEasterEgg';
 import { motion } from 'framer-motion';
-import { X } from 'lucide-react';
 
 interface EasterEggAnimationProps {
   activeEasterEgg: string | null;

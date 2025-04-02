@@ -26,7 +26,9 @@ const ChairDaffairesEasterEgg = () => {
               duration: 4 + Math.random() * 3,
               repeat: Infinity,
               repeatType: "loop",
-              delay: Math.random() * 2
+              delay: Math.random() * 2,
+              // Remove spring type to allow more than 2 keyframes for opacity
+              ease: "easeInOut"
             }}
           >
             <div className="w-12 h-16 bg-white opacity-60 shadow-lg transform rotate-12">
@@ -42,22 +44,29 @@ const ChairDaffairesEasterEgg = () => {
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ 
-            scale: [0, 1.5, 1],
-            opacity: [0, 1, 0.8, 0],
-            rotate: [0, 0, 360]
+            scale: [0, 1],
+            opacity: [0, 1]
           }}
           transition={{
-            duration: 5,
-            times: [0, 0.3, 0.6, 1],
-            repeat: Infinity,
-            repeatType: "loop"
+            duration: 1,
+            ease: "easeOut"
           }}
         >
-          <div className="w-32 h-32 rounded-full bg-mun-purple/30 flex items-center justify-center backdrop-blur-lg">
+          <motion.div 
+            animate={{ 
+              rotate: 360,
+              scale: [1, 1.1, 1]
+            }}
+            transition={{
+              rotate: { duration: 5, repeat: Infinity, ease: "linear" },
+              scale: { duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }
+            }}
+            className="w-32 h-32 rounded-full bg-mun-purple/30 flex items-center justify-center backdrop-blur-lg"
+          >
             <div className="w-24 h-24 rounded-full border-4 border-white/40 flex items-center justify-center">
               <div className="text-white text-5xl font-bold">DO</div>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </div>
