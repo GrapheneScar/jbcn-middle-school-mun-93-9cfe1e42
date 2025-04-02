@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CommitteeChair } from './types';
@@ -16,7 +17,7 @@ const CommitteeChairs = ({ chairs }: CommitteeChairsProps) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
         {chairs.map((chair, index) => (
           <motion.div
-            key={chair.name}
+            key={chair.id || chair.name}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
@@ -36,25 +37,27 @@ const CommitteeChairs = ({ chairs }: CommitteeChairsProps) => {
             <h4 className="text-xl font-bold text-white mb-1">{chair.name}</h4>
             <p className="text-mun-purple-light mb-3">{chair.title}</p>
             
-            <div className="relative bg-black/30 p-4 rounded-lg">
-              <p className="text-white/80 text-sm">
-                {expandedBio === chair.name 
-                  ? chair.bio 
-                  : chair.bio.length > 150 
-                    ? `${chair.bio.substring(0, 150)}...` 
-                    : chair.bio
-                }
-              </p>
-              
-              {chair.bio.length > 150 && (
-                <button
-                  onClick={() => setExpandedBio(expandedBio === chair.name ? null : chair.name)}
-                  className="mt-2 text-xs text-mun-purple-light hover:text-mun-purple transition-colors"
-                >
-                  {expandedBio === chair.name ? "Read less" : "Read more"}
-                </button>
-              )}
-            </div>
+            {chair.bio && (
+              <div className="relative bg-black/30 p-4 rounded-lg">
+                <p className="text-white/80 text-sm">
+                  {expandedBio === chair.name 
+                    ? chair.bio 
+                    : chair.bio.length > 150 
+                      ? `${chair.bio.substring(0, 150)}...` 
+                      : chair.bio
+                  }
+                </p>
+                
+                {chair.bio.length > 150 && (
+                  <button
+                    onClick={() => setExpandedBio(expandedBio === chair.name ? null : chair.name)}
+                    className="mt-2 text-xs text-mun-purple-light hover:text-mun-purple transition-colors"
+                  >
+                    {expandedBio === chair.name ? "Read less" : "Read more"}
+                  </button>
+                )}
+              </div>
+            )}
           </motion.div>
         ))}
       </div>
