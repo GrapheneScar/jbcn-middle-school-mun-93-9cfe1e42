@@ -1,13 +1,10 @@
-
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { SecretariatMember } from './types';
 import { BookOpen, X } from 'lucide-react';
-
 interface SecretariatSectionProps {
   secretariat: SecretariatMember[];
 }
-
 const SecretariatSection = ({
   secretariat
 }: SecretariatSectionProps) => {
@@ -22,27 +19,26 @@ const SecretariatSection = ({
     const paragraphs = bio.split('\n').filter(p => p.trim() !== '');
     return paragraphs.map((paragraph, index) => {
       // Format text: make text after colons bold, and text in quotes italic
-      const formattedText = paragraph
-        .replace(/(?<=:)(.*?)(?=\.|$)/g, '<strong>$1</strong>')
-        .replace(/"([^"]+)"/g, '<em>"$1"</em>')
-        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*(.+?)\*/g, '<em>$1</em>')
-        .replace(/\_\_(.+?)\_\_/g, '<u>$1</u>');
-      
-      return <p key={index} className="mb-2" dangerouslySetInnerHTML={{ __html: formattedText }} />;
+      const formattedText = paragraph.replace(/(?<=:)(.*?)(?=\.|$)/g, '<strong>$1</strong>').replace(/"([^"]+)"/g, '<em>"$1"</em>').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>').replace(/\_\_(.+?)\_\_/g, '<u>$1</u>');
+      return <p key={index} className="mb-2" dangerouslySetInnerHTML={{
+        __html: formattedText
+      }} />;
     });
   };
-
-  return (
-    <section className="py-16 px-4">
+  return <section className="py-16 px-4">
       <div className="container mx-auto">
-        <motion.div 
-          className="text-center mb-16" 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, type: "tween" }}
-        >
+        <motion.div className="text-center mb-16" initial={{
+        opacity: 0,
+        y: 20
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} viewport={{
+        once: true
+      }} transition={{
+        duration: 0.5,
+        type: "tween"
+      }}>
           <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">Meet Our Team</span>
           <h2 className="text-3xl font-bold text-white">Secretariat</h2>
           <p className="text-white/80 max-w-2xl mx-auto mt-4">
@@ -51,37 +47,41 @@ const SecretariatSection = ({
         </motion.div>
         
         {/* Updated Secretariat Cards Layout - Centered Alignment */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3, type: "tween" }}
-          className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto"
-        >
-          {secretariat.map((person, index) => (
-            <motion.div 
-              key={person.name} 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1, type: "tween" }}
-              whileHover={{ 
-                y: -8,
-                scale: 1.03,
-                boxShadow: "0 20px 25px -5px rgba(121, 83, 169, 0.25)",
-                transition: { duration: 0.3 }
-              }}
-              className="relative w-full max-w-sm hover:shadow-[0_0_30px_rgba(121,83,169,0.3)]"
-            >
-              <div className="w-full">
+        <motion.div initial={{
+        opacity: 0
+      }} animate={{
+        opacity: 1
+      }} transition={{
+        duration: 0.5,
+        delay: 0.3,
+        type: "tween"
+      }} className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
+          {secretariat.map((person, index) => <motion.div key={person.name} initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.5,
+          delay: index * 0.1,
+          type: "tween"
+        }} whileHover={{
+          y: -8,
+          scale: 1.03,
+          boxShadow: "0 20px 25px -5px rgba(121, 83, 169, 0.25)",
+          transition: {
+            duration: 0.3
+          }
+        }} className="relative w-full max-w-sm hover:shadow-[0_0_30px_rgba(121,83,169,0.3)]">
+              <div className="w-full rounded-full">
                 <div className="glass-panel p-4 overflow-hidden transition-all duration-300">
                   <div className="flex flex-col items-center">
                     {/* Square image with curved corners - Updated sizes */}
                     <div className="w-36 h-36 md:w-40 md:h-40 rounded-xl overflow-hidden mb-4 border-2 border-mun-purple/30">
-                      <img 
-                        src={person.image} 
-                        alt={`${person.name} - ${person.role}`}
-                        className="w-full h-full object-cover"
-                      />
+                      <img src={person.image} alt={`${person.name} - ${person.role}`} className="w-full h-full object-cover" />
                     </div>
                     
                     <h3 className="text-xl font-bold text-white mb-1">{person.name}</h3>
@@ -95,30 +95,20 @@ const SecretariatSection = ({
                     {formatBio(person.bio)}
                   </div>
                   
-                  <button
-                    onClick={() => toggleExpanded(person.name)}
-                    className="mt-2 text-mun-purple-light hover:text-mun-purple text-xs flex items-center"
-                  >
-                    {expandedMember === person.name ? (
-                      <>
+                  <button onClick={() => toggleExpanded(person.name)} className="mt-2 text-mun-purple-light hover:text-mun-purple text-xs flex items-center">
+                    {expandedMember === person.name ? <>
                         <X className="w-3 h-3 mr-1" />
                         Show Less
-                      </>
-                    ) : (
-                      <>
+                      </> : <>
                         <BookOpen className="w-3 h-3 mr-1" />
                         Read More
-                      </>
-                    )}
+                      </>}
                   </button>
                 </div>
               </div>
-            </motion.div>
-          ))}
+            </motion.div>)}
         </motion.div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default SecretariatSection;
