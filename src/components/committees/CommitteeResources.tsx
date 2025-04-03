@@ -56,7 +56,7 @@ const CommitteeResources = ({
                 {committeeAbbr && (
                   <div className="transition-all duration-300">
                     <img 
-                      src={hoveredCard === 'study-guide' ? logos.light : logos.dark} 
+                      src={hoveredCard === 'study-guide' ? logos.BW : logos.color} 
                       alt="Committee Logo" 
                       className="w-full h-full object-contain transition-opacity duration-300"
                       width="1447"
@@ -99,7 +99,7 @@ const CommitteeResources = ({
                 {committeeAbbr && (
                   <div className="transition-all duration-300">
                     <img 
-                      src={hoveredCard === 'country-matrix' ? logos.bw : logos.color} 
+                      src={hoveredCard === 'country-matrix' ? logos.light : logos.dark} 
                       alt="Committee Logo" 
                       className="w-full h-full object-contain transition-opacity duration-300"
                       width="1447"
