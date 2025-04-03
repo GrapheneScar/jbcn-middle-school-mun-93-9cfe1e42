@@ -30,11 +30,6 @@ const Gallery = () => {
     setSpotlightImage(image);
     setSelectedImage(image.id);
   };
-
-  // Filter out "Conference Delegates" and "Events" categories
-  const filteredCategories = getCategories().filter(cat => 
-    cat !== 'all' && cat !== 'Conference Delegates' && cat !== 'Events'
-  );
   
   return (
     <PageTransition>
@@ -44,7 +39,6 @@ const Gallery = () => {
         {galleryImages.length > 0 ? (
           <GalleryTabs 
             images={galleryImages} 
-            categories={filteredCategories}
             onSpotlight={handleSpotlight}
           />
         ) : (
