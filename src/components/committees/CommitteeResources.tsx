@@ -59,8 +59,8 @@ const CommitteeResources = ({
                       src={hoveredCard === 'study-guide' ? logos.bw : logos.color} 
                       alt="Committee Logo" 
                       className="w-full h-full object-contain transition-opacity duration-300"
-                      width="1447"
-                      height="2048"
+                      width={1447}
+                      height={2048}
                     />
                   </div>
                 )}
@@ -102,8 +102,8 @@ const CommitteeResources = ({
                       src={hoveredCard === 'country-matrix' ? logos.bw : logos.light} 
                       alt="Committee Logo" 
                       className="w-full h-full object-contain transition-opacity duration-300"
-                      width="1447"
-                      height="2048"
+                      width={1447}
+                      height={2048}
                     />
                   </div>
                 )}
