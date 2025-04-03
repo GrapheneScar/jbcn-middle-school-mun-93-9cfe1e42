@@ -17,7 +17,8 @@ export const committeeHeads: Department[] = [{
     title: "Co-Head of Organizing Committee",
     photo: "/lovable-uploads/Udit.png",
     department: "Organizing Committee",
-    bio: "Udit brings creativity and energy to the organizing team."
+    bio: "Udit brings creativity and energy to the organizing team.",
+    easterEgg: "Head of Organizing Committee"
   }]
 }, {
   name: "Heads of Social Media",
@@ -34,7 +35,8 @@ export const committeeHeads: Department[] = [{
     title: "Co-Head of Social Media",
     photo: "/lovable-uploads/Yana.png",
     department: "Social Media",
-    bio: "Yana expertly manages our social media strategy with creativity and deep insight."
+    bio: "Yana expertly manages our social media strategy with creativity and deep insight.",
+    easterEgg: "Head of Social Media"
   }]
 }, {
   name: "Heads of Website Design",
@@ -51,13 +53,15 @@ export const committeeHeads: Department[] = [{
     title: "Co-Head of Website Design",
     photo: "/lovable-uploads/Samay.png",
     department: "Website Design",
-    bio: "Samay ensures our website is user-friendly, visually engaging and appealing."
+    bio: "Samay ensures our website is user-friendly, visually engaging and appealing.",
+    easterEgg: "Head of Website Design"
   }, {
     name: "Dhir Jain",
     title: "Deputy Head of Website Design",
     photo: "/lovable-uploads/Dhir.png", 
     department: "Website Design",
-    bio: "Dhir combines creative design thinking to overall enchance the websites functionality."
+    bio: "Dhir combines creative design thinking to overall enchance the websites functionality.",
+    easterEgg: "Head of Website Design"
   }]
 }, {
   name: "Heads of Press",
@@ -85,7 +89,8 @@ export const committeeHeads: Department[] = [{
     title: "Deputy Head of Photography",
     photo: "/lovable-uploads/Rehaan.png",
     department: "Photography",
-    bio: "Reehan documents the conference with creativity and attention to detail."
+    bio: "Reehan documents the conference with creativity and attention to detail.",
+    easterEgg: "Head of Photography"
   }]
 }, {
   name: "Heads of Illustration",

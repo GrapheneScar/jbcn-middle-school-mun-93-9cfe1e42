@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import StripeBackground from '../components/StripeBackground';
 import HeroSection from '../components/homepage/HeroSection';
@@ -10,18 +11,17 @@ import EventCalendar from '../components/homepage/EventCalendar';
 import PageTransition from '../components/PageTransition';
 import SecretaryGeneralSection from '../components/homepage/SecretaryGeneralSection';
 import DeputySecretaryGeneralSection from '../components/homepage/DeputySecretaryGeneralSection';
-import RegisterButton from '../components/RegisterButton';
+
 const Index = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  return <PageTransition>
+  
+  return (
+    <PageTransition>
       <div className="relative w-full min-h-screen overflow-hidden">
         <StripeBackground />
         <HeroSection />
-
-        {/* Registration Note */}
-        
         
         {/* Secretary General Section */}
         <SecretaryGeneralSection />
@@ -55,6 +55,8 @@ const Index = () => {
         <BaxterMascot />
         <CallToAction />
       </div>
-    </PageTransition>;
+    </PageTransition>
+  );
 };
+
 export default Index;

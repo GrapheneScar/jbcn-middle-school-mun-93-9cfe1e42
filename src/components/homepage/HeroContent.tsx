@@ -73,10 +73,17 @@ const HeroContent = () => {
               duration: 0.3
             }
           }} 
-          className="mb-16"
+          className="mb-4"
         >
           <RegisterButton className="mx-auto" />
         </motion.div>
+        
+        <motion.p 
+          variants={itemVariants}
+          className="text-sm text-white/60 italic mb-16"
+        >
+          Note: This registration form is for external delegates only. Internal delegates have received the registration form via MSO.
+        </motion.p>
         
         <motion.div variants={itemVariants}>
           <ScrollIndicator />

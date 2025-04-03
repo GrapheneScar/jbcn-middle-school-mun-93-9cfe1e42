@@ -25,6 +25,7 @@ const DepartmentHeads = () => {
         setActiveEasterEgg(null);
       }, 5000);
     };
+    
     window.addEventListener('easterEggTriggered', handleEasterEgg);
     return () => {
       window.removeEventListener('easterEggTriggered', handleEasterEgg);
@@ -38,14 +39,15 @@ const DepartmentHeads = () => {
       <div className="pt-32 pb-20 px-4 relative">
         <div className="container mx-auto">
           <motion.div className="text-center mb-16" initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.5
-        }}>
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.5,
+            type: "tween"
+          }}>
             <span className="inline-block px-3 py-1 text-sm bg-mun-purple rounded-full mb-3">Team</span>
             <h1 className="text-5xl font-bold text-white mb-6">Department Heads</h1>
             <p className="text-white/80 max-w-3xl mx-auto">

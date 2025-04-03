@@ -1,62 +1,82 @@
-
-import { useState } from "react";
-import { Button } from "../ui/button";
-import { Shuffle, Zap } from "lucide-react";
-import GalleryGrid from "./GalleryGrid";
-import { GalleryImage } from "./types";
-import { toast } from "../ui/use-toast";
+import { useState } from 'react';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { motion, AnimatePresence } from 'framer-motion';
+import GalleryImageCard from './GalleryImageCard';
+import { GalleryImage } from './types';
+import GalleryLightbox from './GalleryLightbox';
 
 interface GalleryTabsProps {
-  items: GalleryImage[];
-  categories: string[];
-  onSpotlight: (item: GalleryImage) => void;
+  images: GalleryImage[];
 }
 
-const GalleryTabs = ({
-  items,
-  categories,
-  onSpotlight
-}: GalleryTabsProps) => {
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  const filteredItems = selectedCategory === "all" ? items : items.filter(item => item.category === selectedCategory);
+const GalleryTabs = ({ images }: GalleryTabsProps) => {
+  const [selectedTab, setSelectedTab] = useState<string>('all');
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
   
-  const handleShuffle = () => {
-    toast({
-      title: "Gallery Shuffled!",
-      description: "Images have been randomly rearranged for variety."
-    });
+  // Get unique categories from images
+  const categories = ['all', ...Array.from(new Set(images.map(img => img.category)))];
+  
+  // Filter images based on selected category
+  const filteredImages = selectedTab === 'all' 
+    ? images 
+    : images.filter(img => img.category === selectedTab);
+  
+  const openLightbox = (image: GalleryImage) => {
+    setSelectedImage(image);
   };
   
-  const handleSpotlight = () => {
-    // Pick a random item from the filtered list
-    const randomIndex = Math.floor(Math.random() * filteredItems.length);
-    const randomItem = filteredItems[randomIndex];
-    onSpotlight(randomItem);
-    toast({
-      title: "Random Spotlight!",
-      description: `Now viewing: ${randomItem.title}`
-    });
+  const closeLightbox = () => {
+    setSelectedImage(null);
   };
   
   return (
-    <div className="mb-8 w-full">
-      <div className="flex flex-col space-y-6">
-        {/* Action buttons - Centered */}
-        <div className="flex justify-center gap-3">
-          <Button onClick={handleShuffle} size="sm" className="bg-mun-purple hover:bg-mun-purple-light">
-            <Shuffle className="mr-2 h-4 w-4" />
-            Shuffle Gallery
-          </Button>
-          <Button onClick={handleSpotlight} size="sm" variant="outline" className="border-mun-purple text-mun-purple hover:text-white hover:bg-mun-purple">
-            <Zap className="mr-2 h-4 w-4" />
-            Random Spotlight
-          </Button>
-        </div>
-
-        <div className="mt-4">
-          <GalleryGrid images={items} onImageClick={onSpotlight} />
-        </div>
-      </div>
+    <div className="w-full">
+      <Tabs defaultValue="all" value={selectedTab} onValueChange={setSelectedTab}>
+        <TabsList className="bg-black/20 border border-mun-purple/20 backdrop-blur-md mb-8 flex flex-wrap justify-center">
+          {categories.map(category => (
+            <TabsTrigger 
+              key={category} 
+              value={category}
+              className="data-[state=active]:bg-mun-purple data-[state=active]:text-white"
+            >
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+        
+        <AnimatePresence mode="wait">
+          <TabsContent 
+            value={selectedTab} 
+            className="mt-0"
+            key={selectedTab}
+          >
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              {filteredImages.map((image, index) => (
+                <GalleryImageCard 
+                  key={image.id} 
+                  image={image} 
+                  index={index}
+                  onClick={() => openLightbox(image)}
+                />
+              ))}
+            </motion.div>
+          </TabsContent>
+        </AnimatePresence>
+      </Tabs>
+      
+      {selectedImage && (
+        <GalleryLightbox 
+          image={selectedImage} 
+          onClose={closeLightbox} 
+          images={filteredImages}
+        />
+      )}
     </div>
   );
 };
