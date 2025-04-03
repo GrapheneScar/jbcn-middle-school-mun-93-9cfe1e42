@@ -42,28 +42,28 @@ const Committees = () => {
               
               <div className="grid md:grid-cols-2 gap-6 mt-6">
                 <div className="bg-black/30 p-4 rounded-lg border border-mun-purple/20">
-                  <h4 className="font-bold text-mun-purple-light mb-2 text-base">Historical Perspectives</h4>
+                  <h4 className="font-bold text-mun-purple-light mb-2 text-base text-center">Historical Perspectives</h4>
                   <p className="text-xs">
                     From the tense deliberations of the <strong>Historic Korean War Summit</strong>, delegates will find themselves at pivotal moments in history where their decisions shape the future. The <strong>Cabinet of India</strong> will transport participants to a historical era, demanding sharp problem-solving skills.
                   </p>
                 </div>
                 
                 <div className="bg-black/30 p-4 rounded-lg border border-mun-purple/20">
-                  <h4 className="font-bold text-mun-purple-light mb-2 text-base">Crisis Management</h4>
+                  <h4 className="font-bold text-mun-purple-light mb-2 text-base text-center">Crisis Management</h4>
                   <p className="text-xs">
                     The rapid decision-making required in the <strong>Russian Federative Assembly</strong> will test delegates' ability to respond to constant crisis scenarios, challenging their diplomacy and conflict resolution abilities.
                   </p>
                 </div>
                 
                 <div className="bg-black/30 p-4 rounded-lg border border-mun-purple/20">
-                  <h4 className="font-bold text-mun-purple-light mb-2 text-base">Future Exploration</h4>
+                  <h4 className="font-bold text-mun-purple-light mb-2 text-base text-center">Future Exploration</h4>
                   <p className="text-xs">
                     The future of international cooperation will be explored in <strong>COPUOS</strong>, where space governance and interstellar exploration take center stage, encouraging delegates to think beyond traditional boundaries.
                   </p>
                 </div>
                 
                 <div className="bg-black/30 p-4 rounded-lg border border-mun-purple/20">
-                  <h4 className="font-bold text-mun-purple-light mb-2 text-base">Global Security</h4>
+                  <h4 className="font-bold text-mun-purple-light mb-2 text-base text-center">Global Security</h4>
                   <p className="text-xs">
                     In the General Assembly's <strong>DISEC committee</strong>, delegates will grapple with contemporary threats to global security, seeking creative solutions to ensure lasting peace through international cooperation.
                   </p>
