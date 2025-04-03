@@ -24,17 +24,13 @@ const NewsletterTabs = ({ seniorMUNNewsletters, middleSchoolNewsletters }: Newsl
               value="middle-school" 
               className="rounded-full py-2.5 px-4 data-[state=active]:bg-mun-purple data-[state=active]:shadow-[0_0_15px_rgba(155,135,245,0.5)] data-[state=active]:text-white"
             >
-              <div className="flex items-center justify-center text-center w-full">
-                <span className="block sm:inline whitespace-nowrap text-xs sm:text-sm">Middle School</span>
-              </div>
+              Middle School
             </TabsTrigger>
             <TabsTrigger 
               value="senior" 
               className="rounded-full py-2.5 px-4 data-[state=active]:bg-mun-purple data-[state=active]:shadow-[0_0_15px_rgba(155,135,245,0.5)] data-[state=active]:text-white"
             >
-              <div className="flex items-center justify-center text-center w-full">
-                <span className="block sm:inline whitespace-nowrap text-xs sm:text-sm">Senior MUN</span>
-              </div>
+              Senior MUN
             </TabsTrigger>
           </TabsList>
         </div>

@@ -51,11 +51,13 @@ const Gallery = () => {
           <GalleryEmptyState />
         )}
         
-        <GalleryLightbox 
-          selectedImageId={selectedImage} 
-          images={galleryImages} 
-          onClose={closeLightbox} 
-        />
+        {selectedImage && (
+          <GalleryLightbox 
+            selectedImageId={selectedImage} 
+            images={galleryImages} 
+            onClose={closeLightbox} 
+          />
+        )}
       </div>
     </PageTransition>
   );

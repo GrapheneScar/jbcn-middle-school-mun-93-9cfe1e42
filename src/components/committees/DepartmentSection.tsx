@@ -18,6 +18,11 @@ const DepartmentSection = ({
   const handleEasterEggTrigger = (title: string) => {
     if (!title) return;
 
+    // Add haptic feedback if supported by the browser
+    if (navigator.vibrate) {
+      navigator.vibrate([100, 50, 200]); // Pattern: vibrate 100ms, pause 50ms, vibrate 200ms
+    }
+
     // Create and dispatch a custom event
     const easterEggEvent = new CustomEvent('easterEggTriggered', {
       detail: {
@@ -29,7 +34,15 @@ const DepartmentSection = ({
     // Show toast notification
     const notification = document.createElement('div');
     notification.className = 'fixed top-4 right-4 bg-mun-purple text-white px-4 py-3 rounded-lg shadow-lg z-50 animate-fade-in';
-    notification.innerHTML = `<p class="font-medium">Easter Egg Found!</p><p class="text-sm">${title}</p>`;
+    notification.innerHTML = `
+      <div class="flex items-center">
+        <span class="inline-block bg-white/20 p-1 rounded-full mr-2">🎉</span>
+        <div>
+          <p class="font-medium">Easter Egg Found!</p>
+          <p class="text-sm">${title}</p>
+        </div>
+      </div>
+    `;
     document.body.appendChild(notification);
 
     // Remove notification after 3 seconds
@@ -87,7 +100,7 @@ const DepartmentSection = ({
             >
               <div className="p-4">
                 <div className="flex flex-col items-center mb-4">
-                  <div className="w-36 h-36 mb-4 rounded-xl overflow-hidden border-2 border-mun-purple/50">
+                  <div className="w-40 h-40 mb-4 rounded-xl overflow-hidden border-2 border-mun-purple/50">
                     <img src={chair.photo} alt={chair.name} className="w-full h-full object-cover" />
                   </div>
                   <div className="text-center">
@@ -126,7 +139,7 @@ const DepartmentSection = ({
                 
                 {chair.easterEgg && (
                   <div className="mt-3 text-xs text-mun-purple-light italic text-center">
-                    Click for a surprise!
+                    <span className="inline-block animate-pulse">Click for a surprise!</span>
                   </div>
                 )}
               </div>

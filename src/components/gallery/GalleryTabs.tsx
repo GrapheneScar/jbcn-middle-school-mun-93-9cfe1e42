@@ -5,6 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import GalleryImageCard from './GalleryImageCard';
 import { GalleryImage } from './types';
 import GalleryLightbox from './GalleryLightbox';
+import { Shuffle, Sparkles } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useToast } from '@/components/ui/use-toast';
 
 interface GalleryTabsProps {
   images: GalleryImage[];
@@ -15,11 +18,13 @@ interface GalleryTabsProps {
 const GalleryTabs = ({ images, categories, onSpotlight }: GalleryTabsProps) => {
   const [selectedTab, setSelectedTab] = useState<string>('all');
   const [selectedImageId, setSelectedImageId] = useState<string | null>(null);
+  const [galleryImages, setGalleryImages] = useState<GalleryImage[]>(images);
+  const { toast } = useToast();
   
   // Filter images based on selected category
   const filteredImages = selectedTab === 'all' 
-    ? images 
-    : images.filter(img => img.category === selectedTab);
+    ? galleryImages 
+    : galleryImages.filter(img => img.category === selectedTab);
   
   const openLightbox = (imageId: string) => {
     setSelectedImageId(imageId);
@@ -31,6 +36,37 @@ const GalleryTabs = ({ images, categories, onSpotlight }: GalleryTabsProps) => {
   
   const closeLightbox = () => {
     setSelectedImageId(null);
+  };
+
+  // Function to shuffle gallery images
+  const handleShuffleGallery = () => {
+    const shuffled = [...galleryImages].sort(() => Math.random() - 0.5);
+    setGalleryImages(shuffled);
+    
+    toast({
+      title: "Gallery Shuffled",
+      description: "The images have been randomly rearranged.",
+      duration: 3000,
+    });
+  };
+
+  // Function to select a random spotlight image
+  const handleRandomSpotlight = () => {
+    if (images.length === 0) return;
+    
+    const randomIndex = Math.floor(Math.random() * images.length);
+    const randomImage = images[randomIndex];
+    
+    if (randomImage && onSpotlight) {
+      onSpotlight(randomImage);
+      setSelectedImageId(randomImage.id);
+      
+      toast({
+        title: "Random Spotlight",
+        description: "Enjoy this randomly selected image!",
+        duration: 3000,
+      });
+    }
   };
   
   return (
@@ -54,6 +90,27 @@ const GalleryTabs = ({ images, categories, onSpotlight }: GalleryTabsProps) => {
             </TabsTrigger>
           ))}
         </TabsList>
+
+        {/* Gallery Action Buttons */}
+        <div className="flex flex-wrap justify-center gap-4 mb-8">
+          <Button
+            variant="outline" 
+            className="bg-black/30 hover:bg-mun-purple/20 border border-mun-purple/30 text-white"
+            onClick={handleShuffleGallery}
+          >
+            <Shuffle className="w-4 h-4 mr-2" />
+            Shuffle Gallery
+          </Button>
+          
+          <Button
+            variant="outline"
+            className="bg-black/30 hover:bg-mun-purple/20 border border-mun-purple/30 text-white"
+            onClick={handleRandomSpotlight}
+          >
+            <Sparkles className="w-4 h-4 mr-2" />
+            Random Spotlight
+          </Button>
+        </div>
         
         <AnimatePresence mode="wait">
           <TabsContent 
@@ -70,7 +127,7 @@ const GalleryTabs = ({ images, categories, onSpotlight }: GalleryTabsProps) => {
             >
               {filteredImages.map((image, index) => (
                 <GalleryImageCard 
-                  key={image.id} 
+                  key={`${image.id}-${index}`} 
                   image={image} 
                   index={index}
                   onClick={() => openLightbox(image.id)}
@@ -81,11 +138,13 @@ const GalleryTabs = ({ images, categories, onSpotlight }: GalleryTabsProps) => {
         </AnimatePresence>
       </Tabs>
       
-      <GalleryLightbox 
-        selectedImageId={selectedImageId} 
-        images={images} 
-        onClose={closeLightbox} 
-      />
+      {selectedImageId && (
+        <GalleryLightbox 
+          selectedImageId={selectedImageId} 
+          images={images} 
+          onClose={closeLightbox} 
+        />
+      )}
     </div>
   );
 };

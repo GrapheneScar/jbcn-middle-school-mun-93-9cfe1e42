@@ -19,8 +19,7 @@ const CommitteeResources = ({
   committeeEmail,
   committeeAbbr
 }: CommitteeResourcesProps) => {
-  const [studyGuideHovered, setStudyGuideHovered] = useState(false);
-  const [countryMatrixHovered, setCountryMatrixHovered] = useState(false);
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   // Get the appropriate logos based on committee abbreviation
   const getLogos = () => {
@@ -45,82 +44,82 @@ const CommitteeResources = ({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Study Guide Section */}
         {studyGuideUrl && <motion.div 
-            className="bg-[#121218] rounded-xl p-8 flex flex-col items-center text-center border border-[#2a2a3a] hover:shadow-[0_0_20px_rgba(121,83,169,0.3)] transition-all duration-300"
+            className="bg-[#121218] rounded-xl overflow-hidden border border-[#2a2a3a] hover:shadow-[0_0_20px_rgba(121,83,169,0.3)] transition-all duration-300"
             whileHover={{ scale: 1.02 }}
+            onMouseEnter={() => setHoveredCard('study-guide')} 
+            onMouseLeave={() => setHoveredCard(null)}
           >
-            <h3 className="text-xl font-bold text-white mb-4">Study Guide</h3>
-            
-            <div 
-              className="mb-4 relative w-32 h-32 flex items-center justify-center overflow-hidden" 
-              onMouseEnter={() => setStudyGuideHovered(true)} 
-              onMouseLeave={() => setStudyGuideHovered(false)}
-            >
-              {committeeAbbr && (
-                <div className="transition-all duration-300">
-                  <img 
-                    src={studyGuideHovered ? logos.bw : logos.color} 
-                    alt="Committee Logo" 
-                    className="w-full h-auto transition-opacity duration-300" 
-                  />
-                </div>
-              )}
-            </div>
-            
-            <div className="h-24 overflow-y-auto mb-6 px-2">
-              <p className="text-white/70">
-                Access the official study guide for the {committeeName} committee. This
-                document contains essential information about the agenda
-                topics, background, and expectations.
+            <div className="p-8 flex flex-col items-center text-center h-full">
+              <h3 className="text-xl font-bold text-white mb-4">Study Guide</h3>
+              
+              <div className="mb-4 relative w-32 h-32 flex items-center justify-center overflow-hidden">
+                {committeeAbbr && (
+                  <div className="transition-all duration-300">
+                    <img 
+                      src={hoveredCard === 'study-guide' ? logos.bw : logos.color} 
+                      alt="Committee Logo" 
+                      className="w-full h-full object-contain transition-opacity duration-300" 
+                    />
+                  </div>
+                )}
+              </div>
+              
+              <div className="h-24 overflow-y-auto mb-6 px-2">
+                <p className="text-white/70">
+                  Access the official study guide for the {committeeName} committee. This
+                  document contains essential information about the agenda
+                  topics, background, and expectations.
+                </p>
+              </div>
+              
+              <a href={studyGuideUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-3 bg-mun-purple rounded-full text-white font-medium hover:bg-mun-purple-light transition-colors">
+                <FileText className="h-4 w-4 mr-2" />
+                Download Study Guide
+              </a>
+              
+              <p className="text-white/50 text-sm mt-4 italic">
+                NOTE: Your Allocation will be sent to you via your registered Email
               </p>
             </div>
-            
-            <a href={studyGuideUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-3 bg-mun-purple rounded-full text-white font-medium hover:bg-mun-purple-light transition-colors">
-              <FileText className="h-4 w-4 mr-2" />
-              Download Study Guide
-            </a>
-            
-            <p className="text-white/50 text-sm mt-4 italic">
-              NOTE: Your Allocation will be sent to you via your registered Email
-            </p>
           </motion.div>}
         
         {/* Country Matrix Section */}
         {countryMatrixUrl && <motion.div 
-            className="bg-[#121218] rounded-xl p-8 flex flex-col items-center text-center border border-[#2a2a3a] hover:shadow-[0_0_20px_rgba(121,83,169,0.3)] transition-all duration-300"
+            className="bg-[#121218] rounded-xl overflow-hidden border border-[#2a2a3a] hover:shadow-[0_0_20px_rgba(121,83,169,0.3)] transition-all duration-300"
             whileHover={{ scale: 1.02 }}
+            onMouseEnter={() => setHoveredCard('country-matrix')} 
+            onMouseLeave={() => setHoveredCard(null)}
           >
-            <h3 className="text-xl font-bold text-white mb-4">Country Matrix</h3>
-            
-            <div 
-              className="mb-4 relative w-32 h-32 flex items-center justify-center overflow-hidden"
-              onMouseEnter={() => setCountryMatrixHovered(true)} 
-              onMouseLeave={() => setCountryMatrixHovered(false)}
-            >
-              {committeeAbbr && (
-                <div className="transition-all duration-300">
-                  <img 
-                    src={countryMatrixHovered ? logos.bw : logos.light} 
-                    alt="Committee Logo" 
-                    className="w-full h-auto transition-opacity duration-300" 
-                  />
-                </div>
-              )}
-            </div>
-            
-            <div className="h-24 overflow-y-auto mb-6 px-2">
-              <p className="text-white/70">
-                The country matrix provides details about the countries involved in this committee, their positions, and relevant policy information.
+            <div className="p-8 flex flex-col items-center text-center h-full">
+              <h3 className="text-xl font-bold text-white mb-4">Country Matrix</h3>
+              
+              <div className="mb-4 relative w-32 h-32 flex items-center justify-center overflow-hidden">
+                {committeeAbbr && (
+                  <div className="transition-all duration-300">
+                    <img 
+                      src={hoveredCard === 'country-matrix' ? logos.bw : logos.light} 
+                      alt="Committee Logo" 
+                      className="w-full h-full object-contain transition-opacity duration-300" 
+                    />
+                  </div>
+                )}
+              </div>
+              
+              <div className="h-24 overflow-y-auto mb-6 px-2">
+                <p className="text-white/70">
+                  The country matrix provides details about the countries involved in this committee, their positions, and relevant policy information.
+                </p>
+              </div>
+              
+              <a href={countryMatrixUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-3 bg-mun-purple rounded-full text-white font-medium hover:bg-mun-purple-light transition-colors">
+                <FileSpreadsheet className="h-4 w-4 mr-2" />
+                Download Country Matrix
+              </a>
+              
+              <p className="text-white/50 text-sm mt-4 italic">
+                NOTE: The Country Matrix will be open after registration closes.
               </p>
             </div>
-            
-            <a href={countryMatrixUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-3 bg-mun-purple rounded-full text-white font-medium hover:bg-mun-purple-light transition-colors">
-              <FileSpreadsheet className="h-4 w-4 mr-2" />
-              Download Country Matrix
-            </a>
-            
-            <p className="text-white/50 text-sm mt-4 italic">
-              NOTE: The Country Matrix will be open after registration closes.
-            </p>
           </motion.div>}
       </div>
       
