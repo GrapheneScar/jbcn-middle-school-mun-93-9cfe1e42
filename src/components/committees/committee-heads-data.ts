@@ -80,7 +80,7 @@ export const committeeHeads: Department[] = [{
   chairs: [{
     name: "Keerthana Reddy",
     title: "Head of Photography",
-    photo: "/lovable-uploads/Keertana.png",
+    photo: "/lovable-uploads/Keerthana.jpg",
     department: "Photography",
     bio: "Keerthana's eye for capturing meaningful moments brings our conference to life.",
     easterEgg: "Head of Photography"
