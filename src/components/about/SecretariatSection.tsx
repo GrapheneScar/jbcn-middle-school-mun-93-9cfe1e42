@@ -64,13 +64,19 @@ const SecretariatSection = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1, type: "tween" }}
-              className="relative w-full max-w-sm"
+              whileHover={{ 
+                y: -8,
+                scale: 1.03,
+                boxShadow: "0 20px 25px -5px rgba(121, 83, 169, 0.25)",
+                transition: { duration: 0.3 }
+              }}
+              className="relative w-full max-w-sm hover:shadow-[0_0_30px_rgba(121,83,169,0.3)]"
             >
               <div className="w-full">
-                <div className="glass-panel p-4 overflow-hidden">
+                <div className="glass-panel p-4 overflow-hidden transition-all duration-300">
                   <div className="flex flex-col items-center">
                     {/* Square image with curved corners - Updated sizes */}
-                    <div className="w-30 h-30 md:w-50 md:h-50 rounded-xl overflow-hidden mb-4 border-2 border-mun-purple/30">
+                    <div className="w-36 h-36 md:w-40 md:h-40 rounded-xl overflow-hidden mb-4 border-2 border-mun-purple/30">
                       <img 
                         src={person.image} 
                         alt={`${person.name} - ${person.role}`}

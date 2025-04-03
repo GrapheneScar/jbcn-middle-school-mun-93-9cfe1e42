@@ -73,7 +73,7 @@ const HeroContent = () => {
               duration: 0.3
             }
           }} 
-          className="mb-4"
+          className="mb-4 relative z-50"
         >
           <RegisterButton className="mx-auto" />
         </motion.div>

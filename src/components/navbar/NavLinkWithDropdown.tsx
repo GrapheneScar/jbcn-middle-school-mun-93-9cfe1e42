@@ -53,19 +53,21 @@ const NavLinkWithDropdown = ({ item }: Props) => {
   };
 
   const handleClick = (e: React.MouseEvent) => {
-    // For mobile view or direct navigation
+    e.preventDefault(); // Prevent immediate navigation
+    
+    // For mobile view
     if (window.innerWidth <= 1024) {
-      if (submenuItems && submenuItems.length > 0 && item.path === "#") {
-        e.preventDefault();
-        setIsOpen(!isOpen);
-      }
+      setIsOpen(!isOpen);
     } else {
       // For desktop view
-      if (item.path !== "#" && item.path !== "/committees") {
-        // Allow navigation to non-dropdown paths
-      } else if (submenuItems && submenuItems.length > 0 && item.path === "#") {
-        // Toggle dropdown for placeholder links
-        e.preventDefault();
+      if (item.path === "/committees") {
+        // For Committees, just toggle dropdown
+        setIsOpen(!isOpen);
+      } else if (item.path !== "#") {
+        // For paths that should navigate
+        window.location.href = item.path;
+      } else {
+        // For placeholder links
         setIsOpen(!isOpen);
       }
     }
@@ -79,10 +81,9 @@ const NavLinkWithDropdown = ({ item }: Props) => {
     >
       {/* Main link */}
       <div ref={linkRef}>
-        <Link
-          to={item.path}
+        <div
           onClick={handleClick}
-          className={`px-3 py-2 text-sm font-medium rounded-md transition-colors relative group ${
+          className={`px-3 py-2 text-sm font-medium rounded-md transition-colors relative group cursor-pointer ${
             isActive(item.path) 
               ? "text-white" 
               : "text-gray-300 hover:text-white"
@@ -101,7 +102,7 @@ const NavLinkWithDropdown = ({ item }: Props) => {
           {isActive(item.path) && (
             <span className="absolute inset-0 bg-mun-purple/20 rounded-md -z-10"></span>
           )}
-        </Link>
+        </div>
       </div>
 
       {/* Dropdown Menu */}

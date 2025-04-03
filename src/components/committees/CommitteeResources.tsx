@@ -44,7 +44,10 @@ const CommitteeResources = ({
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Study Guide Section */}
-        {studyGuideUrl && <motion.div className="bg-[#121218] rounded-xl p-8 flex flex-col items-center text-center border border-[#2a2a3a]">
+        {studyGuideUrl && <motion.div 
+            className="bg-[#121218] rounded-xl p-8 flex flex-col items-center text-center border border-[#2a2a3a] hover:shadow-[0_0_20px_rgba(121,83,169,0.3)] transition-all duration-300"
+            whileHover={{ scale: 1.02 }}
+          >
             <h3 className="text-xl font-bold text-white mb-4">Study Guide</h3>
             
             <div 
@@ -63,8 +66,8 @@ const CommitteeResources = ({
               )}
             </div>
             
-            <div className="h-32 overflow-y-auto mb-6">
-              <p className="text-white/70 px-2">
+            <div className="h-24 overflow-y-auto mb-6 px-2">
+              <p className="text-white/70">
                 Access the official study guide for the {committeeName} committee. This
                 document contains essential information about the agenda
                 topics, background, and expectations.
@@ -82,7 +85,10 @@ const CommitteeResources = ({
           </motion.div>}
         
         {/* Country Matrix Section */}
-        {countryMatrixUrl && <motion.div className="bg-[#121218] rounded-xl p-8 flex flex-col items-center text-center border border-[#2a2a3a]">
+        {countryMatrixUrl && <motion.div 
+            className="bg-[#121218] rounded-xl p-8 flex flex-col items-center text-center border border-[#2a2a3a] hover:shadow-[0_0_20px_rgba(121,83,169,0.3)] transition-all duration-300"
+            whileHover={{ scale: 1.02 }}
+          >
             <h3 className="text-xl font-bold text-white mb-4">Country Matrix</h3>
             
             <div 
@@ -101,8 +107,8 @@ const CommitteeResources = ({
               )}
             </div>
             
-            <div className="h-32 overflow-y-auto mb-6">
-              <p className="text-white/70 px-2">
+            <div className="h-24 overflow-y-auto mb-6 px-2">
+              <p className="text-white/70">
                 The country matrix provides details about the countries involved in this committee, their positions, and relevant policy information.
               </p>
             </div>

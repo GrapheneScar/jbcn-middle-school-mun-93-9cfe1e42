@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -7,32 +8,42 @@ import GalleryLightbox from './GalleryLightbox';
 
 interface GalleryTabsProps {
   images: GalleryImage[];
+  categories: string[];
+  onSpotlight?: (image: GalleryImage) => void;
 }
 
-const GalleryTabs = ({ images }: GalleryTabsProps) => {
+const GalleryTabs = ({ images, categories, onSpotlight }: GalleryTabsProps) => {
   const [selectedTab, setSelectedTab] = useState<string>('all');
-  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
-  
-  // Get unique categories from images
-  const categories = ['all', ...Array.from(new Set(images.map(img => img.category)))];
+  const [selectedImageId, setSelectedImageId] = useState<string | null>(null);
   
   // Filter images based on selected category
   const filteredImages = selectedTab === 'all' 
     ? images 
     : images.filter(img => img.category === selectedTab);
   
-  const openLightbox = (image: GalleryImage) => {
-    setSelectedImage(image);
+  const openLightbox = (imageId: string) => {
+    setSelectedImageId(imageId);
+    const image = images.find(img => img.id === imageId);
+    if (image && onSpotlight) {
+      onSpotlight(image);
+    }
   };
   
   const closeLightbox = () => {
-    setSelectedImage(null);
+    setSelectedImageId(null);
   };
   
   return (
     <div className="w-full">
       <Tabs defaultValue="all" value={selectedTab} onValueChange={setSelectedTab}>
         <TabsList className="bg-black/20 border border-mun-purple/20 backdrop-blur-md mb-8 flex flex-wrap justify-center">
+          <TabsTrigger 
+            key="all" 
+            value="all"
+            className="data-[state=active]:bg-mun-purple data-[state=active]:text-white"
+          >
+            All
+          </TabsTrigger>
           {categories.map(category => (
             <TabsTrigger 
               key={category} 
@@ -62,7 +73,7 @@ const GalleryTabs = ({ images }: GalleryTabsProps) => {
                   key={image.id} 
                   image={image} 
                   index={index}
-                  onClick={() => openLightbox(image)}
+                  onClick={() => openLightbox(image.id)}
                 />
               ))}
             </motion.div>
@@ -70,13 +81,11 @@ const GalleryTabs = ({ images }: GalleryTabsProps) => {
         </AnimatePresence>
       </Tabs>
       
-      {selectedImage && (
-        <GalleryLightbox 
-          image={selectedImage} 
-          onClose={closeLightbox} 
-          images={filteredImages}
-        />
-      )}
+      <GalleryLightbox 
+        selectedImageId={selectedImageId} 
+        images={images} 
+        onClose={closeLightbox} 
+      />
     </div>
   );
 };

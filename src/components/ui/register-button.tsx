@@ -34,7 +34,7 @@ export const RegisterButton = ({ className = "" }: RegisterButtonProps) => {
       href="https://docs.google.com/forms/d/e/1FAIpQLSdGzaYOB7xSR68bbpr1BVqTIYFATwuytbIXk5IRTXoviu9U_g/viewform" 
       target="_blank" 
       rel="noopener noreferrer"
-      className={`transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className} flex justify-center`}
+      className={`transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-100'} ${className} flex justify-center`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -42,11 +42,11 @@ export const RegisterButton = ({ className = "" }: RegisterButtonProps) => {
         <Button 
           className={`relative overflow-hidden text-white font-medium px-6 py-5 
             flex items-center rounded-full border-2 border-mun-purple transition-all duration-300
-            ${isHovered ? 'text-white' : 'bg-transparent'}
-            hover:scale-105`}
+            ${isHovered ? 'text-white scale-105' : 'bg-transparent'}
+            hover:scale-105 shadow-lg hover:shadow-mun-purple/30`}
           size="lg"
           style={{
-            zIndex: 1
+            zIndex: 10
           }}
         >
           <div 

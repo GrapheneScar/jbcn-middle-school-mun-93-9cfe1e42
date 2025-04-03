@@ -72,17 +72,22 @@ const DepartmentSection = ({
       
       <div className="flex flex-wrap justify-center gap-8 mx-auto max-w-5xl">
         {department.chairs.map(chair => (
-          <div 
+          <motion.div 
             key={chair.name} 
             className="w-full max-w-xs"
+            whileHover={{ 
+              y: -8,
+              scale: 1.03,
+              transition: { duration: 0.3 }
+            }}
           >
             <div 
-              className={`bg-black/20 backdrop-filter backdrop-blur-sm rounded-lg overflow-hidden border border-mun-purple/30 ${chair.easterEgg ? 'cursor-pointer' : ''}`} 
+              className={`bg-black/20 backdrop-filter backdrop-blur-sm rounded-lg overflow-hidden border border-mun-purple/30 hover:shadow-[0_0_25px_rgba(121,83,169,0.4)] transition-all duration-300 ${chair.easterEgg ? 'cursor-pointer' : ''}`} 
               onClick={() => chair.easterEgg && handleEasterEggTrigger(chair.easterEgg)}
             >
               <div className="p-4">
                 <div className="flex flex-col items-center mb-4">
-                  <div className="w-32 h-32 mb-4 rounded-xl overflow-hidden border-2 border-mun-purple/50">
+                  <div className="w-36 h-36 mb-4 rounded-xl overflow-hidden border-2 border-mun-purple/50">
                     <img src={chair.photo} alt={chair.name} className="w-full h-full object-cover" />
                   </div>
                   <div className="text-center">
@@ -126,7 +131,7 @@ const DepartmentSection = ({
                 )}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </motion.div>

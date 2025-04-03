@@ -43,7 +43,7 @@ const Gallery = () => {
         
         {galleryImages.length > 0 ? (
           <GalleryTabs 
-            items={galleryImages} 
+            images={galleryImages} 
             categories={filteredCategories}
             onSpotlight={handleSpotlight}
           />
