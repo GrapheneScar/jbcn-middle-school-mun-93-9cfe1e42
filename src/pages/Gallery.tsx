@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import PageTransition from '../components/PageTransition';
 import GalleryHeader from '../components/gallery/GalleryHeader';
-import { galleryImages, getCategories } from '../components/gallery/gallery-data';
+import { galleryImages, getCategories, shuffleGalleryImages } from '../components/gallery/data';
 import GalleryLightbox from '../components/gallery/GalleryLightbox';
 import GalleryEmptyState from '../components/gallery/GalleryEmptyState';
 import GalleryTabs from '../components/gallery/GalleryTabs';
@@ -19,16 +19,7 @@ const Gallery = () => {
   
   // Shuffle images on page load/refresh
   useEffect(() => {
-    const shuffleArray = (array: GalleryImage[]) => {
-      const shuffled = [...array];
-      for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-      }
-      return shuffled;
-    };
-    
-    setShuffledImages(shuffleArray(galleryImages));
+    setShuffledImages(shuffleGalleryImages(galleryImages));
   }, []);
   
   const openLightbox = (imageId: string) => {
