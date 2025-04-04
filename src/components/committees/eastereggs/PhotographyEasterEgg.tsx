@@ -1,12 +1,10 @@
 
 import { motion } from 'framer-motion';
 import { Camera } from 'lucide-react';
-import { useIsMobile } from '@/hooks/use-mobile';
 import { useEffect, useRef, useState } from 'react';
 import { galleryImages } from '@/components/gallery/gallery-data';
 
 const PhotographyEasterEgg = () => {
-  const isMobile = useIsMobile();
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [hasCamera, setHasCamera] = useState<boolean | null>(null);
@@ -17,7 +15,7 @@ const PhotographyEasterEgg = () => {
     // Choose a random gallery image as fallback
     const randomIndex = Math.floor(Math.random() * galleryImages.length);
     const randomImage = galleryImages[randomIndex];
-    setFallbackImage(randomImage?.src || '/lovable-uploads/gallery-1.jpg');
+    setFallbackImage(randomImage?.src || '/placeholder.svg');
     
     // Request camera access
     const getCamera = async () => {

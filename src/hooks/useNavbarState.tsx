@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -50,6 +49,7 @@ export const useNavbarState = () => {
     };
   }, []);
   
+  // Close when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (activeDropdown && dropdownRefs.current[activeDropdown]) {
@@ -67,6 +67,10 @@ export const useNavbarState = () => {
   
   const isActive = (path: string) => {
     if (path === '#') return false;
+    if (path === '/committees') {
+      // Check if we're on any committee page
+      return location.pathname === '/committees' || location.pathname.startsWith('/committees/');
+    }
     return location.pathname === path;
   };
 

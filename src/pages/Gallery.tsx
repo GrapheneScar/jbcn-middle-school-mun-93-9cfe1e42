@@ -15,6 +15,21 @@ const Gallery = () => {
   
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [spotlightImage, setSpotlightImage] = useState<GalleryImage | null>(null);
+  const [shuffledImages, setShuffledImages] = useState<GalleryImage[]>([]);
+  
+  // Shuffle images on page load/refresh
+  useEffect(() => {
+    const shuffleArray = (array: GalleryImage[]) => {
+      const shuffled = [...array];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    };
+    
+    setShuffledImages(shuffleArray(galleryImages));
+  }, []);
   
   const openLightbox = (imageId: string) => {
     setSelectedImage(imageId);
@@ -36,9 +51,9 @@ const Gallery = () => {
       <div className="container mx-auto px-4 pt-28 pb-16 sm:pt-32 md:pt-36 relative min-h-screen">
         <GalleryHeader />
         
-        {galleryImages.length > 0 ? (
+        {shuffledImages.length > 0 ? (
           <GalleryTabs 
-            images={galleryImages} 
+            images={shuffledImages} 
             onSpotlight={handleSpotlight}
           />
         ) : (
@@ -48,7 +63,7 @@ const Gallery = () => {
         {selectedImage && (
           <GalleryLightbox 
             selectedImageId={selectedImage} 
-            images={galleryImages} 
+            images={shuffledImages.length > 0 ? shuffledImages : galleryImages} 
             onClose={closeLightbox} 
           />
         )}
