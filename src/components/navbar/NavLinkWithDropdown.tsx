@@ -53,22 +53,30 @@ const NavLinkWithDropdown = ({ item }: Props) => {
   };
 
   const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault(); // Prevent immediate navigation
-    
-    // For mobile view
-    if (window.innerWidth <= 1024) {
-      setIsOpen(!isOpen);
-    } else {
-      // For desktop view
-      if (item.path === "/committees") {
-        // For Committees, just toggle dropdown
+    if (item.name === "COMMITTEES") {
+      // For Committees, let the click navigate to the main committees page
+      if (window.innerWidth <= 1024) {
+        // For mobile, toggle dropdown
         setIsOpen(!isOpen);
-      } else if (item.path !== "#") {
-        // For paths that should navigate
-        window.location.href = item.path;
       } else {
-        // For placeholder links
+        // We still want to navigate to the main committees page on click
+        window.location.href = item.path;
+      }
+    } else {
+      e.preventDefault(); // Prevent immediate navigation for other dropdown items
+      
+      // For mobile view
+      if (window.innerWidth <= 1024) {
         setIsOpen(!isOpen);
+      } else {
+        // For desktop view
+        if (item.path !== "#") {
+          // For paths that should navigate
+          window.location.href = item.path;
+        } else {
+          // For placeholder links
+          setIsOpen(!isOpen);
+        }
       }
     }
   };

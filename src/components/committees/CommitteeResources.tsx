@@ -14,7 +14,7 @@ interface CommitteeResourcesProps {
 
 const CommitteeResources = ({
   studyGuideUrl,
-  countryMatrixUrl,
+  countryMatrixUrl = "https://docs.google.com/spreadsheets/d/1AnkMh7dEaqQ7kXAUx2tWjrsTmaPbPAap6BoL2l9sMNQ/edit?usp=sharing", // Updated country matrix link
   committeeName,
   committeeEmail,
   committeeAbbr
@@ -59,8 +59,8 @@ const CommitteeResources = ({
                       src={hoveredCard === 'study-guide' ? logos.color : logos.bw} 
                       alt="Committee Logo" 
                       className="w-full h-full object-contain transition-opacity duration-300"
-                      width="1447"
-                      height="2048"
+                      width={1447}
+                      height={2048}
                     />
                   </div>
                 )}
@@ -102,8 +102,8 @@ const CommitteeResources = ({
                       src={hoveredCard === 'country-matrix' ? logos.dark : logos.light} 
                       alt="Committee Logo" 
                       className="w-full h-full object-contain transition-opacity duration-300"
-                      width="1447"
-                      height="2048"
+                      width={1447}
+                      height={2048}
                     />
                   </div>
                 )}

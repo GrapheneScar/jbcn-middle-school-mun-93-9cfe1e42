@@ -2,12 +2,97 @@
 import { motion } from 'framer-motion';
 import { Camera } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useEffect, useRef, useState } from 'react';
+import { galleryImages } from '@/components/gallery/gallery-data';
 
 const PhotographyEasterEgg = () => {
   const isMobile = useIsMobile();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [hasCamera, setHasCamera] = useState<boolean | null>(null);
+  const [capturedImage, setCapturedImage] = useState<string | null>(null);
+  const [fallbackImage, setFallbackImage] = useState<string | null>(null);
+  
+  useEffect(() => {
+    // Choose a random gallery image as fallback
+    const randomIndex = Math.floor(Math.random() * galleryImages.length);
+    const randomImage = galleryImages[randomIndex];
+    setFallbackImage(randomImage?.src || '/lovable-uploads/gallery-1.jpg');
+    
+    // Request camera access
+    const getCamera = async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ 
+          video: true, 
+          audio: false 
+        });
+        
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+          setHasCamera(true);
+          
+          // Take photo after a short delay
+          setTimeout(() => {
+            takePhoto();
+            
+            // Stop the camera after taking photo
+            setTimeout(() => {
+              const tracks = stream.getTracks();
+              tracks.forEach(track => track.stop());
+            }, 3000);
+          }, 1500);
+        }
+      } catch (err) {
+        console.log("Camera access denied or not available:", err);
+        setHasCamera(false);
+      }
+    };
+    
+    getCamera();
+    
+    return () => {
+      // Cleanup camera stream when component unmounts
+      if (videoRef.current && videoRef.current.srcObject) {
+        const stream = videoRef.current.srcObject as MediaStream;
+        const tracks = stream.getTracks();
+        tracks.forEach(track => track.stop());
+      }
+    };
+  }, []);
+  
+  const takePhoto = () => {
+    if (videoRef.current && canvasRef.current) {
+      const video = videoRef.current;
+      const canvas = canvasRef.current;
+      const context = canvas.getContext('2d');
+      
+      if (context) {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        
+        const imageDataUrl = canvas.toDataURL('image/png');
+        setCapturedImage(imageDataUrl);
+      }
+    }
+  };
+  
+  // Determine which image to display in the animation
+  const displayImage = capturedImage || fallbackImage;
   
   return (
     <>
+      {/* Hidden video element for camera feed */}
+      <div className="hidden">
+        <video 
+          ref={videoRef} 
+          autoPlay 
+          playsInline 
+          muted
+        />
+        <canvas ref={canvasRef} />
+      </div>
+      
       {/* Camera flash effect */}
       <motion.div 
         initial={{ opacity: 0 }}
@@ -67,17 +152,19 @@ const PhotographyEasterEgg = () => {
               transition={{ delay: 2.2, duration: 0.5 }}
             />
             
-            <img 
-              src="/lovable-uploads/gallery-1.jpg" 
-              alt="MUN Conference" 
-              className="w-full h-full object-cover opacity-0"
-              onError={(e) => {
-                e.currentTarget.style.opacity = "1";
-              }}
-              onLoad={(e) => {
-                e.currentTarget.style.opacity = "1";
-              }}
-            />
+            {displayImage && (
+              <img 
+                src={displayImage} 
+                alt="Captured" 
+                className="w-full h-full object-cover transition-opacity duration-300 opacity-0"
+                onError={(e) => {
+                  e.currentTarget.style.opacity = "1";
+                }}
+                onLoad={(e) => {
+                  e.currentTarget.style.opacity = "1";
+                }}
+              />
+            )}
             
             <motion.div 
               className="absolute inset-0 flex items-center justify-center text-2xl text-white font-bold"
@@ -159,13 +246,25 @@ const PhotographyEasterEgg = () => {
           }}
         >
           {[
-            "Perfect shot captured!",
+            hasCamera ? "Perfect shot captured!" : "Gallery image loaded!",
             "ISO 100 • f/2.8 • 1/125s",
-            "Great lighting conditions!",
+            hasCamera ? "Great lighting conditions!" : "Photo mode activated!",
             "MUN moments preserved forever!"
           ][i]}
         </motion.div>
       ))}
+      
+      {/* Camera access status */}
+      {hasCamera === false && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.5 }}
+          className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-lg text-sm"
+        >
+          Using gallery image (camera access denied)
+        </motion.div>
+      )}
     </>
   );
 };

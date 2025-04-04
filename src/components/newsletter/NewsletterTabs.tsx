@@ -22,13 +22,13 @@ const NewsletterTabs = ({ seniorMUNNewsletters, middleSchoolNewsletters }: Newsl
           <TabsList className="grid grid-cols-2 w-full max-w-md bg-black/40 backdrop-blur-md border border-mun-purple/30 p-1 rounded-full overflow-hidden">
             <TabsTrigger 
               value="middle-school" 
-              className="rounded-full py-2.5 px-4 data-[state=active]:bg-mun-purple data-[state=active]:shadow-[0_0_15px_rgba(155,135,245,0.5)] data-[state=active]:text-white"
+              className="rounded-full py-2.5 px-4 data-[state=active]:bg-mun-purple data-[state=active]:shadow-[0_0_15px_rgba(155,135,245,0.5)] data-[state=active]:text-white text-white/70"
             >
               Middle School
             </TabsTrigger>
             <TabsTrigger 
               value="senior" 
-              className="rounded-full py-2.5 px-4 data-[state=active]:bg-mun-purple data-[state=active]:shadow-[0_0_15px_rgba(155,135,245,0.5)] data-[state=active]:text-white"
+              className="rounded-full py-2.5 px-4 data-[state=active]:bg-mun-purple data-[state=active]:shadow-[0_0_15px_rgba(155,135,245,0.5)] data-[state=active]:text-white text-white/70"
             >
               Senior MUN
             </TabsTrigger>

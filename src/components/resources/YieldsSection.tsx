@@ -21,8 +21,8 @@ const YieldsSection = () => {
       transition={{ duration: 0.5, delay: 0.2 }}
       className="mt-12 p-6 bg-black/30 rounded-xl border border-mun-purple/20"
     >
-      <h3 className="text-2xl font-bold text-white mb-4">Yields</h3>
-      <p className="text-white/80 mb-6">
+      <h3 className="text-2xl font-bold text-white mb-4 text-center">Yields</h3>
+      <p className="text-white/80 mb-6 text-center">
         Yields are something used once a delegate has left over time in their Speech(es).
       </p>
       
@@ -30,15 +30,15 @@ const YieldsSection = () => {
         <Table className="w-full">
           <TableHeader>
             <TableRow className="border-mun-purple/20">
-              <TableHead className="text-mun-purple-light">Type</TableHead>
-              <TableHead className="text-mun-purple-light">Description</TableHead>
+              <TableHead className="text-mun-purple-light text-center">Type</TableHead>
+              <TableHead className="text-mun-purple-light text-center">Description</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {yieldsData.map((item, i) => (
               <TableRow key={i} className="border-mun-purple/10 hover:bg-mun-purple/5">
-                <TableCell className="font-medium text-white">{item.type}</TableCell>
-                <TableCell className="text-white/80">{item.description}</TableCell>
+                <TableCell className="font-medium text-white text-center">{item.type}</TableCell>
+                <TableCell className="text-white/80 text-center">{item.description}</TableCell>
               </TableRow>
             ))}
           </TableBody>
