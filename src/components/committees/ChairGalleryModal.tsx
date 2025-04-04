@@ -2,21 +2,22 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { useEffect, useRef } from 'react';
+import { Chair } from './types';
 
 interface ChairGalleryModalProps {
   isOpen: boolean;
   onClose: () => void;
-  chairName: string;
+  chair: Chair;
 }
 
-const ChairGalleryModal = ({ isOpen, onClose, chairName }: ChairGalleryModalProps) => {
+const ChairGalleryModal = ({ isOpen, onClose, chair }: ChairGalleryModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   // Updated gallery images with new links
   const galleryImages = [
-    `https://i.postimg.cc/${getChairImagePath(chairName)}-1.jpg`,
-    `https://i.postimg.cc/${getChairImagePath(chairName)}-2.jpg`,
-    `https://i.postimg.cc/${getChairImagePath(chairName)}-3.jpg`,
+    `https://i.postimg.cc/${getChairImagePath(chair.name)}-1.jpg`,
+    `https://i.postimg.cc/${getChairImagePath(chair.name)}-2.jpg`,
+    `https://i.postimg.cc/${getChairImagePath(chair.name)}-3.jpg`,
   ];
 
   // Helper function to get image paths based on chair name
@@ -92,7 +93,7 @@ const ChairGalleryModal = ({ isOpen, onClose, chairName }: ChairGalleryModalProp
             </button>
             
             <h3 className="text-2xl font-bold text-white mb-6 text-center">
-              {chairName}'s Delegate Journey
+              {chair.name}'s Delegate Journey
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -100,7 +101,7 @@ const ChairGalleryModal = ({ isOpen, onClose, chairName }: ChairGalleryModalProp
               {galleryImages.length === 0 ? (
                 <div className="col-span-full flex items-center justify-center p-10 text-center">
                   <p className="text-white/70">
-                    No delegate images available for {chairName}. Check back later!
+                    No delegate images available for {chair.name}. Check back later!
                   </p>
                 </div>
               ) : (
@@ -114,7 +115,7 @@ const ChairGalleryModal = ({ isOpen, onClose, chairName }: ChairGalleryModalProp
                   >
                     <img
                       src={img}
-                      alt={`${chairName} as delegate`}
+                      alt={`${chair.name} as delegate`}
                       className="w-full h-full object-cover"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
@@ -124,7 +125,7 @@ const ChairGalleryModal = ({ isOpen, onClose, chairName }: ChairGalleryModalProp
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end">
                       <p className="text-white p-3 text-sm">
-                        {chairName} at MUN {index + 2023}
+                        {chair.name} at MUN {index + 2023}
                       </p>
                     </div>
                   </motion.div>
