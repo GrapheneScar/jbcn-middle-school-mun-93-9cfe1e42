@@ -15,7 +15,7 @@ const CommitteeAgenda = ({ topics }: CommitteeAgendaProps) => {
       className="glass-panel p-6"
     >
       <h2 className="text-2xl font-bold mb-6 flex items-center justify-center">
-        <FileClock className="mr-3 text-mun-purple-light" /> Agenda Topics
+        <FileClock className="mr-3 text-mun-purple-light" /> Agenda Topic
       </h2>
       <div className="space-y-8 max-w-3xl mx-auto">
         {topics.map((topic, index) => (
