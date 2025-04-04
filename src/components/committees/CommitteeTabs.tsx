@@ -1,14 +1,26 @@
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Committee, Chair } from './types';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ChairCard from './ChairCard';
+import ChairGalleryModal from './ChairGalleryModal';
 
 interface CommitteeTabsProps {
   committee: Committee;
 }
 
 const CommitteeTabs = ({ committee }: CommitteeTabsProps) => {
+  const [selectedChair, setSelectedChair] = useState<Chair | null>(null);
+  
+  const openModal = (chair: Chair) => {
+    setSelectedChair(chair);
+  };
+  
+  const closeModal = () => {
+    setSelectedChair(null);
+  };
+
   return (
     <div className="mb-16">
       <Tabs defaultValue="background" className="w-full">
@@ -83,6 +95,7 @@ const CommitteeTabs = ({ committee }: CommitteeTabsProps) => {
                   <ChairCard 
                     key={index} 
                     chair={chairProps}
+                    openModal={openModal}
                   />
                 );
               })}
@@ -128,6 +141,15 @@ const CommitteeTabs = ({ committee }: CommitteeTabsProps) => {
           </motion.div>
         </TabsContent>
       </Tabs>
+      
+      {/* Add modal for chair details */}
+      {selectedChair && (
+        <ChairGalleryModal 
+          chair={selectedChair}
+          isOpen={!!selectedChair}
+          onClose={closeModal}
+        />
+      )}
     </div>
   );
 };
