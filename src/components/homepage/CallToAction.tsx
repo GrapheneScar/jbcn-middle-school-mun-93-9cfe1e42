@@ -22,7 +22,7 @@ const CallToAction = () => {
           </p>
           <div className="flex flex-col items-center justify-center relative z-20">
             <RegisterButton className="mx-auto" />
-            <p className="mt-4 text-sm text-white/60 italic">NOTE: This registration form is for external delegates only. Internal delegates have received the registration form via MSO.</p>
+            <p className="mt-4 text-white/60 italic text-xs">NOTE: This registration form is for external delegates only. Internal delegates have received the registration form via MSO.</p>
           </div>
         </div>
       </motion.div>
