@@ -1,11 +1,19 @@
 
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 interface PhotoFrameProps {
   displayImage: string | null;
 }
 
 const PhotoFrame = ({ displayImage }: PhotoFrameProps) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  
+  // Reset loaded state when image changes
+  useEffect(() => {
+    setImageLoaded(false);
+  }, [displayImage]);
+  
   return (
     <div className="fixed inset-0 flex items-center justify-center">
       <motion.div 
@@ -35,13 +43,10 @@ const PhotoFrame = ({ displayImage }: PhotoFrameProps) => {
           <img 
             src={displayImage} 
             alt="Captured" 
-            className="w-full h-full object-cover transition-opacity duration-300 opacity-0"
-            onError={(e) => {
-              e.currentTarget.style.opacity = "1";
-            }}
-            onLoad={(e) => {
-              e.currentTarget.style.opacity = "1";
-            }}
+            className="w-full h-full object-cover transition-opacity duration-300"
+            style={{ opacity: imageLoaded ? 1 : 0 }}
+            onError={() => setImageLoaded(true)}
+            onLoad={() => setImageLoaded(true)}
           />
         )}
         

@@ -1,6 +1,6 @@
 
 import { useRef, useState, useEffect } from 'react';
-import { galleryImages } from '@/components/gallery/gallery-data';
+import { galleryImages } from '@/components/gallery/data';
 
 interface CameraInterfaceProps {
   onImageCaptured: (imageUrl: string) => void;
@@ -30,16 +30,21 @@ const CameraInterface = ({ onImageCaptured, onCameraStatus }: CameraInterfacePro
           videoRef.current.srcObject = stream;
           onCameraStatus(true);
           
-          // Take photo after a short delay
-          setTimeout(() => {
-            takePhoto();
+          // Make sure video element loads first
+          videoRef.current.onloadedmetadata = () => {
+            videoRef.current?.play();
             
-            // Stop the camera after taking photo
+            // Take photo after a short delay
             setTimeout(() => {
-              const tracks = stream.getTracks();
-              tracks.forEach(track => track.stop());
-            }, 3000);
-          }, 1500);
+              takePhoto();
+              
+              // Stop the camera after taking photo
+              setTimeout(() => {
+                const tracks = stream.getTracks();
+                tracks.forEach(track => track.stop());
+              }, 3000);
+            }, 1500);
+          };
         }
       } catch (err) {
         console.log("Camera access denied or not available:", err);
@@ -71,13 +76,22 @@ const CameraInterface = ({ onImageCaptured, onCameraStatus }: CameraInterfacePro
       const context = canvas.getContext('2d');
       
       if (context) {
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        
-        const imageDataUrl = canvas.toDataURL('image/png');
-        onImageCaptured(imageDataUrl);
+        // If we have actual video dimensions, use them
+        if (video.videoWidth && video.videoHeight) {
+          canvas.width = video.videoWidth;
+          canvas.height = video.videoHeight;
+          context.drawImage(video, 0, 0, canvas.width, canvas.height);
+          
+          const imageDataUrl = canvas.toDataURL('image/png');
+          onImageCaptured(imageDataUrl);
+        } else if (fallbackImage) {
+          // Fallback if dimensions aren't available
+          onImageCaptured(fallbackImage);
+        }
       }
+    } else if (fallbackImage) {
+      // If canvas or video isn't available, use fallback
+      onImageCaptured(fallbackImage);
     }
   };
   

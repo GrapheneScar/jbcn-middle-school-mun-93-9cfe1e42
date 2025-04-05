@@ -30,10 +30,15 @@ const GalleryLightbox = ({ selectedImageId, images, onClose }: GalleryLightboxPr
     };
   }, [onClose]);
   
+  // Direct click handler for the overlay
+  const handleOverlayClick = () => {
+    onClose();
+  };
+  
   return (
     <div 
       className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 p-4 md:p-10 flex items-center justify-center"
-      onClick={onClose}
+      onClick={handleOverlayClick}
     >
       <button 
         className="absolute top-4 right-4 text-white bg-mun-purple/70 rounded-full p-2 hover:bg-mun-purple z-[60]" 
