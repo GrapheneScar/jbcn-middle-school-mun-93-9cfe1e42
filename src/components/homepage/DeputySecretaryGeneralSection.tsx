@@ -1,15 +1,16 @@
-
 import { motion } from "framer-motion";
-
 const DeputySecretaryGeneralSection = () => {
-  return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="container mx-auto mb-20 px-4"
-    >
+  return <motion.div initial={{
+    opacity: 0,
+    y: 20
+  }} whileInView={{
+    opacity: 1,
+    y: 0
+  }} viewport={{
+    once: true
+  }} transition={{
+    duration: 0.6
+  }} className="container mx-auto mb-20 px-4">
       <div className="glass-panel overflow-hidden p-4 md:p-8 relative">
         {/* Purple gradient accents */}
         <div className="absolute -top-20 -left-20 w-40 h-40 bg-mun-purple/30 rounded-full blur-3xl" />
@@ -30,25 +31,22 @@ const DeputySecretaryGeneralSection = () => {
                   With thorough planning and your unwavering enthusiasm, I look forward to making JBCN Middle School MUN '25 a memorable adventure!
                 </p>
                 <div className="mt-6 text-left">
-                  <p className="text-mun-purple-light font-semibold">Areehah Mitra</p>
-                  <p className="text-white/70 text-sm">Deputy Secretary-General, JBCN Middle School MUN</p>
-                  <p className="text-white/70 text-xs">EMAIL: secretariat.msm2025@gmail.com</p>
+                  <p className="text-mun-purple-light font-semibold text-right">Areehah Mitra</p>
+                  <p className="text-white/70 text-sm text-right">Deputy Secretary-General, JBCN Middle School MUN</p>
+                  <p className="text-white/70 text-xs text-right">EMAIL: secretariat.msm2025@gmail.com</p>
                 </div>
               </div>
             </div>
             
             <div className="md:w-1/3 order-1 md:order-2">
-              <motion.div 
-                className="relative rounded-xl overflow-hidden shadow-xl w-full" 
-                style={{ aspectRatio: '1/1' }}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <img 
-                  src="/lovable-uploads/Areehah.png" 
-                  alt="Areehah Mitra - Deputy Secretary General" 
-                  className="w-full h-full object-cover" 
-                />
+              <motion.div className="relative rounded-xl overflow-hidden shadow-xl w-full" style={{
+              aspectRatio: '1/1'
+            }} whileHover={{
+              scale: 1.02
+            }} transition={{
+              duration: 0.3
+            }}>
+                <img src="/lovable-uploads/Areehah.png" alt="Areehah Mitra - Deputy Secretary General" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
                   <h3 className="text-xl font-bold text-white">Areehah Mitra</h3>
@@ -59,8 +57,6 @@ const DeputySecretaryGeneralSection = () => {
           </div>
         </div>
       </div>
-    </motion.div>
-  );
+    </motion.div>;
 };
-
 export default DeputySecretaryGeneralSection;
