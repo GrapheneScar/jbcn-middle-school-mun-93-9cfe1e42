@@ -30,22 +30,18 @@ const GalleryLightbox = ({ selectedImageId, images, onClose }: GalleryLightboxPr
     };
   }, [onClose]);
   
-  // Direct click handler for the overlay
-  const handleOverlayClick = () => {
-    onClose();
-  };
-  
   return (
-    <div 
+    <motion.div 
       className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 p-4 md:p-10 flex items-center justify-center"
-      onClick={handleOverlayClick}
+      onClick={onClose}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
       <button 
-        className="absolute top-4 right-4 text-white bg-mun-purple/70 rounded-full p-2 hover:bg-mun-purple z-[60]" 
-        onClick={(e) => {
-          e.stopPropagation();
-          onClose();
-        }}
+        className="absolute top-4 right-4 text-white bg-mun-purple/70 rounded-full p-2 hover:bg-mun-purple z-[60]"
+        onClick={onClose}
+        aria-label="Close gallery"
       >
         <X size={24} />
       </button>
@@ -60,11 +56,11 @@ const GalleryLightbox = ({ selectedImageId, images, onClose }: GalleryLightboxPr
       >
         <img 
           src={selectedImage.src} 
-          alt={selectedImage.title} 
+          alt={selectedImage.title || selectedImage.alt} 
           className="max-h-[85vh] w-auto mx-auto object-contain rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.5)]" 
         />
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
