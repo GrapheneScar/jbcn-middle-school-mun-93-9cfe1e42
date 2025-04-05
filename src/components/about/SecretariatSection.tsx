@@ -75,7 +75,7 @@ const SecretariatSection = ({
           transition: {
             duration: 0.3
           }
-        }} className="relative w-full max-w-sm hover:shadow-[0_0_30px_rgba(121,83,169,0.3)]">
+        }} className="relative w-full max-w-sm hover:shadow-[0_0_30px_rgba(121,83,169,0.3)] rounded-3xl">
               <div className="w-full rounded-full">
                 <div className="glass-panel p-4 overflow-hidden transition-all duration-300">
                   <div className="flex flex-col items-center">
