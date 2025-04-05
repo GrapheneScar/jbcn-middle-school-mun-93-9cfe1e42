@@ -8,6 +8,7 @@ import PhotographyTooltips from './photography/PhotographyTooltips';
 const PhotographyEasterEgg = () => {
   const [hasCamera, setHasCamera] = useState<boolean | null>(null);
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
+  const [showPhoto, setShowPhoto] = useState<boolean>(true);
   
   // Handler for camera status
   const handleCameraStatus = (hasAccess: boolean) => {
@@ -18,6 +19,12 @@ const PhotographyEasterEgg = () => {
   const handleImageCaptured = (imageUrl: string) => {
     console.log("Image captured:", imageUrl.substring(0, 50) + "...");
     setCapturedImage(imageUrl);
+    setShowPhoto(true);
+    
+    // Hide the photo after 5 seconds
+    setTimeout(() => {
+      setShowPhoto(false);
+    }, 5000);
   };
   
   // Log for debugging
@@ -39,7 +46,7 @@ const PhotographyEasterEgg = () => {
       <CameraEffects hasCamera={hasCamera} />
       
       {/* Photo frame with captured or fallback image */}
-      <PhotoFrame displayImage={capturedImage} />
+      {showPhoto && <PhotoFrame displayImage={capturedImage} />}
       
       {/* Animated tooltips */}
       <PhotographyTooltips hasCamera={hasCamera} />

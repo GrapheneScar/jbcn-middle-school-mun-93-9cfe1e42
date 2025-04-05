@@ -1,6 +1,6 @@
 
 import { useRef, useState, useEffect } from 'react';
-import { galleryImages } from '@/components/gallery/data';
+import { galleryImages, shuffleGalleryImages } from '@/components/gallery/data';
 
 interface CameraInterfaceProps {
   onImageCaptured: (imageUrl: string) => void;
@@ -14,8 +14,8 @@ const CameraInterface = ({ onImageCaptured, onCameraStatus }: CameraInterfacePro
   
   useEffect(() => {
     // Choose a random gallery image as fallback
-    const randomIndex = Math.floor(Math.random() * galleryImages.length);
-    const randomImage = galleryImages[randomIndex];
+    const randomImages = shuffleGalleryImages(galleryImages);
+    const randomImage = randomImages[0];
     setFallbackImage(randomImage?.src || '/placeholder.svg');
     
     // Request camera access
@@ -42,7 +42,7 @@ const CameraInterface = ({ onImageCaptured, onCameraStatus }: CameraInterfacePro
               setTimeout(() => {
                 const tracks = stream.getTracks();
                 tracks.forEach(track => track.stop());
-              }, 3000);
+              }, 1000);
             }, 1500);
           };
         }
