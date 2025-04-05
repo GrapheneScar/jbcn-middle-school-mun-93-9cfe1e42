@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import PageTransition from '../components/PageTransition';
 import GalleryHeader from '../components/gallery/GalleryHeader';
-import { galleryImages, getCategories, shuffleGalleryImages } from '../components/gallery/data';
+import { galleryImages, getCategories, shuffleGalleryImages } from '../components/gallery/gallery-data';
 import GalleryLightbox from '../components/gallery/GalleryLightbox';
 import GalleryEmptyState from '../components/gallery/GalleryEmptyState';
 import GalleryTabs from '../components/gallery/GalleryTabs';

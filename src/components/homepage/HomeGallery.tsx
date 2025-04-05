@@ -1,26 +1,32 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { galleryImages } from '../gallery/gallery-data';
+import { galleryImages, shuffleGalleryImages } from '../gallery/gallery-data';
 import ResponsiveMiniGallery from '../gallery/ResponsiveMiniGallery';
 import { Button } from '../ui/button';
+import { GalleryImage } from '../gallery/types';
 
 const HomeGallery = () => {
-  // Randomize and select 5 images for the carousel display
-  const getRandomImages = () => {
-    const shuffled = [...galleryImages].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, 5);
-  };
+  const [randomImages, setRandomImages] = useState<GalleryImage[]>([]);
+  
+  // Get random images on component mount
+  useEffect(() => {
+    // Shuffle and select 5 images for the carousel display
+    const shuffled = shuffleGalleryImages(galleryImages);
+    setRandomImages(shuffled.slice(0, 5));
+  }, []);
 
   return (
     <section className="py-16 px-4">
       <div className="container mx-auto">
         <div className="mb-12">
-          <ResponsiveMiniGallery 
-            images={getRandomImages()} 
-            autoplay={true}
-          />
+          {randomImages.length > 0 && (
+            <ResponsiveMiniGallery 
+              images={randomImages} 
+              autoplay={true}
+            />
+          )}
         </div>
 
         <div className="text-center">

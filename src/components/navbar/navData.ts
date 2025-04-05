@@ -17,7 +17,8 @@ export const navLinks: NavLinkWithSubmenu[] = [
   },
   { 
     name: 'COMMITTEES', 
-    path: '/committees'
+    path: '/committees',
+    submenu: [] // This will be populated from committeeLinks.ts
   },
   { 
     name: 'QUICK ACCESS', 

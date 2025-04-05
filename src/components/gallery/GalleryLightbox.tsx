@@ -37,7 +37,10 @@ const GalleryLightbox = ({ selectedImageId, images, onClose }: GalleryLightboxPr
     >
       <button 
         className="absolute top-4 right-4 text-white bg-mun-purple/70 rounded-full p-2 hover:bg-mun-purple z-[60]" 
-        onClick={onClose}
+        onClick={(e) => {
+          e.stopPropagation();
+          onClose();
+        }}
       >
         <X size={24} />
       </button>
