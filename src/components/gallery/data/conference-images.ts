@@ -93,7 +93,7 @@ export const conferenceImages: GalleryImage[] = [
   },
   {
     id: "img28",
-    src: "https://i.postimg.cc/QN7kYC8F/image.png",
+    src: "https://i.postimg.cc/X7pzp7Gf/SPN04294-min.png",
     alt: "Debate Session",
     category: "conference",
     title: "Active Debate",
