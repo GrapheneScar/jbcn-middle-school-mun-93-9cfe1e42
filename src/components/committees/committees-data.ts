@@ -143,7 +143,7 @@ export const committeesData: Committee[] = [
     logoLight: "/lovable-uploads/RFA - light.png",
     logoBW: "/lovable-uploads/RFA - BW.png", 
     style: "Specialized Agency, Constant Crisis",
-    topics: ["Examining and developing mechanisms to prevent mismanagement of funds and power within the Kremlin"],
+    topics: ["Ensuring transparency and accountability to tackle financial and political mismanagement in the Kremlin"],
     description: "The Russian Federative Assembly at JBCN Middle school MUN will be no less than a roller coaster ride for all delegates. The RFA is the only constant crisis committee in MSMUN, think of it as a high stakes political chess game where the rules keep changing. Tasked with ensuring transparency and accountability (which the Kremlin is not famous for), delegates are required to tackle corruption, economic mismanagement, and power hungry politicians while navigating sudden crisis updates. This committee's flow will shift with each crisis, forcing delegates to make quick decisions, adapt strategies, and maybe even pull off some backroom deals! This committee is all about survival, diplomacy and making sure Russia doesn't spiral into chaos. To all delegates, be prepared to dodge all the bullets that come towards you, because it is one heck of a ride! Best of luck! Arjun Asher and Niaan Dand",
     studyGuideUrl: "https://drive.google.com/file/d/16LJpHIDCcjDIHijqvKGRJPpjg7pFd5ae/view?usp=sharing",
     countryMatrixUrl: "https://docs.google.com/spreadsheets/d/1AnkMh7dEaqQ7kXAUx2tWjrsTmaPbPAap6BoL2l9sMNQ/edit?usp=sharingg",
