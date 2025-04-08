@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { AlertTriangle } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -17,7 +17,7 @@ const AnnouncementBanner = () => {
       transition: {
         duration: 2,
         repeat: Infinity,
-        repeatType: 'loop',
+        repeatType: 'loop' as const, // Adding type assertion to satisfy TypeScript
       },
     },
   };
