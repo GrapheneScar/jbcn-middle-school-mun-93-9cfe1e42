@@ -7,24 +7,6 @@ const AnnouncementBanner = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [scrollPosition, setScrollPosition] = useState(0);
   
-  // Check if current date is past April 12th, 2024
-  useEffect(() => {
-    const checkDate = () => {
-      const today = new Date();
-      const expirationDate = new Date('2024-04-13T00:00:00'); // April 13th, 2024 at midnight
-      
-      if (today >= expirationDate) {
-        setIsVisible(false);
-      }
-    };
-    
-    // Check immediately and then every hour (in case user keeps the page open for a long time)
-    checkDate();
-    const interval = setInterval(checkDate, 3600000); // 1 hour in milliseconds
-    
-    return () => clearInterval(interval);
-  }, []);
-  
   // Subtle pulse animation for the alert icon
   const glowAnimation = {
     animate: {
@@ -61,7 +43,7 @@ const AnnouncementBanner = () => {
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
-          className="bg-gradient-to-r from-black to-mun-purple-dark/80 border-b-2 border-mun-purple text-white py-3 text-center fixed top-0 w-full z-[100]"
+          className="bg-gradient-to-r from-black to-mun-purple-dark/80 border-b-2 border-mun-purple text-white py-3 text-center fixed w-full z-[100]"
         >
           <div className="container mx-auto px-4 flex items-center justify-center gap-2 sm:gap-3 overflow-hidden">
             <motion.div
