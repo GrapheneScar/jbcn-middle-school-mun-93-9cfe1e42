@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { AlertTriangle } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -6,6 +5,24 @@ import { AnimatePresence, motion } from 'framer-motion';
 const AnnouncementBanner = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [scrollPosition, setScrollPosition] = useState(0);
+  
+  // Check if current date is past April 12th, 2024
+  useEffect(() => {
+    const checkDate = () => {
+      const today = new Date();
+      const expirationDate = new Date('2024-04-13T00:00:00'); // April 13th, 2024 at midnight
+      
+      if (today >= expirationDate) {
+        setIsVisible(false);
+      }
+    };
+    
+    // Check immediately and then every hour (in case user keeps the page open for a long time)
+    checkDate();
+    const interval = setInterval(checkDate, 3600000); // 1 hour in milliseconds
+    
+    return () => clearInterval(interval);
+  }, []);
   
   // Subtle pulse animation for the alert icon
   const glowAnimation = {
