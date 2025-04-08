@@ -36,10 +36,7 @@ function App() {
       <ScrollToTop />
       <div className="min-h-screen flex flex-col">
         <AnnouncementBanner />
-        {/* Add padding-top to account for the fixed banner */}
-        <div className="pt-[44px] sm:pt-[48px]">
-          <Navbar />
-        </div>
+        <Navbar />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Index />} />

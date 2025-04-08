@@ -10,7 +10,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 py-20">
+    <section className="relative min-h-screen flex items-center justify-center px-4 py-20 mt-12 sm:mt-12">
       {/* Animated Stripes Background */}
       <AnimatedStripes />
       
