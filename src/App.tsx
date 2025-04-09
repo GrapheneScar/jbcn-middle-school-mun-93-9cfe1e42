@@ -16,7 +16,6 @@ import Footer from './components/Footer';
 import { Toaster } from './components/ui/toaster';
 import Newsletter from './pages/Newsletter';
 import Resources from './pages/Resources';
-import AnnouncementBanner from './components/AnnouncementBanner';
 import './App.css';
 
 // Scroll to top on route change
@@ -35,11 +34,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <div className="min-h-screen flex flex-col">
-        <AnnouncementBanner />
-        {/* Add padding-top to account for the fixed banner */}
-        <div className="pt-[44px] sm:pt-[48px]">
-          <Navbar />
-        </div>
+        <Navbar />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Index />} />
