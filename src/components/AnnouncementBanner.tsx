@@ -1,22 +1,22 @@
 
 import { useState, useEffect } from 'react';
 import { AlertTriangle, X } from 'lucide-react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Sheet, SheetContent } from './ui/sheet';
+import { motion } from 'framer-motion';
 import RegisterButton from './RegisterButton';
-import { Dialog, DialogContent } from './ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from './ui/dialog';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 const AnnouncementBanner = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
   
   // Check if announcement should be shown (based on date and localStorage)
   useEffect(() => {
     // Check if the user has previously closed the announcement
     const announcementClosed = localStorage.getItem('announcementClosed');
     
-    // Check if the current date is before April 13, 2024
+    // Check if the current date is before April 13, 2025
     const currentDate = new Date();
-    const expiryDate = new Date('2024-04-13');
+    const expiryDate = new Date('2025-04-13');
     const shouldShowByDate = currentDate < expiryDate;
     
     // Show the announcement if it's before the expiry date and hasn't been closed
@@ -57,7 +57,12 @@ const AnnouncementBanner = () => {
   }, []);
 
   return (
-    <Dialog open={isVisible} onOpenChange={setIsVisible}>
+    <Dialog open={isVisible} onOpenChange={(open) => {
+      // Only allow closing through our close button
+      if (!open) {
+        handleClose();
+      }
+    }}>
       <DialogContent
         className="sm:max-w-md border-mun-purple bg-gradient-to-r from-black to-mun-purple-dark/90 text-white p-0 overflow-hidden"
         onInteractOutside={(e) => {
@@ -67,6 +72,10 @@ const AnnouncementBanner = () => {
           e.preventDefault(); // Prevent closing with Escape key
         }}
       >
+        <VisuallyHidden>
+          <DialogTitle>Urgent Announcement</DialogTitle>
+        </VisuallyHidden>
+        
         <div className="px-6 py-4">
           <div className="flex items-center gap-3 mb-4">
             <motion.div
