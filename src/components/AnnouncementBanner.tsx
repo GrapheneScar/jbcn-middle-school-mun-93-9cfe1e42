@@ -3,10 +3,9 @@ import { useState, useEffect } from 'react';
 import { AlertTriangle, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Sheet, SheetContent } from './ui/sheet';
-import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 
 const AnnouncementBanner = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [scrollPosition, setScrollPosition] = useState(0);
   
   // Text scrolling effect
@@ -34,6 +33,8 @@ const AnnouncementBanner = () => {
     // Show the announcement if it's before the expiry date and hasn't been closed
     if (shouldShowByDate && !announcementClosed) {
       setIsVisible(true);
+    } else {
+      setIsVisible(false);
     }
   }, []);
 
@@ -59,6 +60,12 @@ const AnnouncementBanner = () => {
       },
     },
   };
+
+  // For testing purposes - this removes the localStorage item when the component mounts
+  useEffect(() => {
+    // Remove the localStorage item to ensure the popup shows
+    localStorage.removeItem('announcementClosed');
+  }, []);
 
   return (
     <AnimatePresence>
