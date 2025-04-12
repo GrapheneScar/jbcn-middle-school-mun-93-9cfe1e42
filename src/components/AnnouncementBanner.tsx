@@ -56,25 +56,26 @@ const AnnouncementBanner = () => {
       handleClose();
     }
   }}>
-      <DialogContent onInteractOutside={e => {
+      <DialogContent className="sm:max-w-md border-mun-purple bg-gradient-to-r from-black to-mun-purple-dark/90 text-white p-0 overflow-hidden" onInteractOutside={e => {
       e.preventDefault(); // Prevent closing when clicking outside
     }} onEscapeKeyDown={e => {
       e.preventDefault(); // Prevent closing with Escape key
-    }} className="sm:max-w-md border-mun-purple bg-gradient-to-r from-black to-mun-purple-dark/90 text-white p-0 overflow-hidden rounded-2xl">
+    }}>
         <VisuallyHidden>
           <DialogTitle>Urgent Announcement</DialogTitle>
         </VisuallyHidden>
         
-        <div className="px-6 py-4 rounded-full">
+        <div className="px-6 py-4">
           <div className="flex items-center gap-3 mb-4">
             <motion.div className="rounded-full bg-red-500 p-1.5 shadow-[0_0_10px_rgba(234,56,76,0.7)]" variants={glowAnimation} animate="animate">
               <AlertTriangle className="w-4 h-4 text-white" />
             </motion.div>
-            <h3 className="text-xl font-bold py-0 px-0 text-center mx-0">URGENT ANNOUNCEMENT!</h3>
+            <h3 className="text-xl font-bold py-0 px-0 text-center">URGENT ANNOUNCEMENT</h3>
           </div>
           
-          <p className="mb-4 text-white/90 text-center">Position Papers for JBCN Middle School MUN are due on April 22nd, 2025! Make sure to submit yours on time to secure your spot in committee discussions.
-        </p>
+          <p className="mb-4 text-white/90 text-center">
+            Registrations for JBCN Middle School MUN close on April 12th! Don't miss this opportunity to participate in this prestigious event.
+          </p>
           
           <div className="mt-6 flex flex-col space-y-4">
             <RegisterButton className="w-full" />
