@@ -523,12 +523,9 @@ const DelegatePreparation = () => {
               <div className="p-4 bg-black/30 rounded-lg border border-yellow-500/30 mb-8">
                 <div className="flex items-center justify-center mb-3">
                   <AlertCircle className="text-yellow-500 mr-2" />
-                  <h3 className="text-lg font-semibold text-white">Country Matrix - Coming Soon</h3>
+                  <h3 className="text-lg font-semibold text-white">Country Matrix - IS OUT!</h3>
                 </div>
-                <p className="text-white/70 text-sm text-center">
-                  Our comprehensive country matrix is being prepared and will be available shortly. 
-                  This will help delegates identify their country's stance on various issues.
-                </p>
+                <p className="text-white/70 text-sm text-center">Check out comprehensive country matrix. This will help delegates identify their country's stance on various issues and help the delegate understand their allies and enemies.</p>
               </div>
               
               <Link to="/resources">
