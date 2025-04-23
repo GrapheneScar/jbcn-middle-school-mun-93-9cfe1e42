@@ -108,7 +108,7 @@ export const scheduleData: ScheduleDataType = {
     { 
       time: "16:00 - 17:00", 
       title: "Closing Ceremony", 
-      location: "Main Auditorium",
+      location: "Cafeteria",
       description: "End of the conference with delegate recognition and awards.",
       type: "ceremony"
     }
