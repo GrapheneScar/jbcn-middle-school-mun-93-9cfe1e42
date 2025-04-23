@@ -27,7 +27,7 @@ export const RegisterButton = ({
           </Button>
         </div>
       </a>
-      <p className="text-sm text-white/70 italic mt-2">Registration closes on 12th April 2025</p>
+      <p className="text-sm text-white/70 italic mt-2">Registration closed at 12th April 2025</p>
     </div>;
 };
 export default RegisterButton;
