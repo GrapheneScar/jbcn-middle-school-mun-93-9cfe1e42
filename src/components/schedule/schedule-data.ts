@@ -15,21 +15,21 @@ export const scheduleData: ScheduleDataType = {
     { 
       time: "07:30 AM - 08:00 AM", 
       title: "Registrations", 
-      location: "Entrance of School",
+      location: "Ground Floor (Near reception)",
       description: "All delegates check-in and collect conference materials.",
       type: "ceremony"
     },
     { 
       time: "08:00 AM - 09:30 AM", 
       title: "Opening Ceremony", 
-      location: "Cafeteria (1st floor)",
+      location: "Theatre Cafe (1st floor)",
       description: "Opening of the conference with keynote addresses and a welcome by the Secretariat.",
       type: "ceremony"
     },
     { 
       time: "09:30 AM - 10:00 AM", 
       title: "Break", 
-      location: "Committe Room's Floor",
+      location: "Respective Committee Room Floors",
       description: "Short refreshment break before committee sessions begin.",
       type: "break"
     },
@@ -43,7 +43,7 @@ export const scheduleData: ScheduleDataType = {
     { 
       time: "12:30 PM - 01:30 PM", 
       title: "Lunch Break", 
-      location: "Committe Room's Floor",
+      location: "Respective Committee Room Floors",
       description: "Delegates and faculty enjoy lunch and informal networking.",
       type: "break"
     },
@@ -57,7 +57,7 @@ export const scheduleData: ScheduleDataType = {
     { 
       time: "03:00 PM - 03:30 PM", 
       title: "Break", 
-      location: "Committe Room's Floor",
+      location: "Respective Committee Room Floors",
       description: "Time to recharge with refreshments before the next session.",
       type: "break"
     },
@@ -80,7 +80,7 @@ export const scheduleData: ScheduleDataType = {
     { 
       time: "09:30 AM - 10:00 AM", 
       title: "Break", 
-      location: "Committe Room's Floor",
+      location: "Respective Committee Room Floors",
       description: "Refreshments and informal discussion among delegates.",
       type: "break"
     },
@@ -108,7 +108,7 @@ export const scheduleData: ScheduleDataType = {
     { 
       time: "04:00 PM - 05:00 PM", 
       title: "Closing Ceremony", 
-      location: "Cafeteria",
+      location: "Theatre Cafe",
       description: "End of the conference with delegate recognition and awards.",
       type: "ceremony"
     }
