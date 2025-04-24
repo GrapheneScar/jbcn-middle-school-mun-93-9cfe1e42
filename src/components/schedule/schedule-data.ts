@@ -16,7 +16,7 @@ export const scheduleData: ScheduleDataType = {
       time: "07:30 AM - 08:00 AM", 
       title: "Registrations", 
       location: "Ground Floor (Near reception)",
-      description: "All delegates check-in and collect conference materials.",
+      description: "All delegates check-in and collect their delegate IDs.",
       type: "ceremony"
     },
     { 
