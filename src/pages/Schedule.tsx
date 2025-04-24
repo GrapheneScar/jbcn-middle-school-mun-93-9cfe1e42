@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 import ScheduleHeader from '../components/schedule/ScheduleHeader';
@@ -28,8 +27,10 @@ const Schedule = () => {
   };
 
   const downloadSchedule = () => {
-    // In a real app, this would generate and download a PDF or calendar file
-    alert('Schedule download functionality would be implemented here');
+    window.open(
+      'https://drive.google.com/file/d/1v5Sb83bxiaoy_eRKwIRCEJ5Z9Uio1nKq/view?usp=sharing',
+      '_blank'
+    );
   };
 
   return (
