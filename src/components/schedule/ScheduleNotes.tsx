@@ -13,7 +13,7 @@ const ScheduleNotes = () => {
           <div className="space-y-3">
             <h4 className="font-semibold text-white">For Internal Delegates</h4>
             <ul className="space-y-2">
-              {["Please arrive 15 minutes before each session starts", "Formal dress code is required for all sessions", "Bring your placard and conference materials to all sessions", "Lunch and refreshments will be provided"].map((note, index) => <motion.li key={index} initial={{
+              {["Please arrive 15 minutes before each session starts", "Formal dress code is required for all sessions", "Bring your placard and conference materials to all sessions from the registration", "Lunch and refreshments will be provided"].map((note, index) => <motion.li key={index} initial={{
               opacity: 0,
               x: -10
             }} animate={{
