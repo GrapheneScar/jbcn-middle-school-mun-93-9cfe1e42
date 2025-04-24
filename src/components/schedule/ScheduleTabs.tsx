@@ -15,9 +15,7 @@ const ScheduleTabs = () => {
       
       <CardHeader>
         <CardTitle className="text-white text-2xl text-center">Conference Days</CardTitle>
-        <CardDescription className="text-white/70 text-center">
-          Navigate through the schedule for each day of the conference
-        </CardDescription>
+        <CardDescription className="text-white/70 text-center">Navigate through the schedule for each day of the conference (Commitee Room - COPUOS: Seminar Hall, DISEC: Examination Hall, RFA: Learner Resource Center, KWS: Design and Technology, Lab, COI: Learner Creativity Center)</CardDescription>
       </CardHeader>
       <CardContent>
         <Tabs value={activeDay} onValueChange={setActiveDay} className="w-full">
