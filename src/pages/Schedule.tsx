@@ -28,7 +28,7 @@ const Schedule = () => {
 
   const downloadSchedule = () => {
     window.open(
-      'https://drive.google.com/file/d/1v5Sb83bxiaoy_eRKwIRCEJ5Z9Uio1nKq/view?usp=sharing',
+      'https://drive.google.com/file/d/1yNpHip0pVyCUlBkBo4gz66DRCY5BFBnb/view?usp=sharing',
       '_blank'
     );
   };
