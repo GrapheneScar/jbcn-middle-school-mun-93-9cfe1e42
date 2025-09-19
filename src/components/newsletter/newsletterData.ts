@@ -14,10 +14,10 @@ export const middleSchoolNewsletters: Newsletter[] = [
     id: 6,
     title: "JBCN MIDDLE SCHOOL MUN 2025",
     date: "2025",
-    description: "Stay tuned for the upcoming 2025 Middle School MUN newsletter featuring highlights, committee previews, and what to expect at the conference.",
-    coverImage: "/lovable-uploads/placeholder.png",
-    pdfUrl: "#",
-    comingSoon: true
+    description: "Catch the 2025 Middle School MUN newsletter for highlights, previews, and what’s ahead.",
+    coverImage: "/lovable-uploads/JBCN MIDDLE SCHOOL MUN 2025.png",
+    pdfUrl: "https://drive.google.com/file/d/1_sYVUA45iOCktOIS1aVFMehWB2plTllO/view?usp=sharing",
+    comingSoon: false
   },
   {
     id: 5,
